@@ -196,4 +196,15 @@
     [allertView show];
 }
 
+//未登陆提示
++(void)noneLoginTipConfrimBolck:(void (^)(void))confrimBlock CancelBlock:(void (^)(void))cancelBlock{
+    YDAlertView *alertV = [[YDAlertView alloc] initWithFrame:kAlertRect withTitle:@"未登陆" alertMessage:@"请先登陆" confrimBolck:^{
+        !confrimBlock ?: confrimBlock();
+    } cancelBlock:^{
+        !cancelBlock ?: cancelBlock();
+    }];
+    [alertV show];
+    
+}
+
 @end

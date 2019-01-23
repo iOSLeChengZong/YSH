@@ -11,6 +11,7 @@
 #import "InviteViewController.h"
 #import "TeamMemberViewController.h"
 #import "UserMoneyViewModel.h"
+#import "LoginViewController.h"
 
 #define kShareOrderViewController @"ShareOrderViewController"
 #define kInviteViewController @"InviteViewController"
@@ -72,18 +73,41 @@
 
 //查看明细
 - (IBAction)showMoneyDetail:(id)sender {
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        [Factory noneLoginTipConfrimBolck:^{
+            [self userNoneLoginTip];
+        } CancelBlock:^{
+            
+        }];
+        return;
+    }
     [Factory showWaittingForOpened];
 }
 
 //提现
 - (IBAction)checkOutMoney:(id)sender {
-    
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        [Factory noneLoginTipConfrimBolck:^{
+            [self userNoneLoginTip];
+        } CancelBlock:^{
+            
+        }];
+        return;
+    }
     [Factory showWaittingForOpened];
 }
 
 
 //等结算资金
 - (IBAction)waittingCheckClearMoney:(id)sender {
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        [Factory noneLoginTipConfrimBolck:^{
+            [self userNoneLoginTip];
+        } CancelBlock:^{
+            
+        }];
+        return;
+    }
     [Factory showWaittingForOpened];
 }
 
@@ -91,12 +115,30 @@
 
 //我的身份
 - (IBAction)myIdentityBtnClick:(id)sender {
+    
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        [Factory noneLoginTipConfrimBolck:^{
+            [self userNoneLoginTip];
+        } CancelBlock:^{
+            
+        }];
+        return;
+    }
+    
     [Factory showWaittingForOpened];
     
 }
 
 //团队成员
 - (IBAction)teamMemberBtnClick:(id)sender {
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        [Factory noneLoginTipConfrimBolck:^{
+            [self userNoneLoginTip];
+        } CancelBlock:^{
+            
+        }];
+        return;
+    }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDBusiness bundle:nil];
     TeamMemberViewController *teamVC = [storyboard instantiateViewControllerWithIdentifier:kTeamMemberViewController];
     [self.navigationController pushViewController:teamVC animated:YES];
@@ -104,7 +146,14 @@
 
 //分享订单
 - (IBAction)shareOrderBtnClick:(id)sender {
-    
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        [Factory noneLoginTipConfrimBolck:^{
+            [self userNoneLoginTip];
+        } CancelBlock:^{
+            
+        }];
+        return;
+    }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDBusiness bundle:nil];
     ShareOrderViewController *shareVC = [storyboard instantiateViewControllerWithIdentifier:kShareOrderViewController];
     [self.navigationController pushViewController:shareVC animated:YES];
@@ -114,6 +163,14 @@
 
 //推荐邀请
 - (IBAction)inviteBtnClick:(id)sender {
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        [Factory noneLoginTipConfrimBolck:^{
+            [self userNoneLoginTip];
+        } CancelBlock:^{
+            
+        }];
+        return;
+    }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDBusiness bundle:nil];
     InviteViewController *inviteVC = [storyboard instantiateViewControllerWithIdentifier:kInviteViewController];
     [self.navigationController pushViewController:inviteVC animated:YES];
@@ -121,20 +178,39 @@
 
 //任务中心
 - (IBAction)taskCenterBtnClick:(id)sender {
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        [Factory noneLoginTipConfrimBolck:^{
+            [self userNoneLoginTip];
+        } CancelBlock:^{
+            
+        }];
+        return;
+    }
     [Factory showWaittingForOpened];
 }
 
 //创业排名
 - (IBAction)businessRankBtnClick:(id)sender {
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        [Factory noneLoginTipConfrimBolck:^{
+            [self userNoneLoginTip];
+        } CancelBlock:^{
+            
+        }];
+        return;
+    }
     [Factory showWaittingForOpened];
 }
 
 
 -(void)requestData{
+     WK(weakSelf)
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        return;
+    }
+    
     [self.view showBusyHUD];
-    WK(weakSelf)
-    
-    
+
     [self.moneyVM getUserMoneyInfoCompletionHandler:^(NSError * _Nonnull error) {
         if (!error) {
             [weakSelf setUpChild];
@@ -158,6 +234,15 @@
     self.userWaitSettleLabel.text = [self.moneyVM userWaitSettle];
 }
 
+-(void)userNoneLoginTip{
+    [Factory noneLoginTipConfrimBolck:^{
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kLogin bundle:nil];
+        LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:kLogin];
+        [[[UIApplication sharedApplication] delegate] window].rootViewController = loginVC;
+    } CancelBlock:^{
+        
+    }];
+}
 
 /*
 #pragma mark - Navigation

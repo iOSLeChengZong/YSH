@@ -34,6 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 即将开发提示 */
 +(void)showWaittingForOpened;
 
+/** 未登陆界面提示 */
++(void)noneLoginTipConfrimBolck:(void(^)(void))confrimBlock CancelBlock:(void(^)(void))cancelBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

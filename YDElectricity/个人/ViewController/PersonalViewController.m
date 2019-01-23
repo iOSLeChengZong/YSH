@@ -57,16 +57,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.personalCollectionView.backgroundColor = kViewBGColor;
-    [self.view showBusyHUD];
-    [self.idendityVM getUserIdendityCompletionHandler:^(NSError * _Nonnull error) {
-        
-        if (!error) {
-            [self.personalCollectionView reloadData];
-        }else{
-            [self.view showWarning:@"请求错误"];
-        }
-        [self.view hideBusyHUD];
-    }];
     
     //注册cell
     [self registerCell];
@@ -77,12 +67,22 @@
         [self.personalCollectionView addSubview:v];
     }
     
+    [self requestData];
+    
+    
+
+    
 }
 
 
 #pragma mark -- UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%@,---%ld",[self class],indexPath.row);
+    
+    if (![YDUserInfo sharedYDUserInfo].login) {//提示用户跳转到登陆注册界面
+        [self userNoneLoginTip];
+        return;
+    }
     if (indexPath.row == 0) {//我的金币
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"YDPersonal" bundle:nil];
         MyGoldViewController *goldVC = [storyboard instantiateViewControllerWithIdentifier:@"MyGoldViewController"];
@@ -119,7 +119,10 @@
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     PersonCollectionViewCell *cell = [self.personalCollectionView dequeueReusableCellWithReuseIdentifier:kPersonCollectionViewCell forIndexPath:indexPath];
-    cell.nameImage.image = [UIImage imageNamed:self.cellImageNames[indexPath.row]];
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        cell.nameImage.image = [UIImage imageNamed:self.cellImageNames[indexPath.row]];
+    }
+    
     return cell;
 }
 
@@ -139,14 +142,18 @@
         
     }
     
-    header.nickName = [self.idendityVM userNickName];
-    header.ranckName = [self.idendityVM userRankName];
-//    header.imageUrl = [self.idendityVM userHeadImageURL];
-    
-    
-    
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        header.nickName = [self.idendityVM userNickName];
+        header.ranckName = [self.idendityVM userRankName];
+        //    header.imageUrl = [self.idendityVM userHeadImageURL];
+    }
+
     [header addClickHandler:^(PersonalLogonHeaderClick click) {
         NSLog(@"在这里完成消息界面跳转");
+        if (![YDUserInfo sharedYDUserInfo].login) {//提示用户跳转到登陆注册界面
+            [self userNoneLoginTip];
+            return;
+        }
         
         if (click == PersonalLogonHeaderClickMessage) {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDPersonal bundle:nil];
@@ -207,6 +214,33 @@ return CGSizeMake(kScreenW, 320);
     [self.personalCollectionView registerNib:[UINib nibWithNibName:kPersonCollectionViewCell bundle:nil] forCellWithReuseIdentifier:kPersonCollectionViewCell];
 }
 
+-(void)userNoneLoginTip{
+    [Factory noneLoginTipConfrimBolck:^{
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kLogin bundle:nil];
+        LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:kLogin];
+        [[[UIApplication sharedApplication] delegate] window].rootViewController = loginVC;
+    } CancelBlock:^{
+        
+    }];
+}
+
+-(void)requestData{
+    WK(weakSelf)
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        [self.personalCollectionView reloadData];
+        return;
+    }
+    [self.view showBusyHUD];
+    [self.idendityVM getUserIdendityCompletionHandler:^(NSError * _Nonnull error) {
+        
+        if (!error) {
+            [weakSelf.personalCollectionView reloadData];
+        }else{
+            [weakSelf.view showWarning:@"请求错误"];
+        }
+        [weakSelf.view hideBusyHUD];
+    }];
+}
 
 
 /*
