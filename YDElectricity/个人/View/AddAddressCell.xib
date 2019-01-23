@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AddAddressCell">
+            <rect key="frame" x="0.0" y="0.0" width="357" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="357" height="70"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q30-Yr-ccj">
+                        <rect key="frame" x="0.0" y="0.0" width="357" height="70"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_login_自选导师圆角bg" translatesAutoresizingMaskIntoConstraints="NO" id="bFb-tW-qkp">
+                                <rect key="frame" x="0.0" y="0.0" width="357" height="70"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_h_entrance" translatesAutoresizingMaskIntoConstraints="NO" id="2u9-aB-xbX">
+                                <rect key="frame" x="339" y="27.5" width="7" height="15"/>
+                            </imageView>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGb-rb-3Xc">
+                                <rect key="frame" x="11" y="0.0" width="130" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="JPn-JD-fVZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="新增收货地址" image="y_p_newAddress">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LGb-rb-3Xc" firstAttribute="leading" secondItem="Q30-Yr-ccj" secondAttribute="leading" constant="11" id="7O7-G8-NQr"/>
+                            <constraint firstItem="LGb-rb-3Xc" firstAttribute="top" secondItem="Q30-Yr-ccj" secondAttribute="top" id="H5k-HR-W1U"/>
+                            <constraint firstAttribute="bottom" secondItem="LGb-rb-3Xc" secondAttribute="bottom" id="LwV-oz-rg8"/>
+                            <constraint firstAttribute="bottom" secondItem="bFb-tW-qkp" secondAttribute="bottom" id="NZi-Fp-Xhc"/>
+                            <constraint firstAttribute="trailing" secondItem="bFb-tW-qkp" secondAttribute="trailing" id="Q1N-s6-a9s"/>
+                            <constraint firstItem="2u9-aB-xbX" firstAttribute="centerY" secondItem="Q30-Yr-ccj" secondAttribute="centerY" id="bML-Eh-JlR"/>
+                            <constraint firstAttribute="trailing" secondItem="2u9-aB-xbX" secondAttribute="trailing" constant="11" id="i1L-1t-GxK"/>
+                            <constraint firstItem="LGb-rb-3Xc" firstAttribute="centerY" secondItem="Q30-Yr-ccj" secondAttribute="centerY" id="lH0-MB-h3Z"/>
+                            <constraint firstItem="bFb-tW-qkp" firstAttribute="leading" secondItem="Q30-Yr-ccj" secondAttribute="leading" id="lrP-5d-MgS"/>
+                            <constraint firstItem="bFb-tW-qkp" firstAttribute="top" secondItem="Q30-Yr-ccj" secondAttribute="top" id="pSx-Is-ajf"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Q30-Yr-ccj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ObU-IQ-QEI"/>
+                <constraint firstAttribute="bottom" secondItem="Q30-Yr-ccj" secondAttribute="bottom" id="Qak-73-b6N"/>
+                <constraint firstAttribute="trailing" secondItem="Q30-Yr-ccj" secondAttribute="trailing" id="bth-FV-WMa"/>
+                <constraint firstItem="Q30-Yr-ccj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hPT-YE-o9B"/>
+            </constraints>
+            <point key="canvasLocation" x="173.59999999999999" y="149.32533733133434"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="y_h_entrance" width="7.5" height="15"/>
+        <image name="y_login_自选导师圆角bg" width="357.5" height="185"/>
+        <image name="y_p_newAddress" width="20" height="19"/>
+    </resources>
+</document>

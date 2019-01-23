@@ -1,0 +1,53 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "stretch",
+          "width" : 166,
+          "height" : 19
+        },
+        "cap-insets" : {
+          "bottom" : 5,
+          "top" : 4,
+          "right" : 4,
+          "left" : 6
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "y_p_我的订单backgrond@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "stretch",
+          "width" : 280,
+          "height" : 33
+        },
+        "cap-insets" : {
+          "bottom" : 7,
+          "top" : 6,
+          "right" : 5,
+          "left" : 5
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "y_p_我的订单backgrond@3x.png",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
+  }
+}

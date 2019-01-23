@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PersonCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mte-eD-bnz">
+                        <rect key="frame" x="9" y="0.0" width="357" height="50"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_login_自选导师圆角bg" translatesAutoresizingMaskIntoConstraints="NO" id="LmN-xf-Vnn">
+                                <rect key="frame" x="0.0" y="0.0" width="357" height="50"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_p_我的金币icon" translatesAutoresizingMaskIntoConstraints="NO" id="6i8-rV-t8B">
+                                <rect key="frame" x="14" y="14" width="90" height="22"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_h_entrance" translatesAutoresizingMaskIntoConstraints="NO" id="pq9-Rq-kpZ">
+                                <rect key="frame" x="341" y="17.5" width="7" height="15"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pq9-Rq-kpZ" secondAttribute="trailing" constant="9" id="1zL-ie-ilX"/>
+                            <constraint firstItem="LmN-xf-Vnn" firstAttribute="top" secondItem="Mte-eD-bnz" secondAttribute="top" id="NCv-IS-Bj5"/>
+                            <constraint firstItem="LmN-xf-Vnn" firstAttribute="leading" secondItem="Mte-eD-bnz" secondAttribute="leading" id="QA4-Gr-Z3i"/>
+                            <constraint firstAttribute="trailing" secondItem="LmN-xf-Vnn" secondAttribute="trailing" id="Yny-gq-i3C"/>
+                            <constraint firstItem="6i8-rV-t8B" firstAttribute="centerY" secondItem="Mte-eD-bnz" secondAttribute="centerY" id="hPJ-lN-KB3"/>
+                            <constraint firstItem="pq9-Rq-kpZ" firstAttribute="centerY" secondItem="Mte-eD-bnz" secondAttribute="centerY" id="jgB-Bg-alu"/>
+                            <constraint firstItem="6i8-rV-t8B" firstAttribute="leading" secondItem="Mte-eD-bnz" secondAttribute="leading" constant="14" id="kkl-DS-Kxr"/>
+                            <constraint firstAttribute="bottom" secondItem="LmN-xf-Vnn" secondAttribute="bottom" id="sQl-7c-6FM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Mte-eD-bnz" secondAttribute="bottom" id="CCg-Gs-fob"/>
+                <constraint firstItem="Mte-eD-bnz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="9" id="ZWh-jD-oqb"/>
+                <constraint firstAttribute="trailing" secondItem="Mte-eD-bnz" secondAttribute="trailing" constant="9" id="gKQ-1J-ADj"/>
+                <constraint firstItem="Mte-eD-bnz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ils-kL-FW8"/>
+            </constraints>
+            <connections>
+                <outlet property="nameImage" destination="6i8-rV-t8B" id="RRX-Kq-omY"/>
+            </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="154.72263868065968"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="y_h_entrance" width="7.5" height="15"/>
+        <image name="y_login_自选导师圆角bg" width="357.5" height="185"/>
+        <image name="y_p_我的金币icon" width="90.5" height="22.5"/>
+    </resources>
+</document>

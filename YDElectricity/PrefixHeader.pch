@@ -1,0 +1,64 @@
+//
+//  PrefixHeader.pch
+//  YDElectricity
+//
+//  Created by 元典 on 2018/11/26.
+//  Copyright © 2018年 yuandian. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+
+//用于存放全局宏定义 或者静态字符串
+#import "Constant.h"
+
+#import <UIKit+AFNetworking.h>   //对UIKit类添加类r拓展
+#import "NSObject+AFNetworking.h"
+#import <MJExtension.h>
+
+
+/* 改变系统的target+selector模式为 block模式。 带来紧凑的代码风格，高效率的回调执行 */
+#import <BlocksKit.h>
+#import <BlocksKit+MessageUI.h>
+#import <BlocksKit+UIKit.h>
+/* --------------------------- */
+
+#import <Masonry.h>
+
+#define equalTo(...)                     mas_equalTo(__VA_ARGS__)
+
+#import "UIScrollView+Refresh.h"
+
+#import "UIView+HUD.h"//忙提示
+
+#import <YYModel.h>
+#import "NSObject+Parse.h"
+
+#import "RequestPath.h"
+
+#import "UIView+Extension.h"
+
+#import "NSString+Extension.h"
+#import "UIImage+Extension.h"
+#import "UIBarButtonItem+ButtonToBarButtonItem.h"
+
+#import <SDWebImage/UIImageView+WebCache.h>
+
+#import "UIButton+YDButtonHitRect.h"
+
+//单例
+#import "YDSingleton.h"
+
+#import "YDAlertView.h"
+#import "YDUserInfo.h"
+#import "Factory.h"
+
+
+
+
+#endif
+#endif /* PrefixHeader_pch */

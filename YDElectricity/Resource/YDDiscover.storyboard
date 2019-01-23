@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NLw-us-6Pp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Bp2-gL-kxu">
+            <objects>
+                <viewController id="3QX-Hw-3Y1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZwN-Ym-aUn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第二三其开发" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3Q-HQ-5Bn">
+                                <rect key="frame" x="0.0" y="364" width="375" height="254"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="57"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CD-hf-e9k">
+                                <rect key="frame" x="140" y="211" width="38" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="titleEdgeInsets" minX="-35" minY="0.0" maxX="0.0" maxY="-43"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="29"/>
+                                <state key="normal" title="微信" image="cancel_white"/>
+                                <state key="selected" backgroundImage="sns_icon_24.png"/>
+                                <state key="highlighted" title="狗狗" image="cancel_white"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="w3Q-HQ-5Bn" firstAttribute="top" secondItem="gex-A8-mqE" secondAttribute="top" constant="300" id="3XC-OL-ngp"/>
+                            <constraint firstItem="gex-A8-mqE" firstAttribute="bottom" secondItem="w3Q-HQ-5Bn" secondAttribute="bottom" id="bZI-rI-W0r"/>
+                            <constraint firstItem="gex-A8-mqE" firstAttribute="trailing" secondItem="w3Q-HQ-5Bn" secondAttribute="trailing" id="db0-A7-Vci"/>
+                            <constraint firstItem="w3Q-HQ-5Bn" firstAttribute="leading" secondItem="gex-A8-mqE" secondAttribute="leading" id="peK-5i-N91"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gex-A8-mqE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nvB-hx-gJG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bi9-wY-iQD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-359.19999999999999" y="653.52323838080963"/>
+        </scene>
+        <!--发现-->
+        <scene sceneID="avT-7w-UMc">
+            <objects>
+                <navigationController storyboardIdentifier="YDDiscover" automaticallyAdjustsScrollViewInsets="NO" id="NLw-us-6Pp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="发现" image="y_p_bottom-found0" selectedImage="y_p_bottom-found1" id="XhZ-0J-iOD"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cLS-Ku-bLK">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3QX-Hw-3Y1" kind="relationship" relationship="rootViewController" id="Ztj-4b-nXP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tud-SL-zsV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1130" y="654"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cancel_white" width="36" height="36"/>
+        <image name="sns_icon_24.png" width="58" height="58"/>
+        <image name="y_p_bottom-found0" width="21" height="21"/>
+        <image name="y_p_bottom-found1" width="20.5" height="15.5"/>
+    </resources>
+</document>

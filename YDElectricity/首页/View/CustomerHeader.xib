@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="UICollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="407"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8m9-3K-fpm" customClass="SDCycleScrollView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="407"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvf-GC-syB">
+                            <rect key="frame" x="310" y="369" width="45" height="17"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efn-w1-i7e">
+                                    <rect key="frame" x="15" y="2.5" width="15" height="12"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="17" id="2Vt-YI-ibh"/>
+                                <constraint firstAttribute="width" constant="45" id="4xK-AK-lN9"/>
+                                <constraint firstItem="efn-w1-i7e" firstAttribute="centerX" secondItem="lvf-GC-syB" secondAttribute="centerX" id="6v9-OW-OEC"/>
+                                <constraint firstItem="efn-w1-i7e" firstAttribute="centerY" secondItem="lvf-GC-syB" secondAttribute="centerY" id="KCH-2D-i9c"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="0.5838773545" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="lvf-GC-syB" secondAttribute="trailing" constant="20" id="Ekx-mF-nei"/>
+                        <constraint firstAttribute="bottom" secondItem="lvf-GC-syB" secondAttribute="bottom" constant="21" id="daD-bf-iI9"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="8m9-3K-fpm" secondAttribute="bottom" id="RJo-0w-Y7J"/>
+                <constraint firstAttribute="trailing" secondItem="8m9-3K-fpm" secondAttribute="trailing" id="jOO-Id-R0w"/>
+                <constraint firstItem="8m9-3K-fpm" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="mjH-C1-N7Z"/>
+                <constraint firstItem="8m9-3K-fpm" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="xmR-l3-dKQ"/>
+            </constraints>
+            <point key="canvasLocation" x="130.40000000000001" y="48.125937031484263"/>
+        </collectionReusableView>
+    </objects>
+</document>
