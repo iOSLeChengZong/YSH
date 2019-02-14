@@ -12,6 +12,7 @@
 #import "ShopDetailCell.h"
 #import "ShareViewController.h"
 #import "TaoBaoCustomerHTMLVC.h"
+#import "YDCustomButton.h"
 
 #define kCustomerHeaderCell @"CustomerHeaderCell"
 #define kDetailInfoCell @"DetailInfoCell"
@@ -19,11 +20,27 @@
 #define kTaoBaoCustomerHTMLVC @"TaoBaoCustomerHTMLVC"
 
 
-@interface TaoBaoCustomerDetailViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,TaoBaoCustomerHTMLVCDelegate>
+@interface TaoBaoCustomerDetailViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,TaoBaoCustomerHTMLVCDelegate,UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionV;
 @property (weak, nonatomic) IBOutlet UIView *server;
 @property (weak, nonatomic) IBOutlet UIView *buyView;
 @property (weak, nonatomic) IBOutlet UIView *shareView;
+
+//分享赚label
+@property (weak, nonatomic) IBOutlet UILabel *shareLabel0;
+@property (weak, nonatomic) IBOutlet UILabel *shareLabel1;
+
+//领券购买label
+@property (weak, nonatomic) IBOutlet UILabel *buyLabel0;
+@property (weak, nonatomic) IBOutlet UILabel *buyLabel1;
+
+//客服label
+@property (weak, nonatomic) IBOutlet UILabel *serverLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *serverBtn;
+
+
+
 
 
 @end
@@ -45,6 +62,7 @@
     [super viewDidLoad];
     self.collectionV.backgroundColor = kViewBGColor;
     [self registerCell];
+    
  
 }
 
@@ -83,7 +101,6 @@
             
             TaoBaoCustomerHTMLVC *htmlVC = [storyboard instantiateViewControllerWithIdentifier:kTaoBaoCustomerHTMLVC];
             htmlVC.navigationItem.title = @"详情";
-//            htmlVC.taoBaoURL = [NSURL URLWithString:self.tbkVM.buyURL];
             htmlVC.delegate = self;
             htmlVC.taoBaoVM = self.tbkVM;
             [self.navigationController pushViewController:htmlVC animated:YES];
@@ -120,24 +137,18 @@
     
     if (indexPath.row == 0) {
         //在这里对6以前的高度也要适配下
-        return CGSizeMake(357 * kWidthScall, 180);
+        return CGSizeMake(357 * kWidthScall, 180 * kWidthScall);
     }
     
     else{
-        return CGSizeMake(357 * kWidthScall, 100);
+        return CGSizeMake(357 * kWidthScall, 100 * kWidthScall);
     }
     
 }
 
 //分区间隙
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
-//
-//
-//    if (indexPath.row == 0) {
-//        return UIEdgeInsetsZero;
-//    }
+
     if (!iPhoneX) {
         return UIEdgeInsetsMake(-STATUS_BAR_HEIGHT+6, 9, 6, 9);
     }else{
@@ -156,7 +167,7 @@
 
 //头部复用大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    return CGSizeMake(375 * kWidthScall, 407);
+    return CGSizeMake(375 * kWidthScall, 407 * kWidthScall);
 }
 ////脚部复用大小
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
@@ -168,6 +179,8 @@
     self.tbkVM = model;
 }
 
+
+
 #pragma mark -- 方法
 -(void)registerCell{
     [self.collectionV registerNib:[UINib nibWithNibName:kCustomerHeaderCell bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kCustomerHeaderCell];
@@ -175,23 +188,74 @@
     [self.collectionV registerNib:[UINib nibWithNibName:kShopDetailCell bundle:nil] forCellWithReuseIdentifier:kShopDetailCell];
 }
 
+-(void)customBtn{
+    YDCustomButton *btn = [[YDCustomButton alloc] initWithBtnFrame:self.server.frame btnType:ButtonImageTop titleAndImageSpace:10 imageSizeWidth:0 imageSizeHeight:0];
+    [btn setImage:[UIImage imageNamed:@"y_h_service"] forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:11];
+    [btn setTitleColor:KFontDefaultRGB forState:UIControlStateNormal];
+    [btn setTitleColor:kFONTSlectRGB forState:UIControlStateSelected];
+    //    btn.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];// 随机色
+    btn.backgroundColor = [UIColor whiteColor];
+    [btn setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [btn setBackgroundImage:[self imageWithColor:kFONTSlectRGB] forState:UIControlStateSelected];
+    
+   
+    
+    [btn setTitle:@"客服" forState:UIControlStateNormal];
+//    [btn setTitle:@"CoderZb:选中状态选中状态选中状态" forState:UIControlStateSelected];
+//    [btn addTarget:self action:@selector(customBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [btn bk_addEventHandler:^(id sender) {
 
+    } forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
+    [self.server addSubview:btn];
+}
+
+//  颜色转换为背景图片
+- (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+//客服
+- (IBAction)serverBtnClick:(UIButton *)sender {
+   
+}
+
+//领券购买
+- (IBAction)buyBtnClick:(UIButton *)sender {
+
+}
 
 //分享赚
-- (IBAction)ShareTap:(UITapGestureRecognizer *)sender {
-    NSLog(@"ShareTap:%@",sender.view);
-    //加载分享赚VC
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"YDHome" bundle:nil];
+- (IBAction)shareBtnClick:(UIButton *)sender {
     
-    ShareViewController *shareVC = [storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
-    shareVC.navigationItem.title = @"分享赚";
     if (self.tbkVM) {
         NSLog(@"数据不为空222%@",self.tbkVM.imageURLS[0]);
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"YDHome" bundle:nil];
+        
+        ShareViewController *shareVC = [storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+        shareVC.navigationItem.title = @"分享赚";
+        shareVC.tbkVM = self.tbkVM;
+        [self.navigationController pushViewController:shareVC animated:YES];
     }else{
         NSLog(@"数据是空的");
+        
     }
-    shareVC.tbkVM = self.tbkVM;
-    [self.navigationController pushViewController:shareVC animated:YES];
+   
+    
+    
 }
 
 
@@ -199,6 +263,7 @@
 - (IBAction)popViewVC:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 /*
 #pragma mark - Navigation

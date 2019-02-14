@@ -162,10 +162,20 @@
             </constraints>
             <connections>
                 <outlet property="productAfterSaleMoneyLabel" destination="FZQ-em-wId" id="yaJ-3q-DK5"/>
+                <outlet property="productAfterSaleMoneyLabelTopConstrait" destination="dew-26-rfD" id="o7J-5B-whl"/>
+                <outlet property="productFramMoneyLabelTopConstrait" destination="E42-rA-ljD" id="TSG-b1-sD5"/>
+                <outlet property="productFromImage" destination="S3g-OF-Jwa" id="kCU-wJ-VIg"/>
+                <outlet property="productFromImageHeightContrait" destination="UUJ-Lk-HqL" id="muu-rw-PA1"/>
+                <outlet property="productFromImageWidthConstrait" destination="U65-f2-Uo8" id="QZi-WJ-5D5"/>
+                <outlet property="productFromImgeTopConstrait" destination="F0c-0y-rUK" id="w1D-Qd-aOP"/>
                 <outlet property="productFromMoneyLabel" destination="Nkl-cQ-uYc" id="gQl-QE-FcI"/>
+                <outlet property="productFromSaleLabelHeightConstrait" destination="tI3-N6-6Yd" id="tfd-6f-bDg"/>
+                <outlet property="productFromSaleMoneyLabelWidthConstrait" destination="mhs-gx-jS3" id="O1f-fG-hTM"/>
                 <outlet property="productFromeSaleMoneyLabel" destination="j33-9B-Gyv" id="BM1-k0-aEz"/>
                 <outlet property="productImageView" destination="jwF-wq-DCU" id="kCh-U8-epu"/>
+                <outlet property="productImageViewWidthContrait" destination="5ib-oO-B9r" id="lII-R4-gb0"/>
                 <outlet property="productTitleLabel0" destination="lgo-bu-ZSw" id="vWa-vq-6FO"/>
+                <outlet property="productTitleLabel0TopConstrait" destination="aU6-Op-PSf" id="noI-t0-bhK"/>
                 <outlet property="profitMoney" destination="ec6-Oh-A2i" id="Pqs-77-vmd"/>
                 <outlet property="saleNum" destination="DVk-Xv-Tg8" id="TUo-wS-LQl"/>
             </connections>

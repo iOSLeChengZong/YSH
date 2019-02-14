@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 创建 WKWebView 对象
-    CGRect rect = CGRectMake(0, 0, self.view.width, self.view.height);
+    CGRect rect = CGRectMake(0,NAVIGATION_BAR_HEIGHT, self.view.width, self.view.height);
     WKWebView *webView = [[WKWebView alloc] initWithFrame:rect];
     // 设置导航代理，监听网页加载进程
     webView.navigationDelegate = self;

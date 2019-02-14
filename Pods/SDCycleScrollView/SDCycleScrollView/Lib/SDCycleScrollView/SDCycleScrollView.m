@@ -586,12 +586,14 @@ NSString * const ID = @"SDCycleScrollViewCell";
     
     if (!self.onlyDisplayText && [imagePath isKindOfClass:[NSString class]]) {
         if ([imagePath hasPrefix:@"http"]) {
+            cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
             [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:self.placeholderImage];
         } else {
             UIImage *image = [UIImage imageNamed:imagePath];
             if (!image) {
                 image = [UIImage imageWithContentsOfFile:imagePath];
             }
+            cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
             cell.imageView.image = image;
         }
     } else if (!self.onlyDisplayText && [imagePath isKindOfClass:[UIImage class]]) {

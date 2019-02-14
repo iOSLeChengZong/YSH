@@ -119,10 +119,7 @@
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     PersonCollectionViewCell *cell = [self.personalCollectionView dequeueReusableCellWithReuseIdentifier:kPersonCollectionViewCell forIndexPath:indexPath];
-    if (![YDUserInfo sharedYDUserInfo].login) {
-        cell.nameImage.image = [UIImage imageNamed:self.cellImageNames[indexPath.row]];
-    }
-    
+    cell.nameImage.image = [UIImage imageNamed:self.cellImageNames[indexPath.row]];
     return cell;
 }
 

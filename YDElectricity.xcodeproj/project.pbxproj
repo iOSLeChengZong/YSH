@@ -157,6 +157,7 @@
 		5452FB2A21B6786600137441 /* h1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5452FB2121B6786500137441 /* h1.jpg */; };
 		5452FB2B21B6786600137441 /* pageControlCurrentDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5452FB2221B6786600137441 /* pageControlCurrentDot@2x.png */; };
 		5452FB2C21B6786600137441 /* pageControlCurrentDot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5452FB2321B6786600137441 /* pageControlCurrentDot@3x.png */; };
+		545C53BB2213EED7009FB39B /* YDCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 545C53BA2213EED7009FB39B /* YDCustomButton.m */; };
 		545CAAA421F85288003914DF /* SystemSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 545CAAA321F85288003914DF /* SystemSettingViewController.m */; };
 		5464428C21F6A2780093FDAC /* UserMoneyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5464428B21F6A2780093FDAC /* UserMoneyModel.m */; };
 		5464429621F6A5710093FDAC /* UserMoneyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5464429521F6A5710093FDAC /* UserMoneyViewModel.m */; };
@@ -563,6 +564,8 @@
 		5452FB2121B6786500137441 /* h1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = h1.jpg; sourceTree = "<group>"; };
 		5452FB2221B6786600137441 /* pageControlCurrentDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageControlCurrentDot@2x.png"; sourceTree = "<group>"; };
 		5452FB2321B6786600137441 /* pageControlCurrentDot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageControlCurrentDot@3x.png"; sourceTree = "<group>"; };
+		545C53B92213EED7009FB39B /* YDCustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDCustomButton.h; sourceTree = "<group>"; };
+		545C53BA2213EED7009FB39B /* YDCustomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDCustomButton.m; sourceTree = "<group>"; };
 		545CAAA221F85287003914DF /* SystemSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemSettingViewController.h; sourceTree = "<group>"; };
 		545CAAA321F85288003914DF /* SystemSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemSettingViewController.m; sourceTree = "<group>"; };
 		5464428A21F6A2780093FDAC /* UserMoneyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserMoneyModel.h; sourceTree = "<group>"; };
@@ -2084,6 +2087,8 @@
 				54A5B0D821D3158500F3CA27 /* ShopDetailCell.h */,
 				54A5B0D921D3158500F3CA27 /* ShopDetailCell.m */,
 				54A5B0DA21D3158500F3CA27 /* ShopDetailCell.xib */,
+				545C53B92213EED7009FB39B /* YDCustomButton.h */,
+				545C53BA2213EED7009FB39B /* YDCustomButton.m */,
 			);
 			name = TaoBaoCutomer;
 			sourceTree = "<group>";
@@ -2872,6 +2877,7 @@
 				54A4699E21E9EC6C00109636 /* DNUnAuthorizedTipsView.m in Sources */,
 				544CDC9221E740E000A7DD01 /* UIView+MJCClassExtension.m in Sources */,
 				54CF9A1A21BA444B00E9142F /* rightCollectionViewCell.m in Sources */,
+				545C53BB2213EED7009FB39B /* YDCustomButton.m in Sources */,
 				544CDC7721E716AF00A7DD01 /* UserMessageViewModel.m in Sources */,
 				54AB39B721D85E1900D40606 /* PersonalLogonHeader.m in Sources */,
 				54ACBC8D21E4341F006FA462 /* VerifyRegisterModel.m in Sources */,

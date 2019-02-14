@@ -48,9 +48,8 @@
         _commodityListCollectionView.dataSource = self;
         
         if (!_isVertical) {
-            iPhone5;
             //itemSize
-            layout.itemSize = CGSizeMake(357 * kWidthScall, iPhone5 ? kWidthScall * 133 :133);
+            layout.itemSize = CGSizeMake(357 * kWidthScall,kWidthScall * 133);
             //间距
             layout.sectionInset = UIEdgeInsetsMake(3 * kWidthScall, (kScreenW - 357 * kWidthScall) * 0.5, 6 * kWidthScall, (kScreenW - 357 * kWidthScall) * 0.5);
             //最小行间距
@@ -62,9 +61,10 @@
             [_commodityListCollectionView registerNib:[UINib nibWithNibName:kHomeProductCell bundle:nil] forCellWithReuseIdentifier:kHomeProductCell];
         }else{
             //itemSize
-            layout.itemSize = CGSizeMake(176 * kWidthScall, iPhone5 ? kWidthScall * 280 : 280);
+            layout.itemSize = CGSizeMake(176 * kWidthScall,kWidthScall * 280);
+            
             //间距
-            layout.sectionInset = UIEdgeInsetsMake(4, 9 , 6 , 9);
+            layout.sectionInset = UIEdgeInsetsMake(4, (kScreenW - 2 * layout.itemSize.width)/3 , 6 , (kScreenW - 2 * layout.itemSize.width)/3);
             //最小行间距
             layout.minimumLineSpacing = 3;
             //最小行间距
@@ -221,7 +221,7 @@
         cell.profitMoney.text = [self.homeVM goodCollectionVItemProfitAtIndexPath:indexPath];
         return cell;
     }else{
-        HomeProductCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kHomeProductCellOne forIndexPath:indexPath];
+        HomeProductCellOne *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kHomeProductCellOne forIndexPath:indexPath];
         [cell viewcornerRadius:5 borderWith:0.02 clearColor:NO];
         //商品主图
         [cell.productImageView viewcornerRadius:5 borderWith:0.02 clearColor:NO];
@@ -230,8 +230,12 @@
         cell.productTitleLabel0.text = [self.homeVM goodCollectionVItemMainTitleAtIndexPath:indexPath];
         //商品优惠
         cell.productTitleLabel1.text = [self.homeVM goodCollectionVItemSecondTitleAtIndexPath:indexPath];
-        //商品原价
+        //商品原价  贯穿线
         cell.productFromMoneyLabel.text = [self.homeVM goodCollectionVItemSoursePriceAtIndexPath:indexPath];
+        NSMutableAttributedString *newPrice = [[NSMutableAttributedString alloc] initWithString:cell.productFromMoneyLabel.text];
+        [newPrice addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(0, newPrice.length)];
+        cell.productFromMoneyLabel.attributedText = newPrice;
+        
         //商品销量
         cell.saleNum.text = [self.homeVM goodCollectionVItemMonthSaleNumAtIndexPath:indexPath];
         //优惠券

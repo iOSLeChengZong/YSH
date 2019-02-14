@@ -46,6 +46,8 @@
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <connections>
                 <outlet property="culomnImage" destination="d9H-wT-0Ij" id="OQ7-Lh-yQg"/>
+                <outlet property="culomnImageHeightConstrait" destination="EDU-47-rFk" id="FNB-rs-dfF"/>
+                <outlet property="culomnImageWidthContrait" destination="q2g-3y-TCe" id="Gk1-0q-zIW"/>
                 <outlet property="culomnTitle" destination="xeI-V5-9tN" id="nl1-Vy-c3W"/>
             </connections>
             <point key="canvasLocation" x="135.19999999999999" y="154.27286356821591"/>

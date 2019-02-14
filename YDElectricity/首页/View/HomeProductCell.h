@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HomeProductCell : UICollectionViewCell
 //商品图片
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView;
+//商品来源图片
+@property (weak, nonatomic) IBOutlet UIImageView *productFromImage;
+
 //商品来源
 @property (weak, nonatomic) IBOutlet UILabel *productFromLabel;
 

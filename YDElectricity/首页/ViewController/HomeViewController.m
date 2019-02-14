@@ -21,6 +21,7 @@
 #import "CommodityListlViewController.h"
 #import "SecondSkillViewController.h"
 #import "YDAlertView.h"
+#import "YDCustomButton.h"
 
 
 #define kHomeHeaderCollectionViewCell @"HomeHeaderCollectionViewCell"
@@ -42,10 +43,28 @@
 @property (nonatomic,assign) HotOrRecomend hotOrRecomend;
 @property (nonatomic,assign) HomeRequestMode requestMode;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewTopC;
+
+
 
 @end
 
 @implementation HomeViewController
+{
+    //根据alpha - 改变透明度的背景View
+    UIView *_topBackView;
+    
+    //不被alpha影响 - 放控件的View
+    UIView *_navigationView;
+    
+    UIButton *_leftBtn;
+    UIButton *_rightBtn;
+    UITextField *_textField;
+    UIButton *_searchBtn;
+    //顶部状态栏颜色
+    UIStatusBarStyle _statusBarStyle;
+
+}
 
 #pragma mark -- 懒加载
 -(HomeViewModel *)homeVM
@@ -59,8 +78,15 @@
 
 
 #pragma mark -- 生命周期
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    self.collectionViewTopC.constant = -STATUS_BAR_HEIGHT;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self prepareNavigation];
+    
     self.collectionView.backgroundColor = kViewBGColor;
     self.topView.hidden = YES;
    
@@ -79,7 +105,6 @@
     [self addHeaderAndFooterRefresh];
     //设置顶部导航栏
     [self setUpNavigagionItem];
-    [self setUpNanBar];
 
 }
 
@@ -107,9 +132,6 @@
         [cell.collectionV registerNib:[UINib nibWithNibName:kInHomeHeaderCell bundle:nil] forCellWithReuseIdentifier:kInHomeHeaderCell];
         cell.homeVM = self.homeVM;
         WK(weakSelf)
-//        cell.clickHandler = ^(NSString * _Nonnull goodID, NSString * _Nonnull title,HomeHeaderPushModel pushModel) {
-//
-//        };
         
         [cell addClickHandler:^(NSString * _Nonnull goodID, NSString * _Nonnull title, HomeHeaderPushModel pushModel) {
             if (pushModel == HomeHeaderPushModelGoodList) {
@@ -185,7 +207,7 @@
     
     HomeSectionHeaderView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
-    [view viewcornerRadius:5 borderWith:0.01 clearColor:YES];
+    [view viewcornerRadius:5 borderWith:0.01 clearColor:NO];
     [view addClickHandler:^(HomeRequestMode requestMode,HotOrRecomend hotOrRecomend) {
         
         if (/*self.requestMode == requestMode &*/ self.hotOrRecomend == hotOrRecomend) {
@@ -241,7 +263,7 @@
     if (indexPath.section == 0) {
         return CGSizeMake(kScreenW, 436 * kWidthScall);
     }
-    return CGSizeMake(357 * kWidthScall, 133);
+    return CGSizeMake(357 * kWidthScall, 133 * kWidthScall);
 }
 
 //分区之间间隙
@@ -267,7 +289,7 @@
     if (section == 0) {
         return CGSizeZero;
     }
-    return CGSizeMake(357 * kWidthScall, 50);;
+    return CGSizeMake(357 * kWidthScall, 50*kWidthScall);
 }
 
 //分区脚部视图大小
@@ -277,8 +299,39 @@
 
 #pragma mark -- UIScrollviewDelegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    static CGFloat tagOffsetY = 300.0;
+    CGFloat offsetY = scrollView.contentOffset.y;
+    CGFloat alpha = offsetY / tagOffsetY;
+    _topBackView.alpha = alpha;
     
     
+    if (_topBackView.alpha >= 1) {
+        
+        //开始导航条变化
+        //        _topBackView.backgroundColor = [UIColor darkGrayColor];
+        [_rightBtn setImage:[UIImage imageNamed:@"y_h_shoppingCar0"] forState:UIControlStateNormal];
+        [_leftBtn setImage:[UIImage imageNamed:@"y_h_sort0"] forState:UIControlStateNormal];
+        _textField.backgroundColor = [UIColor whiteColor];
+        _statusBarStyle = UIStatusBarStyleLightContent;
+    }
+    else{
+        
+        //默认导航条样式
+        _topBackView.backgroundColor = [UIColor darkGrayColor];
+        [_rightBtn setImage:[UIImage imageNamed:@"y_h_shoppingCar0"] forState:UIControlStateNormal];
+        [_leftBtn setImage:[UIImage imageNamed:@"y_h_sort0"] forState:UIControlStateNormal];
+        _textField.backgroundColor = [UIColor lightGrayColor];
+        _statusBarStyle = UIStatusBarStyleDefault;
+    }
+    //设置状态栏刷新
+    [self setNeedsStatusBarAppearanceUpdate];
+    
+}
+
+//设置顶部状态栏颜色
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    
+    return _statusBarStyle;
 }
 
 #pragma mark -- 方法
@@ -324,6 +377,79 @@
 -(void)shopCarBtnClick{
     NSLog(@"购物车按钮被点击了");
 }
+
+
+- (void)prepareNavigation{
+    
+    //0.背景View
+    UIView *backView = [[UIView alloc]init];
+    backView.backgroundColor = [UIColor whiteColor];
+    backView.frame = CGRectMake(0, 0, kScreenW, NAVIGATION_BAR_HEIGHT);
+    [self.view addSubview:backView];
+    _topBackView = backView;
+    
+    //1.naviView
+    UIView *naviView = [[UIView alloc]init];
+    naviView.frame = CGRectMake(0, STATUS_BAR_HEIGHT , kScreenW, NAVI_BAR_HEIGHT);
+    [self.view addSubview:naviView];
+    _navigationView = naviView;
+    
+    //2.左边按钮
+    CGFloat btnW = 38;
+    CGFloat btnH = 30;
+    CGFloat btnY = 5;
+    CGFloat leftMargin = 15;
+    YDCustomButton *leftBtn = [[YDCustomButton alloc] initWithBtnFrame:CGRectMake(leftMargin, btnY, btnW, btnH) btnType:ButtonImageTop titleAndImageSpace:5 imageSizeWidth:0 imageSizeHeight:0];
+    [leftBtn setImage:[UIImage imageNamed:@"y_h_sort0"] forState:UIControlStateNormal];
+    leftBtn.titleLabel.font = [UIFont systemFontOfSize:11];
+    [leftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [leftBtn setTitle:@"分类" forState:UIControlStateNormal];
+    WK(weakSelf)
+    [leftBtn bk_addEventHandler:^(id sender) {
+        [weakSelf categoryBtnClick];
+    } forControlEvents:UIControlEventTouchUpInside];
+    
+    [naviView addSubview:leftBtn];
+    _leftBtn = leftBtn;
+    
+    //3.右边按钮
+    YDCustomButton *rightBtn = [[YDCustomButton alloc] initWithBtnFrame:CGRectMake(kScreenW - leftMargin - btnW, btnY, btnW, btnH) btnType:ButtonImageTop titleAndImageSpace:5 imageSizeWidth:0 imageSizeHeight:0];
+    [rightBtn setImage:[UIImage imageNamed:@"y_h_shoppingCar0"] forState:UIControlStateNormal];
+    rightBtn.titleLabel.font = [UIFont systemFontOfSize:11];
+    [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [rightBtn setTitle:@"购物车" forState:UIControlStateNormal];
+    [rightBtn bk_addEventHandler:^(id sender) {
+        YDAlertView *allertView = [[YDAlertView alloc] initWithFrame:kAlertRect withTitle:@"提示" alertMessage:@"即将开放!" confrimBolck:^{
+            NSLog(@"点击了确认");
+        } cancelBlock:^{
+            NSLog(@"点击了取消");
+        }];
+        [allertView show];
+    } forControlEvents:UIControlEventTouchUpInside];
+    [naviView addSubview:rightBtn];
+    _rightBtn = rightBtn;
+    
+    //4.搜索框
+    CGFloat searchTextFW = 200;
+    CGFloat searchTextFH = 30;
+
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    btn.frame = CGRectMake((kScreenW - searchTextFW)*0.5, (NAVI_BAR_HEIGHT - searchTextFH)*0.5, searchTextFW, searchTextFH);
+    [btn setImage:[UIImage imageNamed:@"y_h_sousuokuang0"] forState:UIControlStateNormal];
+    //    [btn setImage:[UIImage imageNamed:@"y_h_sousuokuang1"] forState:UIControlStateHighlighted];
+    [naviView addSubview:btn];
+    [btn bk_addEventHandler:^(id sender) {
+        YDAlertView *allertView = [[YDAlertView alloc] initWithFrame:kAlertRect withTitle:@"提示" alertMessage:@"即将开放!" confrimBolck:^{
+            NSLog(@"点击了确认");
+        } cancelBlock:^{
+            NSLog(@"点击了取消");
+        }];
+        [allertView show];
+    } forControlEvents:UIControlEventTouchUpInside];
+    _searchBtn = btn;
+}
+
 
 -(void)collectionRegisterCell{
     [self.collectionView registerNib:[UINib nibWithNibName:kHomeHeaderCollectionViewCell bundle:nil] forCellWithReuseIdentifier:kHomeHeaderCollectionViewCell];
@@ -378,23 +504,6 @@
 
 }
      
-
-
--(void) setUpNanBar{
-//    _topView.backgroundColor = [UIColor clearColor];
-//    _topView.titleColor = [UIColor whiteColor];
-    //        _customNavBar.title = @"可拉伸头部控件";
-//    _topView.leftImage = @"y_h_sort0";
-//    _topView.rightImage = @"y_h_shopping cart0";
-    
-//    __weak typeof(self) weakSelf = self;
-//    _topView.leftBtnAction = ^{
-////        [weakSelf.navigationController popViewControllerAnimated:YES];
-//        NSLog(@"自定义分类按钮被点击了");
-//    };
-}
-
-
 
 #pragma mark - Navigation
 

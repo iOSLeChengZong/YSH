@@ -8,11 +8,21 @@
 
 #import "InHomeHeaderCell.h"
 
+@interface InHomeHeaderCell ()
+//culomnImage
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *culomnImageHeightConstrait;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *culomnImageWidthContrait;
+
+@end
+
 @implementation InHomeHeaderCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.culomnImageWidthContrait.constant *= kWidthScall;
+    self.culomnImageHeightConstrait.constant *= kWidthScall;
 }
 
 

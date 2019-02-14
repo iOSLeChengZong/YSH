@@ -54,7 +54,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEq-rH-bq9">
                                 <rect key="frame" x="9" y="6" width="357" height="113"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XeF-Wt-wl7">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XeF-Wt-wl7">
                                         <rect key="frame" x="0.0" y="0.0" width="357" height="113"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_h_xianshimiaosha" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lG-Dg-vOz">
@@ -96,6 +96,8 @@
             </constraints>
             <connections>
                 <outlet property="collectionV" destination="WMb-SU-QM3" id="PMH-Kp-aWa"/>
+                <outlet property="collectionVHeightConstrait" destination="TJ4-Vh-q7h" id="VZY-mV-WFD"/>
+                <outlet property="cycelScrollViewHeigitConstrait" destination="vmE-an-8Cc" id="VFu-pX-ELC"/>
                 <outlet property="cycleScrollView" destination="g4d-ZU-mko" id="OOj-5m-NJd"/>
                 <outlet property="imageView" destination="XeF-Wt-wl7" id="dSP-ET-tiO"/>
                 <outlet property="imageViewParentV" destination="TEq-rH-bq9" id="JCz-wH-Cum"/>

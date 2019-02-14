@@ -25,6 +25,8 @@
 @property(strong,nonatomic)NSArray *titleArray;
 @property(strong,nonatomic)NSArray *imageNames;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cycelScrollViewHeigitConstrait;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionVHeightConstrait;
 
 @end
 
@@ -39,9 +41,17 @@
 //        NSLog(@"imageURL[%ld]:%@",i,self.imageURLs[i]);
 //    }
     
+//    if (self.imageURLs.count > 0) {
+//        NSURL *url = [NSURL URLWithString: self.imageURLs[2]];// 获取的图片地址
+//        UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]]; // 根据地址取出图片
+//        CGFloat w = image.size.width;
+//        CGFloat h = image.size.height;
+//        NSLog(@"wwww:%f,hhhh:%f",w,h);
+//    }
+    
     //设置秒杀商品
     //设置秒杀商品圆角
-    [self.imageViewParentV viewcornerRadius:5 borderWith:0.01 clearColor:YES];
+    [self.imageViewParentV viewcornerRadius:5 borderWith:0.01 clearColor:NO];
     
     [self.imageView sd_setImageWithURL:[self.homeVM secondSkillGoodURL] placeholderImage:[UIImage imageNamed:@"h1"]];
     
@@ -66,6 +76,12 @@
     self.imageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *recongnizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(SecondSkillImageTap:)];
     [self.imageView addGestureRecognizer:recongnizer];
+    
+    //对滚动视图和栏目视图屏幕适配
+    [self screenFit];
+    
+    
+    
 
   
 }
@@ -133,7 +149,7 @@
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
 //    return UIEdgeInsetsMake(0, 0, 0, 0);
     CGFloat f = ((self.bounds.size.width - (kWidthScall * kCellHigh * self.homeVM.culomnitemNum))/self.homeVM.culomnitemNum) / 2;
-    return UIEdgeInsetsMake(14/*self.bounds.size.height/2*/, f/*((self.bounds.size.width - (kWidthScall * 42.0 * 5))/5)/2*/, 0/*self.bounds.size.height/2*/, f/*((self.bounds.size.width - (kWidthScall * 42.0 * 5))/5)/2*/);
+    return UIEdgeInsetsMake(14*kWidthScall/*self.bounds.size.height/2*/, f/*((self.bounds.size.width - (kWidthScall * 42.0 * 5))/5)/2*/, 0/*self.bounds.size.height/2*/, f/*((self.bounds.size.width - (kWidthScall * 42.0 * 5))/5)/2*/);
 }
 
 
@@ -153,8 +169,11 @@
 //    self.cycleScrollView.pageDotImage = [UIImage imageNamed:@"pageControlDot"];
     
     
+   
+
     //设置要展示图片的网络地址
     self.cycleScrollView.imageURLStringsGroup = self.imageURLs;
+    
 
 }
 
@@ -207,5 +226,9 @@
 }
 
 
+-(void)screenFit{
+    self.cycelScrollViewHeigitConstrait.constant *= kWidthScall;
+    self.collectionVHeightConstrait.constant *= kWidthScall;
+}
 
 @end

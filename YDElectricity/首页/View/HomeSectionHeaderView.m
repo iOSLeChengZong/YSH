@@ -11,6 +11,13 @@
 @interface HomeSectionHeaderView()
 @property (nonatomic,strong) NSArray *colorArr;
 @property (nonatomic,strong) NSArray *buttonArr;
+
+//左侧约束
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewLeadineC;
+
+//右侧约束
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewTrailingC;
+
 @end
 
 @implementation HomeSectionHeaderView
@@ -20,6 +27,8 @@
     // Initialization code
     _colorArr = @[[UIColor blueColor],[UIColor whiteColor]];
     _buttonArr = @[_introBtn,_hotBtn];
+    
+    [self HomeSectionHeaderViewScreenFit];
 }
 
 - (IBAction)introBtnClick:(id)sender {
@@ -48,6 +57,11 @@
 
         }
     }
+}
+
+-(void)HomeSectionHeaderViewScreenFit{
+    _viewLeadineC.constant *= kWidthScall;
+    _viewTrailingC.constant *= kWidthScall;
 }
 
 @end

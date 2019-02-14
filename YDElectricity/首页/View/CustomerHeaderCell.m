@@ -29,7 +29,7 @@
     
     UIView * View=[[UIImageView alloc]init];
     View.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
-    View.frame=CGRectMake(_cycleScrollView.size.width-65, _cycleScrollView.size.height-38, 45, 17);
+    View.frame=CGRectMake(self.size.width-65, self.size.height-38, 45, 17);
     [View viewcornerRadius:View.bounds.size.height * 0.5 borderWith:0.01 clearColor:NO];
     [_cycleScrollView addSubview:View];
     _indexPage=[[UILabel alloc]initWithFrame:CGRectMake(0,0, View.size.width, View.size.height)];
@@ -49,6 +49,12 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    CGRect frame = self.frame;
+    frame.size.height *= kWidthScall;
+    self.frame = frame;
+   
+    
+//    [self setUpScycelScrollViewImage];
 }
 
 

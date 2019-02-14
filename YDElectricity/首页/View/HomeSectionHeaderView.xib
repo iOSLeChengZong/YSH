@@ -21,7 +21,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roj-F6-dc1">
                             <rect key="frame" x="9" y="0.0" width="357" height="42"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_login_自选导师圆角bg" translatesAutoresizingMaskIntoConstraints="NO" id="pMw-9Y-djl">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_login_自选导师圆角bg" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMw-9Y-djl">
                                     <rect key="frame" x="0.0" y="0.0" width="357" height="42"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caU-OC-ddD">
@@ -96,6 +96,8 @@
             <connections>
                 <outlet property="hotBtn" destination="oUa-rW-U6D" id="14h-ep-S7w"/>
                 <outlet property="introBtn" destination="caU-OC-ddD" id="JDi-Y9-buN"/>
+                <outlet property="viewLeadineC" destination="AqK-9W-49i" id="wwc-x5-4wD"/>
+                <outlet property="viewTrailingC" destination="n7B-Gc-MkU" id="Wj1-T9-Pkf"/>
             </connections>
             <point key="canvasLocation" x="136.80000000000001" y="154.72263868065968"/>
         </collectionReusableView>
