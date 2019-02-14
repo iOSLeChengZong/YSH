@@ -83,6 +83,16 @@
     self.collectionViewTopC.constant = -STATUS_BAR_HEIGHT;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self prepareNavigation];
@@ -317,7 +327,7 @@
     else{
         
         //默认导航条样式
-        _topBackView.backgroundColor = [UIColor darkGrayColor];
+        _topBackView.backgroundColor = kFONTSlectRGB;
         [_rightBtn setImage:[UIImage imageNamed:@"y_h_shoppingCar0"] forState:UIControlStateNormal];
         [_leftBtn setImage:[UIImage imageNamed:@"y_h_sort0"] forState:UIControlStateNormal];
         _textField.backgroundColor = [UIColor lightGrayColor];
@@ -430,7 +440,7 @@
     _rightBtn = rightBtn;
     
     //4.搜索框
-    CGFloat searchTextFW = 200;
+    CGFloat searchTextFW = 264;
     CGFloat searchTextFH = 30;
 
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
