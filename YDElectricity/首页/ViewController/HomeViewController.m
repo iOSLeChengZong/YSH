@@ -34,18 +34,13 @@
 
 
 
-@interface HomeViewController ()<SearchBarViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
+@interface HomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet GSCustomNavBar *topView;
-
-
 @property (nonatomic,strong) HomeViewModel *homeVM;
 @property (nonatomic,assign) HotOrRecomend hotOrRecomend;
 @property (nonatomic,assign) HomeRequestMode requestMode;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewTopC;
-
-
 
 @end
 
@@ -98,7 +93,6 @@
     [self prepareNavigation];
     
     self.collectionView.backgroundColor = kViewBGColor;
-    self.topView.hidden = YES;
    
     self.navigationController.navigationBar.translucent = YES;
     
@@ -113,15 +107,7 @@
 
     //添加头部脚部刷新
     [self addHeaderAndFooterRefresh];
-    //设置顶部导航栏
-    [self setUpNavigagionItem];
 
-}
-
-
-#pragma mark -- SearchBarViewDelegate
--(void)searchBarSearchBtnClicked:(id)searchBarView{
-    NSLog(@"SearchBarBtn被点击:%@",[searchBarView class]);
 }
 
 #pragma mark -- collectionViewDataSource
@@ -239,10 +225,7 @@
     }];
     
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]){
-        
-    
-        
-        
+
     }else if ([kind isEqualToString:UICollectionElementKindSectionFooter]){
         
         view.frame = CGRectZero;
@@ -254,7 +237,6 @@
 
 #pragma mark -- collectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"indexPath:%lu",indexPath.row);
     if (indexPath.section != 0) {
         //跳转淘宝客
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"YDHome" bundle:nil];
@@ -348,34 +330,6 @@
 }
 
 #pragma mark -- 方法
--(void)setUpNavigagionItem{
-    //设置背景
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@""] forBarMetrics:UIBarMetricsCompact];
-
-    //设置左侧按钮
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem BarButtonItemWithImageName:@"y_h_sort2" highlightImageName:@"y_h_sort2" title:@"分类" target:self action:@selector(categoryBtnClick)];
-
-    //设置右侧按钮 y_h_shoppingCar1  购物车
-//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem BarButtonItemWithImageName:@"y_h_sort2" highlightImageName:@"y_h_sort2" title:@"分类" target:self action:@selector(shopCarBtnClick)];
-    
-    
-    
-//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem BarButtonItemWithImageName:@"y_h_sort2" highlightImageName:@"y_h_sort2" title:@"分类" target:self action:@selector(categoryBtnClick)];
-//    self.navigationItem.rightBarButtonItems = [UIBarButtonItem LeftBarButtomItems:NO ImageName:@"y_h_shoppingCar1" highlightImageName:@"y_h_shoppingCar1" title:@"购物车" target:self action:@selector(shopCarBtnClick)];
-    
-    [Factory addSearchItemToVC:self clickHandler:^{
-        NSLog(@"搜索被点击了");
-        YDAlertView *allertView = [[YDAlertView alloc] initWithFrame:kAlertRect withTitle:@"提示" alertMessage:@"即将开放!" confrimBolck:^{
-            NSLog(@"点击了确认");
-        } cancelBlock:^{
-            NSLog(@"点击了取消");
-        }];
-        [allertView show];
-    }];
-    
-
-}
-
 -(void)categoryBtnClick{
     NSLog(@"首页分类按钮被点击了");
     CategoryViewController *cvc = [[CategoryViewController alloc] init];
