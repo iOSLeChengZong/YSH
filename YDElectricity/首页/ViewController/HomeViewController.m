@@ -313,7 +313,9 @@
     CGFloat offsetY = scrollView.contentOffset.y;
     CGFloat alpha = offsetY / tagOffsetY;
     _topBackView.alpha = alpha;
-    
+    _searchBtn.alpha = alpha + 0.6;
+    _leftBtn.alpha = alpha + 0.6;
+    _rightBtn.alpha = alpha + 0.6;
     
     if (_topBackView.alpha >= 1) {
         
@@ -332,6 +334,7 @@
         [_leftBtn setImage:[UIImage imageNamed:@"y_h_sort0"] forState:UIControlStateNormal];
         _textField.backgroundColor = [UIColor lightGrayColor];
         _statusBarStyle = UIStatusBarStyleDefault;
+        
     }
     //设置状态栏刷新
     [self setNeedsStatusBarAppearanceUpdate];
@@ -444,11 +447,16 @@
     CGFloat searchTextFH = 30;
 
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    
     btn.frame = CGRectMake((kScreenW - searchTextFW)*0.5, (NAVI_BAR_HEIGHT - searchTextFH)*0.5, searchTextFW, searchTextFH);
     [btn setImage:[UIImage imageNamed:@"y_h_sousuokuang0"] forState:UIControlStateNormal];
-    //    [btn setImage:[UIImage imageNamed:@"y_h_sousuokuang1"] forState:UIControlStateHighlighted];
+    UILabel *btnLabel = [[UILabel alloc] initWithFrame:CGRectMake((kScreenW - searchTextFW)*0.5 + 40, (NAVI_BAR_HEIGHT - searchTextFH)*0.5, searchTextFW -40, searchTextFH)];
+    btnLabel.textAlignment = NSTextAlignmentLeft;
+    btnLabel.font = [UIFont systemFontOfSize:13];
+
+    [btnLabel setTextColor:KFontDefaultRGB];
+    btnLabel.text = @"搜索好宝贝";
     [naviView addSubview:btn];
+    [naviView addSubview:btnLabel];
     [btn bk_addEventHandler:^(id sender) {
         YDAlertView *allertView = [[YDAlertView alloc] initWithFrame:kAlertRect withTitle:@"提示" alertMessage:@"即将开放!" confrimBolck:^{
             NSLog(@"点击了确认");
