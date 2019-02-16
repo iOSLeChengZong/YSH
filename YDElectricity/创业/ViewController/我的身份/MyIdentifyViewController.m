@@ -7,27 +7,74 @@
 //
 
 #import "MyIdentifyViewController.h"
-#import "IdentityTopReusableView.h"
+//#import "IdentityTopReusableView.h"
 #import "IdentityDefaultReusableView.h"
 #import "IdentityCell.h"
+#import "MyPrerogativeModel.h"
+
+#define kIdentityDefaultReusableView @"IdentityDefaultReusableView"
+#define kIdentityCell @"IdentityCell"
+#define kItmeWidth (355 / 3) * kWidthScall
 
 @interface MyIdentifyViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionV;
+@property (nonatomic,strong)MyPrerogativeModel *prerogativeModel;
+
+
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionVWidthC;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionHeightC;
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *customerLeadingC;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *businessLeadingC;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *managerLeadingC;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *parnerLeadingC;
+
+
+
 
 @end
 
 @implementation MyIdentifyViewController
 
+#pragma mark -- 懒加载
+- (MyPrerogativeModel *)prerogativeModel{
+    if (!_prerogativeModel) {
+        _prerogativeModel = [[MyPrerogativeModel alloc] init];
+    }
+    return _prerogativeModel;
+}
+
+
+#pragma mark -- 生命周期
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    self.view.backgroundColor = kViewBGColor;
+    
+    
+    self.collectionV.backgroundColor = kViewBGColor;
+    self.collectionVWidthC.constant *= kWidthScall;
+    self.collectionHeightC.constant *= kWidthScall;
+    
+    self.customerLeadingC.constant *= kWidthScall;
+    self.businessLeadingC.constant *= kWidthScall;
+    self.managerLeadingC.constant *= kWidthScall;
+    self.parnerLeadingC.constant *= kWidthScall;
+
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewDidLoad {
@@ -38,87 +85,73 @@
 }
 
 -(void)registerCell{
-    [self.collectionView registerNib:[UINib nibWithNibName:@"IdentityTopReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"IdentityTopReusableView"];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"IdentityDefaultReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"IdentityDefaultReusableView"];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"IdentityCell" bundle:nil] forCellWithReuseIdentifier:@"IdentityCell"];
+//    [self.collectionV registerNib:[UINib nibWithNibName:@"IdentityTopReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"IdentityTopReusableView"];
+    [self.collectionV registerNib:[UINib nibWithNibName:@"IdentityDefaultReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"IdentityDefaultReusableView"];
+    [self.collectionV registerNib:[UINib nibWithNibName:@"IdentityCell" bundle:nil] forCellWithReuseIdentifier:@"IdentityCell"];
 }
 
 - (IBAction)dismissViewController:(id)sender {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
 #pragma mark -- UICollectionViewDelegate
 //选择某个cell
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    NSLog(@"%@,%ld",[self class],indexPath.row);
 }
 
 #pragma mark -- UICollectionViewDataSource
 //每个分区item
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if (section == 0) {
-        return 0;
-    }else{
-        return 6;
-    }
+  
+    return self.prerogativeModel.prerogativeNames.count;
 }
 
 //cell样式
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    IdentityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"IdentityCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    IdentityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kIdentityCell forIndexPath:indexPath];
+    cell.image.image = [UIImage imageNamed:self.prerogativeModel.prerogativeImageNames[indexPath.row]];
+    cell.label.text = self.prerogativeModel.prerogativeNames[indexPath.row];
     return cell;
 }
 
 //分区数
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 2;
+    return 1;
 }
 
 
 
 // The view that is returned must be retrieved from a call to -dequeueReusableSupplementaryViewOfKind:withReuseIdentifier:forIndexPath:
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        if (indexPath.section == 0) {
-            IdentityTopReusableView *head = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"IdentityTopReusableView" forIndexPath:indexPath];
-            return head;
-        }else{
-            IdentityDefaultReusableView *head = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"IdentityDefaultReusableView" forIndexPath:indexPath];
-            head.backgroundColor = [UIColor lightGrayColor];
-            return head;
-        }
-
-    }
-    return nil;
+    IdentityDefaultReusableView *head = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kIdentityDefaultReusableView forIndexPath:indexPath];
+    return head;
 }
 #pragma mark -- UICollectionViewDelegateFlowLayout
 //cell的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(100, 100);
+   
+    return CGSizeMake(kItmeWidth, kItmeWidth);
 }
 //分区之间的间隙
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(0, 0, 0, 0);
+    
+    return UIEdgeInsetsMake(1*kWidthScall, 0, 1*kWidthScall, 0);
 }
 
 //最小行间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return 10;
+    return 1;
 }
 //最小列间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    return 10;
+    return 1;
 }
 //header的尺寸
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return CGSizeMake(kScreenW, 200);
-    }else{
-        return CGSizeMake(kScreenW, 50);
-    }
+   return CGSizeMake(357 * kWidthScall, 50 * kWidthScall);
     
 }
 //footer的尺寸

@@ -19,7 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_login_logo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1zg-zd-RcA">
-                                <rect key="frame" x="103" y="166" width="169" height="164"/>
+                                <rect key="frame" x="103" y="171" width="169" height="164"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="169" id="99l-zL-rOG"/>
+                                    <constraint firstAttribute="height" constant="164" id="WwP-tj-TWd"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPt-V7-b7H">
                                 <rect key="frame" x="159.5" y="587" width="56" height="15"/>
@@ -35,7 +39,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ1-iZ-5M9">
-                                <rect key="frame" x="22.5" y="489" width="330" height="50"/>
+                                <rect key="frame" x="39" y="494" width="297" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="CC8-Wb-p4m"/>
+                                    <constraint firstAttribute="width" constant="297" id="nSL-R4-8Fs"/>
+                                </constraints>
                                 <state key="normal" backgroundImage="y_login_button"/>
                                 <connections>
                                     <action selector="OnWeChatBtnClick:" destination="V1a-gL-Jt5" eventType="touchUpInside" id="Pyw-Co-DjJ"/>
@@ -47,14 +55,22 @@
                             <constraint firstItem="qPt-V7-b7H" firstAttribute="centerX" secondItem="3xl-jb-dlc" secondAttribute="centerX" id="5IY-A1-3Ug"/>
                             <constraint firstItem="gVn-V8-PLR" firstAttribute="bottom" secondItem="qPt-V7-b7H" secondAttribute="bottom" constant="65" id="5wq-8e-9fB"/>
                             <constraint firstItem="1zg-zd-RcA" firstAttribute="centerX" secondItem="3xl-jb-dlc" secondAttribute="centerX" id="Cl4-06-EK4"/>
+                            <constraint firstItem="MZ1-iZ-5M9" firstAttribute="centerX" secondItem="3xl-jb-dlc" secondAttribute="centerX" id="KQ4-FT-SMe"/>
                             <constraint firstItem="qPt-V7-b7H" firstAttribute="top" secondItem="MZ1-iZ-5M9" secondAttribute="bottom" constant="48" id="Wee-hM-xru"/>
                             <constraint firstItem="MZ1-iZ-5M9" firstAttribute="top" secondItem="1zg-zd-RcA" secondAttribute="bottom" constant="159" id="qBm-KR-N84"/>
-                            <constraint firstItem="gVn-V8-PLR" firstAttribute="trailing" secondItem="MZ1-iZ-5M9" secondAttribute="trailing" constant="22.5" id="w4L-Qi-OZT"/>
-                            <constraint firstItem="MZ1-iZ-5M9" firstAttribute="leading" secondItem="gVn-V8-PLR" secondAttribute="leading" constant="22.5" id="zti-Q5-7jr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gVn-V8-PLR"/>
                     </view>
                     <connections>
+                        <outlet property="productIdentifierImageBottomC" destination="qBm-KR-N84" id="MyO-nJ-8hv"/>
+                        <outlet property="productIdentifierImageHeightC" destination="WwP-tj-TWd" id="LlI-bl-UCt"/>
+                        <outlet property="productIdentifierImageWidthC" destination="99l-zL-rOG" id="USY-Hs-gEz"/>
+                        <outlet property="visitorBtnBottomc" destination="5wq-8e-9fB" id="BbS-eK-fmD"/>
+                        <outlet property="visitorBtnHeightC" destination="MRP-Y6-PCj" id="MOj-Ni-Ik9"/>
+                        <outlet property="visitorBtnWidthC" destination="QKE-In-H74" id="uxR-Yd-fhT"/>
+                        <outlet property="weiChatBtnBottomC" destination="Wee-hM-xru" id="Oi5-FC-3pL"/>
+                        <outlet property="weiChatBtnHeightC" destination="CC8-Wb-p4m" id="gSP-B0-7mZ"/>
+                        <outlet property="weiChatBtnWidthC" destination="nSL-R4-8Fs" id="wO0-Ld-ODC"/>
                         <segue destination="MLm-T0-ON5" kind="show" identifier="PhoneNumSegue" id="NTb-7g-Kt0"/>
                     </connections>
                 </viewController>
@@ -145,9 +161,13 @@
                                             <outlet property="delegate" destination="SFR-aD-L7N" id="WmK-Qq-aUZ"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49e-7v-aeJ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49e-7v-aeJ">
                                         <rect key="frame" x="245" y="11.5" width="75" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="EMA-KE-7MV"/>
+                                            <constraint firstAttribute="width" constant="75" id="oDc-Ud-vB8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <state key="normal" title="获取验证码" backgroundImage="y_login_获取验证码button0">
                                             <color key="titleColor" red="1" green="0.062623139610000003" blue="0.057482722399999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -212,16 +232,31 @@
                     </view>
                     <navigationItem key="navigationItem" title="填写手机号吗登陆" id="xOv-4R-cXJ"/>
                     <connections>
+                        <outlet property="NextStepBtnHeightC" destination="fio-yj-pw5" id="bUL-mC-BbM"/>
+                        <outlet property="NextStepBtnTopC" destination="rlm-v6-3gh" id="QwF-hC-6Bj"/>
+                        <outlet property="NextStepBtnWidthC" destination="si0-gZ-Rxj" id="5of-Nb-BJr"/>
+                        <outlet property="VerifyBtnHeightC" destination="EMA-KE-7MV" id="jLY-8S-8Co"/>
+                        <outlet property="VerifyBtnTrainningC" destination="qHF-N0-nYO" id="0I1-jt-Cxa"/>
+                        <outlet property="VerifyBtnWidthC" destination="oDc-Ud-vB8" id="cO0-OO-oIU"/>
                         <outlet property="phoneNumTexfield" destination="vue-a2-Blz" id="QIC-mF-pvQ"/>
+                        <outlet property="phoneNumTexfieldHeightC" destination="TGF-Py-bnN" id="iV9-Ag-BpG"/>
+                        <outlet property="phoneNumTexfieldTopC" destination="8DB-o1-SXH" id="u4s-oy-bGR"/>
+                        <outlet property="phoneNumTexfieldWidthC" destination="jD1-YM-WSj" id="4hj-JI-GTw"/>
                         <outlet property="userCodeTexfield" destination="lfe-FZ-BXY" id="GeG-7e-yw3"/>
+                        <outlet property="userCodeTexfieldHeightC" destination="oq9-yd-5rx" id="hAe-KL-fc2"/>
+                        <outlet property="userCodeTexfieldTopC" destination="dwh-nf-bvB" id="HnD-sb-MWp"/>
+                        <outlet property="userCodeTexfieldWidthC" destination="vxu-il-w4N" id="MDg-Ba-ta8"/>
                         <outlet property="verifyBtn" destination="49e-7v-aeJ" id="ilF-3A-br6"/>
                         <outlet property="verifyCodeTextfield" destination="pih-x9-XIU" id="ZOg-UY-71o"/>
+                        <outlet property="verifyCodeTextfieldHeightC" destination="AyU-aa-RaO" id="7Ij-e1-4ra"/>
+                        <outlet property="verifyCodeTextfieldTopC" destination="1Kk-Fb-p03" id="hv5-2Z-fna"/>
+                        <outlet property="verifyCodeTextfieldWidthC" destination="NFE-zy-Oq8" id="OaQ-mS-Se9"/>
                         <segue destination="jel-7T-R3L" kind="show" identifier="ConfirmTeacherViewController" id="Syp-HW-098"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oWy-rf-t1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1647" y="672"/>
+            <point key="canvasLocation" x="1734" y="672"/>
         </scene>
         <!--确认导师-->
         <scene sceneID="CB4-Yj-O1h">
@@ -273,8 +308,8 @@
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="代名词代名词" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJp-hN-k8r">
-                                        <rect key="frame" x="135.5" y="137" width="86" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="638145" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJp-hN-k8r">
+                                        <rect key="frame" x="153.5" y="137" width="50" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="1" green="0.062623139610000003" blue="0.057482722399999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -344,7 +379,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="209" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="填写导师的邀请码或者邀请码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m37-Ev-Q5P">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="填写导师的邀请码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m37-Ev-Q5P">
                                                 <rect key="frame" x="5" y="0.0" width="199" height="42"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

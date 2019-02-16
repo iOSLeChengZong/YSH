@@ -12,10 +12,18 @@
 #import "TeamMemberViewController.h"
 #import "UserMoneyViewModel.h"
 #import "LoginViewController.h"
+#import "CashRecordViewController.h"
+#import "MyIdentifyViewController.h"
+#import "TaskCenterController.h"
+#import "CashDetailViewController.h"
 
 #define kShareOrderViewController @"ShareOrderViewController"
 #define kInviteViewController @"InviteViewController"
 #define kTeamMemberViewController @"TeamMemberViewController"
+#define kCashRecordViewController @"CashRecordViewController"
+#define kMyIdentifyViewController @"MyIdentifyViewController"
+#define kTaskCenterController @"TaskCenterController"
+#define kCashDetailViewController @"CashDetailViewController"
 
 
 @interface BusinessViewController ()
@@ -77,11 +85,15 @@
         [Factory noneLoginTipConfrimBolck:^{
             [self userNoneLoginTip];
         } CancelBlock:^{
-            
+
         }];
         return;
     }
-    [Factory showWaittingForOpened];
+//    [Factory showWaittingForOpened];
+ 
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDBusiness bundle:nil];
+    CashDetailViewController *cashVC = [storyboard instantiateViewControllerWithIdentifier:kCashDetailViewController];
+    [self.navigationController pushViewController:cashVC animated:YES];
 }
 
 //提现
@@ -90,7 +102,7 @@
         [Factory noneLoginTipConfrimBolck:^{
             [self userNoneLoginTip];
         } CancelBlock:^{
-            
+
         }];
         return;
     }
@@ -98,7 +110,7 @@
 }
 
 
-//等结算资金
+//待结算资金
 - (IBAction)waittingCheckClearMoney:(id)sender {
     if (![YDUserInfo sharedYDUserInfo].login) {
         [Factory noneLoginTipConfrimBolck:^{
@@ -108,7 +120,10 @@
         }];
         return;
     }
-    [Factory showWaittingForOpened];
+//    [Factory showWaittingForOpened];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDBusiness bundle:nil];
+    ShareOrderViewController *shareVC = [storyboard instantiateViewControllerWithIdentifier:kShareOrderViewController];
+    [self.navigationController pushViewController:shareVC animated:YES];
 }
 
 
@@ -125,7 +140,10 @@
         return;
     }
     
-    [Factory showWaittingForOpened];
+//    [Factory showWaittingForOpened];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDBusiness bundle:nil];
+    MyIdentifyViewController *iVC = [storyboard instantiateViewControllerWithIdentifier:kMyIdentifyViewController];
+    [self.navigationController pushViewController:iVC animated:YES];
     
 }
 
@@ -186,7 +204,11 @@
         }];
         return;
     }
-    [Factory showWaittingForOpened];
+//    [Factory showWaittingForOpened];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDBusiness bundle:nil];
+    TaskCenterController *taskVC = [storyboard instantiateViewControllerWithIdentifier:kTaskCenterController];
+    [self.navigationController pushViewController:taskVC animated:YES];
+    
 }
 
 //创业排名

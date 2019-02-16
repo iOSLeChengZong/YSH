@@ -171,12 +171,12 @@
     }
     
     [(UIButton *)sender setImage:[UIImage imageNamed:self.defaultAddrSelect ? @"y_p_choose1":@"y_p_choose0"] forState:UIControlStateNormal];
-    self.dataModel.defaultStr = self.defaultAddrSelect ? @"默认":@"";
-    if(self.defaultAddrSelect){
-        self.dataModel.defaultStr = @"默认";
-    }else{
-        self.dataModel.defaultStr = @"";
-    }
+//    self.dataModel.defaultStr = self.defaultAddrSelect ? @"默认":@"";
+//    if(self.defaultAddrSelect){
+//        self.dataModel.defaultStr = @"默认";
+//    }else{
+//        self.dataModel.defaultStr = @"";
+//    }
     
 }
 
@@ -184,6 +184,10 @@
 - (IBAction)saveBtnClick:(id)sender {
     [self.view endEditing:YES];
     NSLog(@"-----%@,%@,%@,%@,%@",self.dataModel.name,self.dataModel.telphone,self.dataModel.postCode,self.dataModel.detailAddr,self.dataModel.areaStr);
+    if (![self.dataModel.defaultStr isEqualToString:@"默认"]){
+        self.dataModel.defaultStr = self.defaultAddrSelect ? @"默认":@"";
+    }
+    
     if (self.dataModel.name &&
         self.dataModel.telphone &&
         self.dataModel.postCode &&

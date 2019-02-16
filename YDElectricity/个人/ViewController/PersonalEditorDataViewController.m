@@ -224,7 +224,7 @@
                         @"nickName":self.nickNameTexfield.text,
                         @"birthDay":self.birthdayTexfield.text,
                         @"sex": self.isMan ? @"1": @"2",
-                        @"area":self.areaLabel.text/*[self.areaTextField.text stringByAppendingString:self.finalTextField.text]*/,
+                        @"area":[[self.areaLabel.text stringByAppendingString:@" "] stringByAppendingString:self.finalTextField.text],
                         @"shipAddressId":@"0"
                         };
     

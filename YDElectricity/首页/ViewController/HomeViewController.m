@@ -203,7 +203,6 @@
     
     HomeSectionHeaderView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
-    [view viewcornerRadius:5 borderWith:0.01 clearColor:NO];
     [view addClickHandler:^(HomeRequestMode requestMode,HotOrRecomend hotOrRecomend) {
         
         if (/*self.requestMode == requestMode &*/ self.hotOrRecomend == hotOrRecomend) {

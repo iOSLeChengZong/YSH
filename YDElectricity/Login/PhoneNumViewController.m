@@ -12,6 +12,7 @@
 #import "YDUserInfo.h"
 
 #define kConfirmTeacherViewController @"ConfirmTeacherViewController"
+#define kTimeIntervel 120
 
 @interface PhoneNumViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumTexfield;
@@ -27,6 +28,48 @@
 @property (assign,nonatomic) NSInteger countDownInterverl;
 @property (strong,nonatomic) NSTimer *timer;
 
+
+//1.手机号输入框约束
+//top约束
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *phoneNumTexfieldTopC;
+//宽
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *phoneNumTexfieldWidthC;
+//高
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *phoneNumTexfieldHeightC;
+//2.密码输入框约束
+//top
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userCodeTexfieldTopC;
+//宽
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userCodeTexfieldWidthC;
+//高
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userCodeTexfieldHeightC;
+
+//验证码输入框约束
+//top
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verifyCodeTextfieldTopC;
+//宽
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verifyCodeTextfieldWidthC;
+//高
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verifyCodeTextfieldHeightC;
+
+//获取验证码按钮约束
+//training
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *VerifyBtnTrainningC;
+
+//宽
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *VerifyBtnWidthC;
+//高
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *VerifyBtnHeightC;
+
+//下一步约束
+//top
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *NextStepBtnTopC;
+//宽
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *NextStepBtnWidthC;
+//高
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *NextStepBtnHeightC;
+
+
 @end
 
 @implementation PhoneNumViewController
@@ -41,6 +84,12 @@
 
 #pragma mark -- 生命周期
 
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    //屏幕适配
+    [self PhoneNumViewControllerScreenFit];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -54,7 +103,7 @@
         WK(weakSelf)
         self.timer = [NSTimer bk_scheduledTimerWithTimeInterval:1 block:^(NSTimer *timer) {
             weakSelf.countDownInterverl--;
-            NSLog(@"interverl%ld",weakSelf.countDownInterverl);
+//            NSLog(@"interverl%ld",weakSelf.countDownInterverl);
             [weakSelf.verifyBtn setTitle:[NSString stringWithFormat:@"%ldS",weakSelf.countDownInterverl] forState:UIControlStateNormal];
             if (weakSelf.countDownInterverl == 0) {
                 [weakSelf destroyNSTimer];
@@ -62,6 +111,17 @@
                 [weakSelf.verifyBtn setTitle:@"发送验证码" forState:UIControlStateNormal];
             }
         } repeats:YES];
+        
+//        self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
+    }
+}
+
+-(void)timeFireMethod{
+    self.countDownInterverl --;
+    [self.verifyBtn setTitle:[NSString stringWithFormat:@"%ldS",self.countDownInterverl] forState:UIControlStateNormal];
+    if(self.countDownInterverl ==0){
+        [self.timer invalidate];
+        [self.verifyBtn setTitle:@"发送验证码" forState:UIControlStateNormal];
     }
 }
 
@@ -87,14 +147,14 @@
                 [YDUserInfo sharedYDUserInfo].phoneNumber = self.phoneNumTexfield.text;
                 [self.view showWarning:@"验证码已发送"];
                 //倒计时两分钟
-                [self setUpCountDownInterverl:120];
-               
-                
+                [self setUpCountDownInterverl:kTimeIntervel];
+
             }
         }];
     }else{
         [self.view showWarning:@"手机号码不正确"];
     }
+    
 }
 
 
@@ -179,5 +239,46 @@
     [self.timer invalidate];
     self.timer = nil;
 }
+
+
+-(void)PhoneNumViewControllerScreenFit{
+    [self phoneNumTexfieldScreenFit];
+    [self userCodeTexfieldScreenFit];
+//    [self verifyCodeTextfieldScreenFit];
+    [self VerifyBtnScreenFit];
+    [self NextStepBtnScreenFit];
+}
+
+-(void)phoneNumTexfieldScreenFit{
+    self.phoneNumTexfieldTopC.constant *= kWidthScall;
+    self.phoneNumTexfieldWidthC.constant *= kWidthScall;
+    self.phoneNumTexfieldHeightC.constant *= kWidthScall;
+}
+
+-(void)userCodeTexfieldScreenFit{
+    self.userCodeTexfieldTopC.constant *= kWidthScall;
+    self.userCodeTexfieldWidthC.constant *= kWidthScall;
+    self.userCodeTexfieldHeightC.constant *= kWidthScall;
+}
+
+-(void)verifyCodeTextfieldScreenFit{
+    self.verifyCodeTextfieldTopC.constant *= kWidthScall;
+    self.VerifyBtnWidthC.constant *= kWidthScall;
+    self.VerifyBtnHeightC.constant *= kWidthScall;
+}
+
+-(void)VerifyBtnScreenFit{
+    self.VerifyBtnTrainningC.constant *= kWidthScall;
+    self.VerifyBtnWidthC.constant *= kWidthScall;
+    self.VerifyBtnHeightC.constant *= kWidthScall;
+}
+
+-(void)NextStepBtnScreenFit{
+    self.NextStepBtnTopC.constant *= kWidthScall;
+    self.NextStepBtnWidthC.constant *= kWidthScall;
+    self.NextStepBtnHeightC.constant *= kWidthScall;
+}
+
+
 
 @end

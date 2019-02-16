@@ -52,7 +52,7 @@
     _ContentLB.numberOfLines = 0;
     _ContentLB.textAlignment = NSTextAlignmentCenter;//NSTextAlignmentLeft;
     _ContentLB.textColor = kFONTSlectRGB;
-    _ContentLB.font = [UIFont systemFontOfSize:21];
+    _ContentLB.font = [UIFont systemFontOfSize:12];
     [self addSubview:_ContentLB];
     
     _cancleBtn = [UIButton buttonWithType:UIButtonTypeCustom];

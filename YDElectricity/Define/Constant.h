@@ -102,7 +102,9 @@ __block __weak __typeof(&*self)weakSelf = self;\
 
 #define kAlertRect CGRectMake(0, 0, 278, 195)
 
-
+//全局collectionView itemSize 间隙
+#define kItemSize CGSizeMake(357 * kWidthScall, 63 * kWidthScall)
+#define kUIEdgeInsets UIEdgeInsetsMake(3 * kWidthScall, (kScreenW - 357 * kWidthScall) * 0.5, 6 * kWidthScall, (kScreenW - 357 * kWidthScall) * 0.5)
 
 
 //https://www.jianshu.com/p/ba98b0ad1811 iOS截屏

@@ -61,11 +61,15 @@
     //注册cell
     [self registerCell];
     
-    if (iPhoneX) {
-        UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, -STATUS_BAR_HEIGHT, kScreenW, STATUS_BAR_HEIGHT + 20)];
-        v.backgroundColor = kFONTSlectRGB;
-        [self.personalCollectionView addSubview:v];
-    }
+//    if (iPhoneX) {
+//        UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, -STATUS_BAR_HEIGHT, kScreenW, STATUS_BAR_HEIGHT + 20)];
+//        v.backgroundColor = kFONTSlectRGB;
+//        [self.personalCollectionView addSubview:v];
+//    }
+    
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, -STATUS_BAR_HEIGHT, kScreenW, STATUS_BAR_HEIGHT + 20)];
+    v.backgroundColor = kFONTSlectRGB;
+    [self.view addSubview:v];
     
     [self requestData];
     
@@ -113,7 +117,7 @@
 
 #pragma mark -- UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 5;
+    return self.cellImageNames.count;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -139,10 +143,12 @@
         
     }
     
-    if (![YDUserInfo sharedYDUserInfo].login) {
+    if ([YDUserInfo sharedYDUserInfo].login) {
         header.nickName = [self.idendityVM userNickName];
         header.ranckName = [self.idendityVM userRankName];
         //    header.imageUrl = [self.idendityVM userHeadImageURL];
+    }else{
+        
     }
 
     [header addClickHandler:^(PersonalLogonHeaderClick click) {

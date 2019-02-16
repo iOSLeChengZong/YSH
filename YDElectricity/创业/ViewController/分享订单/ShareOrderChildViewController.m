@@ -25,7 +25,6 @@
 -(UICollectionView *)shareOrderCollectionV{
     if (!_shareOrderCollectionV) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        NSLog(@"collectionViewY%lf",self.collectionViewY);
         _shareOrderCollectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0,self.view.width,self.view.height - self.collectionViewY) collectionViewLayout:layout];
         _shareOrderCollectionV.backgroundColor = kViewBGColor;
         

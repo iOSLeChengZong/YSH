@@ -21,8 +21,8 @@ YDSingletonH(UserIdendityModel)
 
 @interface UserIdendityInfoInfo : NSObject<YYModel>
 @property (nonatomic, strong) NSString * addTime;
-@property (nonatomic, strong) NSObject * area;
-@property (nonatomic, strong) NSObject * birthDay;
+@property (nonatomic, strong) NSString * area;
+@property (nonatomic, strong) NSString * birthDay;
 @property (nonatomic, assign) NSInteger gold;
 @property (nonatomic, assign) NSInteger gradeId;
 @property (nonatomic, assign) NSInteger growth;

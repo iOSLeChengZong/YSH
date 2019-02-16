@@ -162,6 +162,16 @@ static CGFloat const titieViewEdige = 9;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+//分享说明
+- (IBAction)shareDeclare:(id)sender {
+    NSString *str = @"1.待结算资金,指分享商品已完成交易订单(累计7天) 所产生的佣金;2.每个月的1号系统自动结算资金,结算后的资金将划入到可用余额内";
+    YDAlertView *alertView = [[YDAlertView alloc] initWithFrame:kAlertRect withTitle:@"说明" alertMessage:str confrimBolck:^{
+        
+    } cancelBlock:^{
+        
+    }];
+    [alertView show];
+}
 
 
 //2、找出底部横线的函数

@@ -137,16 +137,38 @@
             for (AddressDataModel *model in self.addrDataSrc) {
                 model.defaultStr = @"";
             }
+            
             [self.addrDataSrc insertObject:dataModel atIndex:0];
         }else{
            [self.addrDataSrc addObject:dataModel];
         }
-        
-        
-        
+ 
     }else{
         //编辑地址
-        [self.addrDataSrc replaceObjectAtIndex:self.curEditIndex withObject:dataModel];
+        if ([dataModel.defaultStr isEqualToString:@"默认"]) {
+            AddressDataModel *mod = [[AddressDataModel alloc] init];
+            mod.name = dataModel.name;
+            mod.telphone = dataModel.telphone;
+            mod.postCode = dataModel.postCode;
+            mod.detailAddr = dataModel.detailAddr;
+            mod.areaStr = dataModel.areaStr;
+            mod.defaultStr = dataModel.defaultStr;
+            
+            [self.addrDataSrc insertObject:mod atIndex:0];
+            [self.addrDataSrc removeObject:dataModel];
+            
+            for (int i = 1; i < self.addrDataSrc.count; ++i) {
+                if ([self.addrDataSrc[i].defaultStr isEqualToString:@"默认"]) {
+                    self.addrDataSrc[i].defaultStr = @"";
+                    break;
+                }
+            }
+        
+        }else{
+            [self.addrDataSrc replaceObjectAtIndex:self.curEditIndex withObject:dataModel];
+        }
+    
+        
     }
     
     

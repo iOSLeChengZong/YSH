@@ -15,6 +15,36 @@
 @property(nonatomic,strong)VefifyRegisterViewModel *registerViewModel;
 @property(nonatomic,strong)NSString *userWxID;
 @property(nonatomic,strong)NSString *userPhonNum;
+
+//1.App标识约束
+//宽
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *productIdentifierImageWidthC;
+//高
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *productIdentifierImageHeightC;
+
+//bottom
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *productIdentifierImageBottomC;
+
+//2.微信登陆约束
+//宽
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weiChatBtnWidthC;
+
+//高
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weiChatBtnHeightC;
+
+//bottom
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weiChatBtnBottomC;
+
+//3.游客模式约束
+//宽
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorBtnWidthC;
+
+//高
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorBtnHeightC;
+
+//bottom
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorBtnBottomc;
+
 @end
 
 @implementation LoginViewController
@@ -27,11 +57,16 @@
     return _registerViewModel;
 }
 
+#pragma mark -- 生命周期
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    //屏幕适配
+    [self LoginViewControllerScreenFit];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     //获取用户数据
     [self readNSUserDefaults];
-    
     
     
 //    //将上述数据全部存储到NSUserDefaults中
@@ -71,47 +106,35 @@
 
 -(void)requestRegisterState:(id)sender{
     WK(weakSelf)
-    if (self.userWxID.length > 0 && self.userPhonNum.length > 0) {
+    if (self.userWxID.length > 0 || self.userPhonNum.length > 0) {//本地保存了WxID直接请求登陆
         [self.registerViewModel requestLoginWithParameter:self.userWxID phoneNum:self.userPhonNum completionHandler:^(NSError * _Nonnull error) {
             if (!error) {
                 //保存数据
                 [YDUserInfo sharedYDUserInfo].userWxOpenID = weakSelf.registerViewModel.wxOpenID;
                 [YDUserInfo sharedYDUserInfo].phoneNumber = weakSelf.registerViewModel.phoneNum;
                 [self saveNSUserDefaults];
-                [weakSelf OnVisitorBtnClick:sender];
+//                [weakSelf OnVisitorBtnClick:sender];
+                //请求登陆
+                [self requestLogin];
+                
             }
         }];
         
     }else{
-        [self.registerViewModel getUserRegisterStateWithParameter:@"fd56fd126d7eae0e41f74c895394155e" completionHandler:^(NSError * _Nonnull error) {
+        [self.registerViewModel getUserRegisterStateWithParameter:[self timeStr]/*@"fd56fd126d7eae0e41f74c895394155e"*/ completionHandler:^(NSError * _Nonnull error) {
             if (!error) {
                 if ([weakSelf.registerViewModel.codeState isEqualToString:@"3"]) {//用户不存在
-                    NSLog(@"跳  填写号码界面%@",weakSelf.registerViewModel.codeState);
+                    NSLog(@"跳填写号码界面%@",weakSelf.registerViewModel.codeState);
                     [YDUserInfo sharedYDUserInfo].login = NO;
-                    [YDUserInfo sharedYDUserInfo].userWxOpenID = @"fd56fd126d7eae0e41f74c895394155e";
+                    [YDUserInfo sharedYDUserInfo].userWxOpenID = [self timeStr]/*@"fd56fd126d7eae0e41f74c895394155e"*/;
+        
                     [self performSegueWithIdentifier:kPhoneNumSegue sender:nil];
                 }
-                if ([weakSelf.registerViewModel.codeState isEqualToString:@"2"]) {//用户已存在直接调用登陆接口
+                else if ([weakSelf.registerViewModel.codeState isEqualToString:@"2"]) {//用户已存在直接调用登陆接口
                     [YDUserInfo sharedYDUserInfo].login = NO;
-                    [YDUserInfo sharedYDUserInfo].userWxOpenID = @"fd56fd126d7eae0e41f74c895394155e";
-                    
-                    [[YDUserInfo sharedYDUserInfo] requestLoginCompletionHandler:^(VerifyRegisterModel * _Nonnull model, NSError * _Nonnull error) {
-                        if (!error && [model.code isEqualToString:@"1"]){
-                            //保存token 保存 id
-                            [YDUserInfo sharedYDUserInfo].userToken = model.rows1.token;
-                            [YDUserInfo sharedYDUserInfo].userID = model.rows1.userInfo.ID;
-                            [self saveNSUserDefaults];
-                            [self.view showWarning:@"登陆成功"];
-                            [YDUserInfo sharedYDUserInfo].login = YES;
-                            [self saveNSUserDefaults];
-                            //跳转界面;
-                            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                            UITabBarController *tabVC = [storyboard instantiateViewControllerWithIdentifier:kMain];
-                            [[[UIApplication sharedApplication] delegate] window].rootViewController = tabVC;
-                        }else{
-                            [self.view showWarning:@"登陆失败"];
-                        }
-                    }];
+                    [YDUserInfo sharedYDUserInfo].userWxOpenID = [self.registerViewModel wxOpenID]/*@"fd56fd126d7eae0e41f74c895394155e"*/;
+                    //请求登陆
+                    [self requestLogin];
                     
                     
                 }
@@ -141,7 +164,6 @@
     [userDefaults synchronize];
     
     
-    
 }
 
 
@@ -156,7 +178,58 @@
 }
 
 -(void)requestLogin{
-    
+    [[YDUserInfo sharedYDUserInfo] requestLoginCompletionHandler:^(VerifyRegisterModel * _Nonnull model, NSError * _Nonnull error) {
+        if (!error && [model.code isEqualToString:@"1"]){
+            //保存token 保存 id
+            [YDUserInfo sharedYDUserInfo].userToken = model.rows1.token;
+            [YDUserInfo sharedYDUserInfo].userID = model.rows1.userInfo.ID;
+            [self saveNSUserDefaults];
+            [self.view showWarning:@"登陆成功"];
+            [YDUserInfo sharedYDUserInfo].login = YES;
+            [self saveNSUserDefaults];
+            //跳转界面;
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UITabBarController *tabVC = [storyboard instantiateViewControllerWithIdentifier:kMain];
+            [[[UIApplication sharedApplication] delegate] window].rootViewController = tabVC;
+        }else{
+            [self.view showWarning:@"请检查手机号码或微信号不存在"];
+        }
+    }];
+}
+
+-(NSString *)timeStr{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    return [formatter stringFromDate: [NSDate date]];
+}
+
+
+//屏幕适配
+-(void)LoginViewControllerScreenFit{
+    [self visitorBtnBottomc];
+    [self weiChatBtnScreenFit];
+    [self productIdentifierImageScreenFit];
+}
+
+//1.游客模式
+-(void)visitorBtnScreenFit{
+    self.visitorBtnWidthC.constant *= kWidthScall;
+    self.visitorBtnHeightC.constant *= kWidthScall;
+    self.visitorBtnBottomc.constant *= kWidthScall;
+}
+
+//2.微信登陆
+-(void)weiChatBtnScreenFit{
+    self.weiChatBtnWidthC.constant *= kWidthScall;
+    self.weiChatBtnHeightC.constant *= kWidthScall;
+    self.weiChatBtnBottomC.constant *= kWidthScall;
+}
+
+//3.产品标识
+-(void)productIdentifierImageScreenFit{
+    self.productIdentifierImageWidthC.constant *= kWidthScall;
+    self.productIdentifierImageHeightC.constant *= kWidthScall;
+    self.productIdentifierImageBottomC.constant *= kWidthScall;
 }
 
 /*

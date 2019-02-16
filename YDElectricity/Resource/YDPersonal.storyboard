@@ -225,7 +225,7 @@
         <!--服务中心-->
         <scene sceneID="zyo-Tp-yhw">
             <objects>
-                <viewController id="4x7-pr-r3v" customClass="ServerCenterViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ServerCenterViewController" id="4x7-pr-r3v" customClass="ServerCenterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xEZ-2R-cco"/>
                         <viewControllerLayoutGuide type="bottom" id="nZB-j7-rGP"/>
@@ -237,7 +237,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdX-Ez-Nt4">
                                 <rect key="frame" x="25" y="83" width="325" height="139"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_p_服务中心banner" translatesAutoresizingMaskIntoConstraints="NO" id="9Vm-Gd-PEa">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_p_服务中心banner" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Vm-Gd-PEa">
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="139"/>
                                     </imageView>
                                 </subviews>

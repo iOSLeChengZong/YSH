@@ -47,6 +47,7 @@
 		542C5E3A21CA14F900EA0003 /* HomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C5E3921CA14F900EA0003 /* HomeViewModel.m */; };
 		542F8DB721C8891100371620 /* CategoryLeftViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 542F8DB621C8891100371620 /* CategoryLeftViewModel.m */; };
 		542F8DBA21C8991800371620 /* CategoryRightMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 542F8DB921C8991800371620 /* CategoryRightMenuModel.m */; };
+		54346C0022179D480053A126 /* GrowthRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54346BFF22179D480053A126 /* GrowthRecordViewController.m */; };
 		5440BAF221ACD7E50015C8F7 /* MJStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5440BAF121ACD7E50015C8F7 /* MJStudent.m */; };
 		5440BAF521ACD8070015C8F7 /* MJBag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5440BAF421ACD8070015C8F7 /* MJBag.m */; };
 		5442871121CC78E80022C5EA /* InHomeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5442870F21CC78E70022C5EA /* InHomeHeaderCell.m */; };
@@ -146,7 +147,6 @@
 		544DD4A321C3C7660052D469 /* IdentityDefaultReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DD4A121C3C7660052D469 /* IdentityDefaultReusableView.m */; };
 		544DD4A421C3C7660052D469 /* IdentityDefaultReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 544DD4A221C3C7660052D469 /* IdentityDefaultReusableView.xib */; };
 		544DD4A821C3C9C70052D469 /* IdentityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 544DD4A621C3C9C70052D469 /* IdentityCell.m */; };
-		544DD4A921C3C9C70052D469 /* IdentityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 544DD4A721C3C9C70052D469 /* IdentityCell.xib */; };
 		5452FB1A21B6134A00137441 /* YDPopTopOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5452FB1921B6134A00137441 /* YDPopTopOutView.m */; };
 		5452FB2421B6786600137441 /* h3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5452FB1B21B6786400137441 /* h3.jpg */; };
 		5452FB2521B6786600137441 /* pageControlDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5452FB1C21B6786500137441 /* pageControlDot@2x.png */; };
@@ -192,6 +192,11 @@
 		549A663621B8D3340059EE89 /* UIBarButtonItem+PPBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A663121B8D3330059EE89 /* UIBarButtonItem+PPBadgeView.m */; };
 		549A663A21B90A0B0059EE89 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A663921B90A0B0059EE89 /* Person.m */; };
 		549BDB0D21C8CB060001F3EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549BDB0C21C8CB060001F3EA /* LoginViewController.m */; };
+		549CC4E522156BC8003D1A87 /* CashRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CC4E422156BC8003D1A87 /* CashRecordViewController.m */; };
+		549CC4EA22156C11003D1A87 /* CashRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CC4E822156C11003D1A87 /* CashRecordCell.m */; };
+		549CC4EB22156C11003D1A87 /* CashRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549CC4E922156C11003D1A87 /* CashRecordCell.xib */; };
+		549CC4EF22157CF3003D1A87 /* CashRecordHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CC4ED22157CF3003D1A87 /* CashRecordHeader.m */; };
+		549CC4F022157CF3003D1A87 /* CashRecordHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549CC4EE22157CF3003D1A87 /* CashRecordHeader.xib */; };
 		549EF9E321BF4A3700461469 /* citydata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 549EF9E221BF4A3700461469 /* citydata.plist */; };
 		549EF9E721BF4BA500461469 /* CityDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EF9E621BF4BA500461469 /* CityDataModel.m */; };
 		549EF9EA21BF521800461469 /* PlistDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EF9E921BF521800461469 /* PlistDataManager.m */; };
@@ -271,6 +276,14 @@
 		54ACBC8D21E4341F006FA462 /* VerifyRegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ACBC8C21E4341F006FA462 /* VerifyRegisterModel.m */; };
 		54ACBC9121E434CD006FA462 /* VefifyRegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ACBC9021E434CD006FA462 /* VefifyRegisterViewModel.m */; };
 		54ACBC9521E46E95006FA462 /* YDUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ACBC9421E46E95006FA462 /* YDUserInfo.m */; };
+		54ACC2B922168F39005640F4 /* IdentityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54ACC2B822168F39005640F4 /* IdentityCell.xib */; };
+		54ACC2BD22169115005640F4 /* MyPrerogativeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ACC2BC22169115005640F4 /* MyPrerogativeModel.m */; };
+		54ACC2C12216BB1E005640F4 /* TaskCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ACC2C02216BB1E005640F4 /* TaskCenterController.m */; };
+		54ACC2C62216BD6A005640F4 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ACC2C42216BD6A005640F4 /* TaskCell.m */; };
+		54ACC2C72216BD6A005640F4 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54ACC2C52216BD6A005640F4 /* TaskCell.xib */; };
+		54ACC2CD2216D4FA005640F4 /* CashDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ACC2CB2216D4FA005640F4 /* CashDetailHeader.m */; };
+		54ACC2CE2216D4FA005640F4 /* CashDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54ACC2CC2216D4FA005640F4 /* CashDetailHeader.xib */; };
+		54ACC2D12216E02C005640F4 /* CashDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ACC2D02216E02C005640F4 /* CashDetailViewController.m */; };
 		54AD34A921AE863D004FAEF5 /* YDIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AD34A821AE863D004FAEF5 /* YDIntroViewController.m */; };
 		54AD34B021AE9DF9004FAEF5 /* YDIntroSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AD34AF21AE9DF9004FAEF5 /* YDIntroSectionHeaderView.m */; };
 		54AD7C5021C335F00054D34A /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AD7C4F21C335F00054D34A /* CategoryModel.m */; };
@@ -433,6 +446,8 @@
 		542F8DB621C8891100371620 /* CategoryLeftViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryLeftViewModel.m; sourceTree = "<group>"; };
 		542F8DB821C8991800371620 /* CategoryRightMenuModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryRightMenuModel.h; sourceTree = "<group>"; };
 		542F8DB921C8991800371620 /* CategoryRightMenuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryRightMenuModel.m; sourceTree = "<group>"; };
+		54346BFE22179D480053A126 /* GrowthRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GrowthRecordViewController.h; sourceTree = "<group>"; };
+		54346BFF22179D480053A126 /* GrowthRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrowthRecordViewController.m; sourceTree = "<group>"; };
 		5440BAF021ACD7E50015C8F7 /* MJStudent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJStudent.h; sourceTree = "<group>"; };
 		5440BAF121ACD7E50015C8F7 /* MJStudent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJStudent.m; sourceTree = "<group>"; };
 		5440BAF321ACD8070015C8F7 /* MJBag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJBag.h; sourceTree = "<group>"; };
@@ -552,7 +567,6 @@
 		544DD4A221C3C7660052D469 /* IdentityDefaultReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdentityDefaultReusableView.xib; sourceTree = "<group>"; };
 		544DD4A521C3C9C70052D469 /* IdentityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentityCell.h; sourceTree = "<group>"; };
 		544DD4A621C3C9C70052D469 /* IdentityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdentityCell.m; sourceTree = "<group>"; };
-		544DD4A721C3C9C70052D469 /* IdentityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdentityCell.xib; sourceTree = "<group>"; };
 		5452FB1821B6134A00137441 /* YDPopTopOutView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDPopTopOutView.h; sourceTree = "<group>"; };
 		5452FB1921B6134A00137441 /* YDPopTopOutView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDPopTopOutView.m; sourceTree = "<group>"; };
 		5452FB1B21B6786400137441 /* h3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = h3.jpg; sourceTree = "<group>"; };
@@ -628,6 +642,14 @@
 		549A663921B90A0B0059EE89 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		549BDB0B21C8CB060001F3EA /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		549BDB0C21C8CB060001F3EA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		549CC4E322156BC8003D1A87 /* CashRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashRecordViewController.h; sourceTree = "<group>"; };
+		549CC4E422156BC8003D1A87 /* CashRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashRecordViewController.m; sourceTree = "<group>"; };
+		549CC4E722156C11003D1A87 /* CashRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashRecordCell.h; sourceTree = "<group>"; };
+		549CC4E822156C11003D1A87 /* CashRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashRecordCell.m; sourceTree = "<group>"; };
+		549CC4E922156C11003D1A87 /* CashRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CashRecordCell.xib; sourceTree = "<group>"; };
+		549CC4EC22157CF3003D1A87 /* CashRecordHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashRecordHeader.h; sourceTree = "<group>"; };
+		549CC4ED22157CF3003D1A87 /* CashRecordHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashRecordHeader.m; sourceTree = "<group>"; };
+		549CC4EE22157CF3003D1A87 /* CashRecordHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CashRecordHeader.xib; sourceTree = "<group>"; };
 		549EF9E221BF4A3700461469 /* citydata.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydata.plist; sourceTree = "<group>"; };
 		549EF9E521BF4BA500461469 /* CityDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityDataModel.h; sourceTree = "<group>"; };
 		549EF9E621BF4BA500461469 /* CityDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityDataModel.m; sourceTree = "<group>"; };
@@ -763,6 +785,19 @@
 		54ACBC9221E46E04006FA462 /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		54ACBC9321E46E95006FA462 /* YDUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDUserInfo.h; sourceTree = "<group>"; };
 		54ACBC9421E46E95006FA462 /* YDUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDUserInfo.m; sourceTree = "<group>"; };
+		54ACC2B822168F39005640F4 /* IdentityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdentityCell.xib; sourceTree = "<group>"; };
+		54ACC2BB22169115005640F4 /* MyPrerogativeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPrerogativeModel.h; sourceTree = "<group>"; };
+		54ACC2BC22169115005640F4 /* MyPrerogativeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPrerogativeModel.m; sourceTree = "<group>"; };
+		54ACC2BF2216BB1E005640F4 /* TaskCenterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskCenterController.h; sourceTree = "<group>"; };
+		54ACC2C02216BB1E005640F4 /* TaskCenterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskCenterController.m; sourceTree = "<group>"; };
+		54ACC2C32216BD6A005640F4 /* TaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
+		54ACC2C42216BD6A005640F4 /* TaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskCell.m; sourceTree = "<group>"; };
+		54ACC2C52216BD6A005640F4 /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
+		54ACC2CA2216D4FA005640F4 /* CashDetailHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashDetailHeader.h; sourceTree = "<group>"; };
+		54ACC2CB2216D4FA005640F4 /* CashDetailHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashDetailHeader.m; sourceTree = "<group>"; };
+		54ACC2CC2216D4FA005640F4 /* CashDetailHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CashDetailHeader.xib; sourceTree = "<group>"; };
+		54ACC2CF2216E02C005640F4 /* CashDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashDetailViewController.h; sourceTree = "<group>"; };
+		54ACC2D02216E02C005640F4 /* CashDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashDetailViewController.m; sourceTree = "<group>"; };
 		54AD34A721AE863D004FAEF5 /* YDIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDIntroViewController.h; sourceTree = "<group>"; };
 		54AD34A821AE863D004FAEF5 /* YDIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDIntroViewController.m; sourceTree = "<group>"; };
 		54AD34AE21AE9DF9004FAEF5 /* YDIntroSectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDIntroSectionHeaderView.h; sourceTree = "<group>"; };
@@ -1075,6 +1110,15 @@
 				542C5E3521C9F4A300EA0003 /* HomeGoodModel.m */,
 			);
 			name = Homegoods;
+			sourceTree = "<group>";
+		};
+		54346BFD22179CA80053A126 /* 成长值记录 */ = {
+			isa = PBXGroup;
+			children = (
+				54346BFE22179D480053A126 /* GrowthRecordViewController.h */,
+				54346BFF22179D480053A126 /* GrowthRecordViewController.m */,
+			);
+			path = "成长值记录";
 			sourceTree = "<group>";
 		};
 		544CDC7021E6DDDE00A7DD01 /* 系统消息 */ = {
@@ -1507,13 +1551,15 @@
 		5472809821C0DEC6009A75E8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				54ACC2C82216D43B005640F4 /* 资金明细 */,
+				54ACC2BE2216B206005640F4 /* 任务中心 */,
+				54ACC2B62216704B005640F4 /* 我的身份 */,
+				549CC4E222156ABF003D1A87 /* 提现记录 */,
 				54B4603F21ECBAD40040633B /* 邀请明细 */,
 				54B4603E21EC96A40040633B /* 团队成员 */,
 				54B4602C21EC6B9E0040633B /* 推荐邀请 */,
 				54B4602821EC66180040633B /* 创业 */,
 				54B4602121EC39D20040633B /* 分享订单 */,
-				544DD49821C3C0D20052D469 /* MyIdentifyViewController.h */,
-				544DD49921C3C0D20052D469 /* MyIdentifyViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1521,6 +1567,7 @@
 		5472809921C0DEC6009A75E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54ACC2BA221690E8005640F4 /* 我的身份 */,
 				5464428921F6A25A0093FDAC /* 用户资金 */,
 				54D0D92D21F5D28100225C02 /* 邀请记录 */,
 				54D0D92321F5D1F800225C02 /* 团队成员 */,
@@ -1531,17 +1578,12 @@
 		5472809A21C0DEC6009A75E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				54ACC2C92216D4C8005640F4 /* 资金明细 */,
+				54ACC2C22216BD15005640F4 /* 任务中心 */,
+				54ACC2B72216706F005640F4 /* 我的身份 */,
+				549CC4E622156BE7003D1A87 /* 提现记录 */,
 				54B4604621ECBC4C0040633B /* 邀请明细 */,
 				54B4603021EC6EE90040633B /* 分享订单 */,
-				544DD49B21C3C7450052D469 /* IdentityTopReusableView.h */,
-				544DD49C21C3C7450052D469 /* IdentityTopReusableView.m */,
-				544DD49D21C3C7450052D469 /* IdentityTopReusableView.xib */,
-				544DD4A021C3C7660052D469 /* IdentityDefaultReusableView.h */,
-				544DD4A121C3C7660052D469 /* IdentityDefaultReusableView.m */,
-				544DD4A221C3C7660052D469 /* IdentityDefaultReusableView.xib */,
-				544DD4A521C3C9C70052D469 /* IdentityCell.h */,
-				544DD4A621C3C9C70052D469 /* IdentityCell.m */,
-				544DD4A721C3C9C70052D469 /* IdentityCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1809,6 +1851,28 @@
 				54C68EA521C8E769003CE99E /* ConfirmTeacherViewController.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		549CC4E222156ABF003D1A87 /* 提现记录 */ = {
+			isa = PBXGroup;
+			children = (
+				549CC4E322156BC8003D1A87 /* CashRecordViewController.h */,
+				549CC4E422156BC8003D1A87 /* CashRecordViewController.m */,
+			);
+			path = "提现记录";
+			sourceTree = "<group>";
+		};
+		549CC4E622156BE7003D1A87 /* 提现记录 */ = {
+			isa = PBXGroup;
+			children = (
+				549CC4E722156C11003D1A87 /* CashRecordCell.h */,
+				549CC4E822156C11003D1A87 /* CashRecordCell.m */,
+				549CC4E922156C11003D1A87 /* CashRecordCell.xib */,
+				549CC4EC22157CF3003D1A87 /* CashRecordHeader.h */,
+				549CC4ED22157CF3003D1A87 /* CashRecordHeader.m */,
+				549CC4EE22157CF3003D1A87 /* CashRecordHeader.xib */,
+			);
+			path = "提现记录";
 			sourceTree = "<group>";
 		};
 		549EF9DF21BF496C00461469 /* PList */ = {
@@ -2191,6 +2255,79 @@
 				54ACBC9021E434CD006FA462 /* VefifyRegisterViewModel.m */,
 			);
 			path = LoginViewModel;
+			sourceTree = "<group>";
+		};
+		54ACC2B62216704B005640F4 /* 我的身份 */ = {
+			isa = PBXGroup;
+			children = (
+				544DD49821C3C0D20052D469 /* MyIdentifyViewController.h */,
+				544DD49921C3C0D20052D469 /* MyIdentifyViewController.m */,
+			);
+			path = "我的身份";
+			sourceTree = "<group>";
+		};
+		54ACC2B72216706F005640F4 /* 我的身份 */ = {
+			isa = PBXGroup;
+			children = (
+				544DD49B21C3C7450052D469 /* IdentityTopReusableView.h */,
+				544DD49C21C3C7450052D469 /* IdentityTopReusableView.m */,
+				544DD49D21C3C7450052D469 /* IdentityTopReusableView.xib */,
+				544DD4A021C3C7660052D469 /* IdentityDefaultReusableView.h */,
+				544DD4A121C3C7660052D469 /* IdentityDefaultReusableView.m */,
+				544DD4A221C3C7660052D469 /* IdentityDefaultReusableView.xib */,
+				544DD4A521C3C9C70052D469 /* IdentityCell.h */,
+				544DD4A621C3C9C70052D469 /* IdentityCell.m */,
+				54ACC2B822168F39005640F4 /* IdentityCell.xib */,
+			);
+			path = "我的身份";
+			sourceTree = "<group>";
+		};
+		54ACC2BA221690E8005640F4 /* 我的身份 */ = {
+			isa = PBXGroup;
+			children = (
+				54ACC2BB22169115005640F4 /* MyPrerogativeModel.h */,
+				54ACC2BC22169115005640F4 /* MyPrerogativeModel.m */,
+			);
+			name = "我的身份";
+			sourceTree = "<group>";
+		};
+		54ACC2BE2216B206005640F4 /* 任务中心 */ = {
+			isa = PBXGroup;
+			children = (
+				54346BFD22179CA80053A126 /* 成长值记录 */,
+				54ACC2BF2216BB1E005640F4 /* TaskCenterController.h */,
+				54ACC2C02216BB1E005640F4 /* TaskCenterController.m */,
+			);
+			path = "任务中心";
+			sourceTree = "<group>";
+		};
+		54ACC2C22216BD15005640F4 /* 任务中心 */ = {
+			isa = PBXGroup;
+			children = (
+				54ACC2C32216BD6A005640F4 /* TaskCell.h */,
+				54ACC2C42216BD6A005640F4 /* TaskCell.m */,
+				54ACC2C52216BD6A005640F4 /* TaskCell.xib */,
+			);
+			path = "任务中心";
+			sourceTree = "<group>";
+		};
+		54ACC2C82216D43B005640F4 /* 资金明细 */ = {
+			isa = PBXGroup;
+			children = (
+				54ACC2CF2216E02C005640F4 /* CashDetailViewController.h */,
+				54ACC2D02216E02C005640F4 /* CashDetailViewController.m */,
+			);
+			path = "资金明细";
+			sourceTree = "<group>";
+		};
+		54ACC2C92216D4C8005640F4 /* 资金明细 */ = {
+			isa = PBXGroup;
+			children = (
+				54ACC2CA2216D4FA005640F4 /* CashDetailHeader.h */,
+				54ACC2CB2216D4FA005640F4 /* CashDetailHeader.m */,
+				54ACC2CC2216D4FA005640F4 /* CashDetailHeader.xib */,
+			);
+			path = "资金明细";
 			sourceTree = "<group>";
 		};
 		54AD34AA21AE9D99004FAEF5 /* 推荐 */ = {
@@ -2626,6 +2763,7 @@
 				544DD48921C38B6C0052D469 /* guide_1334x750_frame1.jpg in Resources */,
 				544DD47521C38B6C0052D469 /* 542a6b44Nb24c2e00.jpg in Resources */,
 				544DD44A21C38B6C0052D469 /* IMG_2206.PNG in Resources */,
+				54ACC2C72216BD6A005640F4 /* TaskCell.xib in Resources */,
 				5421091821C20FBF00CCA43C /* CollectionHeader.xib in Resources */,
 				544DD44521C38B6C0052D469 /* 542a6bdcNcea64610.jpg in Resources */,
 				544A5B8C21C4FF3B008B9BEB /* Login.storyboard in Resources */,
@@ -2663,7 +2801,6 @@
 				54A5047321B7C6A000984537 /* YDLogInViewController.xib in Resources */,
 				544DD45E21C38B6C0052D469 /* 544dfedfNbfc0f1de.jpg in Resources */,
 				54F1FA9321AF7314004460D0 /* YDIntroHeaderCell.xib in Resources */,
-				544DD4A921C3C9C70052D469 /* IdentityCell.xib in Resources */,
 				544DD48321C38B6C0052D469 /* MENU_0_0_10.PNG in Resources */,
 				544DD49F21C3C7450052D469 /* IdentityTopReusableView.xib in Resources */,
 				54AB39D821D8B9D600D40606 /* TeacherNoneWelfareCell.xib in Resources */,
@@ -2701,6 +2838,7 @@
 				544DD47421C38B6C0052D469 /* h3.jpg in Resources */,
 				54AB39B821D85E1900D40606 /* PersonalLogonHeader.xib in Resources */,
 				544DD45321C38B6C0052D469 /* 544a19baNacd804c8.jpg in Resources */,
+				54ACC2B922168F39005640F4 /* IdentityCell.xib in Resources */,
 				544DD45121C38B6C0052D469 /* MENU_0_0_11.PNG in Resources */,
 				54B4605021ECBCE10040633B /* InviteDetailCell.xib in Resources */,
 				544DD44921C38B6C0052D469 /* 542a6bbaN6518d78e.jpg in Resources */,
@@ -2711,10 +2849,12 @@
 				54AF6FE721BB6E7200E264EB /* YDPersonal.storyboard in Resources */,
 				54B4603D21EC72460040633B /* ShareOrderHeadreView.xib in Resources */,
 				542108F921C1E96500CCA43C /* HomeProductCell.xib in Resources */,
+				549CC4F022157CF3003D1A87 /* CashRecordHeader.xib in Resources */,
 				544DD45021C38B6C0052D469 /* MENU_0_0_0.PNG in Resources */,
 				544DD48221C38B6C0052D469 /* MENU_0_0_8.PNG in Resources */,
 				5421091921C20FBF00CCA43C /* CommodityTableViewCell.xib in Resources */,
 				54A5B0D721D3155E00F3CA27 /* DetailInfoCell.xib in Resources */,
+				549CC4EB22156C11003D1A87 /* CashRecordCell.xib in Resources */,
 				5452FB2921B6786600137441 /* h2.jpg in Resources */,
 				5452FB2821B6786600137441 /* pageControlDot@3x.png in Resources */,
 				544DD44C21C38B6C0052D469 /* 542a6bacNfae97760.jpg in Resources */,
@@ -2722,6 +2862,7 @@
 				544DD47D21C38B6C0052D469 /* cell_05.PNG in Resources */,
 				544DD45421C38B6C0052D469 /* cell_06.PNG in Resources */,
 				544DD47F21C38B6C0052D469 /* 542a6aa0Nd4193d5d.jpg in Resources */,
+				54ACC2CE2216D4FA005640F4 /* CashDetailHeader.xib in Resources */,
 				54A4690421E9D12B00109636 /* IdeaResponseCell.xib in Resources */,
 				544DD4A421C3C7660052D469 /* IdentityDefaultReusableView.xib in Resources */,
 				54ED83AB21DC946E00EB5488 /* SystemMessage.xib in Resources */,
@@ -2920,7 +3061,9 @@
 				5470579A21ABD9DD0087E4BD /* NSObject+AFNetworking.m in Sources */,
 				54D0D91621F55EAF00225C02 /* TXAdapter.m in Sources */,
 				54AB39DB21D8BC3E00D40606 /* MyTeacherViewController.m in Sources */,
+				54ACC2BD22169115005640F4 /* MyPrerogativeModel.m in Sources */,
 				54A4699521E9EC6C00109636 /* UIViewController+DNImagePicker.m in Sources */,
+				54ACC2C62216BD6A005640F4 /* TaskCell.m in Sources */,
 				54DCA9D621EF014000F72E87 /* EditorAddressViewController.m in Sources */,
 				54CF9A1E21BA453900E9142F /* menuTableViewController.m in Sources */,
 				54213D0B21F0189A002D5822 /* SecondSkillColumnViewModel.m in Sources */,
@@ -2929,12 +3072,14 @@
 				5472808521C0BAF8009A75E8 /* UIBarButtonItem+ButtonToBarButtonItem.m in Sources */,
 				54A469A121E9EC6C00109636 /* DNSendButton.m in Sources */,
 				544CDC9121E740E000A7DD01 /* UIButton+MJCClassExtension.m in Sources */,
+				54ACC2CD2216D4FA005640F4 /* CashDetailHeader.m in Sources */,
 				54A4698F21E9EC6C00109636 /* DNAsset.m in Sources */,
 				54B4603C21EC72460040633B /* ShareOrderHeadreView.m in Sources */,
 				54ABD59821E8BA8600B54F7E /* ServerCenterViewController.m in Sources */,
 				544CDC7321E6DE0300A7DD01 /* UserMessageModel.m in Sources */,
 				54D2039C21AE378D00E18819 /* HomeViewController.m in Sources */,
 				54ED83B421DCA29500EB5488 /* PersonalEditorDataViewController.m in Sources */,
+				549CC4E522156BC8003D1A87 /* CashRecordViewController.m in Sources */,
 				54AB39C321D86E7200D40606 /* PersonalViewController.m in Sources */,
 				54B4602721EC3E870040633B /* ShareOrderChildViewController.m in Sources */,
 				54FD259121AD3B370082FE3A /* Factory.m in Sources */,
@@ -2942,6 +3087,7 @@
 				5470579D21ABE5500087E4BD /* YDNetManager.m in Sources */,
 				544CDC9721E740E000A7DD01 /* MJCSegmentInterface.m in Sources */,
 				54239DD721DDBA8400E12690 /* MenuButton.m in Sources */,
+				549CC4EA22156C11003D1A87 /* CashRecordCell.m in Sources */,
 				54AB39C921D89B7C00D40606 /* MyGoldReusableView.m in Sources */,
 				54BB217621F821D600D6BC65 /* TaoBaoCustomerHTMLVC.m in Sources */,
 				547280B821C11313009A75E8 /* HomeSectionHeaderView.m in Sources */,
@@ -2956,9 +3102,13 @@
 				54ACBC9121E434CD006FA462 /* VefifyRegisterViewModel.m in Sources */,
 				544CDC9521E740E000A7DD01 /* MJCTitlesView.m in Sources */,
 				5464429621F6A5710093FDAC /* UserMoneyViewModel.m in Sources */,
+				54346C0022179D480053A126 /* GrowthRecordViewController.m in Sources */,
+				54ACC2C12216BB1E005640F4 /* TaskCenterController.m in Sources */,
 				549A663A21B90A0B0059EE89 /* Person.m in Sources */,
 				54C11F8221E2DB67004AE0DC /* ShareViewController.m in Sources */,
+				54ACC2D12216E02C005640F4 /* CashDetailViewController.m in Sources */,
 				54D0D91021F55EA700225C02 /* UILabel+Fit.m in Sources */,
+				549CC4EF22157CF3003D1A87 /* CashRecordHeader.m in Sources */,
 				54ACBC9521E46E95006FA462 /* YDUserInfo.m in Sources */,
 				54C6F03621AB87B200679607 /* main.m in Sources */,
 				54AD7C5321C33BEC0054D34A /* CategoryViewModel.m in Sources */,

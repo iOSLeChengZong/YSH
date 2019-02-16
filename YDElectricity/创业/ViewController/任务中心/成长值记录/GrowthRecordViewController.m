@@ -1,54 +1,36 @@
 //
-//  MyGoldViewController.m
+//  GrowthRecordViewController.m
 //  YDElectricity
 //
-//  Created by 元典 on 2018/12/30.
-//  Copyright © 2018 yuandian. All rights reserved.
+//  Created by 元典 on 2019/2/16.
+//  Copyright © 2019 yuandian. All rights reserved.
 //
 
-#import "MyGoldViewController.h"
-#import "MyGoldReusableView.h"
+#import "GrowthRecordViewController.h"
 #import "GoldTaskCollectionViewCell.h"
+#import "CashRecordHeader.h"
 
-#define kMyGoldReusableView @"MyGoldReusableView"
 #define kGoldTaskCollectionViewCell @"GoldTaskCollectionViewCell"
+#define kCashRecordHeader @"CashRecordHeader"
 
-
-@interface MyGoldViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-@property (weak, nonatomic) IBOutlet UICollectionView *goldCollectionView;
+@interface GrowthRecordViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@property (weak, nonatomic) IBOutlet UICollectionView *growthRecordCollectionView;
 
 @end
 
-@implementation MyGoldViewController
+@implementation GrowthRecordViewController
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-}
+#pragma mark -- 懒加载
 
--(void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
 
+#pragma mark -- 生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"====%@",self.navigationController.navigationBar.hidden ? @"隐藏":@"没有隐藏");
-    [self goldCollectionViewRegisterCell];
+    //注册cell
+    [self growthRecordVCRegisterCell];
 }
 
-- (IBAction)popVC:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-
-
--(void)goldCollectionViewRegisterCell{
-    [self.goldCollectionView registerNib:[UINib nibWithNibName:kMyGoldReusableView bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kMyGoldReusableView];
-    [self.goldCollectionView registerNib:[UINib nibWithNibName:kGoldTaskCollectionViewCell bundle:nil] forCellWithReuseIdentifier:kGoldTaskCollectionViewCell];
-}
-
-
+#pragma mark -- 代理
 #pragma mark -- UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%@,---%ld",[self class],indexPath.row);
@@ -57,29 +39,25 @@
 
 #pragma mark -- UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    return 20;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    GoldTaskCollectionViewCell *cell = [self.goldCollectionView dequeueReusableCellWithReuseIdentifier:kGoldTaskCollectionViewCell forIndexPath:indexPath];
-//    cell.nameImage.image = [UIImage imageNamed:self.cellImageNames[indexPath.row]];
+    GoldTaskCollectionViewCell *cell = [self.growthRecordCollectionView dequeueReusableCellWithReuseIdentifier:kGoldTaskCollectionViewCell forIndexPath:indexPath];
+    //    cell.nameImage.image = [UIImage imageNamed:self.cellImageNames[indexPath.row]];
     return cell;
 }
 
 
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-
     return 1;
 }
 
 // The view that is returned must be retrieved from a call to -dequeueReusableSupplementaryViewOfKind:withReuseIdentifier:forIndexPath:
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    MyGoldReusableView *header = [self.goldCollectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kMyGoldReusableView forIndexPath:indexPath];
-//    CGRect frame = header.frame;
-//    frame.origin.y -= STATUS_BAR_HEIGHT;
-//    header.frame = frame;
+    CashRecordHeader *header = [self.growthRecordCollectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kCashRecordHeader forIndexPath:indexPath];
     return header;
 }
 
@@ -95,8 +73,18 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    return CGSizeMake(kScreenW, 155*kWidthScall);
+    return CGSizeMake(kScreenW, 15);
 }
+#pragma mark -- 方法
+-(void)growthRecordVCRegisterCell{
+    [_growthRecordCollectionView registerNib:[UINib nibWithNibName:kGoldTaskCollectionViewCell bundle:nil] forCellWithReuseIdentifier:kGoldTaskCollectionViewCell];
+    [_growthRecordCollectionView registerNib:[UINib nibWithNibName:kCashRecordHeader bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kCashRecordHeader];
+}
+
+- (IBAction)growthRecordVCBackBtncClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 /*
 #pragma mark - Navigation
