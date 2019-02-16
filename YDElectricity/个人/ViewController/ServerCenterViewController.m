@@ -8,21 +8,31 @@
 
 #import "ServerCenterViewController.h"
 
+
 @interface ServerCenterViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *serverTableView;
 
 @end
 
 @implementation ServerCenterViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 
+//QQ客服
 - (IBAction)QQServerBtnClck:(id)sender {
 }
 
+//客服热线
 - (IBAction)serverHotLineBtnClick:(id)sender {
+}
+
+//常见问题
+- (IBAction)frequentlyQBtnClick:(id)sender {
+    
 }
 
 

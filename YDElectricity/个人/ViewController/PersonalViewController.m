@@ -17,9 +17,11 @@
 #import "MyOrderViewController.h"
 #import "SystemSettingViewController.h"
 #import "UserIdendityViewModel.h"
+#import "ServerCenterViewController.h"
 
 #define kPersonalLogonHeader @"PersonalLogonHeader"
 #define kPersonCollectionViewCell @"PersonCollectionViewCell"
+#define kServerCenterViewController @"ServerCenterViewController"
 
 
 @interface PersonalViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -88,20 +90,24 @@
         return;
     }
     if (indexPath.row == 0) {//我的金币
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"YDPersonal" bundle:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDPersonal bundle:nil];
         MyGoldViewController *goldVC = [storyboard instantiateViewControllerWithIdentifier:@"MyGoldViewController"];
         [self.navigationController pushViewController:goldVC animated:YES];
     }
     
     else if (indexPath.row == 1)//我的导师
     {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"YDPersonal" bundle:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDPersonal bundle:nil];
         MyTeacherViewController *teacherVC = [storyboard instantiateViewControllerWithIdentifier:@"MyTeacherViewController"];
         [self.navigationController pushViewController:teacherVC animated:YES];
     }
     
     else if (indexPath.row == 2){//服务中心
-        [Factory showWaittingForOpened];
+//        [Factory showWaittingForOpened];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDPersonal bundle:nil];
+        ServerCenterViewController *serveCenterVC = [storyboard instantiateViewControllerWithIdentifier:kServerCenterViewController];
+        [self.navigationController pushViewController:serveCenterVC animated:YES];
+        
     }
     else if (indexPath.row == 3){//邀请有礼
         [Factory showWaittingForOpened];

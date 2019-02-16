@@ -48,6 +48,12 @@
 		542F8DB721C8891100371620 /* CategoryLeftViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 542F8DB621C8891100371620 /* CategoryLeftViewModel.m */; };
 		542F8DBA21C8991800371620 /* CategoryRightMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 542F8DB921C8991800371620 /* CategoryRightMenuModel.m */; };
 		54346C0022179D480053A126 /* GrowthRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54346BFF22179D480053A126 /* GrowthRecordViewController.m */; };
+		54346C0C2217E56D0053A126 /* FrequentlyQHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 54346C0A2217E56D0053A126 /* FrequentlyQHeader.m */; };
+		54346C0D2217E56D0053A126 /* FrequentlyQHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54346C0B2217E56D0053A126 /* FrequentlyQHeader.xib */; };
+		54346C112217E94E0053A126 /* FrequentlyQCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54346C0F2217E94E0053A126 /* FrequentlyQCell.m */; };
+		54346C122217E94E0053A126 /* FrequentlyQCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54346C102217E94E0053A126 /* FrequentlyQCell.xib */; };
+		54346C172217F19E0053A126 /* FreqentlyQModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54346C162217F19E0053A126 /* FreqentlyQModel.m */; };
+		54346C1B2217F2900053A126 /* FreqentlyQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54346C1A2217F2900053A126 /* FreqentlyQViewController.m */; };
 		5440BAF221ACD7E50015C8F7 /* MJStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5440BAF121ACD7E50015C8F7 /* MJStudent.m */; };
 		5440BAF521ACD8070015C8F7 /* MJBag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5440BAF421ACD8070015C8F7 /* MJBag.m */; };
 		5442871121CC78E80022C5EA /* InHomeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5442870F21CC78E70022C5EA /* InHomeHeaderCell.m */; };
@@ -448,6 +454,16 @@
 		542F8DB921C8991800371620 /* CategoryRightMenuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryRightMenuModel.m; sourceTree = "<group>"; };
 		54346BFE22179D480053A126 /* GrowthRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GrowthRecordViewController.h; sourceTree = "<group>"; };
 		54346BFF22179D480053A126 /* GrowthRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrowthRecordViewController.m; sourceTree = "<group>"; };
+		54346C092217E56D0053A126 /* FrequentlyQHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrequentlyQHeader.h; sourceTree = "<group>"; };
+		54346C0A2217E56D0053A126 /* FrequentlyQHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrequentlyQHeader.m; sourceTree = "<group>"; };
+		54346C0B2217E56D0053A126 /* FrequentlyQHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrequentlyQHeader.xib; sourceTree = "<group>"; };
+		54346C0E2217E94E0053A126 /* FrequentlyQCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrequentlyQCell.h; sourceTree = "<group>"; };
+		54346C0F2217E94E0053A126 /* FrequentlyQCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrequentlyQCell.m; sourceTree = "<group>"; };
+		54346C102217E94E0053A126 /* FrequentlyQCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrequentlyQCell.xib; sourceTree = "<group>"; };
+		54346C152217F19E0053A126 /* FreqentlyQModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FreqentlyQModel.h; sourceTree = "<group>"; };
+		54346C162217F19E0053A126 /* FreqentlyQModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreqentlyQModel.m; sourceTree = "<group>"; };
+		54346C192217F2900053A126 /* FreqentlyQViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FreqentlyQViewController.h; sourceTree = "<group>"; };
+		54346C1A2217F2900053A126 /* FreqentlyQViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreqentlyQViewController.m; sourceTree = "<group>"; };
 		5440BAF021ACD7E50015C8F7 /* MJStudent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJStudent.h; sourceTree = "<group>"; };
 		5440BAF121ACD7E50015C8F7 /* MJStudent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJStudent.m; sourceTree = "<group>"; };
 		5440BAF321ACD8070015C8F7 /* MJBag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJBag.h; sourceTree = "<group>"; };
@@ -1121,6 +1137,32 @@
 			path = "成长值记录";
 			sourceTree = "<group>";
 		};
+		54346C132217F1680053A126 /* 服务中心 */ = {
+			isa = PBXGroup;
+			children = (
+				54346C142217F17B0053A126 /* 常见问题 */,
+			);
+			name = "服务中心";
+			sourceTree = "<group>";
+		};
+		54346C142217F17B0053A126 /* 常见问题 */ = {
+			isa = PBXGroup;
+			children = (
+				54346C152217F19E0053A126 /* FreqentlyQModel.h */,
+				54346C162217F19E0053A126 /* FreqentlyQModel.m */,
+			);
+			name = "常见问题";
+			sourceTree = "<group>";
+		};
+		54346C182217F25C0053A126 /* 常见问题 */ = {
+			isa = PBXGroup;
+			children = (
+				54346C192217F2900053A126 /* FreqentlyQViewController.h */,
+				54346C1A2217F2900053A126 /* FreqentlyQViewController.m */,
+			);
+			name = "常见问题";
+			sourceTree = "<group>";
+		};
 		544CDC7021E6DDDE00A7DD01 /* 系统消息 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1636,6 +1678,7 @@
 		5472809E21C0DEDB009A75E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54346C132217F1680053A126 /* 服务中心 */,
 				5408791B21F1AB800010E994 /* 用户订单 */,
 				54213D0D21F07517002D5822 /* 用户身份 */,
 				54DCA9D721EF16B500F72E87 /* 地址信息 */,
@@ -2019,6 +2062,12 @@
 		54A468B621E977E900109636 /* 服务中心 */ = {
 			isa = PBXGroup;
 			children = (
+				54346C092217E56D0053A126 /* FrequentlyQHeader.h */,
+				54346C0A2217E56D0053A126 /* FrequentlyQHeader.m */,
+				54346C0B2217E56D0053A126 /* FrequentlyQHeader.xib */,
+				54346C0E2217E94E0053A126 /* FrequentlyQCell.h */,
+				54346C0F2217E94E0053A126 /* FrequentlyQCell.m */,
+				54346C102217E94E0053A126 /* FrequentlyQCell.xib */,
 			);
 			name = "服务中心";
 			sourceTree = "<group>";
@@ -2224,6 +2273,7 @@
 		54ABD59521E8BA5C00B54F7E /* 服务中心 */ = {
 			isa = PBXGroup;
 			children = (
+				54346C182217F25C0053A126 /* 常见问题 */,
 				54ABD59621E8BA8600B54F7E /* ServerCenterViewController.h */,
 				54ABD59721E8BA8600B54F7E /* ServerCenterViewController.m */,
 			);
@@ -2773,6 +2823,7 @@
 				544DD44821C38B6C0052D469 /* 542a6c55N9138b067.jpg in Resources */,
 				544DD46E21C38B6C0052D469 /* C_3.jpg in Resources */,
 				544DD45721C38B6C0052D469 /* 542a6b1dN99caa3ba.jpg in Resources */,
+				54346C122217E94E0053A126 /* FrequentlyQCell.xib in Resources */,
 				544DD45921C38B6C0052D469 /* 542a6d22N12b1244a.jpg in Resources */,
 				549EFB9A21BF74A700461469 /* README.txt in Resources */,
 				544DD46921C38B6C0052D469 /* 542a6b5cN10dc533e.jpg in Resources */,
@@ -2804,6 +2855,7 @@
 				544DD48321C38B6C0052D469 /* MENU_0_0_10.PNG in Resources */,
 				544DD49F21C3C7450052D469 /* IdentityTopReusableView.xib in Resources */,
 				54AB39D821D8B9D600D40606 /* TeacherNoneWelfareCell.xib in Resources */,
+				54346C0D2217E56D0053A126 /* FrequentlyQHeader.xib in Resources */,
 				544DD46221C38B6C0052D469 /* h1.jpg in Resources */,
 				544DD44E21C38B6C0052D469 /* cell_01.PNG in Resources */,
 				544DD44B21C38B6C0052D469 /* 542a6ae4N2697c3c6.jpg in Resources */,
@@ -2994,7 +3046,9 @@
 				549A663421B8D3340059EE89 /* PPBadgeLabel.m in Sources */,
 				542108F821C1E96500CCA43C /* HomeProductCell.m in Sources */,
 				54AD34A921AE863D004FAEF5 /* YDIntroViewController.m in Sources */,
+				54346C0C2217E56D0053A126 /* FrequentlyQHeader.m in Sources */,
 				5421090821C20DE300CCA43C /* CommodityModel.m in Sources */,
+				54346C112217E94E0053A126 /* FrequentlyQCell.m in Sources */,
 				54A469A521E9EC7B00109636 /* KKPhotoPickerManager.m in Sources */,
 				5472808B21C0DBC0009A75E8 /* NSString+Extension.m in Sources */,
 				54A469A221E9EC6C00109636 /* DNBrowserCell.m in Sources */,
@@ -3017,6 +3071,7 @@
 				5412D41821ACEE81001440C9 /* NSObject+MJExtension.m in Sources */,
 				54A4699E21E9EC6C00109636 /* DNUnAuthorizedTipsView.m in Sources */,
 				544CDC9221E740E000A7DD01 /* UIView+MJCClassExtension.m in Sources */,
+				54346C172217F19E0053A126 /* FreqentlyQModel.m in Sources */,
 				54CF9A1A21BA444B00E9142F /* rightCollectionViewCell.m in Sources */,
 				545C53BB2213EED7009FB39B /* YDCustomButton.m in Sources */,
 				544CDC7721E716AF00A7DD01 /* UserMessageViewModel.m in Sources */,
@@ -3130,6 +3185,7 @@
 				544CDC9C21E743F400A7DD01 /* MyOrderViewController.m in Sources */,
 				54D0D92221F5BA2400225C02 /* UserTeamMemberViewModel.m in Sources */,
 				544DD4A321C3C7660052D469 /* IdentityDefaultReusableView.m in Sources */,
+				54346C1B2217F2900053A126 /* FreqentlyQViewController.m in Sources */,
 				54AB39BF21D86B6200D40606 /* PersonCollectionViewCell.m in Sources */,
 				54AB39D721D8B9D600D40606 /* TeacherNoneWelfareCell.m in Sources */,
 				54A4690321E9D12B00109636 /* IdeaResponseCell.m in Sources */,
