@@ -1,8 +1,8 @@
 //
-//  FreqentlyQViewController.h
+//  NewAddGetCashAccountCell.h
 //  YDElectricity
 //
-//  Created by 元典 on 2019/2/16.
+//  Created by 元典 on 2019/2/18.
 //  Copyright © 2019 yuandian. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FreqentlyQViewController : UIViewController
+@interface NewAddGetCashAccountCell : UICollectionViewCell
 
 @end
 

@@ -11,7 +11,6 @@
 		5408792821F1B1D60010E994 /* UserOrderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5408792721F1B1D60010E994 /* UserOrderViewModel.m */; };
 		540A04FB21C881B500F31712 /* CategoryLeftMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 540A04FA21C881B500F31712 /* CategoryLeftMenuModel.m */; };
 		540A241421E05BDD0045E19C /* TaoBaoKeDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 540A241321E05BDD0045E19C /* TaoBaoKeDetailViewModel.m */; };
-		540E043021BE50D4006BE7B2 /* PersonalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 540E042F21BE50D4006BE7B2 /* PersonalTableViewController.m */; };
 		5412D41821ACEE81001440C9 /* NSObject+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5412D41721ACEE81001440C9 /* NSObject+MJExtension.m */; };
 		5412E7AB21AD1B010056AB12 /* NSObject+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5412E7AA21AD1B010056AB12 /* NSObject+Parse.m */; };
 		541C277921AD24D400CB89FB /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 541C277821AD24D400CB89FB /* UIScrollView+Refresh.m */; };
@@ -52,8 +51,7 @@
 		54346C0D2217E56D0053A126 /* FrequentlyQHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54346C0B2217E56D0053A126 /* FrequentlyQHeader.xib */; };
 		54346C112217E94E0053A126 /* FrequentlyQCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54346C0F2217E94E0053A126 /* FrequentlyQCell.m */; };
 		54346C122217E94E0053A126 /* FrequentlyQCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54346C102217E94E0053A126 /* FrequentlyQCell.xib */; };
-		54346C172217F19E0053A126 /* FreqentlyQModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54346C162217F19E0053A126 /* FreqentlyQModel.m */; };
-		54346C1B2217F2900053A126 /* FreqentlyQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54346C1A2217F2900053A126 /* FreqentlyQViewController.m */; };
+		54346C1B2217F2900053A126 /* FrequentlyQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54346C1A2217F2900053A126 /* FrequentlyQViewController.m */; };
 		5440BAF221ACD7E50015C8F7 /* MJStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5440BAF121ACD7E50015C8F7 /* MJStudent.m */; };
 		5440BAF521ACD8070015C8F7 /* MJBag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5440BAF421ACD8070015C8F7 /* MJBag.m */; };
 		5442871121CC78E80022C5EA /* InHomeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5442870F21CC78E70022C5EA /* InHomeHeaderCell.m */; };
@@ -248,6 +246,20 @@
 		54A469A121E9EC6C00109636 /* DNSendButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A4698C21E9EC6C00109636 /* DNSendButton.m */; };
 		54A469A221E9EC6C00109636 /* DNBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A4698D21E9EC6C00109636 /* DNBrowserCell.m */; };
 		54A469A521E9EC7B00109636 /* KKPhotoPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A469A421E9EC7B00109636 /* KKPhotoPickerManager.m */; };
+		54A49FE7221A3D6B0017CABF /* FrequentlyQData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54A49FD7221A3D6B0017CABF /* FrequentlyQData.plist */; };
+		54A49FE8221A3D6B0017CABF /* FrequentlyQChildModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A49FD9221A3D6B0017CABF /* FrequentlyQChildModel.m */; };
+		54A49FE9221A3D6B0017CABF /* FrequentlyQGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A49FDB221A3D6B0017CABF /* FrequentlyQGroupModel.m */; };
+		54A49FEA221A3D6B0017CABF /* FrequentlyQReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A49FDE221A3D6B0017CABF /* FrequentlyQReusableView.xib */; };
+		54A49FEB221A3D6B0017CABF /* FrequentlyQReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A49FDF221A3D6B0017CABF /* FrequentlyQReusableView.m */; };
+		54A49FEC221A3D6B0017CABF /* FrequentlyQCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A49FE0221A3D6B0017CABF /* FrequentlyQCollectionView.m */; };
+		54A49FED221A3D6B0017CABF /* FrequentlyQCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A49FE1221A3D6B0017CABF /* FrequentlyQCollectionViewCell.xib */; };
+		54A49FEE221A3D6B0017CABF /* FrequentlyQCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A49FE5221A3D6B0017CABF /* FrequentlyQCollectionView.xib */; };
+		54A49FEF221A3D6B0017CABF /* FrequentlyQCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A49FE6221A3D6B0017CABF /* FrequentlyQCollectionViewCell.m */; };
+		54A49FFD221A9D430017CABF /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A49FFB221A9D430017CABF /* AccountCell.m */; };
+		54A49FFE221A9D430017CABF /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A49FFC221A9D430017CABF /* AccountCell.xib */; };
+		54A4A002221A9E890017CABF /* NewAddGetCashAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A4A000221A9E890017CABF /* NewAddGetCashAccountCell.m */; };
+		54A4A003221A9E890017CABF /* NewAddGetCashAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A4A001221A9E890017CABF /* NewAddGetCashAccountCell.xib */; };
+		54A4A006221AA8DC0017CABF /* GetCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A4A005221AA8DC0017CABF /* GetCashViewController.m */; };
 		54A5046C21B7C15D00984537 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A5046B21B7C15D00984537 /* MessageUI.framework */; };
 		54A5047221B7C6A000984537 /* YDLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A5047021B7C6A000984537 /* YDLogInViewController.m */; };
 		54A5047321B7C6A000984537 /* YDLogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A5047121B7C6A000984537 /* YDLogInViewController.xib */; };
@@ -319,7 +331,6 @@
 		54C11F8F21E2DB91004AE0DC /* SGQRCodeScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C11F8B21E2DB91004AE0DC /* SGQRCodeScanView.m */; };
 		54C405AE21D501F4002D679D /* UIButton+YDButtonHitRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C405AD21D501F4002D679D /* UIButton+YDButtonHitRect.m */; };
 		54C54C4121F2BB2A00E8D98B /* IdearResponseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C54C4021F2BB2A00E8D98B /* IdearResponseViewModel.m */; };
-		54C54C4721F2CD2600E8D98B /* QiniuPicUPload.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C54C4521F2CD1B00E8D98B /* QiniuPicUPload.m */; };
 		54C68EA321C8E734003CE99E /* PhoneNumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C68EA221C8E734003CE99E /* PhoneNumViewController.m */; };
 		54C68EA621C8E769003CE99E /* ConfirmTeacherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C68EA521C8E769003CE99E /* ConfirmTeacherViewController.m */; };
 		54C6F02821AB87A200679607 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6F02721AB87A200679607 /* AppDelegate.m */; };
@@ -387,8 +398,6 @@
 		540A04FA21C881B500F31712 /* CategoryLeftMenuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryLeftMenuModel.m; sourceTree = "<group>"; };
 		540A241221E05BDD0045E19C /* TaoBaoKeDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaoBaoKeDetailViewModel.h; sourceTree = "<group>"; };
 		540A241321E05BDD0045E19C /* TaoBaoKeDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaoBaoKeDetailViewModel.m; sourceTree = "<group>"; };
-		540E042E21BE50D4006BE7B2 /* PersonalTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewController.h; sourceTree = "<group>"; };
-		540E042F21BE50D4006BE7B2 /* PersonalTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewController.m; sourceTree = "<group>"; };
 		5412D41621ACEE81001440C9 /* NSObject+MJExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJExtension.h"; sourceTree = "<group>"; };
 		5412D41721ACEE81001440C9 /* NSObject+MJExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJExtension.m"; sourceTree = "<group>"; };
 		5412E7A921AD1B010056AB12 /* NSObject+Parse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Parse.h"; sourceTree = "<group>"; };
@@ -460,10 +469,8 @@
 		54346C0E2217E94E0053A126 /* FrequentlyQCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrequentlyQCell.h; sourceTree = "<group>"; };
 		54346C0F2217E94E0053A126 /* FrequentlyQCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrequentlyQCell.m; sourceTree = "<group>"; };
 		54346C102217E94E0053A126 /* FrequentlyQCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrequentlyQCell.xib; sourceTree = "<group>"; };
-		54346C152217F19E0053A126 /* FreqentlyQModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FreqentlyQModel.h; sourceTree = "<group>"; };
-		54346C162217F19E0053A126 /* FreqentlyQModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreqentlyQModel.m; sourceTree = "<group>"; };
-		54346C192217F2900053A126 /* FreqentlyQViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FreqentlyQViewController.h; sourceTree = "<group>"; };
-		54346C1A2217F2900053A126 /* FreqentlyQViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreqentlyQViewController.m; sourceTree = "<group>"; };
+		54346C192217F2900053A126 /* FrequentlyQViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrequentlyQViewController.h; sourceTree = "<group>"; };
+		54346C1A2217F2900053A126 /* FrequentlyQViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrequentlyQViewController.m; sourceTree = "<group>"; };
 		5440BAF021ACD7E50015C8F7 /* MJStudent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJStudent.h; sourceTree = "<group>"; };
 		5440BAF121ACD7E50015C8F7 /* MJStudent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJStudent.m; sourceTree = "<group>"; };
 		5440BAF321ACD8070015C8F7 /* MJBag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJBag.h; sourceTree = "<group>"; };
@@ -741,6 +748,28 @@
 		54A4698D21E9EC6C00109636 /* DNBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNBrowserCell.m; sourceTree = "<group>"; };
 		54A469A321E9EC7B00109636 /* KKPhotoPickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKPhotoPickerManager.h; sourceTree = "<group>"; };
 		54A469A421E9EC7B00109636 /* KKPhotoPickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKPhotoPickerManager.m; sourceTree = "<group>"; };
+		54A49FD7221A3D6B0017CABF /* FrequentlyQData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FrequentlyQData.plist; sourceTree = "<group>"; };
+		54A49FD9221A3D6B0017CABF /* FrequentlyQChildModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequentlyQChildModel.m; sourceTree = "<group>"; };
+		54A49FDA221A3D6B0017CABF /* FrequentlyQGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequentlyQGroupModel.h; sourceTree = "<group>"; };
+		54A49FDB221A3D6B0017CABF /* FrequentlyQGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequentlyQGroupModel.m; sourceTree = "<group>"; };
+		54A49FDC221A3D6B0017CABF /* FrequentlyQChildModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequentlyQChildModel.h; sourceTree = "<group>"; };
+		54A49FDE221A3D6B0017CABF /* FrequentlyQReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FrequentlyQReusableView.xib; sourceTree = "<group>"; };
+		54A49FDF221A3D6B0017CABF /* FrequentlyQReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequentlyQReusableView.m; sourceTree = "<group>"; };
+		54A49FE0221A3D6B0017CABF /* FrequentlyQCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequentlyQCollectionView.m; sourceTree = "<group>"; };
+		54A49FE1221A3D6B0017CABF /* FrequentlyQCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FrequentlyQCollectionViewCell.xib; sourceTree = "<group>"; };
+		54A49FE2221A3D6B0017CABF /* FrequentlyQCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequentlyQCollectionViewCell.h; sourceTree = "<group>"; };
+		54A49FE3221A3D6B0017CABF /* FrequentlyQReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequentlyQReusableView.h; sourceTree = "<group>"; };
+		54A49FE4221A3D6B0017CABF /* FrequentlyQCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequentlyQCollectionView.h; sourceTree = "<group>"; };
+		54A49FE5221A3D6B0017CABF /* FrequentlyQCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FrequentlyQCollectionView.xib; sourceTree = "<group>"; };
+		54A49FE6221A3D6B0017CABF /* FrequentlyQCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequentlyQCollectionViewCell.m; sourceTree = "<group>"; };
+		54A49FFA221A9D430017CABF /* AccountCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = "<group>"; };
+		54A49FFB221A9D430017CABF /* AccountCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = "<group>"; };
+		54A49FFC221A9D430017CABF /* AccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
+		54A49FFF221A9E890017CABF /* NewAddGetCashAccountCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewAddGetCashAccountCell.h; sourceTree = "<group>"; };
+		54A4A000221A9E890017CABF /* NewAddGetCashAccountCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewAddGetCashAccountCell.m; sourceTree = "<group>"; };
+		54A4A001221A9E890017CABF /* NewAddGetCashAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewAddGetCashAccountCell.xib; sourceTree = "<group>"; };
+		54A4A004221AA8DC0017CABF /* GetCashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetCashViewController.h; sourceTree = "<group>"; };
+		54A4A005221AA8DC0017CABF /* GetCashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCashViewController.m; sourceTree = "<group>"; };
 		54A5046B21B7C15D00984537 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		54A5046F21B7C6A000984537 /* YDLogInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDLogInViewController.h; sourceTree = "<group>"; };
 		54A5047021B7C6A000984537 /* YDLogInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDLogInViewController.m; sourceTree = "<group>"; };
@@ -865,8 +894,6 @@
 		54C405AD21D501F4002D679D /* UIButton+YDButtonHitRect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+YDButtonHitRect.m"; sourceTree = "<group>"; };
 		54C54C3F21F2BB2A00E8D98B /* IdearResponseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdearResponseViewModel.h; sourceTree = "<group>"; };
 		54C54C4021F2BB2A00E8D98B /* IdearResponseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdearResponseViewModel.m; sourceTree = "<group>"; };
-		54C54C4521F2CD1B00E8D98B /* QiniuPicUPload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiniuPicUPload.m; sourceTree = "<group>"; };
-		54C54C4621F2CD2500E8D98B /* QiniuPicUPload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiniuPicUPload.h; sourceTree = "<group>"; };
 		54C68EA121C8E734003CE99E /* PhoneNumViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhoneNumViewController.h; sourceTree = "<group>"; };
 		54C68EA221C8E734003CE99E /* PhoneNumViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhoneNumViewController.m; sourceTree = "<group>"; };
 		54C68EA421C8E769003CE99E /* ConfirmTeacherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmTeacherViewController.h; sourceTree = "<group>"; };
@@ -1148,8 +1175,11 @@
 		54346C142217F17B0053A126 /* 常见问题 */ = {
 			isa = PBXGroup;
 			children = (
-				54346C152217F19E0053A126 /* FreqentlyQModel.h */,
-				54346C162217F19E0053A126 /* FreqentlyQModel.m */,
+				54A49FD7221A3D6B0017CABF /* FrequentlyQData.plist */,
+				54A49FDA221A3D6B0017CABF /* FrequentlyQGroupModel.h */,
+				54A49FDB221A3D6B0017CABF /* FrequentlyQGroupModel.m */,
+				54A49FDC221A3D6B0017CABF /* FrequentlyQChildModel.h */,
+				54A49FD9221A3D6B0017CABF /* FrequentlyQChildModel.m */,
 			);
 			name = "常见问题";
 			sourceTree = "<group>";
@@ -1157,8 +1187,8 @@
 		54346C182217F25C0053A126 /* 常见问题 */ = {
 			isa = PBXGroup;
 			children = (
-				54346C192217F2900053A126 /* FreqentlyQViewController.h */,
-				54346C1A2217F2900053A126 /* FreqentlyQViewController.m */,
+				54346C192217F2900053A126 /* FrequentlyQViewController.h */,
+				54346C1A2217F2900053A126 /* FrequentlyQViewController.m */,
 			);
 			name = "常见问题";
 			sourceTree = "<group>";
@@ -1593,6 +1623,7 @@
 		5472809821C0DEC6009A75E8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				54A49FF4221A9C720017CABF /* 提现 */,
 				54ACC2C82216D43B005640F4 /* 资金明细 */,
 				54ACC2BE2216B206005640F4 /* 任务中心 */,
 				54ACC2B62216704B005640F4 /* 我的身份 */,
@@ -1620,6 +1651,7 @@
 		5472809A21C0DEC6009A75E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				54A49FF2221A9C600017CABF /* 提现 */,
 				54ACC2C92216D4C8005640F4 /* 资金明细 */,
 				54ACC2C22216BD15005640F4 /* 任务中心 */,
 				54ACC2B72216706F005640F4 /* 我的身份 */,
@@ -1652,8 +1684,6 @@
 				544CDC9921E7436500A7DD01 /* 我的订单 */,
 				54ED83B121DCA26200EB5488 /* 编辑资料 */,
 				54ED83B021DCA24E00EB5488 /* 系统消息 */,
-				540E042E21BE50D4006BE7B2 /* PersonalTableViewController.h */,
-				540E042F21BE50D4006BE7B2 /* PersonalTableViewController.m */,
 				54F1FB6621AFD5C1004460D0 /* TestViewController.h */,
 				54F1FB6721AFD5C1004460D0 /* TestViewController.m */,
 				54F1FB6821AFD5C1004460D0 /* TestViewController.xib */,
@@ -1691,6 +1721,7 @@
 		5472809F21C0DEDB009A75E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				54A49FF0221A5C990017CABF /* 服务中心 */,
 				54A468FC21E9D0D500109636 /* 意见反馈 */,
 				54AB39C421D895DE00D40606 /* 个人信息 */,
 			);
@@ -2075,8 +2106,6 @@
 		54A468F821E9CE2D00109636 /* 意见反馈 */ = {
 			isa = PBXGroup;
 			children = (
-				54C54C4621F2CD2500E8D98B /* QiniuPicUPload.h */,
-				54C54C4521F2CD1B00E8D98B /* QiniuPicUPload.m */,
 				54A468F921E9CEE200109636 /* IdearResponseRoViewController.h */,
 				54A468FA21E9CEE200109636 /* IdearResponseRoViewController.m */,
 			);
@@ -2177,6 +2206,52 @@
 				54A4698D21E9EC6C00109636 /* DNBrowserCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		54A49FF0221A5C990017CABF /* 服务中心 */ = {
+			isa = PBXGroup;
+			children = (
+				54A49FF1221A5CAC0017CABF /* 常见问题 */,
+			);
+			name = "服务中心";
+			sourceTree = "<group>";
+		};
+		54A49FF1221A5CAC0017CABF /* 常见问题 */ = {
+			isa = PBXGroup;
+			children = (
+				54A49FE3221A3D6B0017CABF /* FrequentlyQReusableView.h */,
+				54A49FDF221A3D6B0017CABF /* FrequentlyQReusableView.m */,
+				54A49FDE221A3D6B0017CABF /* FrequentlyQReusableView.xib */,
+				54A49FE4221A3D6B0017CABF /* FrequentlyQCollectionView.h */,
+				54A49FE0221A3D6B0017CABF /* FrequentlyQCollectionView.m */,
+				54A49FE5221A3D6B0017CABF /* FrequentlyQCollectionView.xib */,
+				54A49FE2221A3D6B0017CABF /* FrequentlyQCollectionViewCell.h */,
+				54A49FE6221A3D6B0017CABF /* FrequentlyQCollectionViewCell.m */,
+				54A49FE1221A3D6B0017CABF /* FrequentlyQCollectionViewCell.xib */,
+			);
+			name = "常见问题";
+			sourceTree = "<group>";
+		};
+		54A49FF2221A9C600017CABF /* 提现 */ = {
+			isa = PBXGroup;
+			children = (
+				54A49FFA221A9D430017CABF /* AccountCell.h */,
+				54A49FFB221A9D430017CABF /* AccountCell.m */,
+				54A49FFC221A9D430017CABF /* AccountCell.xib */,
+				54A49FFF221A9E890017CABF /* NewAddGetCashAccountCell.h */,
+				54A4A000221A9E890017CABF /* NewAddGetCashAccountCell.m */,
+				54A4A001221A9E890017CABF /* NewAddGetCashAccountCell.xib */,
+			);
+			path = "提现";
+			sourceTree = "<group>";
+		};
+		54A49FF4221A9C720017CABF /* 提现 */ = {
+			isa = PBXGroup;
+			children = (
+				54A4A004221AA8DC0017CABF /* GetCashViewController.h */,
+				54A4A005221AA8DC0017CABF /* GetCashViewController.m */,
+			);
+			path = "提现";
 			sourceTree = "<group>";
 		};
 		54A5B0C621D30EFD00F3CA27 /* TaoBaoCustomerDetail */ = {
@@ -2807,6 +2882,7 @@
 				544DD48121C38B6C0052D469 /* MENU_0_0_1.PNG in Resources */,
 				544DD46F21C38B6C0052D469 /* 542a6a48Nda652e44.jpg in Resources */,
 				544DD47621C38B6C0052D469 /* yaya.png in Resources */,
+				54A49FE7221A3D6B0017CABF /* FrequentlyQData.plist in Resources */,
 				54C11F8C21E2DB91004AE0DC /* SGQRCode.bundle in Resources */,
 				544DD47E21C38B6C0052D469 /* 542a6acbN5847fe84.jpg in Resources */,
 				5452FB2C21B6786600137441 /* pageControlCurrentDot@3x.png in Resources */,
@@ -2814,6 +2890,7 @@
 				544DD47521C38B6C0052D469 /* 542a6b44Nb24c2e00.jpg in Resources */,
 				544DD44A21C38B6C0052D469 /* IMG_2206.PNG in Resources */,
 				54ACC2C72216BD6A005640F4 /* TaskCell.xib in Resources */,
+				54A4A003221A9E890017CABF /* NewAddGetCashAccountCell.xib in Resources */,
 				5421091821C20FBF00CCA43C /* CollectionHeader.xib in Resources */,
 				544DD44521C38B6C0052D469 /* 542a6bdcNcea64610.jpg in Resources */,
 				544A5B8C21C4FF3B008B9BEB /* Login.storyboard in Resources */,
@@ -2848,6 +2925,7 @@
 				544DD46C21C38B6C0052D469 /* 544dfecaN1dcf17ef.jpg in Resources */,
 				544DD46B21C38B6C0052D469 /* 542a6c32Nc4df0f0e.jpg in Resources */,
 				54A5B0D221D3151E00F3CA27 /* CustomerHeaderCell.xib in Resources */,
+				54A49FEE221A3D6B0017CABF /* FrequentlyQCollectionView.xib in Resources */,
 				544DD45A21C38B6C0052D469 /* h2.jpg in Resources */,
 				54A5047321B7C6A000984537 /* YDLogInViewController.xib in Resources */,
 				544DD45E21C38B6C0052D469 /* 544dfedfNbfc0f1de.jpg in Resources */,
@@ -2863,6 +2941,7 @@
 				544DD47921C38B6C0052D469 /* 5448a2c9N44239310.jpg in Resources */,
 				5452FB2621B6786600137441 /* placeholder@2x.png in Resources */,
 				54DCA9C621EED0F300F72E87 /* AddressListCell.xib in Resources */,
+				54A49FEA221A3D6B0017CABF /* FrequentlyQReusableView.xib in Resources */,
 				544DD45C21C38B6C0052D469 /* 542a6c43Ndc0a1140.jpg in Resources */,
 				54F1FB6A21AFD5C1004460D0 /* TestViewController.xib in Resources */,
 				544DD45521C38B6C0052D469 /* h4.jpg in Resources */,
@@ -2885,6 +2964,7 @@
 				544DD46121C38B6C0052D469 /* C_2.jpg in Resources */,
 				54A4698E21E9EC6C00109636 /* DNImagePicker.strings in Resources */,
 				5452FB2421B6786600137441 /* h3.jpg in Resources */,
+				54A49FFE221A9D430017CABF /* AccountCell.xib in Resources */,
 				54C6F03321AB87B200679607 /* LaunchScreen.storyboard in Resources */,
 				544DD46621C38B6C0052D469 /* MENU_0_0_2.PNG in Resources */,
 				544DD47421C38B6C0052D469 /* h3.jpg in Resources */,
@@ -2902,6 +2982,7 @@
 				54B4603D21EC72460040633B /* ShareOrderHeadreView.xib in Resources */,
 				542108F921C1E96500CCA43C /* HomeProductCell.xib in Resources */,
 				549CC4F022157CF3003D1A87 /* CashRecordHeader.xib in Resources */,
+				54A49FED221A3D6B0017CABF /* FrequentlyQCollectionViewCell.xib in Resources */,
 				544DD45021C38B6C0052D469 /* MENU_0_0_0.PNG in Resources */,
 				544DD48221C38B6C0052D469 /* MENU_0_0_8.PNG in Resources */,
 				5421091921C20FBF00CCA43C /* CommodityTableViewCell.xib in Resources */,
@@ -3039,6 +3120,7 @@
 				54AB39D221D8A85600D40606 /* MyGoldViewController.m in Sources */,
 				54A4699621E9EC6C00109636 /* NSURL+DNIMagePickerUrlEqual.m in Sources */,
 				5421092021C20FBF00CCA43C /* CollectionHeader.m in Sources */,
+				54A49FEC221A3D6B0017CABF /* FrequentlyQCollectionView.m in Sources */,
 				54A4699221E9EC6C00109636 /* DNAlbumTableViewController.m in Sources */,
 				542C5E3721C9F4A300EA0003 /* HomeGoodModel.m in Sources */,
 				54A5B0DB21D3158500F3CA27 /* ShopDetailCell.m in Sources */,
@@ -3071,7 +3153,7 @@
 				5412D41821ACEE81001440C9 /* NSObject+MJExtension.m in Sources */,
 				54A4699E21E9EC6C00109636 /* DNUnAuthorizedTipsView.m in Sources */,
 				544CDC9221E740E000A7DD01 /* UIView+MJCClassExtension.m in Sources */,
-				54346C172217F19E0053A126 /* FreqentlyQModel.m in Sources */,
+				54A4A002221A9E890017CABF /* NewAddGetCashAccountCell.m in Sources */,
 				54CF9A1A21BA444B00E9142F /* rightCollectionViewCell.m in Sources */,
 				545C53BB2213EED7009FB39B /* YDCustomButton.m in Sources */,
 				544CDC7721E716AF00A7DD01 /* UserMessageViewModel.m in Sources */,
@@ -3079,7 +3161,6 @@
 				54ACBC8D21E4341F006FA462 /* VerifyRegisterModel.m in Sources */,
 				54B4602B21EC664E0040633B /* BusinessViewController.m in Sources */,
 				54B4603421EC6F480040633B /* ShareOrderCell.m in Sources */,
-				540E043021BE50D4006BE7B2 /* PersonalTableViewController.m in Sources */,
 				5493523A21AD2D1800192823 /* NSObject+ViewModel.m in Sources */,
 				547280AF21C0E430009A75E8 /* SearchBarView.m in Sources */,
 				54A4699821E9EC6C00109636 /* DNImagePickerController.m in Sources */,
@@ -3097,11 +3178,11 @@
 				549EF9EA21BF521800461469 /* PlistDataManager.m in Sources */,
 				5421090921C20DE300CCA43C /* CategoryMeunModel.m in Sources */,
 				54E26FFB21DF62A40052B5B9 /* HomeProductCellOne.m in Sources */,
+				54A49FEF221A3D6B0017CABF /* FrequentlyQCollectionViewCell.m in Sources */,
 				54213D0621F0160E002D5822 /* SecondSkillColumnModel.m in Sources */,
 				541C277921AD24D400CB89FB /* UIScrollView+Refresh.m in Sources */,
 				54ABD58421E8366900B54F7E /* SecondSkillChildViewController.m in Sources */,
 				54ABD58121E829E600B54F7E /* SecondSkillViewController.m in Sources */,
-				54C54C4721F2CD2600E8D98B /* QiniuPicUPload.m in Sources */,
 				54CF9A2121BA5ED800E9142F /* titleView.m in Sources */,
 				549A663321B8D3340059EE89 /* UIView+PPBadgeView.m in Sources */,
 				545CAAA421F85288003914DF /* SystemSettingViewController.m in Sources */,
@@ -3111,10 +3192,12 @@
 				549EF9E721BF4BA500461469 /* CityDataModel.m in Sources */,
 				549A663621B8D3340059EE89 /* UIBarButtonItem+PPBadgeView.m in Sources */,
 				54B4604521ECBB5A0040633B /* InviteDetailViewController.m in Sources */,
+				54A49FE8221A3D6B0017CABF /* FrequentlyQChildModel.m in Sources */,
 				54B4602421EC3A110040633B /* ShareOrderViewController.m in Sources */,
 				54D0D91121F55EA700225C02 /* UIButton+Fit.m in Sources */,
 				5470579A21ABD9DD0087E4BD /* NSObject+AFNetworking.m in Sources */,
 				54D0D91621F55EAF00225C02 /* TXAdapter.m in Sources */,
+				54A49FFD221A9D430017CABF /* AccountCell.m in Sources */,
 				54AB39DB21D8BC3E00D40606 /* MyTeacherViewController.m in Sources */,
 				54ACC2BD22169115005640F4 /* MyPrerogativeModel.m in Sources */,
 				54A4699521E9EC6C00109636 /* UIViewController+DNImagePicker.m in Sources */,
@@ -3128,6 +3211,7 @@
 				54A469A121E9EC6C00109636 /* DNSendButton.m in Sources */,
 				544CDC9121E740E000A7DD01 /* UIButton+MJCClassExtension.m in Sources */,
 				54ACC2CD2216D4FA005640F4 /* CashDetailHeader.m in Sources */,
+				54A49FEB221A3D6B0017CABF /* FrequentlyQReusableView.m in Sources */,
 				54A4698F21E9EC6C00109636 /* DNAsset.m in Sources */,
 				54B4603C21EC72460040633B /* ShareOrderHeadreView.m in Sources */,
 				54ABD59821E8BA8600B54F7E /* ServerCenterViewController.m in Sources */,
@@ -3139,6 +3223,7 @@
 				54B4602721EC3E870040633B /* ShareOrderChildViewController.m in Sources */,
 				54FD259121AD3B370082FE3A /* Factory.m in Sources */,
 				5412E7AB21AD1B010056AB12 /* NSObject+Parse.m in Sources */,
+				54A49FE9221A3D6B0017CABF /* FrequentlyQGroupModel.m in Sources */,
 				5470579D21ABE5500087E4BD /* YDNetManager.m in Sources */,
 				544CDC9721E740E000A7DD01 /* MJCSegmentInterface.m in Sources */,
 				54239DD721DDBA8400E12690 /* MenuButton.m in Sources */,
@@ -3155,6 +3240,7 @@
 				54A5B0CC21D30FE600F3CA27 /* TaoBaoCustomerDetailViewController.m in Sources */,
 				544CDC9421E740E000A7DD01 /* MJCTabItem.m in Sources */,
 				54ACBC9121E434CD006FA462 /* VefifyRegisterViewModel.m in Sources */,
+				54A4A006221AA8DC0017CABF /* GetCashViewController.m in Sources */,
 				544CDC9521E740E000A7DD01 /* MJCTitlesView.m in Sources */,
 				5464429621F6A5710093FDAC /* UserMoneyViewModel.m in Sources */,
 				54346C0022179D480053A126 /* GrowthRecordViewController.m in Sources */,
@@ -3185,7 +3271,7 @@
 				544CDC9C21E743F400A7DD01 /* MyOrderViewController.m in Sources */,
 				54D0D92221F5BA2400225C02 /* UserTeamMemberViewModel.m in Sources */,
 				544DD4A321C3C7660052D469 /* IdentityDefaultReusableView.m in Sources */,
-				54346C1B2217F2900053A126 /* FreqentlyQViewController.m in Sources */,
+				54346C1B2217F2900053A126 /* FrequentlyQViewController.m in Sources */,
 				54AB39BF21D86B6200D40606 /* PersonCollectionViewCell.m in Sources */,
 				54AB39D721D8B9D600D40606 /* TeacherNoneWelfareCell.m in Sources */,
 				54A4690321E9D12B00109636 /* IdeaResponseCell.m in Sources */,

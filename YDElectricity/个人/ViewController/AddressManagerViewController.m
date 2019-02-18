@@ -75,7 +75,6 @@
 
 #pragma mark -- UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%@,%ld",[self class],indexPath.row);
     if (indexPath.section == 0) {
         self.editNotSave = NO;
         [self pushToEditorVC:nil];
@@ -112,10 +111,10 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         
-        return CGSizeMake(357 * kWidthScall, 70);
+        return CGSizeMake(357 * kWidthScall, 70 * kWidthScall);
     }
     
-    return CGSizeMake(357 * kWidthScall, 126);
+    return CGSizeMake(357 * kWidthScall, 126 * kWidthScall);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
    

@@ -100,7 +100,6 @@
 }
 #pragma mark -- #pragma mark -- UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-//    return 6;
     return self.imageArray.count + 1;
 }
 
@@ -148,7 +147,6 @@
     
     cell.cancleBtn1.indexPath = indexPath;
 
-    
     [cell.cancleBtn1 addTarget:self action:@selector(cancleBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
     

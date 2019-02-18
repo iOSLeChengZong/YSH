@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="FrequentlyQReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O41-3B-VTa">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQb-Pj-f49">
+                            <rect key="frame" x="9" y="0.0" width="357" height="59"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0V-Lt-lrw">
+                                    <rect key="frame" x="11" y="21" width="35.5" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_p_enter" translatesAutoresizingMaskIntoConstraints="NO" id="mld-7H-6Ha">
+                                    <rect key="frame" x="339" y="22.5" width="7" height="14"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="7" id="5Md-FD-eQI"/>
+                                        <constraint firstAttribute="height" constant="14" id="kPx-v0-ov5"/>
+                                    </constraints>
+                                </imageView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-UU-khy" customClass="UIControl">
+                                    <rect key="frame" x="0.0" y="0.0" width="357" height="59"/>
+                                    <connections>
+                                        <action selector="didHeaderViewTouchUpInside:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="e85-Uf-IiQ"/>
+                                    </connections>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.9213964818" green="1" blue="0.92265905940000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Nvh-UU-khy" secondAttribute="trailing" id="17G-yX-Gby"/>
+                                <constraint firstAttribute="bottom" secondItem="Nvh-UU-khy" secondAttribute="bottom" id="Afg-8t-Db5"/>
+                                <constraint firstItem="s0V-Lt-lrw" firstAttribute="leading" secondItem="QQb-Pj-f49" secondAttribute="leading" constant="11" id="Ewn-E4-syh"/>
+                                <constraint firstItem="s0V-Lt-lrw" firstAttribute="centerY" secondItem="QQb-Pj-f49" secondAttribute="centerY" id="JFp-Cr-CDx"/>
+                                <constraint firstAttribute="trailing" secondItem="mld-7H-6Ha" secondAttribute="trailing" constant="11" id="Qzn-x3-UKp"/>
+                                <constraint firstItem="mld-7H-6Ha" firstAttribute="centerY" secondItem="QQb-Pj-f49" secondAttribute="centerY" id="Wco-2d-ZWF"/>
+                                <constraint firstItem="Nvh-UU-khy" firstAttribute="leading" secondItem="QQb-Pj-f49" secondAttribute="leading" id="qWy-2P-aQF"/>
+                                <constraint firstItem="Nvh-UU-khy" firstAttribute="top" secondItem="QQb-Pj-f49" secondAttribute="top" id="xZQ-X9-lI0"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="QQb-Pj-f49" firstAttribute="top" secondItem="O41-3B-VTa" secondAttribute="top" id="EbX-l5-hUk"/>
+                        <constraint firstAttribute="bottom" secondItem="QQb-Pj-f49" secondAttribute="bottom" id="GPz-Hm-ZfB"/>
+                        <constraint firstItem="QQb-Pj-f49" firstAttribute="leading" secondItem="O41-3B-VTa" secondAttribute="leading" constant="9" id="ZQq-9z-wh8"/>
+                        <constraint firstAttribute="trailing" secondItem="QQb-Pj-f49" secondAttribute="trailing" constant="9" id="llp-12-VmB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="O41-3B-VTa" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="Q4z-dk-ETG"/>
+                <constraint firstAttribute="bottom" secondItem="O41-3B-VTa" secondAttribute="bottom" id="ULb-NZ-prM"/>
+                <constraint firstItem="O41-3B-VTa" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="poO-yW-aBw"/>
+                <constraint firstAttribute="trailing" secondItem="O41-3B-VTa" secondAttribute="trailing" id="v87-tg-dsd"/>
+            </constraints>
+            <connections>
+                <outlet property="arrowImageView" destination="mld-7H-6Ha" id="Wg9-0u-TZt"/>
+                <outlet property="cornerView" destination="QQb-Pj-f49" id="9uk-kq-h6t"/>
+                <outlet property="nameLabel" destination="s0V-Lt-lrw" id="A9r-aR-Y1o"/>
+            </connections>
+            <point key="canvasLocation" x="55.200000000000003" y="48.125937031484263"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="y_p_enter" width="7.5" height="15.5"/>
+    </resources>
+</document>

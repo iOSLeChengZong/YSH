@@ -10,6 +10,7 @@
 
 @implementation FrequentlyQHeader
 
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self viewcornerRadius:5 borderWith:0.1 clearColor:YES];

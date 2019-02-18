@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="duX-Kx-0T4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LiD-yI-uDj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -267,9 +267,9 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEd-c2-9zm">
-                                        <rect key="frame" x="49" y="20" width="79" height="17"/>
+                                        <rect key="frame" x="57" y="20" width="71" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="客服热线" image="y_p_客服热线icon">
+                                        <state key="normal" title="QQ热线" image="y_p_客服热线icon">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -330,7 +330,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="357" height="54"/>
                                         <connections>
                                             <action selector="frequentlyQBtnClick:" destination="4x7-pr-r3v" eventType="touchUpInside" id="xBM-or-TmZ"/>
-                                            <segue destination="duX-Kx-0T4" kind="show" id="lEe-WP-UrR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -365,7 +364,13 @@
                             <constraint firstItem="iaM-do-83V" firstAttribute="top" secondItem="wdX-Ez-Nt4" secondAttribute="bottom" constant="7" id="yFg-JM-Uuq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="服务中心" id="ug0-Sh-m4v"/>
+                    <navigationItem key="navigationItem" title="服务中心" id="ug0-Sh-m4v">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="y_h_return0" id="ZmI-bF-b9T">
+                            <connections>
+                                <action selector="serverCenterVCBackBtnClick:" destination="4x7-pr-r3v" id="TJo-pW-0BV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qmm-v2-J0E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1323,7 +1328,7 @@
             </objects>
             <point key="canvasLocation" x="1212" y="2696"/>
         </scene>
-        <!--邀请有理-->
+        <!--邀请有礼-->
         <scene sceneID="bal-O6-D8R">
             <objects>
                 <viewController id="6z3-lg-dt9" sceneMemberID="viewController">
@@ -1347,7 +1352,7 @@
                             <constraint firstItem="J5D-Lg-3oj" firstAttribute="top" secondItem="ZEh-ps-chb" secondAttribute="bottom" id="qiK-UI-E1k"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="邀请有理" id="1RP-xz-QZS"/>
+                    <navigationItem key="navigationItem" title="邀请有礼" id="1RP-xz-QZS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZD-dQ-Sky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1392,7 +1397,7 @@
         <!--常见问题-->
         <scene sceneID="62T-ze-pgM">
             <objects>
-                <viewController storyboardIdentifier="FreqentlyQViewController" id="53i-IM-rug" customClass="FreqentlyQViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FrequentlyQViewController" id="53i-IM-rug" customClass="FrequentlyQViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yaa-1Z-af7"/>
                         <viewControllerLayoutGuide type="bottom" id="4vn-1c-NY9"/>
@@ -1400,50 +1405,15 @@
                     <view key="view" contentMode="scaleToFill" id="u97-Vq-diA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4ot-zA-m0j">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WYD-dB-M5d">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="I8e-Qa-z71">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="53i-IM-rug" id="skt-M9-aJM"/>
-                                    <outlet property="delegate" destination="53i-IM-rug" id="DRx-um-fJe"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
                         <color key="backgroundColor" red="0.95016146349999997" green="1" blue="0.93694321410000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="4ot-zA-m0j" firstAttribute="leading" secondItem="u97-Vq-diA" secondAttribute="leading" id="Q64-7n-wAA"/>
-                            <constraint firstAttribute="trailing" secondItem="4ot-zA-m0j" secondAttribute="trailing" id="qvw-u3-pAn"/>
-                            <constraint firstItem="4vn-1c-NY9" firstAttribute="top" secondItem="4ot-zA-m0j" secondAttribute="bottom" id="tfJ-hO-wEZ"/>
-                            <constraint firstItem="4ot-zA-m0j" firstAttribute="top" secondItem="yaa-1Z-af7" secondAttribute="bottom" id="xNd-Wg-fch"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="常见问题" id="rxW-aT-ec0">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="y_h_return0" id="fOv-5W-iPF">
                             <connections>
-                                <action selector="frequentltyQVCBackBtnClick:" destination="53i-IM-rug" id="Uqe-bk-aGz"/>
+                                <action selector="frequentlyVCBackBtnClick:" destination="53i-IM-rug" id="Qla-t1-vgu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="frequentlyQCollectionView" destination="4ot-zA-m0j" id="FIh-vD-mxH"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3iO-Gh-FWN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

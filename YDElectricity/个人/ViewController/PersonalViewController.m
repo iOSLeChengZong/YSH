@@ -83,7 +83,6 @@
 
 #pragma mark -- UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%@,---%ld",[self class],indexPath.row);
     
     if (![YDUserInfo sharedYDUserInfo].login) {//提示用户跳转到登陆注册界面
         [self userNoneLoginTip];

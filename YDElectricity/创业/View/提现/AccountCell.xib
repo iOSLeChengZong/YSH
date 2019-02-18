@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AccountCell">
+            <rect key="frame" x="0.0" y="0.0" width="357" height="137"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="357" height="137"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ft7-f7-sMa">
+                        <rect key="frame" x="0.0" y="0.0" width="357" height="137"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_b_提现账户管理backgrond0" translatesAutoresizingMaskIntoConstraints="NO" id="NHD-Bd-1Y0">
+                                <rect key="frame" x="0.0" y="0.0" width="357" height="137"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_b_支付宝icon" translatesAutoresizingMaskIntoConstraints="NO" id="9Uu-zt-GiV">
+                                <rect key="frame" x="20" y="21" width="31" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="4gT-Ys-vr5"/>
+                                    <constraint firstAttribute="width" constant="31" id="Uny-tJ-DBW"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrL-iM-9D0">
+                                <rect key="frame" x="62" y="21" width="33" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUf-Z4-1wP">
+                                <rect key="frame" x="106" y="21" width="58" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYm-7f-PWq">
+                                <rect key="frame" x="62" y="38" width="33" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17620329567" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqL-dC-dGb">
+                                <rect key="frame" x="106" y="38" width="91" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_b_choose1" translatesAutoresizingMaskIntoConstraints="NO" id="u0Y-Cz-oYu">
+                                <rect key="frame" x="320" y="25" width="17" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="17" id="RRQ-cN-iev"/>
+                                    <constraint firstAttribute="height" constant="17" id="s9C-hA-LUh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="绑卡日期:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-Op-AKg">
+                                <rect key="frame" x="20" y="102.5" width="53" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-11-22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0v8-nm-Wbp">
+                                <rect key="frame" x="81" y="102.5" width="65.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAA-sb-ze8">
+                                <rect key="frame" x="284" y="101" width="53" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="53" id="1bz-xz-tR4"/>
+                                    <constraint firstAttribute="height" constant="20" id="I2T-Nn-Asi"/>
+                                </constraints>
+                                <state key="normal" title="删除" backgroundImage="y_b_提现账户管理_删除button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hAA-sb-ze8" secondAttribute="bottom" constant="16" id="0Ed-Gw-4v5"/>
+                            <constraint firstItem="hsz-Op-AKg" firstAttribute="leading" secondItem="9Uu-zt-GiV" secondAttribute="leading" id="1RJ-N6-aph"/>
+                            <constraint firstAttribute="bottom" secondItem="NHD-Bd-1Y0" secondAttribute="bottom" id="7PR-dt-EIJ"/>
+                            <constraint firstItem="XYm-7f-PWq" firstAttribute="leading" secondItem="qrL-iM-9D0" secondAttribute="leading" id="Dv5-C3-Wra"/>
+                            <constraint firstItem="9Uu-zt-GiV" firstAttribute="leading" secondItem="ft7-f7-sMa" secondAttribute="leading" constant="20" id="Hfm-bo-h8B"/>
+                            <constraint firstItem="oqL-dC-dGb" firstAttribute="centerY" secondItem="XYm-7f-PWq" secondAttribute="centerY" id="IOZ-ie-ETM"/>
+                            <constraint firstAttribute="bottom" secondItem="hsz-Op-AKg" secondAttribute="bottom" constant="20" id="JQe-fp-aSp"/>
+                            <constraint firstAttribute="trailing" secondItem="hAA-sb-ze8" secondAttribute="trailing" constant="20" id="P84-m9-UBp"/>
+                            <constraint firstAttribute="trailing" secondItem="NHD-Bd-1Y0" secondAttribute="trailing" id="RMe-O6-SP8"/>
+                            <constraint firstItem="XYm-7f-PWq" firstAttribute="top" secondItem="qrL-iM-9D0" secondAttribute="bottom" id="V3v-Ak-MiH"/>
+                            <constraint firstItem="NHD-Bd-1Y0" firstAttribute="leading" secondItem="ft7-f7-sMa" secondAttribute="leading" id="VDH-Rh-bec"/>
+                            <constraint firstItem="0v8-nm-Wbp" firstAttribute="centerY" secondItem="hsz-Op-AKg" secondAttribute="centerY" id="WAk-lG-mPe"/>
+                            <constraint firstItem="u0Y-Cz-oYu" firstAttribute="top" secondItem="ft7-f7-sMa" secondAttribute="top" constant="25" id="ZOn-14-FAZ"/>
+                            <constraint firstItem="qrL-iM-9D0" firstAttribute="leading" secondItem="9Uu-zt-GiV" secondAttribute="trailing" constant="11" id="cej-Bs-u3I"/>
+                            <constraint firstItem="PUf-Z4-1wP" firstAttribute="leading" secondItem="qrL-iM-9D0" secondAttribute="trailing" constant="11" id="dMv-Ig-cTx"/>
+                            <constraint firstItem="9Uu-zt-GiV" firstAttribute="top" secondItem="ft7-f7-sMa" secondAttribute="top" constant="21" id="hGL-sU-Oj9"/>
+                            <constraint firstItem="oqL-dC-dGb" firstAttribute="leading" secondItem="XYm-7f-PWq" secondAttribute="trailing" constant="11" id="jSl-fe-tzP"/>
+                            <constraint firstItem="0v8-nm-Wbp" firstAttribute="leading" secondItem="hsz-Op-AKg" secondAttribute="trailing" constant="8" id="ngZ-Gv-6WW"/>
+                            <constraint firstAttribute="trailing" secondItem="u0Y-Cz-oYu" secondAttribute="trailing" constant="20" id="sBa-X9-fzC"/>
+                            <constraint firstItem="qrL-iM-9D0" firstAttribute="top" secondItem="9Uu-zt-GiV" secondAttribute="top" id="sqd-5Y-R6B"/>
+                            <constraint firstItem="PUf-Z4-1wP" firstAttribute="centerY" secondItem="qrL-iM-9D0" secondAttribute="centerY" id="xDn-Sw-nIf"/>
+                            <constraint firstItem="NHD-Bd-1Y0" firstAttribute="top" secondItem="ft7-f7-sMa" secondAttribute="top" id="zBc-Y1-nV0"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ft7-f7-sMa" secondAttribute="trailing" id="Ig6-8a-yg6"/>
+                <constraint firstItem="ft7-f7-sMa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="L2I-iR-6fa"/>
+                <constraint firstItem="ft7-f7-sMa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Tk6-rS-yEM"/>
+                <constraint firstAttribute="bottom" secondItem="ft7-f7-sMa" secondAttribute="bottom" id="ZER-v5-1EW"/>
+            </constraints>
+            <point key="canvasLocation" x="140" y="154.27286356821591"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="y_b_choose1" width="17" height="17"/>
+        <image name="y_b_提现账户管理_删除button" width="52.5" height="20"/>
+        <image name="y_b_提现账户管理backgrond0" width="358" height="137"/>
+        <image name="y_b_支付宝icon" width="31" height="31"/>
+    </resources>
+</document>

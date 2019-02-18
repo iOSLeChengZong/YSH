@@ -597,10 +597,11 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mf-oM-WH9">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mf-oM-WH9">
                                         <rect key="frame" x="74" y="307" width="209" height="42"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="分享邀请码" backgroundImage="y_b_button1">
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="分享邀请码" image="y_b_share" backgroundImage="y_b_button1">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
@@ -1842,7 +1843,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Wi-ig-14B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1856.8" y="-971.06446776611699"/>
+            <point key="canvasLocation" x="1807" y="-1783"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yRY-yj-Amf">
@@ -1860,7 +1861,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbk-jk-tV3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1142" y="-971"/>
+            <point key="canvasLocation" x="1092" y="-1783"/>
         </scene>
         <!--任务中心-->
         <scene sceneID="dT6-gn-p8d">
@@ -2146,7 +2147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxm-ei-czh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="-1622"/>
+            <point key="canvasLocation" x="1794" y="-2435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VrA-LS-JDf">
@@ -2164,7 +2165,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLK-8i-bb7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1142" y="-1622"/>
+            <point key="canvasLocation" x="1092" y="-2435"/>
         </scene>
         <!--成长值记录-->
         <scene sceneID="6XK-u3-An7">
@@ -2245,6 +2246,84 @@
             </objects>
             <point key="canvasLocation" x="3894" y="1012"/>
         </scene>
+        <!--提现账户管理-->
+        <scene sceneID="4zs-m7-vde">
+            <objects>
+                <viewController storyboardIdentifier="GetCashViewController" hidesBottomBarWhenPushed="YES" id="2zJ-wm-nGm" customClass="GetCashViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QNz-o1-XKi"/>
+                        <viewControllerLayoutGuide type="bottom" id="bgN-f7-dgd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ThA-5Q-HCA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nwG-P4-lqb">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.9213964818" green="1" blue="0.92265905940000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="69Y-Ao-4oO">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AiG-kJ-PTC">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="2zJ-wm-nGm" id="H1m-yi-73Y"/>
+                                    <outlet property="delegate" destination="2zJ-wm-nGm" id="Chb-p6-tex"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nwG-P4-lqb" firstAttribute="leading" secondItem="ThA-5Q-HCA" secondAttribute="leading" id="Dtn-Mp-ITQ"/>
+                            <constraint firstItem="bgN-f7-dgd" firstAttribute="top" secondItem="nwG-P4-lqb" secondAttribute="bottom" id="L8j-pb-oas"/>
+                            <constraint firstItem="nwG-P4-lqb" firstAttribute="top" secondItem="QNz-o1-XKi" secondAttribute="bottom" id="w2Z-OK-yFe"/>
+                            <constraint firstAttribute="trailing" secondItem="nwG-P4-lqb" secondAttribute="trailing" id="xvm-hM-9dW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="提现账户管理" id="YQo-MD-CQr">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="y_b_return" id="xb9-ce-00e">
+                            <connections>
+                                <action selector="getCashVCBackBtnClick:" destination="2zJ-wm-nGm" id="Rks-Tp-vT7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="getCashCollectionView" destination="nwG-P4-lqb" id="m3d-FV-NkC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9CE-eZ-LuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794" y="-1089"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="L13-vc-5xN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nhf-7K-9gA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IjB-Lv-BUj">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2zJ-wm-nGm" kind="relationship" relationship="rootViewController" id="mnv-fX-XyU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Z6-X7-9Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1081" y="-1089"/>
+        </scene>
     </scenes>
     <resources>
         <image name="y_b_back1" width="7.5" height="15.5"/>
@@ -2258,6 +2337,7 @@
         <image name="y_b_prompt0" width="17.5" height="18"/>
         <image name="y_b_prompt1" width="17.5" height="18"/>
         <image name="y_b_return" width="7.5" height="15.5"/>
+        <image name="y_b_share" width="17" height="17"/>
         <image name="y_b_任务中心banner" width="360" height="124.5"/>
         <image name="y_b_任务中心icon" width="23" height="21.5"/>
         <image name="y_b_分享订单backgrond" width="358" height="169"/>

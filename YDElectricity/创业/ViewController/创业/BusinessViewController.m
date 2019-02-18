@@ -16,6 +16,7 @@
 #import "MyIdentifyViewController.h"
 #import "TaskCenterController.h"
 #import "CashDetailViewController.h"
+#import "GetCashViewController.h"
 
 #define kShareOrderViewController @"ShareOrderViewController"
 #define kInviteViewController @"InviteViewController"
@@ -24,6 +25,7 @@
 #define kMyIdentifyViewController @"MyIdentifyViewController"
 #define kTaskCenterController @"TaskCenterController"
 #define kCashDetailViewController @"CashDetailViewController"
+#define kGetCashViewController @"GetCashViewController"
 
 
 @interface BusinessViewController ()
@@ -106,7 +108,10 @@
         }];
         return;
     }
-    [Factory showWaittingForOpened];
+//    [Factory showWaittingForOpened];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDBusiness bundle:nil];
+    GetCashViewController *getCashVC = [storyboard instantiateViewControllerWithIdentifier:kGetCashViewController];
+    [self.navigationController pushViewController:getCashVC animated:YES];
 }
 
 
