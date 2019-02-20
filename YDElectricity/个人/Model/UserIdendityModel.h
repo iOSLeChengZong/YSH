@@ -25,12 +25,14 @@ YDSingletonH(UserIdendityModel)
 @property (nonatomic, strong) NSString * birthDay;
 @property (nonatomic, assign) NSInteger gold;
 @property (nonatomic, assign) NSInteger gradeId;
+//用户成长值
 @property (nonatomic, assign) NSInteger growth;
 @property (nonatomic, strong) NSString * headImgUrl;
 //id -> idField
 @property (nonatomic, assign) NSInteger idField;
 @property (nonatomic, strong) NSObject * inviteCode;
 @property (nonatomic, strong) NSString * lastLoginTime;
+//用户昵称
 @property (nonatomic, strong) NSString * nickName;
 @property (nonatomic, strong) NSString * phone;
 @property (nonatomic, strong) NSObject * phoneImei;

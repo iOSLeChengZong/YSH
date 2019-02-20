@@ -66,9 +66,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = kViewBGColor;
+    
     self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
     
+    self.view.backgroundColor = kViewBGColor;
     NSMutableArray *vcsArr = [NSMutableArray new];
     NSArray *titleArr = @[@"全部",@"已付款",@"已结算",@"已失效"];
     

@@ -36,16 +36,6 @@
     [self setupGlobalClobalConfig];
     //获取本地微信appid
 
-
-    
-    
-    
-    
-    
-
-    
-    
-    
     return YES;
 }
 

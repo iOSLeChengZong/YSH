@@ -11,6 +11,7 @@
 #import "IdentityDefaultReusableView.h"
 #import "IdentityCell.h"
 #import "MyPrerogativeModel.h"
+#import "TYAttributedLabel.h"
 
 #define kIdentityDefaultReusableView @"IdentityDefaultReusableView"
 #define kIdentityCell @"IdentityCell"
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionV;
 @property (nonatomic,strong)MyPrerogativeModel *prerogativeModel;
 
+@property (weak, nonatomic) IBOutlet UILabel *noticeLabel;
 
 
 
@@ -27,10 +29,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionHeightC;
 
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *customerLeadingC;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *businessLeadingC;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *managerLeadingC;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *parnerLeadingC;
 
 
 
@@ -58,11 +56,7 @@
     self.collectionVWidthC.constant *= kWidthScall;
     self.collectionHeightC.constant *= kWidthScall;
     
-    self.customerLeadingC.constant *= kWidthScall;
-    self.businessLeadingC.constant *= kWidthScall;
-    self.managerLeadingC.constant *= kWidthScall;
-    self.parnerLeadingC.constant *= kWidthScall;
-
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

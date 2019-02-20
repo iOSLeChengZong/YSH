@@ -212,12 +212,14 @@ static CGRect oldframe;
      */
     
     if (self.tbkVM) {
+        
+        self.estimatePrice.text = self.tbkVM.estimateProfit;
         [self.mainImage sd_setImageWithURL:self.tbkVM.mainImageUrl];
         [self.mainImage viewcornerRadius:6 borderWith:0.1 clearColor:YES];
         self.diaoPaiPrice.text = self.tbkVM.originalPrice;
         self.imageName.image = [UIImage imageNamed:self.tbkVM.imageName];
         self.titleName.text = self.tbkVM.title;
-        self.discountPrice.text = self.tbkVM.discountPrice;
+        self.discountPrice.text = self.tbkVM.aftercouponPrice;//self.tbkVM.discountPrice;
         self.originalPrice.text = self.tbkVM.originalPrice;
         self.couponPrice.text = self.tbkVM.couponPrice;
         

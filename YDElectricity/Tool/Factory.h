@@ -37,6 +37,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** 未登陆界面提示 */
 +(void)noneLoginTipConfrimBolck:(void(^)(void))confrimBlock CancelBlock:(void(^)(void))cancelBlock;
 
+
+//隐藏导航栏分隔线
+//2、找出底部横线的函数
++(UIImageView *)findHairlineImageViewUnder:(UIView *)view;
+
 @end
 
 NS_ASSUME_NONNULL_END

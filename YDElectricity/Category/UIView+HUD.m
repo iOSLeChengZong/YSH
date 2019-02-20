@@ -8,7 +8,7 @@
 
 #import "UIView+HUD.h"
 //超时
-#define kTimeOut 5
+#define kTimeOut 20
 //弹出提示时长
 #define kDuration 1
 

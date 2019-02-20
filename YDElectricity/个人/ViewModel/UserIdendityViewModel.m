@@ -38,7 +38,16 @@
 -(NSString *)userRankName{
     switch (self.info.gradeId) {
         case 1:
-            return @"消费者";
+            return @"消费者";//0~999
+            break;
+        case 2:
+            return @"创业者";//1000~4999
+            break;
+        case 3:
+            return @"总经理";//5000~14999
+            break;
+        case 4:
+            return @"合伙人";//15000~
             break;
             
         default:

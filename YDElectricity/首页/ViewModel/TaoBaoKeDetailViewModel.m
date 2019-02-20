@@ -80,6 +80,7 @@
     
 }
 
+//折扣价
 - (NSString *)discountPrice{
     if (_isSpike) {
         return [NSString stringWithFormat:@"￥%.1f",self.spikeList.zkFinalPrice];
@@ -107,11 +108,23 @@
     
 }
 
+
+//优惠券
 -(NSString *)couponPrice{
     if (_isSpike) {
         return @"￥0.0";
     }else{
         return [NSString stringWithFormat:@"￥%.1f",self.list.couponPrice];
+    }
+}
+
+
+//券后价
+-(NSString *)aftercouponPrice{
+    if (_isSpike) {
+        return [NSString stringWithFormat:@"￥%.0f",self.spikeList.zkFinalPrice];
+    }else{
+        return [NSString stringWithFormat:@"￥%.0f",(self.list.zkFinalPrice - self.list.couponPrice)];
     }
 }
 
@@ -153,6 +166,14 @@
 
 -(NSString *)logisticsScore{
     return @"";
+}
+
+//预估收益
+-(NSString *)estimateProfit{
+    if (_isSpike) {
+        return @"￥0.0";
+    }
+    return [NSString stringWithFormat:@"￥%.1f",self.list.commission];
 }
 
 -(NSURL *)mainImageUrl{

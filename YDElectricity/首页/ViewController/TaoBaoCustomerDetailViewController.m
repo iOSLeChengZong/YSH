@@ -13,11 +13,13 @@
 #import "ShareViewController.h"
 #import "TaoBaoCustomerHTMLVC.h"
 #import "YDCustomButton.h"
+#import "DiscountCouponViewController.h"
 
 #define kCustomerHeaderCell @"CustomerHeaderCell"
 #define kDetailInfoCell @"DetailInfoCell"
 #define kShopDetailCell @"ShopDetailCell"
 #define kTaoBaoCustomerHTMLVC @"TaoBaoCustomerHTMLVC"
+#define kDiscountCouponViewController @"DiscountCouponViewController"
 
 
 @interface TaoBaoCustomerDetailViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,TaoBaoCustomerHTMLVCDelegate,UIGestureRecognizerDelegate>
@@ -62,6 +64,8 @@
     [super viewDidLoad];
     self.collectionV.backgroundColor = kViewBGColor;
     [self registerCell];
+    //底部按钮赋值
+    
     
  
 }
@@ -85,10 +89,15 @@
 
     if (indexPath.row == 0)
     {
+        
+        //为底部按钮价格赋值
+        self.buyLabel1.text = self.tbkVM.couponPrice;
+        self.shareLabel1.text = self.tbkVM.estimateProfit;
+        
         DetailInfoCell *cell = [self.collectionV dequeueReusableCellWithReuseIdentifier:kDetailInfoCell forIndexPath:indexPath];
         cell.imageName.image = [UIImage imageNamed:self.tbkVM.imageName];
         cell.title.text = self.tbkVM.title;
-        cell.discountPrice.text = self.tbkVM.discountPrice;
+        cell.discountPrice.text = self.tbkVM.aftercouponPrice;//self.tbkVM.discountPrice;
         cell.originalPrice.text = self.tbkVM.originalPrice;
         cell.monthSaleNum.text = self.tbkVM.monthSaleNum;
         cell.couponPrice.text = self.tbkVM.couponPrice;
@@ -228,6 +237,10 @@
     return image;
 }
 
+
+
+
+
 //客服
 - (IBAction)serverBtnClick:(UIButton *)sender {
    
@@ -235,7 +248,11 @@
 
 //领券购买
 - (IBAction)buyBtnClick:(UIButton *)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDHome bundle:nil];
+    DiscountCouponViewController *couponVC = [storyboard instantiateViewControllerWithIdentifier:kDiscountCouponViewController];
+    [self.navigationController pushViewController:couponVC animated:YES];
 
+    
 }
 
 //分享赚

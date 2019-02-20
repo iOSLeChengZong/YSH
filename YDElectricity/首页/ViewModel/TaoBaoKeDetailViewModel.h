@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString *monthSaleNum;
 /** 优惠券 */
 @property(nonatomic,strong)NSString *couponPrice;
+/** 券后价 */
+@property(nonatomic,strong)NSString *aftercouponPrice;
 /** 使用期限 */
 @property(nonatomic,strong)NSString *serviceLife;
 /** 商品品牌图名称 或url */
@@ -47,6 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString *sellerScore;
 /** 物流服务评分 */
 @property(nonatomic,strong)NSString *logisticsScore;
+/** 预估收益 */
+@property(nonatomic,strong)NSString *estimateProfit;
 
 
 /** 分享界面商品主图 */

@@ -196,6 +196,21 @@
 		549A663621B8D3340059EE89 /* UIBarButtonItem+PPBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A663121B8D3330059EE89 /* UIBarButtonItem+PPBadgeView.m */; };
 		549A663A21B90A0B0059EE89 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A663921B90A0B0059EE89 /* Person.m */; };
 		549BDB0D21C8CB060001F3EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549BDB0C21C8CB060001F3EA /* LoginViewController.m */; };
+		549C1433221BA1BF0027E8CF /* DiscountCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1432221BA1BF0027E8CF /* DiscountCouponViewController.m */; };
+		549C1437221BA2B20027E8CF /* DiscountCouponChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1436221BA2B20027E8CF /* DiscountCouponChildViewController.m */; };
+		549C143B221BA77C0027E8CF /* DiscountCouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1439221BA77C0027E8CF /* DiscountCouponCell.m */; };
+		549C143C221BA77C0027E8CF /* DiscountCouponCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549C143A221BA77C0027E8CF /* DiscountCouponCell.xib */; };
+		549C1440221BF4BF0027E8CF /* PingFang-SC-Medium.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 549C143F221BF2380027E8CF /* PingFang-SC-Medium.ttc */; };
+		549C1475221C02AB0027E8CF /* TYLinkTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1462221C02AB0027E8CF /* TYLinkTextStorage.m */; };
+		549C1476221C02AB0027E8CF /* TYDrawStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1463221C02AB0027E8CF /* TYDrawStorage.m */; };
+		549C1477221C02AB0027E8CF /* TYViewStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1464221C02AB0027E8CF /* TYViewStorage.m */; };
+		549C1478221C02AB0027E8CF /* TYImageStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1465221C02AB0027E8CF /* TYImageStorage.m */; };
+		549C1479221C02AB0027E8CF /* NSMutableAttributedString+TY.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1467221C02AB0027E8CF /* NSMutableAttributedString+TY.m */; };
+		549C147A221C02AB0027E8CF /* TYImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1468221C02AB0027E8CF /* TYImageCache.m */; };
+		549C147B221C02AB0027E8CF /* TYTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1469221C02AB0027E8CF /* TYTextStorage.m */; };
+		549C147C221C02AB0027E8CF /* TYAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C146A221C02AB0027E8CF /* TYAttributedLabel.m */; };
+		549C147D221C02AB0027E8CF /* TYTextContainer+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1471221C02AB0027E8CF /* TYTextContainer+Extended.m */; };
+		549C147E221C02AC0027E8CF /* TYTextContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1474221C02AB0027E8CF /* TYTextContainer.m */; };
 		549CC4E522156BC8003D1A87 /* CashRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CC4E422156BC8003D1A87 /* CashRecordViewController.m */; };
 		549CC4EA22156C11003D1A87 /* CashRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CC4E822156C11003D1A87 /* CashRecordCell.m */; };
 		549CC4EB22156C11003D1A87 /* CashRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549CC4E922156C11003D1A87 /* CashRecordCell.xib */; };
@@ -665,6 +680,34 @@
 		549A663921B90A0B0059EE89 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		549BDB0B21C8CB060001F3EA /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		549BDB0C21C8CB060001F3EA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		549C1431221BA1BF0027E8CF /* DiscountCouponViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscountCouponViewController.h; sourceTree = "<group>"; };
+		549C1432221BA1BF0027E8CF /* DiscountCouponViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscountCouponViewController.m; sourceTree = "<group>"; };
+		549C1435221BA2B20027E8CF /* DiscountCouponChildViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscountCouponChildViewController.h; sourceTree = "<group>"; };
+		549C1436221BA2B20027E8CF /* DiscountCouponChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscountCouponChildViewController.m; sourceTree = "<group>"; };
+		549C1438221BA77C0027E8CF /* DiscountCouponCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscountCouponCell.h; sourceTree = "<group>"; };
+		549C1439221BA77C0027E8CF /* DiscountCouponCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscountCouponCell.m; sourceTree = "<group>"; };
+		549C143A221BA77C0027E8CF /* DiscountCouponCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscountCouponCell.xib; sourceTree = "<group>"; };
+		549C143F221BF2380027E8CF /* PingFang-SC-Medium.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PingFang-SC-Medium.ttc"; sourceTree = "<group>"; };
+		549C1461221C02AB0027E8CF /* TYAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAttributedLabel.h; sourceTree = "<group>"; };
+		549C1462221C02AB0027E8CF /* TYLinkTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYLinkTextStorage.m; sourceTree = "<group>"; };
+		549C1463221C02AB0027E8CF /* TYDrawStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDrawStorage.m; sourceTree = "<group>"; };
+		549C1464221C02AB0027E8CF /* TYViewStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYViewStorage.m; sourceTree = "<group>"; };
+		549C1465221C02AB0027E8CF /* TYImageStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYImageStorage.m; sourceTree = "<group>"; };
+		549C1466221C02AB0027E8CF /* TYTextContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTextContainer.h; sourceTree = "<group>"; };
+		549C1467221C02AB0027E8CF /* NSMutableAttributedString+TY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+TY.m"; sourceTree = "<group>"; };
+		549C1468221C02AB0027E8CF /* TYImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYImageCache.m; sourceTree = "<group>"; };
+		549C1469221C02AB0027E8CF /* TYTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTextStorage.m; sourceTree = "<group>"; };
+		549C146A221C02AB0027E8CF /* TYAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAttributedLabel.m; sourceTree = "<group>"; };
+		549C146B221C02AB0027E8CF /* TYLinkTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYLinkTextStorage.h; sourceTree = "<group>"; };
+		549C146C221C02AB0027E8CF /* TYTextStorageProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTextStorageProtocol.h; sourceTree = "<group>"; };
+		549C146D221C02AB0027E8CF /* TYViewStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYViewStorage.h; sourceTree = "<group>"; };
+		549C146E221C02AB0027E8CF /* TYImageStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYImageStorage.h; sourceTree = "<group>"; };
+		549C146F221C02AB0027E8CF /* TYDrawStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDrawStorage.h; sourceTree = "<group>"; };
+		549C1470221C02AB0027E8CF /* TYTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTextStorage.h; sourceTree = "<group>"; };
+		549C1471221C02AB0027E8CF /* TYTextContainer+Extended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TYTextContainer+Extended.m"; sourceTree = "<group>"; };
+		549C1472221C02AB0027E8CF /* TYImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYImageCache.h; sourceTree = "<group>"; };
+		549C1473221C02AB0027E8CF /* NSMutableAttributedString+TY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+TY.h"; sourceTree = "<group>"; };
+		549C1474221C02AB0027E8CF /* TYTextContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTextContainer.m; sourceTree = "<group>"; };
 		549CC4E322156BC8003D1A87 /* CashRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashRecordViewController.h; sourceTree = "<group>"; };
 		549CC4E422156BC8003D1A87 /* CashRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashRecordViewController.m; sourceTree = "<group>"; };
 		549CC4E722156C11003D1A87 /* CashRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashRecordCell.h; sourceTree = "<group>"; };
@@ -1459,6 +1502,7 @@
 			isa = PBXGroup;
 			children = (
 				54C6F03421AB87B200679607 /* Info.plist */,
+				549C143F221BF2380027E8CF /* PingFang-SC-Medium.ttc */,
 				54C6F03521AB87B200679607 /* main.m */,
 				5470579121AB9F360087E4BD /* PrefixHeader.pch */,
 			);
@@ -1524,6 +1568,7 @@
 		5472809021C0DEAE009A75E8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				549C1430221BA19A0027E8CF /* 优惠券 */,
 				54BB217321F821B300D6BC65 /* TaoBaoCustomerHTML */,
 				54ABD57E21E829A000B54F7E /* 限时秒杀 */,
 				54239DDB21DE044B00E12690 /* 商品列表 */,
@@ -1565,6 +1610,7 @@
 		5472809321C0DEAE009A75E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				549C1434221BA20B0027E8CF /* 优惠券 */,
 				54C11F9021E34FE9004AE0DC /* 限时秒杀 */,
 				54A03D1C21D5C6BB00ECC00F /* ShareProfit */,
 				54A5B0CD21D314D300F3CA27 /* TaoBaoCutomer */,
@@ -1874,6 +1920,7 @@
 		549A65ED21B8D2E60059EE89 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				549C1460221C02AB0027E8CF /* TYAttributedLabel */,
 				54D0D91321F55EAF00225C02 /* TXAdapter */,
 				54D0D90621F55EA600225C02 /* UIFit */,
 				54DCA9AD21ED8DEE00F72E87 /* RHFiltrate */,
@@ -1925,6 +1972,55 @@
 				54C68EA521C8E769003CE99E /* ConfirmTeacherViewController.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		549C1430221BA19A0027E8CF /* 优惠券 */ = {
+			isa = PBXGroup;
+			children = (
+				549C1431221BA1BF0027E8CF /* DiscountCouponViewController.h */,
+				549C1432221BA1BF0027E8CF /* DiscountCouponViewController.m */,
+				549C1435221BA2B20027E8CF /* DiscountCouponChildViewController.h */,
+				549C1436221BA2B20027E8CF /* DiscountCouponChildViewController.m */,
+			);
+			name = "优惠券";
+			sourceTree = "<group>";
+		};
+		549C1434221BA20B0027E8CF /* 优惠券 */ = {
+			isa = PBXGroup;
+			children = (
+				549C1438221BA77C0027E8CF /* DiscountCouponCell.h */,
+				549C1439221BA77C0027E8CF /* DiscountCouponCell.m */,
+				549C143A221BA77C0027E8CF /* DiscountCouponCell.xib */,
+			);
+			name = "优惠券";
+			sourceTree = "<group>";
+		};
+		549C1460221C02AB0027E8CF /* TYAttributedLabel */ = {
+			isa = PBXGroup;
+			children = (
+				549C1461221C02AB0027E8CF /* TYAttributedLabel.h */,
+				549C1462221C02AB0027E8CF /* TYLinkTextStorage.m */,
+				549C1463221C02AB0027E8CF /* TYDrawStorage.m */,
+				549C1464221C02AB0027E8CF /* TYViewStorage.m */,
+				549C1465221C02AB0027E8CF /* TYImageStorage.m */,
+				549C1466221C02AB0027E8CF /* TYTextContainer.h */,
+				549C1467221C02AB0027E8CF /* NSMutableAttributedString+TY.m */,
+				549C1468221C02AB0027E8CF /* TYImageCache.m */,
+				549C1469221C02AB0027E8CF /* TYTextStorage.m */,
+				549C146A221C02AB0027E8CF /* TYAttributedLabel.m */,
+				549C146B221C02AB0027E8CF /* TYLinkTextStorage.h */,
+				549C146C221C02AB0027E8CF /* TYTextStorageProtocol.h */,
+				549C146D221C02AB0027E8CF /* TYViewStorage.h */,
+				549C146E221C02AB0027E8CF /* TYImageStorage.h */,
+				549C146F221C02AB0027E8CF /* TYDrawStorage.h */,
+				549C1470221C02AB0027E8CF /* TYTextStorage.h */,
+				549C1471221C02AB0027E8CF /* TYTextContainer+Extended.m */,
+				549C1472221C02AB0027E8CF /* TYImageCache.h */,
+				549C1473221C02AB0027E8CF /* NSMutableAttributedString+TY.h */,
+				549C1474221C02AB0027E8CF /* TYTextContainer.m */,
+			);
+			name = TYAttributedLabel;
+			path = "../../../../../Downloads/TYAttributedLabel-master/TYAttributedLabelDemo/TYAttributedLabel";
 			sourceTree = "<group>";
 		};
 		549CC4E222156ABF003D1A87 /* 提现记录 */ = {
@@ -2872,6 +2968,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				549C1440221BF4BF0027E8CF /* PingFang-SC-Medium.ttc in Resources */,
 				544DD44321C38B6C0052D469 /* 542a6b2eNff29739a.png in Resources */,
 				549EF9E321BF4A3700461469 /* citydata.plist in Resources */,
 				544DD47C21C38B6C0052D469 /* MENU_0_0_7.PNG in Resources */,
@@ -2946,6 +3043,7 @@
 				54F1FB6A21AFD5C1004460D0 /* TestViewController.xib in Resources */,
 				544DD45521C38B6C0052D469 /* h4.jpg in Resources */,
 				5452FB2721B6786600137441 /* h4.jpg in Resources */,
+				549C143C221BA77C0027E8CF /* DiscountCouponCell.xib in Resources */,
 				54AB39CF21D89BB100D40606 /* GoldTaskCollectionViewCell.xib in Resources */,
 				54AF6FEF21BB6FBE00E264EB /* YDHome.storyboard in Resources */,
 				544DD47721C38B6C0052D469 /* MENU_0_0_5.PNG in Resources */,
@@ -3081,6 +3179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54A4699B21E9EC6C00109636 /* DNAssetsViewCell.m in Sources */,
+				549C1477221C02AB0027E8CF /* TYViewStorage.m in Sources */,
 				5408792821F1B1D60010E994 /* UserOrderViewModel.m in Sources */,
 				54A5B0D621D3155E00F3CA27 /* DetailInfoCell.m in Sources */,
 				54D0D90F21F55EA700225C02 /* UITextView+Fit.m in Sources */,
@@ -3129,6 +3228,7 @@
 				542108F821C1E96500CCA43C /* HomeProductCell.m in Sources */,
 				54AD34A921AE863D004FAEF5 /* YDIntroViewController.m in Sources */,
 				54346C0C2217E56D0053A126 /* FrequentlyQHeader.m in Sources */,
+				549C147E221C02AC0027E8CF /* TYTextContainer.m in Sources */,
 				5421090821C20DE300CCA43C /* CommodityModel.m in Sources */,
 				54346C112217E94E0053A126 /* FrequentlyQCell.m in Sources */,
 				54A469A521E9EC7B00109636 /* KKPhotoPickerManager.m in Sources */,
@@ -3138,14 +3238,17 @@
 				54213D1021F0753B002D5822 /* UserIdendityModel.m in Sources */,
 				54ABD58D21E8A5A400B54F7E /* MyOrderCollectionViewCell.m in Sources */,
 				544CDC9621E740E000A7DD01 /* MJCChildMainView.m in Sources */,
+				549C147C221C02AB0027E8CF /* TYAttributedLabel.m in Sources */,
 				544CDC9821E740E000A7DD01 /* MJCSegmentStylesTools.m in Sources */,
 				54AD7C5021C335F00054D34A /* CategoryModel.m in Sources */,
+				549C147B221C02AB0027E8CF /* TYTextStorage.m in Sources */,
 				54A468FB21E9CEE200109636 /* IdearResponseRoViewController.m in Sources */,
 				54B7EAD921E5A6FB00147609 /* UIAlertController+Blocks.m in Sources */,
 				542C5E3A21CA14F900EA0003 /* HomeViewModel.m in Sources */,
 				544DD49A21C3C0D20052D469 /* MyIdentifyViewController.m in Sources */,
 				5421091E21C20FBF00CCA43C /* MultilevelMenu.m in Sources */,
 				549A662821B8D2E60059EE89 /* iCarousel.m in Sources */,
+				549C1479221C02AB0027E8CF /* NSMutableAttributedString+TY.m in Sources */,
 				54DCA9C521EED0F300F72E87 /* AddressListCell.m in Sources */,
 				54C68EA321C8E734003CE99E /* PhoneNumViewController.m in Sources */,
 				54C6F02B21AB87A200679607 /* ViewController.m in Sources */,
@@ -3161,6 +3264,7 @@
 				54ACBC8D21E4341F006FA462 /* VerifyRegisterModel.m in Sources */,
 				54B4602B21EC664E0040633B /* BusinessViewController.m in Sources */,
 				54B4603421EC6F480040633B /* ShareOrderCell.m in Sources */,
+				549C1476221C02AB0027E8CF /* TYDrawStorage.m in Sources */,
 				5493523A21AD2D1800192823 /* NSObject+ViewModel.m in Sources */,
 				547280AF21C0E430009A75E8 /* SearchBarView.m in Sources */,
 				54A4699821E9EC6C00109636 /* DNImagePickerController.m in Sources */,
@@ -3188,6 +3292,7 @@
 				545CAAA421F85288003914DF /* SystemSettingViewController.m in Sources */,
 				54DCA9BE21ED8DEE00F72E87 /* RHHelper.m in Sources */,
 				549EF9EE21BF572E00461469 /* CityDataViewModel.m in Sources */,
+				549C1437221BA2B20027E8CF /* DiscountCouponChildViewController.m in Sources */,
 				54ABD58721E896A900B54F7E /* MyOrderChildViewController.m in Sources */,
 				549EF9E721BF4BA500461469 /* CityDataModel.m in Sources */,
 				549A663621B8D3340059EE89 /* UIBarButtonItem+PPBadgeView.m in Sources */,
@@ -3204,6 +3309,7 @@
 				54ACC2C62216BD6A005640F4 /* TaskCell.m in Sources */,
 				54DCA9D621EF014000F72E87 /* EditorAddressViewController.m in Sources */,
 				54CF9A1E21BA453900E9142F /* menuTableViewController.m in Sources */,
+				549C143B221BA77C0027E8CF /* DiscountCouponCell.m in Sources */,
 				54213D0B21F0189A002D5822 /* SecondSkillColumnViewModel.m in Sources */,
 				54DCA9BB21ED8DEE00F72E87 /* RHFiltrateCell.m in Sources */,
 				5452FB1A21B6134A00137441 /* YDPopTopOutView.m in Sources */,
@@ -3223,6 +3329,8 @@
 				54B4602721EC3E870040633B /* ShareOrderChildViewController.m in Sources */,
 				54FD259121AD3B370082FE3A /* Factory.m in Sources */,
 				5412E7AB21AD1B010056AB12 /* NSObject+Parse.m in Sources */,
+				549C147D221C02AB0027E8CF /* TYTextContainer+Extended.m in Sources */,
+				549C1433221BA1BF0027E8CF /* DiscountCouponViewController.m in Sources */,
 				54A49FE9221A3D6B0017CABF /* FrequentlyQGroupModel.m in Sources */,
 				5470579D21ABE5500087E4BD /* YDNetManager.m in Sources */,
 				544CDC9721E740E000A7DD01 /* MJCSegmentInterface.m in Sources */,
@@ -3256,6 +3364,7 @@
 				547280B321C0FA29009A75E8 /* HomeHeaderCollectionViewCell.m in Sources */,
 				542108FD21C2024A00CCA43C /* YDNavigationViewController.m in Sources */,
 				542C5E2E21C9EAC700EA0003 /* HomeHeaderModel.m in Sources */,
+				549C1475221C02AB0027E8CF /* TYLinkTextStorage.m in Sources */,
 				5421090321C20D9200CCA43C /* CategoryViewController.m in Sources */,
 				54DCA9DA21EF16F300F72E87 /* AddressDataModel.m in Sources */,
 				5421091F21C20FBF00CCA43C /* MultilevelTableViewCell.m in Sources */,
@@ -3276,7 +3385,9 @@
 				54AB39D721D8B9D600D40606 /* TeacherNoneWelfareCell.m in Sources */,
 				54A4690321E9D12B00109636 /* IdeaResponseCell.m in Sources */,
 				54A4699F21E9EC6C00109636 /* MWTapDetectingImageView.m in Sources */,
+				549C1478221C02AB0027E8CF /* TYImageStorage.m in Sources */,
 				54B4604221ECBB1B0040633B /* TeamMemberViewController.m in Sources */,
+				549C147A221C02AB0027E8CF /* TYImageCache.m in Sources */,
 				5470579421ABA1C60087E4BD /* AppDelegate+System.m in Sources */,
 				542F8DB721C8891100371620 /* CategoryLeftViewModel.m in Sources */,
 				5472808821C0D756009A75E8 /* UIView+Extension.m in Sources */,
