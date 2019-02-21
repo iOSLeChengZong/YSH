@@ -45,6 +45,7 @@
                     </view>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="gVb-Ke-9ze" firstAttribute="top" secondItem="HLh-Vg-qkh" secondAttribute="top" id="0Uj-lG-Zkj"/>
                 <constraint firstAttribute="bottom" secondItem="gVb-Ke-9ze" secondAttribute="bottom" id="Pek-Dk-naX"/>
@@ -55,7 +56,7 @@
                 <outlet property="image" destination="Jj6-48-BwH" id="rnR-Cl-YJP"/>
                 <outlet property="label" destination="FCz-DP-oGT" id="dKW-Kr-LIH"/>
             </connections>
-            <point key="canvasLocation" x="56" y="48.575712143928037"/>
+            <point key="canvasLocation" x="54.399999999999999" y="47.676161919040482"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -30,4 +30,19 @@ YDSingletonM(YDUserInfo)
     }];
 }
 
+
+//本地头像
+-(UIImage *)getUserHeaderImage{
+    //从沙盒拿
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
+    if ([fileManager fileExistsAtPath:fullPath]) {
+        UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
+        return savedImage;
+    }
+    return nil;
+}
+
+
+
 @end

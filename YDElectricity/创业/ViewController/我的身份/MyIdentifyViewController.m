@@ -12,23 +12,80 @@
 #import "IdentityCell.h"
 #import "MyPrerogativeModel.h"
 #import "TYAttributedLabel.h"
+#import "UserIdendityViewModel.h"
 
 #define kIdentityDefaultReusableView @"IdentityDefaultReusableView"
 #define kIdentityCell @"IdentityCell"
 #define kItmeWidth (355 / 3) * kWidthScall
 
 @interface MyIdentifyViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+//用户头像
+@property (weak, nonatomic) IBOutlet UIImageView *headerImage;
+
+//用户昵称
+@property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
+
+//用户身份
+@property (weak, nonatomic) IBOutlet UILabel *userIdentity;
+
+//消费者图片
+@property (weak, nonatomic) IBOutlet UIImageView *customerImage;
+//消费者名称
+@property (weak, nonatomic) IBOutlet UILabel *customerNameLabel;
+
+
+//创业者图片
+@property (weak, nonatomic) IBOutlet UIImageView *businessImage;
+
+//到创业者进度背景
+@property (weak, nonatomic) IBOutlet UIView *businessProgressBg;
+
+//到创业者进度
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *businessProgressBarWidthC;
+//创业者名称
+@property (weak, nonatomic) IBOutlet UILabel *businessNameLabel;
+
+
+//总经理图片
+@property (weak, nonatomic) IBOutlet UIImageView *managerImage;
+
+//到总经理总进度背景
+@property (weak, nonatomic) IBOutlet UIView *managerProgressBg;
+//到总经理进度
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *managerProgressBarWidthC;
+//总经理名称
+@property (weak, nonatomic) IBOutlet UILabel *managerNameLabel;
+
+//合伙人图片
+@property (weak, nonatomic) IBOutlet UIImageView *partnerImage;
+//到合伙人总进度背景
+@property (weak, nonatomic) IBOutlet UIView *partnerProgressBg;
+//到合伙人进度
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *partnerProgressBarWidthC;
+//合伙人名称
+@property (weak, nonatomic) IBOutlet UILabel *partnerNameLabel;
+
+//我的成长值Btn
+@property (weak, nonatomic) IBOutlet UIButton *myGrowthBtn;
+
+//喇叭
+@property (weak, nonatomic) IBOutlet UIImageView *noticeImageView;
+//富文本
+@property (weak, nonatomic) IBOutlet TYAttributedLabel *noticeLabel;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionV;
+@property (weak, nonatomic) IBOutlet UIView *collectionVBgView;
+
 @property (nonatomic,strong)MyPrerogativeModel *prerogativeModel;
+@property (nonatomic,strong) UserIdendityViewModel *idendityVM;
 
-@property (weak, nonatomic) IBOutlet UILabel *noticeLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionVParentVWidthC;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionVParentVHeightC;
 
-
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionVWidthC;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionHeightC;
-
-
+//顶部约束
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *myIdendityTopViewHeightC;
+@property (weak, nonatomic) IBOutlet UIView *myIdendityTopView;
 
 
 
@@ -38,6 +95,7 @@
 @implementation MyIdentifyViewController
 
 #pragma mark -- 懒加载
+//我的特权
 - (MyPrerogativeModel *)prerogativeModel{
     if (!_prerogativeModel) {
         _prerogativeModel = [[MyPrerogativeModel alloc] init];
@@ -45,23 +103,43 @@
     return _prerogativeModel;
 }
 
+//我的身份
+-(UserIdendityViewModel *)idendityVM{
+    if (!_idendityVM) {
+        _idendityVM = [UserIdendityViewModel new];
+    }
+    return _idendityVM;
+}
+
 
 #pragma mark -- 生命周期
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     self.view.backgroundColor = kViewBGColor;
+    self.noticeLabel.backgroundColor = [UIColor clearColor];
+    self.collectionV.backgroundColor = [UIColor clearColor];//kViewBGColor;
+    self.collectionVBgView.backgroundColor = kViewBGColor;
+    self.collectionVParentVWidthC.constant *= kWidthScall;
+    self.collectionVParentVHeightC.constant *= kWidthScall;
+    //适配iphoneX顶部
+    if (iPhoneX) {
+        self.myIdendityTopViewHeightC.constant = 20;
+        self.myIdendityTopView.backgroundColor = kFONTSlectRGB;
+    }else{
+        self.myIdendityTopViewHeightC.constant = 0;
+        self.myIdendityTopView.backgroundColor = [UIColor clearColor];
+    }
     
-    
-    self.collectionV.backgroundColor = kViewBGColor;
-    self.collectionVWidthC.constant *= kWidthScall;
-    self.collectionHeightC.constant *= kWidthScall;
     
     
 }
 
+
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
     
 }
 
@@ -73,13 +151,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.collectionV.delegate = self;
+    self.collectionV.dataSource = self;
     //注册
     [self registerCell];
+    //请求数据
+    [self requestData];
 
 }
 
 -(void)registerCell{
-//    [self.collectionV registerNib:[UINib nibWithNibName:@"IdentityTopReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"IdentityTopReusableView"];
     [self.collectionV registerNib:[UINib nibWithNibName:@"IdentityDefaultReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"IdentityDefaultReusableView"];
     [self.collectionV registerNib:[UINib nibWithNibName:@"IdentityCell" bundle:nil] forCellWithReuseIdentifier:@"IdentityCell"];
 }
@@ -127,12 +209,13 @@
 //cell的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
    
-    return CGSizeMake(kItmeWidth, kItmeWidth);
+    return CGSizeMake((collectionView.frame.size.width - 2)/3, (collectionView.frame.size.width - 2)/3);
+    
 }
 //分区之间的间隙
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     
-    return UIEdgeInsetsMake(1*kWidthScall, 0, 1*kWidthScall, 0);
+    return UIEdgeInsetsMake(1, 0, 1, 0);
 }
 
 //最小行间距
@@ -154,6 +237,128 @@
 }
 
 
+#pragma mark -- 方法
+-(void)requestData{
+    WK(weakSelf)
+    if (![YDUserInfo sharedYDUserInfo].login) {
+        
+        return;
+    }
+    [self.view showBusyHUD];
+    [self.idendityVM getUserIdendityCompletionHandler:^(NSError * _Nonnull error) {
+        
+        if (!error) {
+           //设置用户头像
+            
+            [weakSelf.headerImage.superview viewcornerRadius:weakSelf.headerImage.superview.bounds.size.width * 0.5 borderWith:0.1 clearColor:NO];
+            UIImage *headerImage = [[YDUserInfo sharedYDUserInfo] getUserHeaderImage];
+            if (headerImage) {
+                weakSelf.headerImage.image = headerImage;
+            }else{
+                [weakSelf.headerImage sd_setImageWithURL:[weakSelf.idendityVM userHeadImageURL] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+                    if (error) {
+                        weakSelf.headerImage.image = [UIImage imageNamed:@"y_p_avatar"];
+                    }
+                }];
+            }
+            
+            //设置昵称
+            weakSelf.nickNameLabel.text = [self.idendityVM userNickName];
+            //设置身份
+            weakSelf.userIdentity.text = [self.idendityVM userRankName];
+            
+            //设置身份进程
+            [weakSelf setUpUserIdentifierProgress];
+            
+            [weakSelf.myGrowthBtn setTitle:[[@"我的成长值" stringByAppendingString:[weakSelf.idendityVM userGrowth]]stringByAppendingString:@" >"] forState:UIControlStateNormal];
+//            [weakSelf.myGrowthBtn.titleLabel setFont:[UIFont fontWithName:@"苹方-简" size:14 * kWidthScall]];
+            
+            //设置距离下个身份还差
+            [weakSelf setUpNexRankNotice];
+
+        }else{
+            [weakSelf.view showWarning:@"请求错误"];
+        }
+        [weakSelf.view hideBusyHUD];
+    }];
+}
+
+-(void)setUpUserIdentifierProgress{
+    [self setUpCustomer];
+    [self setUpBusiness];
+    [self setUpManager];
+    [self setUpPartner];
+}
+
+//消费者
+-(void)setUpCustomer{
+    //设置消费者图片 名称颜色 进度
+    self.customerImage.image = [self.idendityVM getCustomerImage];
+    [self.customerNameLabel setTextColor:[self.idendityVM getCustomerNameColor]];
+    self.businessProgressBarWidthC.constant = self.businessProgressBg.bounds.size.width * ([self.idendityVM toBusinessScale]);
+}
+
+//创业者
+-(void)setUpBusiness{
+    //设置创业者图片 名称颜色 进度
+    self.businessImage.image = [self.idendityVM getBusinessImage];
+    [self.businessNameLabel setTextColor:[self.idendityVM getBusinessNameColor]];
+    self.managerProgressBarWidthC.constant = self.managerProgressBg.bounds.size.width * ([self.idendityVM toManagerScale]);
+}
+
+//总经理
+-(void)setUpManager{
+    self.managerImage.image = [self.idendityVM getManagerImage];
+    [self.managerNameLabel setTextColor:[self.idendityVM getManagerNameColor]];
+    self.partnerProgressBarWidthC.constant = self.partnerProgressBg.bounds.size.width *([self.idendityVM toPartnerScale]);
+}
+
+//合伙人
+-(void)setUpPartner{
+    //设置总经理图片 名称颜色 进度
+    self.partnerImage.image = [self.idendityVM getPartnerImage];
+    [self.partnerNameLabel setTextColor:[self.idendityVM getPartnerNameColor]];
+    
+}
+
+//距离下个身份还差
+-(void)setUpNexRankNotice{
+    //设置距离下个身份差值
+    NSString *str = [NSString stringWithFormat:@"距离下个身份还差-- %@ --成长值",[self.idendityVM lessThanNextRank]];
+    NSArray *textArr = [str componentsSeparatedByString:@"--"];
+    NSArray *colorArr = @[[UIColor darkGrayColor],kFONTSlectRGB,[UIColor darkGrayColor]];
+    NSInteger index = 0;
+    for (NSString *text in textArr) {
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:text];
+        //设置当前文本颜色
+        [attributedString addAttributeTextColor:colorArr[index % 3]];
+        //设置文本字体
+        [attributedString addAttributeFont:[UIFont fontWithName:@"苹方-简" size:14 * kWidthScall]];//[UIFont fontWithName:@"" size:15]
+//        [UIFont fontWithName:@"苹方-简" size:14 * kWidthScall].
+        
+        [self.noticeLabel appendTextAttributedString:attributedString];
+        
+        index ++;
+    }
+    
+    CGSize strSize = [str sizeWithFont:self.noticeLabel.font maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+    CGRect frame = self.noticeLabel.frame;
+    frame.origin.x = (kScreenW - strSize.width)/2 - 4;
+    frame.size = strSize;
+    self.noticeLabel.frame = frame;
+    self.noticeLabel.backgroundColor = [UIColor clearColor];
+    self.noticeLabel.verticalAlignment = TYVerticalAlignmentBottom;
+    
+    
+    frame = self.noticeImageView.frame;
+    frame.origin.x -= 14;
+    frame.size.width *= kWidthScall;
+    frame.size.height *= kWidthScall;
+    self.noticeImageView.frame = frame;
+    
+    
+
+}
 
 
 /*

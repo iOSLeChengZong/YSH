@@ -69,7 +69,7 @@
 //        [self.personalCollectionView addSubview:v];
 //    }
     
-    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, -STATUS_BAR_HEIGHT, kScreenW, STATUS_BAR_HEIGHT + 20)];
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, /*STATUS_BAR_HEIGHT + */25)];
     v.backgroundColor = kFONTSlectRGB;
     [self.view addSubview:v];
     
@@ -141,12 +141,14 @@
 // The view that is returned must be retrieved from a call to -dequeueReusableSupplementaryViewOfKind:withReuseIdentifier:forIndexPath:
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     PersonalLogonHeader *header = [self.personalCollectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kPersonalLogonHeader forIndexPath:indexPath];
-    if (!iPhoneX) {
-        CGRect frame = header.frame;
-        frame.origin = CGPointMake(0, -STATUS_BAR_HEIGHT);
-        header.frame = frame;
-        
-    }
+    
+//    if (iPhoneX) {
+//
+//
+//    }
+    CGRect frame = header.frame;
+    frame.origin = CGPointMake(0, -20);//STATUS_BAR_HEIGHT
+    header.frame = frame;
     
     if ([YDUserInfo sharedYDUserInfo].login) {
         header.nickName = [self.idendityVM userNickName];
@@ -199,11 +201,11 @@
     return CGSizeMake(kScreenW, 50 * kWidthScall);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    if (!iPhoneX) {
-        return UIEdgeInsetsMake(-STATUS_BAR_HEIGHT+6, 9, 6, 9);
-    }else{
-        return UIEdgeInsetsMake(6, 9, 6, 9);
-    }
+//    if (!iPhoneX) {
+//        return UIEdgeInsetsMake(-STATUS_BAR_HEIGHT+6, 9, 6, 9); // STATUS_BAR_HEIGHT -> 20
+//    }else{
+        return UIEdgeInsetsMake(0, 9, 6, 9);
+//    }
     
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{

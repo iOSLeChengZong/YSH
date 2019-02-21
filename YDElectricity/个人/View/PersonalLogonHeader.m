@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
 @property (weak, nonatomic) IBOutlet UILabel *userIdendityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nickLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *redBacgroundHC;
 
 @end
 

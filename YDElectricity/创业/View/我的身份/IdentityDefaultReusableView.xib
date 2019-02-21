@@ -15,19 +15,37 @@
             <rect key="frame" x="0.0" y="0.0" width="357" height="52"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_login_自选导师圆角bg" translatesAutoresizingMaskIntoConstraints="NO" id="wS7-9g-Eiq">
+                    <rect key="frame" x="0.0" y="0.0" width="357" height="52"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的特权" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKL-FN-4Ra">
                     <rect key="frame" x="11" y="17.5" width="58" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7f-cN-sfR">
+                    <rect key="frame" x="0.0" y="34.5" width="357" height="17.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="L7f-cN-sfR" firstAttribute="top" secondItem="hKL-FN-4Ra" secondAttribute="bottom" id="3gd-OE-C6n"/>
                 <constraint firstItem="hKL-FN-4Ra" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="11" id="LEI-3h-33A"/>
                 <constraint firstItem="hKL-FN-4Ra" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="LjU-Vf-BuP"/>
+                <constraint firstAttribute="bottom" secondItem="L7f-cN-sfR" secondAttribute="bottom" id="T2m-jP-ODo"/>
+                <constraint firstAttribute="trailing" secondItem="L7f-cN-sfR" secondAttribute="trailing" id="XvC-BP-ETE"/>
+                <constraint firstAttribute="bottom" secondItem="wS7-9g-Eiq" secondAttribute="bottom" id="aqA-Zx-iCe"/>
+                <constraint firstItem="L7f-cN-sfR" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="caY-uM-qF6"/>
+                <constraint firstItem="wS7-9g-Eiq" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="rKb-3D-koc"/>
+                <constraint firstAttribute="trailing" secondItem="wS7-9g-Eiq" secondAttribute="trailing" id="sR8-lQ-Dlv"/>
+                <constraint firstItem="wS7-9g-Eiq" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="zdC-ZU-GF5"/>
             </constraints>
-            <point key="canvasLocation" x="52.799999999999997" y="48.575712143928037"/>
+            <point key="canvasLocation" x="52" y="48.575712143928037"/>
         </collectionReusableView>
     </objects>
+    <resources>
+        <image name="y_login_自选导师圆角bg" width="357.5" height="185"/>
+    </resources>
 </document>

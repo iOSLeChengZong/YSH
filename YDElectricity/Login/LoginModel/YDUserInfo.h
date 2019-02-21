@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YDUserInfo : NSObject
 YDSingletonH(YDUserInfo)
+
 /** 微信昵称 **/
 @property (nonatomic, copy)NSString *userName;
 /** 密码 **/
@@ -41,6 +42,7 @@ YDSingletonH(YDUserInfo)
 
 -(void)requestRegisterCompletionHandler:(void(^)(VerifyRegisterModel *model,NSError *error))completionHandler;
 -(void)requestLoginCompletionHandler:(void(^)(VerifyRegisterModel *model,NSError *error))completionHandler;
+-(UIImage *)getUserHeaderImage;
 
 @end
 

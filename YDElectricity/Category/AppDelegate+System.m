@@ -17,6 +17,7 @@
     
     
 - (void)setupGlobalClobalConfig{
+    
     //电池条显示菊花,监测网络活动
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
@@ -36,6 +37,9 @@
     
     
 - (void)setupGlobalUI{
+    
+    self.window.backgroundColor = kViewBGColor;
+    
     //设置UINavigationBar
 //    [UINavigationBar appearance].barStyle = UIBarStyleBlack;    //为了让电池条呈现白色
     [UINavigationBar appearance].translucent = NO;

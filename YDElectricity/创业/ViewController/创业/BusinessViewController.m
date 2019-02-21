@@ -35,7 +35,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *userWaitSettleLabel;
 
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *TopViewConstrait;
+@property (weak, nonatomic) IBOutlet UIView *headerTopView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerTopViewHeightC;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *businessViewHeightC;
 
 @property (nonatomic,strong)UserMoneyViewModel *moneyVM;
@@ -71,10 +73,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = kViewBGColor;
+    self.businessViewHeightC.constant *= kWidthScall;
+    
     if (iPhoneX) {
-        self.businessViewHeightC.constant += 20;
-        self.TopViewConstrait.constant += 20;
+//        self.businessViewHeightC.constant += STATUS_BAR_HEIGHT;//20
+        self.headerTopViewHeightC.constant = 20;
+        self.headerTopView.backgroundColor = kFONTSlectRGB;
         
+    }else{
+       self.headerTopViewHeightC.constant = 0;
     }
     //请求数据
     [self requestData];

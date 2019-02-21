@@ -183,6 +183,7 @@
             //保存token 保存 id
             [YDUserInfo sharedYDUserInfo].userToken = model.rows1.token;
             [YDUserInfo sharedYDUserInfo].userID = model.rows1.userInfo.ID;
+            [YDUserInfo sharedYDUserInfo].tutorInviteCode = model.rows1.userInfo.inviteCode;
             [self saveNSUserDefaults];
             [self.view showWarning:@"登陆成功"];
             [YDUserInfo sharedYDUserInfo].login = YES;

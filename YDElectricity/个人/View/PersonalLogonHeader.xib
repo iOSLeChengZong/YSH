@@ -285,7 +285,6 @@
                 <outlet property="loginBtn" destination="Ybn-x0-Vis" id="XV2-7A-bfC"/>
                 <outlet property="nickLabel" destination="MJE-vH-bGK" id="5Ro-WY-FyU"/>
                 <outlet property="nickNameLabel" destination="MJE-vH-bGK" id="cZd-KC-lDJ"/>
-                <outlet property="redBacgroundHC" destination="C2g-Mq-ZNT" id="MWy-zw-FCm"/>
                 <outlet property="userIdendityLabel" destination="98s-TT-pWU" id="qVD-p5-mBn"/>
                 <outlet property="userIdendityView" destination="oFL-4Y-gc2" id="3IE-Fv-8o3"/>
             </connections>

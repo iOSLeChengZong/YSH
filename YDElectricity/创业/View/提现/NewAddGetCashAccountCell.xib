@@ -12,28 +12,27 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NewAddGetCashAccountCell">
-            <rect key="frame" x="0.0" y="0.0" width="357" height="42"/>
+            <rect key="frame" x="0.0" y="0.0" width="209" height="42"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="357" height="42"/>
+                <rect key="frame" x="0.0" y="0.0" width="209" height="42"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFl-vd-nqj">
-                        <rect key="frame" x="0.0" y="0.0" width="357" height="42"/>
+                        <rect key="frame" x="0.0" y="0.0" width="209" height="42"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="y_login_自选导师圆角bg" translatesAutoresizingMaskIntoConstraints="NO" id="yHo-SL-occ">
-                                <rect key="frame" x="0.0" y="0.0" width="357" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_login_自选导师圆角bg" translatesAutoresizingMaskIntoConstraints="NO" id="yHo-SL-occ">
+                                <rect key="frame" x="0.0" y="0.0" width="209" height="42"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A7b-gO-z3S">
-                                <rect key="frame" x="11" y="14" width="14" height="14"/>
+                                <rect key="frame" x="19.5" y="14" width="14" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="IVb-wR-WCe"/>
                                     <constraint firstAttribute="width" constant="14" id="gQC-bq-IOr"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新增提现账户  (3/5)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbE-6G-Wdq">
-                                <rect key="frame" x="35" y="12.5" width="126" height="17"/>
+                                <rect key="frame" x="41.5" y="12.5" width="126" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="0.062623139610000003" blue="0.057482722399999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -41,9 +40,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="A7b-gO-z3S" firstAttribute="leading" secondItem="yFl-vd-nqj" secondAttribute="leading" constant="11" id="CVM-e6-Irf"/>
+                            <constraint firstItem="yHo-SL-occ" firstAttribute="top" secondItem="yFl-vd-nqj" secondAttribute="top" id="032-ZZ-sIE"/>
+                            <constraint firstItem="yHo-SL-occ" firstAttribute="leading" secondItem="yFl-vd-nqj" secondAttribute="leading" id="2ar-jD-mXu"/>
+                            <constraint firstAttribute="bottom" secondItem="yHo-SL-occ" secondAttribute="bottom" id="7Rt-dK-02G"/>
+                            <constraint firstAttribute="trailing" secondItem="yHo-SL-occ" secondAttribute="trailing" id="7wS-DK-r6y"/>
                             <constraint firstItem="YbE-6G-Wdq" firstAttribute="centerY" secondItem="A7b-gO-z3S" secondAttribute="centerY" id="J4p-nG-N9R"/>
-                            <constraint firstItem="YbE-6G-Wdq" firstAttribute="leading" secondItem="A7b-gO-z3S" secondAttribute="trailing" constant="10" id="aEu-x7-gsO"/>
+                            <constraint firstItem="YbE-6G-Wdq" firstAttribute="leading" secondItem="A7b-gO-z3S" secondAttribute="trailing" constant="8" id="edS-gR-s9s"/>
+                            <constraint firstItem="YbE-6G-Wdq" firstAttribute="centerX" secondItem="yFl-vd-nqj" secondAttribute="centerX" id="rcZ-mX-7xg"/>
                             <constraint firstItem="A7b-gO-z3S" firstAttribute="centerY" secondItem="yFl-vd-nqj" secondAttribute="centerY" id="yR0-uu-cEq"/>
                         </constraints>
                     </view>

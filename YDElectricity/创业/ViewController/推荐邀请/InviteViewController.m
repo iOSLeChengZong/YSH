@@ -9,6 +9,7 @@
 #import "InviteViewController.h"
 
 @interface InviteViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *inviteCode;
 
 @end
 
@@ -35,7 +36,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = kViewBGColor;
-    // Do any additional setup after loading the view.
+    self.inviteCode.text = [YDUserInfo sharedYDUserInfo].tutorInviteCode;
+}
+
+
+- (IBAction)copyBtnClick:(id)sender {
+    //调用粘贴板
 }
 
 /*

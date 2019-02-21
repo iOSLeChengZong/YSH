@@ -11,6 +11,7 @@
 		5408792821F1B1D60010E994 /* UserOrderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5408792721F1B1D60010E994 /* UserOrderViewModel.m */; };
 		540A04FB21C881B500F31712 /* CategoryLeftMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 540A04FA21C881B500F31712 /* CategoryLeftMenuModel.m */; };
 		540A241421E05BDD0045E19C /* TaoBaoKeDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 540A241321E05BDD0045E19C /* TaoBaoKeDetailViewModel.m */; };
+		540E91E8221EA2830058DBC4 /* NewAddGetCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 540E91E7221EA2830058DBC4 /* NewAddGetCashViewController.m */; };
 		5412D41821ACEE81001440C9 /* NSObject+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5412D41721ACEE81001440C9 /* NSObject+MJExtension.m */; };
 		5412E7AB21AD1B010056AB12 /* NSObject+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5412E7AA21AD1B010056AB12 /* NSObject+Parse.m */; };
 		541C277921AD24D400CB89FB /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 541C277821AD24D400CB89FB /* UIScrollView+Refresh.m */; };
@@ -200,7 +201,6 @@
 		549C1437221BA2B20027E8CF /* DiscountCouponChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1436221BA2B20027E8CF /* DiscountCouponChildViewController.m */; };
 		549C143B221BA77C0027E8CF /* DiscountCouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1439221BA77C0027E8CF /* DiscountCouponCell.m */; };
 		549C143C221BA77C0027E8CF /* DiscountCouponCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549C143A221BA77C0027E8CF /* DiscountCouponCell.xib */; };
-		549C1440221BF4BF0027E8CF /* PingFang-SC-Medium.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 549C143F221BF2380027E8CF /* PingFang-SC-Medium.ttc */; };
 		549C1475221C02AB0027E8CF /* TYLinkTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1462221C02AB0027E8CF /* TYLinkTextStorage.m */; };
 		549C1476221C02AB0027E8CF /* TYDrawStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1463221C02AB0027E8CF /* TYDrawStorage.m */; };
 		549C1477221C02AB0027E8CF /* TYViewStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 549C1464221C02AB0027E8CF /* TYViewStorage.m */; };
@@ -413,6 +413,8 @@
 		540A04FA21C881B500F31712 /* CategoryLeftMenuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryLeftMenuModel.m; sourceTree = "<group>"; };
 		540A241221E05BDD0045E19C /* TaoBaoKeDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaoBaoKeDetailViewModel.h; sourceTree = "<group>"; };
 		540A241321E05BDD0045E19C /* TaoBaoKeDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaoBaoKeDetailViewModel.m; sourceTree = "<group>"; };
+		540E91E6221EA2830058DBC4 /* NewAddGetCashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewAddGetCashViewController.h; sourceTree = "<group>"; };
+		540E91E7221EA2830058DBC4 /* NewAddGetCashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewAddGetCashViewController.m; sourceTree = "<group>"; };
 		5412D41621ACEE81001440C9 /* NSObject+MJExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJExtension.h"; sourceTree = "<group>"; };
 		5412D41721ACEE81001440C9 /* NSObject+MJExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJExtension.m"; sourceTree = "<group>"; };
 		5412E7A921AD1B010056AB12 /* NSObject+Parse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Parse.h"; sourceTree = "<group>"; };
@@ -687,7 +689,6 @@
 		549C1438221BA77C0027E8CF /* DiscountCouponCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscountCouponCell.h; sourceTree = "<group>"; };
 		549C1439221BA77C0027E8CF /* DiscountCouponCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscountCouponCell.m; sourceTree = "<group>"; };
 		549C143A221BA77C0027E8CF /* DiscountCouponCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscountCouponCell.xib; sourceTree = "<group>"; };
-		549C143F221BF2380027E8CF /* PingFang-SC-Medium.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PingFang-SC-Medium.ttc"; sourceTree = "<group>"; };
 		549C1461221C02AB0027E8CF /* TYAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAttributedLabel.h; sourceTree = "<group>"; };
 		549C1462221C02AB0027E8CF /* TYLinkTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYLinkTextStorage.m; sourceTree = "<group>"; };
 		549C1463221C02AB0027E8CF /* TYDrawStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDrawStorage.m; sourceTree = "<group>"; };
@@ -1105,6 +1106,15 @@
 			name = "淘宝客详情";
 			sourceTree = "<group>";
 		};
+		540E91E5221E94580058DBC4 /* 新增提现账户 */ = {
+			isa = PBXGroup;
+			children = (
+				540E91E6221EA2830058DBC4 /* NewAddGetCashViewController.h */,
+				540E91E7221EA2830058DBC4 /* NewAddGetCashViewController.m */,
+			);
+			name = "新增提现账户";
+			sourceTree = "<group>";
+		};
 		542108FA21C2020200CCA43C /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -1502,7 +1512,6 @@
 			isa = PBXGroup;
 			children = (
 				54C6F03421AB87B200679607 /* Info.plist */,
-				549C143F221BF2380027E8CF /* PingFang-SC-Medium.ttc */,
 				54C6F03521AB87B200679607 /* main.m */,
 				5470579121AB9F360087E4BD /* PrefixHeader.pch */,
 			);
@@ -2344,6 +2353,7 @@
 		54A49FF4221A9C720017CABF /* 提现 */ = {
 			isa = PBXGroup;
 			children = (
+				540E91E5221E94580058DBC4 /* 新增提现账户 */,
 				54A4A004221AA8DC0017CABF /* GetCashViewController.h */,
 				54A4A005221AA8DC0017CABF /* GetCashViewController.m */,
 			);
@@ -2968,7 +2978,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				549C1440221BF4BF0027E8CF /* PingFang-SC-Medium.ttc in Resources */,
 				544DD44321C38B6C0052D469 /* 542a6b2eNff29739a.png in Resources */,
 				549EF9E321BF4A3700461469 /* citydata.plist in Resources */,
 				544DD47C21C38B6C0052D469 /* MENU_0_0_7.PNG in Resources */,
@@ -3203,6 +3212,7 @@
 				54239DD421DDBA1900E12690 /* MenuModel.m in Sources */,
 				5464428C21F6A2780093FDAC /* UserMoneyModel.m in Sources */,
 				54DCA9CF21EEDA5700F72E87 /* AddAddressCell.m in Sources */,
+				540E91E8221EA2830058DBC4 /* NewAddGetCashViewController.m in Sources */,
 				546DE13A21D25BAA00938B49 /* GSCustomNavBar.m in Sources */,
 				54D0D92A21F5D24D00225C02 /* InviteRecordModel.m in Sources */,
 				54DCA9BD21ED8DEE00F72E87 /* RHFiltrateHeaderView.m in Sources */,

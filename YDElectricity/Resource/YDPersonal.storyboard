@@ -241,7 +241,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdX-Ez-Nt4">
                                 <rect key="frame" x="9" y="83" width="357" height="139"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_p_服务中心banner" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Vm-Gd-PEa">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="y_p_服务中心banner" translatesAutoresizingMaskIntoConstraints="NO" id="9Vm-Gd-PEa">
                                         <rect key="frame" x="0.0" y="0.0" width="357" height="139"/>
                                     </imageView>
                                 </subviews>
@@ -425,7 +425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3IZ-DG-PcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3564" y="2695.5022488755626"/>
+            <point key="canvasLocation" x="2654" y="2696"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nPW-3J-ukt">
