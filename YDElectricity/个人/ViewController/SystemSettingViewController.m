@@ -8,8 +8,10 @@
 
 #import "SystemSettingViewController.h"
 #import "IdearResponseRoViewController.h"
+#import "VersionExplainViewController.h"
 
 #define kIdearResponseRoViewController @"IdearResponseRoViewController"
+#define kVersionExplainViewController @"VersionExplainViewController"
 
 @interface SystemSettingViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *cacheSizeLabel;
@@ -55,7 +57,11 @@
 
 //版本说明
 - (IBAction)versionDetail:(id)sender {
-    [Factory showWaittingForOpened];
+//    [Factory showWaittingForOpened];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDPersonal bundle:nil];
+    VersionExplainViewController *vvc = [storyboard instantiateViewControllerWithIdentifier:kVersionExplainViewController];
+    
+    [self.navigationController pushViewController:vvc animated:YES];
 }
 
 

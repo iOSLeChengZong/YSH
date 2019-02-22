@@ -130,11 +130,15 @@
 
     CustomerHeaderCell *header = [self.collectionV dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kCustomerHeaderCell forIndexPath:indexPath];
     header.imageURLStringsGroup = self.tbkVM.imageURLS;
-    if (!iPhoneX) {
-        CGRect frame = header.frame;
-        frame.origin.y -= STATUS_BAR_HEIGHT;
-        header.frame = frame;
-    }
+//    if (!iPhoneX) {
+//        CGRect frame = header.frame;
+//        frame.origin.y -= STATUS_BAR_HEIGHT;
+//        header.frame = frame;
+//    }
+    
+    CGRect frame = header.frame;
+    frame.origin.y = -STATUS_BAR_HEIGHT;
+    header.frame = frame;
     
     return header;
 
@@ -158,11 +162,13 @@
 //分区间隙
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
 
-    if (!iPhoneX) {
-        return UIEdgeInsetsMake(-STATUS_BAR_HEIGHT+6, 9, 6, 9);
-    }else{
-        return UIEdgeInsetsMake(6, 9, 6, 9);
-    }
+//    if (!iPhoneX) {
+//        return UIEdgeInsetsMake(-STATUS_BAR_HEIGHT+6, 9, 6, 9);
+//    }else{
+//        return UIEdgeInsetsMake(6, 9, 6, 9);
+//    }
+    
+    return UIEdgeInsetsMake(-STATUS_BAR_HEIGHT+6, 9, 6, 9);
     
 }
 //最小行间距

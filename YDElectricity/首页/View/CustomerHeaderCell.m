@@ -50,7 +50,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     CGRect frame = self.frame;
-    frame.size.height *= kWidthScall;
+    frame.origin = CGPointZero;
+    frame.size.height = 407 * kWidthScall;
     self.frame = frame;
    
     

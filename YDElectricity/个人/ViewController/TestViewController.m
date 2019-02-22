@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+
     self.tm = [TestModel new];
     NSLog(@"tm%ld:",self.tm.colorArr.count);
         self.collectionView.delegate = self;

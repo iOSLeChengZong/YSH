@@ -180,6 +180,16 @@
 		547280B421C0FA29009A75E8 /* HomeHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547280B221C0FA29009A75E8 /* HomeHeaderCollectionViewCell.xib */; };
 		547280B821C11313009A75E8 /* HomeSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 547280B621C11313009A75E8 /* HomeSectionHeaderView.m */; };
 		547280B921C11313009A75E8 /* HomeSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547280B721C11313009A75E8 /* HomeSectionHeaderView.xib */; };
+		548F520B221F8813005360E9 /* VersionExplainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 548F520A221F8813005360E9 /* VersionExplainViewController.m */; };
+		548F5211221F88EB005360E9 /* VersionExplainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 548F520F221F88EB005360E9 /* VersionExplainCell.m */; };
+		548F5212221F88EB005360E9 /* VersionExplainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548F5210221F88EB005360E9 /* VersionExplainCell.xib */; };
+		548F5214221FC1FB005360E9 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548F5213221FC1FB005360E9 /* TestViewController.xib */; };
+		548F5217221FC270005360E9 /* TViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 548F5216221FC270005360E9 /* TViewController.m */; };
+		548F521A221FC9F4005360E9 /* VersionExplainChildCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 548F5219221FC9F4005360E9 /* VersionExplainChildCollectionView.m */; };
+		548F521E221FCE53005360E9 /* VersionExplainChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 548F521C221FCE53005360E9 /* VersionExplainChildCell.m */; };
+		548F521F221FCE53005360E9 /* VersionExplainChildCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548F521D221FCE53005360E9 /* VersionExplainChildCell.xib */; };
+		548F5228221FEE95005360E9 /* VersionEmptyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 548F5226221FEE95005360E9 /* VersionEmptyHeader.m */; };
+		548F5229221FEE95005360E9 /* VersionEmptyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548F5227221FEE95005360E9 /* VersionEmptyHeader.xib */; };
 		5493523A21AD2D1800192823 /* NSObject+ViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5493523921AD2D1800192823 /* NSObject+ViewModel.m */; };
 		54975B7821DCC8570028A1B7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54975B7721DCC8570028A1B7 /* libsqlite3.0.tbd */; };
 		5499FD1C21B77A22000FE212 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5499FD1B21B77A22000FE212 /* libicucore.tbd */; };
@@ -396,7 +406,6 @@
 		54F1FA9321AF7314004460D0 /* YDIntroHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54F1FA9121AF7314004460D0 /* YDIntroHeaderCell.xib */; };
 		54F1FA9621AF8C4D004460D0 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F1FA9521AF8C4D004460D0 /* TestModel.m */; };
 		54F1FB6921AFD5C1004460D0 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F1FB6721AFD5C1004460D0 /* TestViewController.m */; };
-		54F1FB6A21AFD5C1004460D0 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54F1FB6821AFD5C1004460D0 /* TestViewController.xib */; };
 		54F34B9B21B538A400C29E7B /* YDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F34B9A21B538A400C29E7B /* YDAlertView.m */; };
 		54FD259121AD3B370082FE3A /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 54FD259021AD3B370082FE3A /* Factory.m */; };
 		EA6FFF3279F97AD53485FEC2 /* libPods-YDElectricity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 253EDE59FF148D70675A94AA /* libPods-YDElectricity.a */; };
@@ -655,6 +664,22 @@
 		547280B521C11313009A75E8 /* HomeSectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSectionHeaderView.h; sourceTree = "<group>"; };
 		547280B621C11313009A75E8 /* HomeSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSectionHeaderView.m; sourceTree = "<group>"; };
 		547280B721C11313009A75E8 /* HomeSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeSectionHeaderView.xib; sourceTree = "<group>"; };
+		548F5209221F8813005360E9 /* VersionExplainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionExplainViewController.h; sourceTree = "<group>"; };
+		548F520A221F8813005360E9 /* VersionExplainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersionExplainViewController.m; sourceTree = "<group>"; };
+		548F520E221F88EB005360E9 /* VersionExplainCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionExplainCell.h; sourceTree = "<group>"; };
+		548F520F221F88EB005360E9 /* VersionExplainCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersionExplainCell.m; sourceTree = "<group>"; };
+		548F5210221F88EB005360E9 /* VersionExplainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VersionExplainCell.xib; sourceTree = "<group>"; };
+		548F5213221FC1FB005360E9 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		548F5215221FC270005360E9 /* TViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TViewController.h; sourceTree = "<group>"; };
+		548F5216221FC270005360E9 /* TViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TViewController.m; sourceTree = "<group>"; };
+		548F5218221FC9F4005360E9 /* VersionExplainChildCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionExplainChildCollectionView.h; sourceTree = "<group>"; };
+		548F5219221FC9F4005360E9 /* VersionExplainChildCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersionExplainChildCollectionView.m; sourceTree = "<group>"; };
+		548F521B221FCE53005360E9 /* VersionExplainChildCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionExplainChildCell.h; sourceTree = "<group>"; };
+		548F521C221FCE53005360E9 /* VersionExplainChildCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersionExplainChildCell.m; sourceTree = "<group>"; };
+		548F521D221FCE53005360E9 /* VersionExplainChildCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VersionExplainChildCell.xib; sourceTree = "<group>"; };
+		548F5225221FEE95005360E9 /* VersionEmptyHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionEmptyHeader.h; sourceTree = "<group>"; };
+		548F5226221FEE95005360E9 /* VersionEmptyHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersionEmptyHeader.m; sourceTree = "<group>"; };
+		548F5227221FEE95005360E9 /* VersionEmptyHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VersionEmptyHeader.xib; sourceTree = "<group>"; };
 		5493523821AD2D1800192823 /* NSObject+ViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+ViewModel.h"; sourceTree = "<group>"; };
 		5493523921AD2D1800192823 /* NSObject+ViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ViewModel.m"; sourceTree = "<group>"; };
 		54975B7721DCC8570028A1B7 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -1030,7 +1055,6 @@
 		54F1FA9521AF8C4D004460D0 /* TestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
 		54F1FB6621AFD5C1004460D0 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		54F1FB6721AFD5C1004460D0 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		54F1FB6821AFD5C1004460D0 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		54F34B9921B538A400C29E7B /* YDAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDAlertView.h; sourceTree = "<group>"; };
 		54F34B9A21B538A400C29E7B /* YDAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDAlertView.m; sourceTree = "<group>"; };
 		54FD258F21AD3B370082FE3A /* Factory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
@@ -1403,8 +1427,10 @@
 		545CAA9E21F85125003914DF /* 系统设置 */ = {
 			isa = PBXGroup;
 			children = (
+				548F5208221F874A005360E9 /* 版本说明 */,
 				545CAAA221F85287003914DF /* SystemSettingViewController.h */,
 				545CAAA321F85288003914DF /* SystemSettingViewController.m */,
+				54A468F821E9CE2D00109636 /* 意见反馈 */,
 			);
 			name = "系统设置";
 			sourceTree = "<group>";
@@ -1734,14 +1760,15 @@
 				54DCA9C021EED08200F72E87 /* 地址管理 */,
 				54A4695F21E9E47E00109636 /* 我的金币 */,
 				54A4695E21E9E46C00109636 /* 我的导师 */,
-				54A468F821E9CE2D00109636 /* 意见反馈 */,
 				54ABD59521E8BA5C00B54F7E /* 服务中心 */,
 				544CDC9921E7436500A7DD01 /* 我的订单 */,
 				54ED83B121DCA26200EB5488 /* 编辑资料 */,
 				54ED83B021DCA24E00EB5488 /* 系统消息 */,
 				54F1FB6621AFD5C1004460D0 /* TestViewController.h */,
 				54F1FB6721AFD5C1004460D0 /* TestViewController.m */,
-				54F1FB6821AFD5C1004460D0 /* TestViewController.xib */,
+				548F5215221FC270005360E9 /* TViewController.h */,
+				548F5216221FC270005360E9 /* TViewController.m */,
+				548F5213221FC1FB005360E9 /* TestViewController.xib */,
 				54AB39C121D86E7200D40606 /* PersonalViewController.h */,
 				54AB39C221D86E7200D40606 /* PersonalViewController.m */,
 			);
@@ -1776,6 +1803,7 @@
 		5472809F21C0DEDB009A75E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				548F520C221F88B3005360E9 /* 系统设置 */,
 				54A49FF0221A5C990017CABF /* 服务中心 */,
 				54A468FC21E9D0D500109636 /* 意见反馈 */,
 				54AB39C421D895DE00D40606 /* 个人信息 */,
@@ -1924,6 +1952,41 @@
 				547280AE21C0E430009A75E8 /* SearchBarView.m */,
 			);
 			name = SearchBarView;
+			sourceTree = "<group>";
+		};
+		548F5208221F874A005360E9 /* 版本说明 */ = {
+			isa = PBXGroup;
+			children = (
+				548F5209221F8813005360E9 /* VersionExplainViewController.h */,
+				548F520A221F8813005360E9 /* VersionExplainViewController.m */,
+			);
+			name = "版本说明";
+			sourceTree = "<group>";
+		};
+		548F520C221F88B3005360E9 /* 系统设置 */ = {
+			isa = PBXGroup;
+			children = (
+				548F520D221F88C0005360E9 /* 版本说明 */,
+			);
+			name = "系统设置";
+			sourceTree = "<group>";
+		};
+		548F520D221F88C0005360E9 /* 版本说明 */ = {
+			isa = PBXGroup;
+			children = (
+				548F520E221F88EB005360E9 /* VersionExplainCell.h */,
+				548F520F221F88EB005360E9 /* VersionExplainCell.m */,
+				548F5210221F88EB005360E9 /* VersionExplainCell.xib */,
+				548F5218221FC9F4005360E9 /* VersionExplainChildCollectionView.h */,
+				548F5219221FC9F4005360E9 /* VersionExplainChildCollectionView.m */,
+				548F521B221FCE53005360E9 /* VersionExplainChildCell.h */,
+				548F521C221FCE53005360E9 /* VersionExplainChildCell.m */,
+				548F521D221FCE53005360E9 /* VersionExplainChildCell.xib */,
+				548F5225221FEE95005360E9 /* VersionEmptyHeader.h */,
+				548F5226221FEE95005360E9 /* VersionEmptyHeader.m */,
+				548F5227221FEE95005360E9 /* VersionEmptyHeader.xib */,
+			);
+			name = "版本说明";
 			sourceTree = "<group>";
 		};
 		549A65ED21B8D2E60059EE89 /* Vendor */ = {
@@ -2997,6 +3060,7 @@
 				544DD44A21C38B6C0052D469 /* IMG_2206.PNG in Resources */,
 				54ACC2C72216BD6A005640F4 /* TaskCell.xib in Resources */,
 				54A4A003221A9E890017CABF /* NewAddGetCashAccountCell.xib in Resources */,
+				548F5229221FEE95005360E9 /* VersionEmptyHeader.xib in Resources */,
 				5421091821C20FBF00CCA43C /* CollectionHeader.xib in Resources */,
 				544DD44521C38B6C0052D469 /* 542a6bdcNcea64610.jpg in Resources */,
 				544A5B8C21C4FF3B008B9BEB /* Login.storyboard in Resources */,
@@ -3020,6 +3084,7 @@
 				544DD45821C38B6C0052D469 /* 542a6bc7N754c653b.jpg in Resources */,
 				549EFB9F21BF74A700461469 /* ShareSDKUI.bundle in Resources */,
 				544DD44721C38B6C0052D469 /* 542a6ba0N217a273b.jpg in Resources */,
+				548F5212221F88EB005360E9 /* VersionExplainCell.xib in Resources */,
 				544DD46521C38B6C0052D469 /* loadAvatar@2x.png in Resources */,
 				544DD48521C38B6C0052D469 /* 542a6cf5N7432111f.jpg in Resources */,
 				54A4699021E9EC6C00109636 /* ImagesPicker.xcassets in Resources */,
@@ -3048,8 +3113,8 @@
 				5452FB2621B6786600137441 /* placeholder@2x.png in Resources */,
 				54DCA9C621EED0F300F72E87 /* AddressListCell.xib in Resources */,
 				54A49FEA221A3D6B0017CABF /* FrequentlyQReusableView.xib in Resources */,
+				548F521F221FCE53005360E9 /* VersionExplainChildCell.xib in Resources */,
 				544DD45C21C38B6C0052D469 /* 542a6c43Ndc0a1140.jpg in Resources */,
-				54F1FB6A21AFD5C1004460D0 /* TestViewController.xib in Resources */,
 				544DD45521C38B6C0052D469 /* h4.jpg in Resources */,
 				5452FB2721B6786600137441 /* h4.jpg in Resources */,
 				549C143C221BA77C0027E8CF /* DiscountCouponCell.xib in Resources */,
@@ -3058,6 +3123,7 @@
 				544DD47721C38B6C0052D469 /* MENU_0_0_5.PNG in Resources */,
 				544DD45F21C38B6C0052D469 /* 542a6d0aN776ff1a3.jpg in Resources */,
 				544DD46421C38B6C0052D469 /* guide_1334x750_frame4.jpg in Resources */,
+				548F5214221FC1FB005360E9 /* TestViewController.xib in Resources */,
 				54AB39CA21D89B7C00D40606 /* MyGoldReusableView.xib in Resources */,
 				549EFB9E21BF74A700461469 /* ShareSDK.bundle in Resources */,
 				544DD47021C38B6C0052D469 /* C_0.PNG in Resources */,
@@ -3189,9 +3255,12 @@
 			files = (
 				54A4699B21E9EC6C00109636 /* DNAssetsViewCell.m in Sources */,
 				549C1477221C02AB0027E8CF /* TYViewStorage.m in Sources */,
+				548F521A221FC9F4005360E9 /* VersionExplainChildCollectionView.m in Sources */,
 				5408792821F1B1D60010E994 /* UserOrderViewModel.m in Sources */,
+				548F520B221F8813005360E9 /* VersionExplainViewController.m in Sources */,
 				54A5B0D621D3155E00F3CA27 /* DetailInfoCell.m in Sources */,
 				54D0D90F21F55EA700225C02 /* UITextView+Fit.m in Sources */,
+				548F5211221F88EB005360E9 /* VersionExplainCell.m in Sources */,
 				544CDC8F21E740E000A7DD01 /* UIColor+MJCClassExtension.m in Sources */,
 				54DCA9D321EEDC2600F72E87 /* AddressManagerViewController.m in Sources */,
 				54F1FA9221AF7314004460D0 /* YDIntroHeaderCell.m in Sources */,
@@ -3265,6 +3334,7 @@
 				54ED83AA21DC946E00EB5488 /* SystemMessage.m in Sources */,
 				5412D41821ACEE81001440C9 /* NSObject+MJExtension.m in Sources */,
 				54A4699E21E9EC6C00109636 /* DNUnAuthorizedTipsView.m in Sources */,
+				548F5228221FEE95005360E9 /* VersionEmptyHeader.m in Sources */,
 				544CDC9221E740E000A7DD01 /* UIView+MJCClassExtension.m in Sources */,
 				54A4A002221A9E890017CABF /* NewAddGetCashAccountCell.m in Sources */,
 				54CF9A1A21BA444B00E9142F /* rightCollectionViewCell.m in Sources */,
@@ -3292,6 +3362,7 @@
 				549EF9EA21BF521800461469 /* PlistDataManager.m in Sources */,
 				5421090921C20DE300CCA43C /* CategoryMeunModel.m in Sources */,
 				54E26FFB21DF62A40052B5B9 /* HomeProductCellOne.m in Sources */,
+				548F5217221FC270005360E9 /* TViewController.m in Sources */,
 				54A49FEF221A3D6B0017CABF /* FrequentlyQCollectionViewCell.m in Sources */,
 				54213D0621F0160E002D5822 /* SecondSkillColumnModel.m in Sources */,
 				541C277921AD24D400CB89FB /* UIScrollView+Refresh.m in Sources */,
@@ -3372,6 +3443,7 @@
 				54C6F03621AB87B200679607 /* main.m in Sources */,
 				54AD7C5321C33BEC0054D34A /* CategoryViewModel.m in Sources */,
 				547280B321C0FA29009A75E8 /* HomeHeaderCollectionViewCell.m in Sources */,
+				548F521E221FCE53005360E9 /* VersionExplainChildCell.m in Sources */,
 				542108FD21C2024A00CCA43C /* YDNavigationViewController.m in Sources */,
 				542C5E2E21C9EAC700EA0003 /* HomeHeaderModel.m in Sources */,
 				549C1475221C02AB0027E8CF /* TYLinkTextStorage.m in Sources */,
