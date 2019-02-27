@@ -9,17 +9,24 @@
 #import "UserIdendityViewModel.h"
 
 @implementation UserIdendityViewModel
+YDSingletonM(UserIdendityModel)
 //头像地址
 -(NSURL *)userHeadImageURL{
     NSString *str = self.info.headImgUrl;
     
-    if ([str containsString:@"http"]) {
-        return [NSURL URLWithString:str];
-    }else{
-        return [NSURL URLWithString:[kBaseURL1 stringByAppendingString:str]];
+    if (!str) {
+        return nil;
     }
-    
-    //从本地加载头像
+    else{
+        
+        if ([str containsString:@"http"]) {
+            return [NSURL URLWithString:str];
+        }
+        else /*if (![str containsString:@"http"])*/{
+            
+            return [NSURL URLWithString:[kBaseURL1 stringByAppendingString:str]];
+        }
+    }
 }
 
 //用户昵称
@@ -29,13 +36,34 @@
 }
 
 //用户生日
+-(NSString *)userBirthday{
+    return self.info.birthDay;
+}
 
 //用户性别
-
+-(NSString *)userSex{
+    return self.info.sex;
+}
 //用户地区
+-(NSString *)userArea{
+    NSArray *arr = [self.info.area componentsSeparatedByString:@" "];
+    if (arr.count > 1) {
+        return arr[0];
+    }else{
+        return @"";
+    }
+    
+}
 
 //用户详细地址
-
+-(NSString *)userDetailAddress{
+    NSArray *arr = [self.info.area componentsSeparatedByString:@" "];
+    if (arr.count > 1) {
+        return arr[1];
+    }else{
+        return @"";
+    }
+}
 //用户身份
 -(NSString *)userRankName{
     switch (self.info.gradeId) {
@@ -203,10 +231,9 @@
     [YDNetManager postUserIdendityCompletionHandler:^(UserIdendityModel * _Nonnull model, NSError * _Nonnull error) {
         if (!error) {
             self.info = model.info;
-            !completionHandler ?: completionHandler(error);
-        }else{
-            !completionHandler ?: completionHandler(error);
         }
+        
+        !completionHandler ?: completionHandler(error);
         
     }];
 }

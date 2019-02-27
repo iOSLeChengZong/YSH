@@ -89,7 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*获取用户资料*/
 
 /** 获取系统消息 */
-+(id)getSystemUserMessageWithPath:(NSString *)path pageNum:(NSInteger)page pageSize:(NSInteger)size completionHandler:(void(^)(UserMessageModel *model,NSError *error))completionHandler;
++(id)getSystemUserMessageWithPath:(NSString *)path pageNum:(NSInteger)page pageSize:(NSInteger)size userID:(NSString *)userID completionHandler:(void(^)(UserMessageModel *model,NSError *error))completionHandler;
 
 
 /** 秒杀商品 */

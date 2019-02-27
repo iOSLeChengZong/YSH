@@ -35,6 +35,16 @@
     //设置app全局默认配置
     [self setupGlobalClobalConfig];
     //获取本地微信appid
+    
+//    [UIFont systemFontOfSize:17 weight:UIFontWeightMedium];
+//    for (NSString *fontFamilyName in UIFont.familyNames) {
+//        NSLog(@"familyName:%@", fontFamilyName);
+//        for (NSString *fontName in [UIFont fontNamesForFamilyName:fontFamilyName]) {
+//            NSLog(@"fontName:%@", fontName);
+//        }
+//    }
+    
+   
 
     return YES;
 }

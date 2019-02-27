@@ -28,6 +28,7 @@
 
 @property(nonatomic,strong) NSMutableArray *offsetScorllers;
 
+
 @end
 @implementation MultilevelMenu
 
@@ -38,7 +39,7 @@
     // Drawing code
 }
 */
--(id)initWithFrame:(CGRect)frame WithModel:(CategoryViewModel *)categoryVM withSelectIndex:(void (^)(NSString*/*, NSInteger, id*/))selectIndex
+-(id)initWithFrame:(CGRect)frame WithModel:(CategoryViewModel *)categoryVM withSelectIndex:(void (^)(NSString *,NSString */*, NSInteger, id*/))selectIndex
 {
     
     if (self  == [super initWithFrame:frame]) {
@@ -47,7 +48,7 @@
             return nil;
         }
         
-        
+        //,NSString *vcTitle
         _block=selectIndex;
         
         self.needToScorllerIndex=0; //默认是 选中第一行
@@ -67,7 +68,7 @@
         //左边点中字体颜色
         self.leftSelectColor= [UIColor redColor];//kRGBA(45, 188, 157, 1.0);
         //左边字体未选中颜色
-        self.leftUnSelectColor = [UIColor lightGrayColor];//kRGBA(45, 188, 157, 1.0);
+        self.leftUnSelectColor = [UIColor darkGrayColor];//kRGBA(45, 188, 157, 1.0);
         
         self.isRecordLastScroll=NO;//是否记住当前位置
         
@@ -190,12 +191,13 @@
     static NSString * Identifier=@"MultilevelTableViewCell";
     MultilevelTableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:Identifier];
     
-    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (!cell) {
         cell=[[NSBundle mainBundle] loadNibNamed:@"MultilevelTableViewCell" owner:self options:nil][0];
         
-        UILabel * label=[[UILabel alloc] initWithFrame:CGRectMake(kLeftWidth-0.5, 0, 0.5, 44)];
-        label.backgroundColor=tableView.separatorColor;
+        UILabel * label=[[UILabel alloc] initWithFrame:CGRectMake(kLeftWidth * kWidthScall-0.5, 0, 0.5, 85 * kWidthScall)];
+        
+        label.backgroundColor= tableView.separatorColor;
         [cell addSubview:label];
         label.tag=100;
     }
@@ -216,7 +218,7 @@
     {
         cell.titile.textColor=self.leftUnSelectColor;
         cell.backgroundColor=self.leftUnSelectBgColor;
-        line.backgroundColor=tableView.separatorColor;
+        line.backgroundColor=[UIColor lightGrayColor];//tableView.separatorColor;
 
     }
     
@@ -234,7 +236,7 @@
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 44;
+    return 85 * kWidthScall;
 }
 
 
@@ -304,8 +306,9 @@
 //    void (^select)(NSInteger left,NSInteger right,id info) = self.block;
 //    select(self.selectIndex,indexPath.row,meun);
     
-    void (^select)(NSString *ID) = self.block;
-    select(self.categoryVM.rightRowModels[indexPath.row].ID);
+    void (^select)(NSString *ID,NSString *vcTitle) = self.block;
+    NSString *vctitle = [self.categoryVM collectionViewForTitleForRowAtIndexPath:indexPath];//[self.vcTitle stringByAppendingString:[self.categoryVM collectionViewForTitleForRowAtIndexPath:indexPath]];
+    select(self.categoryVM.rightRowModels[indexPath.row].ID,vctitle);
         
     
     
@@ -366,16 +369,16 @@
 #pragma mark---每一个cell的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
   
-    return CGSizeMake(80, 90);
+    return CGSizeMake(collectionView.bounds.size.width / 3, collectionView.bounds.size.width / 3);
 }
 #pragma mark---设置每组的cell的边界, 具体看下图
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(10, 8, 10, 8);
+    return UIEdgeInsetsZero;//UIEdgeInsetsMake(10, 8, 10, 8);
 }
 
 #pragma mark---cell的最小行间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return 10.0f;
+    return 0.0f;
 }
 //#pragma mark---
 //-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
@@ -454,7 +457,7 @@
     
     
     UILabel * line=(UILabel*)[oldCell viewWithTag:100];
-    line.backgroundColor=oldCell.backgroundColor;
+    line.backgroundColor=[UIColor lightGrayColor];//oldCell.backgroundColor;
 
     
     MultilevelTableViewCell * currentCell=(MultilevelTableViewCell*)[self.leftTablew cellForRowAtIndexPath:[NSIndexPath indexPathForRow:currentCellIndex inSection:0]];

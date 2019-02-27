@@ -18,10 +18,12 @@
 #import "SystemSettingViewController.h"
 #import "UserIdendityViewModel.h"
 #import "ServerCenterViewController.h"
+#import "InviteGiftViewController.h"
 
 #define kPersonalLogonHeader @"PersonalLogonHeader"
 #define kPersonCollectionViewCell @"PersonCollectionViewCell"
 #define kServerCenterViewController @"ServerCenterViewController"
+#define kInviteGiftViewController @"InviteGiftViewController"
 
 
 @interface PersonalViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -109,7 +111,10 @@
         
     }
     else if (indexPath.row == 3){//邀请有礼
-        [Factory showWaittingForOpened];
+//        [Factory showWaittingForOpened];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDPersonal bundle:nil];
+        InviteGiftViewController *inveteGVC = [storyboard instantiateViewControllerWithIdentifier:kInviteGiftViewController];
+        [self.navigationController pushViewController:inveteGVC animated:YES];
     }
     else if (indexPath.row == 4){//系统设置
         //systemSetting
@@ -153,7 +158,7 @@
     if ([YDUserInfo sharedYDUserInfo].login) {
         header.nickName = [self.idendityVM userNickName];
         header.ranckName = [self.idendityVM userRankName];
-        //    header.imageUrl = [self.idendityVM userHeadImageURL];
+        header.imageUrl = [self.idendityVM userHeadImageURL];
     }else{
         
     }
@@ -204,8 +209,9 @@
 //    if (!iPhoneX) {
 //        return UIEdgeInsetsMake(-STATUS_BAR_HEIGHT+6, 9, 6, 9); // STATUS_BAR_HEIGHT -> 20
 //    }else{
-        return UIEdgeInsetsMake(0, 9, 6, 9);
+        return UIEdgeInsetsMake(6*kWidthScall - 20, 9 * kWidthScall, 6 * kWidthScall, 9 * kWidthScall);
 //    }
+
     
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
@@ -214,7 +220,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
 //    return CGSizeMake(kScreenW, iPhoneX ? 326 + STATUS_BAR_HEIGHT : 326 * kWidthScall);
-return CGSizeMake(kScreenW, 320);
+return CGSizeMake(kScreenW, 320 * kWidthScall);
 }
 
 

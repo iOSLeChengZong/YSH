@@ -57,6 +57,8 @@
 #import "YDUserInfo.h"
 #import "Factory.h"
 
+#import "VefifyRegisterViewModel.h"
+
 
 
 

@@ -52,7 +52,7 @@ typedef NS_ENUM(NSInteger,OrderType) {
 @property(nonatomic,strong)NSMutableArray<UserOrderModelOrderInfo *> *orderList;
 
 
--(void)getUserOrderListWithRequestMode:(OrderRequestMode)mode pageSize:(NSInteger)size orderMode:(OrderType)type completionHandler:(void(^)(NSError *error))completionHandler;
+-(void)getUserOrderListWithRequestMode:(OrderRequestMode)mode pageSize:(NSInteger)size orderMode:(OrderType)type userPID:(NSString *)pid completionHandler:(void(^)(NSError *error))completionHandler;
 
 @end
 

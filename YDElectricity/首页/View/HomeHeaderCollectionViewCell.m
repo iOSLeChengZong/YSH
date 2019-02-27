@@ -78,7 +78,7 @@
     [self.imageView addGestureRecognizer:recongnizer];
     
     //对滚动视图和栏目视图屏幕适配
-    [self screenFit];
+//    [self screenFit];
     
     
     

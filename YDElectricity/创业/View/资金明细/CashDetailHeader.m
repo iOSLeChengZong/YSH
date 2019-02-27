@@ -24,11 +24,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     WK(weakSelf)
-    CGRect frame = CGRectMake(40*kWidthScall, 0, (kScreenW * 0.5 - 130)*kWidthScall, self.parentView.size.height);
-    _accountBtn = [[YDCustomButton alloc] initWithBtnFrame:frame btnType:ButtonImageRight titleAndImageSpace:14 imageSizeWidth:0 imageSizeHeight:0];
+    CGRect frame = CGRectMake(9 * kWidthScall, 0, self.parentView.size.width * 0.5 * kWidthScall, self.parentView.size.height * kWidthScall);
+    _accountBtn = [[YDCustomButton alloc] initWithBtnFrame:frame btnType:ButtonImageRight titleAndImageSpace:14*kWidthScall imageSizeWidth:0 imageSizeHeight:0];
     [_accountBtn setImage:[UIImage imageNamed:@"y_b_down0"] forState:UIControlStateNormal];
-    _accountBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [_accountBtn setTitleColor:KFontDefaultRGB forState:UIControlStateNormal];
+    _accountBtn.titleLabel.font = [UIFont systemFontOfSize:14 * kWidthScall weight:UIFontWeightMedium];
+    [_accountBtn setTitleColor:kRGBA(115, 115, 115, 1) forState:UIControlStateNormal];
     [_accountBtn setTitle:@"所有账户" forState:UIControlStateNormal];
     [_accountBtn bk_addEventHandler:^(id sender) {
         [BRStringPickerView showStringPickerWithTitle:@"账户" dataSource:@[@"支付宝", @"微信", @"中国很行",@"招商很行"] defaultSelValue:@"" isAutoSelect:NO themeColor:kFONTSlectRGB resultBlock:^(id selectValue) {
@@ -37,11 +37,11 @@
     } forControlEvents:UIControlEventTouchUpInside];
     [self.parentView addSubview:_accountBtn];
     
-    frame = CGRectMake((CGRectGetMaxX(_accountBtn.frame) + 100) * kWidthScall, 0, _accountBtn.frame.size.width, _accountBtn.frame.size.height);
-    _dateBtn = [[YDCustomButton alloc] initWithBtnFrame:frame btnType:ButtonImageRight titleAndImageSpace:14 imageSizeWidth:0 imageSizeHeight:0];
+    frame = CGRectMake(CGRectGetMaxX(_accountBtn.frame), 0, self.parentView.size.width * 0.5 * kWidthScall, self.parentView.size.height * kWidthScall);
+    _dateBtn = [[YDCustomButton alloc] initWithBtnFrame:frame btnType:ButtonImageRight titleAndImageSpace:14*kWidthScall imageSizeWidth:0 imageSizeHeight:0];
     [_dateBtn setImage:[UIImage imageNamed:@"y_b_down0"] forState:UIControlStateNormal];
-    _dateBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [_dateBtn setTitleColor:KFontDefaultRGB forState:UIControlStateNormal];
+    _dateBtn.titleLabel.font = [UIFont systemFontOfSize:14 * kWidthScall weight:UIFontWeightMedium];
+    [_dateBtn setTitleColor:kRGBA(115, 115, 115, 1) forState:UIControlStateNormal];
     [_dateBtn setTitle:@"选择日期" forState:UIControlStateNormal];
 
     [_dateBtn bk_addEventHandler:^(id sender) {
@@ -62,6 +62,7 @@
         }];
     } forControlEvents:UIControlEventTouchUpInside];
     [self.parentView addSubview:_dateBtn];
+    NSLog(@"ffff2:%lf",_dateBtn.frame.size.width);
     
     
     

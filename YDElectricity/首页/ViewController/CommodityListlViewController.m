@@ -60,6 +60,7 @@
             //注册cell
             [_commodityListCollectionView registerNib:[UINib nibWithNibName:kHomeProductCell bundle:nil] forCellWithReuseIdentifier:kHomeProductCell];
         }else{
+            
             //itemSize
             layout.itemSize = CGSizeMake(176 * kWidthScall,kWidthScall * 280);
             
@@ -89,6 +90,16 @@
 }
 
 #pragma mark -- 生命周期
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

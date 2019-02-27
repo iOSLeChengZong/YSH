@@ -41,16 +41,22 @@
     }];
     
     //设置背景颜色
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = kViewBGColor;
     //设置导航栏
     [self setupNavigationItem];
     
 }
 
-//- (void)viewWillAppear:(BOOL)animated;
-//{
-//     (( AppDelegate *) [UIApplication sharedApplication].delegate).avatar.hidden=YES;
-//}
+- (void)viewWillAppear:(BOOL)animated;
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
 
 - (void)setupNavigationItem {
     
@@ -131,8 +137,8 @@
 
 - (void)initCategoryMenu{
    
-
-    MultilevelMenu * view=[[MultilevelMenu alloc] initWithFrame:CGRectMake(0, 2, self.view.width, self.view.height - 2) WithModel:self.categoryVM withSelectIndex:^(NSString *right/*, NSInteger right,CategoryMeunModel * info*/) {
+    WK(weakSelf)
+    MultilevelMenu * view=[[MultilevelMenu alloc] initWithFrame:CGRectMake(0, 2, self.view.width, self.view.height - 2) WithModel:self.categoryVM withSelectIndex:^(NSString *right,NSString *vcTitle/*, NSInteger right,CategoryMeunModel * info*/) {
         
 //        NSLog(@"点击的 菜单%@",info.menuName);
 //         JDNavigationController *navigationController = [[JDNavigationController alloc] initWithRootViewController:[[CommodityTableViewController alloc] init]];
@@ -148,9 +154,10 @@
         
         UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"YDHome" bundle:nil];
         CommodityListlViewController *CLVC = [storybord instantiateViewControllerWithIdentifier:@"CommodityListlViewController"];
+        CLVC.title = vcTitle;
         CLVC.goodID = right;
         CLVC.listState = GoodListStateCategory;
-        [self.navigationController pushViewController:CLVC animated:YES];
+        [weakSelf.navigationController pushViewController:CLVC animated:YES];
         
     }];
     
@@ -167,6 +174,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (IBAction)categoryVCBackBtnClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 /*
 #pragma mark - Navigation

@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UserIdendityViewModel : NSObject
+YDSingletonH(UserIdendityModel)
 //根据UI
 /** 用户昵称 */
 -(NSString *)userNickName;
@@ -21,6 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString *)userPid;
 /** 用户头像 */
 -(NSURL *)userHeadImageURL;
+/** 用户生日 */
+-(NSString *)userBirthday;
+/** 用户性别 */
+-(NSString *)userSex;
+/** 用户地区 */
+-(NSString *)userArea;
+/** 用户详细地址 */
+-(NSString *)userDetailAddress;
 /** 用户成长值 */
 -(NSString *)userGrowth;
 /** 用户成长值比例 */

@@ -60,7 +60,7 @@
  */
 @property(strong,nonatomic) UIColor * leftSeparatorColor;
 
--(id)initWithFrame:(CGRect)frame WithModel:(CategoryViewModel *)categoryVM withSelectIndex:(void(^)(NSString *right/*,NSInteger right,id info*/))selectIndex;
+-(id)initWithFrame:(CGRect)frame WithModel:(CategoryViewModel *)categoryVM withSelectIndex:(void(^)(NSString *right,NSString *vcTitle/*,NSInteger right,id info*/))selectIndex;
 
 @end
 

@@ -20,7 +20,7 @@
 #import "TaoBaoCustomerDetailViewController.h"
 #import "CommodityListlViewController.h"
 #import "SecondSkillViewController.h"
-#import "YDAlertView.h"
+//#import "YDAlertView.h"
 #import "YDCustomButton.h"
 
 
@@ -131,7 +131,7 @@
         
         [cell addClickHandler:^(NSString * _Nonnull goodID, NSString * _Nonnull title, HomeHeaderPushModel pushModel) {
             if (pushModel == HomeHeaderPushModelGoodList) {
-                UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"YDHome" bundle:nil];
+                UIStoryboard *storybord = [UIStoryboard storyboardWithName:kYDHome bundle:nil];
                 CommodityListlViewController *CLVC = [storybord instantiateViewControllerWithIdentifier:kCommodityListlViewController];
                 CLVC.title = title;
                 CLVC.goodID = goodID;
@@ -331,12 +331,12 @@
 #pragma mark -- 方法
 -(void)categoryBtnClick{
     NSLog(@"首页分类按钮被点击了");
-    CategoryViewController *cvc = [[CategoryViewController alloc] init];
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    backItem.title = @"";
-    self.navigationItem.backBarButtonItem = backItem;
-//    [self showViewController:cvc sender:nil];
+
+    UIStoryboard *board = [UIStoryboard storyboardWithName:kYDHome bundle:nil];
+    CategoryViewController *cvc = [board instantiateViewControllerWithIdentifier:@"CategoryViewController"];
     [self.navigationController pushViewController:cvc animated:YES];
+
+    
     
 }
 
@@ -361,13 +361,13 @@
     _navigationView = naviView;
     
     //2.左边按钮
-    CGFloat btnW = 38;
-    CGFloat btnH = 30;
-    CGFloat btnY = 5;
-    CGFloat leftMargin = 15;
-    YDCustomButton *leftBtn = [[YDCustomButton alloc] initWithBtnFrame:CGRectMake(leftMargin, btnY, btnW, btnH) btnType:ButtonImageTop titleAndImageSpace:5 imageSizeWidth:0 imageSizeHeight:0];
+    CGFloat btnW = 38 * kWidthScall;
+    CGFloat btnH = 30 * kWidthScall;
+    CGFloat btnY = 5 * kWidthScall;
+    CGFloat leftMargin = 15 * kWidthScall;
+    YDCustomButton *leftBtn = [[YDCustomButton alloc] initWithBtnFrame:CGRectMake(leftMargin, btnY, btnW, btnH) btnType:ButtonImageTop titleAndImageSpace:5*kWidthScall imageSizeWidth:0 imageSizeHeight:0];
     [leftBtn setImage:[UIImage imageNamed:@"y_h_sort0"] forState:UIControlStateNormal];
-    leftBtn.titleLabel.font = [UIFont systemFontOfSize:11];
+    leftBtn.titleLabel.font = [UIFont fontWithName:@"苹方-简" size:11 * kWidthScall];//[UIFont systemFontOfSize:11];
     [leftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [leftBtn setTitle:@"分类" forState:UIControlStateNormal];
     WK(weakSelf)
@@ -379,9 +379,9 @@
     _leftBtn = leftBtn;
     
     //3.右边按钮
-    YDCustomButton *rightBtn = [[YDCustomButton alloc] initWithBtnFrame:CGRectMake(kScreenW - leftMargin - btnW, btnY, btnW, btnH) btnType:ButtonImageTop titleAndImageSpace:5 imageSizeWidth:0 imageSizeHeight:0];
+    YDCustomButton *rightBtn = [[YDCustomButton alloc] initWithBtnFrame:CGRectMake(kScreenW - leftMargin - btnW, btnY, btnW, btnH) btnType:ButtonImageTop titleAndImageSpace:5*kWidthScall imageSizeWidth:0 imageSizeHeight:0];
     [rightBtn setImage:[UIImage imageNamed:@"y_h_shoppingCar0"] forState:UIControlStateNormal];
-    rightBtn.titleLabel.font = [UIFont systemFontOfSize:11];
+    rightBtn.titleLabel.font = [UIFont fontWithName:@"苹方-简" size:11 * kWidthScall];//[UIFont systemFontOfSize:11];
     [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [rightBtn setTitle:@"购物车" forState:UIControlStateNormal];
     [rightBtn bk_addEventHandler:^(id sender) {
@@ -396,15 +396,15 @@
     _rightBtn = rightBtn;
     
     //4.搜索框
-    CGFloat searchTextFW = 264;
-    CGFloat searchTextFH = 30;
+    CGFloat searchTextFW = 264 * kWidthScall;
+    CGFloat searchTextFH = 30 * kWidthScall;
 
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake((kScreenW - searchTextFW)*0.5, (NAVI_BAR_HEIGHT - searchTextFH)*0.5, searchTextFW, searchTextFH);
     [btn setImage:[UIImage imageNamed:@"y_h_sousuokuang0"] forState:UIControlStateNormal];
-    UILabel *btnLabel = [[UILabel alloc] initWithFrame:CGRectMake((kScreenW - searchTextFW)*0.5 + 40, (NAVI_BAR_HEIGHT - searchTextFH)*0.5, searchTextFW -40, searchTextFH)];
+    UILabel *btnLabel = [[UILabel alloc] initWithFrame:CGRectMake((kScreenW - searchTextFW)*0.5 + 40 * kWidthScall, (NAVI_BAR_HEIGHT - searchTextFH)*0.5, searchTextFW -40 * kWidthScall, searchTextFH)];
     btnLabel.textAlignment = NSTextAlignmentLeft;
-    btnLabel.font = [UIFont systemFontOfSize:13];
+    btnLabel.font = [UIFont fontWithName:@"苹方-简" size:13 * kWidthScall];;
 
     [btnLabel setTextColor:KFontDefaultRGB];
     btnLabel.text = @"搜索好宝贝";

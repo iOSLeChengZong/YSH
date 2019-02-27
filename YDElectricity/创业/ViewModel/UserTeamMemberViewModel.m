@@ -47,11 +47,9 @@
     [YDNetManager getTemaMemberCompletionHandler:^(UserTeamMemberModel * _Nonnull model, NSError * _Nonnull error) {
         if (!error) {
             self.info = model.memberInfo;
-            !completionHandler ?: completionHandler(error);
-        }else{
-            NSLog(@"团队成员请求有误");
-            !completionHandler ?: completionHandler(error);
         }
+        
+        !completionHandler ?: completionHandler(error);
     }];
 }
 @end

@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 @class UserIdendityInfoInfo;
 
 @interface UserIdendityModel : NSObject<YYModel>
-YDSingletonH(UserIdendityModel)
 @property (nonatomic, assign) NSInteger code;
 @property (nonatomic, strong) NSString * message;
 //rows -> info
@@ -40,12 +39,13 @@ YDSingletonH(UserIdendityModel)
 @property (nonatomic, strong) NSString * pid;
 @property (nonatomic, strong) NSObject * qqOpenId;
 @property (nonatomic, strong) NSObject * remark;
-@property (nonatomic, strong) NSObject * sex;
+@property (nonatomic, strong) NSString * sex;
 @property (nonatomic, strong) NSObject * shipAddressId;
 @property (nonatomic, assign) NSInteger state;
 @property (nonatomic, assign) NSInteger tutorId;
 @property (nonatomic, strong) NSObject * tutorType;
 @property (nonatomic, strong) NSString * wxOpenId;
+
 @end
 
 NS_ASSUME_NONNULL_END

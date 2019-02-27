@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSInteger pageNum;
 /** 总消息条数 */
 @property(nonatomic,strong)NSMutableArray<UserSystemMessage *> *messages;
--(void)getSystemUserMessageRequestMode:(RequestMode)mode pageSize:(NSInteger)size CompletionHandler:(void(^)(NSError *error))completionHandler;
+-(void)getSystemUserMessageRequestMode:(RequestMode)mode pageSize:(NSInteger)size userID:(NSString *)userID CompletionHandler:(void(^)(NSError *error))completionHandler;
 
 
 @end

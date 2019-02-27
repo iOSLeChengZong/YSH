@@ -61,7 +61,7 @@
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < _advertiseMuArr.count; ++i) {
         
-        [array addObject:[kBaseURL stringByAppendingString:_advertiseMuArr[i].imgUrl]];
+        [array addObject:[kBaseURL1 stringByAppendingString:_advertiseMuArr[i].imgUrl]];
         NSLog(@"adverURL:%@",array[i]);
     }
     return array;

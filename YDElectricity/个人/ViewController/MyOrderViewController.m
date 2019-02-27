@@ -55,6 +55,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    self.navBarHairlineImageView = [Factory findHairlineImageViewUnder:self.navigationController.navigationBar];
     self.navBarHairlineImageView.hidden = YES;
 }
 
@@ -66,8 +67,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
     
     self.view.backgroundColor = kViewBGColor;
     NSMutableArray *vcsArr = [NSMutableArray new];
@@ -109,16 +108,16 @@
         jc_titleBarStyles(MJCTitlesClassicStyle).
         jc_childScollEnabled(YES).
         jc_titlesViewBackColor([UIColor whiteColor]).
-        jc_itemTextNormalColor(KFontDefaultRGB).
+        jc_itemTextNormalColor(kRGBA(115, 115, 115, 1)).
         jc_itemTextSelectedColor(kFONTSlectRGB).
         //        jc_itemSelectedSegmentIndex(3).
         jc_defaultItemShowCount(6).
-        jc_itemTextFontSize(14).
-        jc_indicatorStyles(MJCIndicatorEqualTextEffect).
+        jc_itemTextFontSize(14 * kWidthScall).
+        jc_indicatorStyles(MJCIndicatorEqualItemEffect).
         jc_indicatorsAnimalsEnabled(YES).
         jc_indicatorColorEqualTextColorEnabled(YES).
         jc_indicatorStyles(MJCIndicatorEqualItemEffect).
-        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50));
+        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50 * kWidthScall));
         
     }];
     interFace.delegate = self;
@@ -172,7 +171,21 @@
 }
 /** 获取到所有item的代理方法(可在item上面添加新的控件) */
 - (void)mjc_tabitemDataWithTabitemArray:(NSArray<UIButton*>*)tabItemArray childsVCAarray:(NSArray<UIViewController*>*)childsVCAarray segmentInterface:(MJCSegmentInterface *)segmentInterface{
-
+    for (int i = 0; i < tabItemArray.count; ++i) {
+        UIView *view = [[UIView alloc] init];
+        if (i == 0) {
+            view.frame = CGRectMake(10, tabItemArray[i].frame.size.height -1, tabItemArray[i].frame.size.width -10, 1);
+        }
+        else if (i == tabItemArray.count -1)
+        {
+            view.frame = CGRectMake(0, tabItemArray[i].frame.size.height -1, tabItemArray[i].frame.size.width -10, 1);
+        }else{
+            view.frame = CGRectMake(0, tabItemArray[i].frame.size.height -1, tabItemArray[i].frame.size.width, 1);
+        }
+        
+        view.backgroundColor = [UIColor darkGrayColor];
+        [tabItemArray[i] addSubview:view];
+    }
 }
 
 - (IBAction)myOrderBackBtnClick:(id)sender {
@@ -180,20 +193,6 @@
 }
 
 
-
-//2、找出底部横线的函数
-- (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
-    if ([view isKindOfClass:UIImageView.class] && view.bounds.size.height <= 1.0) {
-        return (UIImageView *)view;
-    }
-    for (UIView *subview in view.subviews) {
-        UIImageView *imageView = [self findHairlineImageViewUnder:subview];
-        if (imageView) {
-            return imageView;
-        }
-    }
-    return nil;
-}
 
 /*
 #pragma mark - Navigation

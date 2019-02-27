@@ -41,12 +41,12 @@
 }
 
 
--(void)getSystemUserMessageRequestMode:(RequestMode)mode pageSize:(NSInteger)size CompletionHandler:(void (^)(NSError * _Nonnull))completionHandler{
+-(void)getSystemUserMessageRequestMode:(RequestMode)mode pageSize:(NSInteger)size userID:(NSString *)userID CompletionHandler:(void (^)(NSError * _Nonnull))completionHandler{
     NSInteger tempNum = 1;
     if (mode == RequestModeMore) {
         tempNum = ++_pageNum;
     }
-    [YDNetManager getSystemUserMessageWithPath:kUserMessageURL pageNum:tempNum pageSize:size completionHandler:^(UserMessageModel * _Nonnull model, NSError * _Nonnull error) {
+    [YDNetManager getSystemUserMessageWithPath:kUserMessageURL pageNum:tempNum pageSize:size userID:userID completionHandler:^(UserMessageModel * _Nonnull model, NSError * _Nonnull error) {
         if (!error) {
             
             _pageNum = tempNum;

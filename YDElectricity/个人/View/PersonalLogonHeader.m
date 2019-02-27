@@ -34,7 +34,37 @@
 
 -(void)setImageUrl:(NSURL *)imageUrl{
     _imageUrl = imageUrl;
-    [_headerImage sd_setImageWithURL:_imageUrl];
+//    if (!_imageUrl) {//如果为空
+//        //本地加载
+//        if ([self LoadLocalHeadImage]) {
+//            UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:[self LoadLocalHeadImage]];
+//            [self.headerImage viewcornerRadius:self.headerImage.frame.size.height*0.5 borderWith:0.02 clearColor:YES];
+//            [self.headerImage setImage:savedImage];
+//        }else{
+//            [self.headerImage setImage:[UIImage imageNamed:@"y_p_avatar"]];
+//        }
+//    }else{
+//
+////      [_headerImage sd_setImageWithURL:_imageUrl];
+//        [_headerImage sd_setImageWithURL:_imageUrl completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//            if (error) {
+//               [self.headerImage setImage:[UIImage imageNamed:@"y_p_avatar"]];
+//            }
+//        }];
+//    }
+    
+    if (!_imageUrl) {
+        [_headerImage sd_setImageWithURL:_imageUrl completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            if (error) {
+                [self.headerImage setImage:[UIImage imageNamed:@"y_p_avatar"]];
+            }
+        }];
+    }else{
+        [self.headerImage setImage:[UIImage imageNamed:@"y_p_avatar"]];
+    }
+    
+   
+    
 }
 
 - (void)awakeFromNib {
@@ -43,17 +73,7 @@
         self.loginBtn.hidden = [YDUserInfo sharedYDUserInfo].login;
         self.nickNameLabel.hidden = !self.loginBtn.hidden;
         self.userIdendityView.hidden = self.nickNameLabel.hidden;
-        //从沙盒拿
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
-        if ([fileManager fileExistsAtPath:fullPath]) {
-            UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
-            [self.headerImage viewcornerRadius:self.headerImage.frame.size.height*0.5 borderWith:0.02 clearColor:YES];
-            [self.headerImage setImage:savedImage];
-        }else{
-            
-            [self.headerImage setImage:[UIImage imageNamed:@"y_p_avatar"]];
-        }
+        
     }else{
         self.loginBtn.hidden = [YDUserInfo sharedYDUserInfo].login;
         self.nickNameLabel.hidden = !self.loginBtn.hidden;
@@ -65,7 +85,17 @@
     
 }
 
-
+-(NSString *)LoadLocalHeadImage{
+    //从沙盒拿
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
+    if ([fileManager fileExistsAtPath:fullPath]) {
+        return fullPath;
+    }else{
+        
+        return nil;
+    }
+}
 
 //消息
 - (IBAction)OnMessageBtnClick:(id)sender {

@@ -29,12 +29,12 @@
     
     UIView * View=[[UIImageView alloc]init];
     View.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
-    View.frame=CGRectMake(self.size.width-65, self.size.height-38, 45, 17);
+    View.frame=CGRectMake(self.size.width-65*kWidthScall, self.size.height-38*kWidthScall, 45*kWidthScall, 17*kWidthScall);
     [View viewcornerRadius:View.bounds.size.height * 0.5 borderWith:0.01 clearColor:NO];
     [_cycleScrollView addSubview:View];
     _indexPage=[[UILabel alloc]initWithFrame:CGRectMake(0,0, View.size.width, View.size.height)];
     _indexPage.textAlignment = NSTextAlignmentCenter;
-    _indexPage.font=[UIFont systemFontOfSize:10];
+    _indexPage.font=[UIFont systemFontOfSize:10 * kWidthScall weight:UIFontWeightMedium];//[UIFont systemFontOfSize:18*kWidthScall weight:UIFontWeightMedium]
     _indexPage.textColor=[UIColor whiteColor];
     _indexPage.text = [NSString stringWithFormat:@"1/%lu",self.imageURLStringsGroup.count];
     [View addSubview:_indexPage];

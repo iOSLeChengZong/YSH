@@ -11,6 +11,7 @@
 #import "UIAlertController+Blocks.h"
 #import "YDNetManager.h"
 #import "AddressManagerViewController.h"
+#import "UserIdendityViewModel.h"
 
 #define kAddressManagerViewController @"AddressManagerViewController"
 
@@ -36,6 +37,8 @@
 
 @property (nonatomic,assign)BOOL isMan;
 
+@property (nonatomic,strong)UserIdendityViewModel *userIdendityVM;
+
 @end
 
 @implementation PersonalEditorDataViewController
@@ -46,6 +49,13 @@
         _pram = [UploadParam new];
     }
     return _pram;
+}
+
+-(UserIdendityViewModel *)userIdendityVM{
+    if (!_userIdendityVM) {
+        _userIdendityVM = [UserIdendityViewModel sharedUserIdendityModel];
+    }
+    return _userIdendityVM;
 }
 
 
@@ -107,57 +117,81 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    //从沙盒拿
-    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
-    UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
-    
-    [self.headImageView setImage:savedImage];
-    //设置头像为圆角
-    [self.headImageView viewcornerRadius:self.headImageView.bounds.size.width * 0.5 borderWith:0.02 clearColor:YES];
-    
-    //加载用户本地数据
-    if ([self readUserCurrentInfo]) {
-        NSDictionary *dic = [self readUserCurrentInfo];
-        [self.headImageView setImage:[[UIImage alloc] initWithContentsOfFile:[NSString stringWithFormat:@"%@",dic[@"currentImage"]]]];
-        //设置头像为圆角
-        [self.headImageView viewcornerRadius:self.headImageView.bounds.size.width * 0.5 borderWith:0.02 clearColor:YES];
-        self.nickNameTexfield.text = [NSString stringWithFormat:@"%@",dic[@"nickName"]];
-        [self.nickNameTexfield setTextColor:kFONTSlectRGB];
-        
-        self.birthdayTexfield.text = [NSString stringWithFormat:@"%@",dic[@"birthDay"]];
-        [self.birthdayTexfield setTextColor:kFONTSlectRGB];
-        
-        NSString *str = ([[NSString stringWithFormat:@"%@",dic[@"sex"]]  isEqual: @"1"]) ? @"y_p_choose1" : @"y_p_choose0";
-        NSString *str1 = ([[NSString stringWithFormat:@"%@",dic[@"sex"]]  isEqual: @"2"]) ? @"y_p_choose1" : @"y_p_choose0";
-        [self.manBtn setImage:[UIImage imageNamed:str] forState:UIControlStateNormal];
-        [self.womanBtn setImage:[UIImage imageNamed:str1] forState:UIControlStateNormal];
-        
-//        self.areaTextField.text = [NSString stringWithFormat:@"%@",dic[@"area"]];
-//        [self.areaTextField setTextColor:kFONTSlectRGB];
+//    //从沙盒拿
+//    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
+//    UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
 //
-//        self.finalTextField.text = [NSString stringWithFormat:@"%@",dic[@"finalArea"]];
-        [self.finalTextField setTextColor:kFONTSlectRGB];
-        
-        NSString *addr = [[NSUserDefaults standardUserDefaults] stringForKey:kDefauleAddr];
-        if ([addr isEqualToString:@""]) {
-            self.areaLabel.text = @"未选择";
-            [self.areaLabel setTextColor:KFontDefaultRGB];
-            self.finalTextField.text = @"未填写";
-            [self.finalTextField setTextColor:KFontDefaultRGB];
-        }else{
-            NSArray *arr = [addr componentsSeparatedByString:@" "];
-            if (arr.count > 0 && arr != nil) {
-                self.areaLabel.text = arr[0];
-                [self.areaLabel setTextColor:kFONTSlectRGB];
-                self.finalTextField.text = arr[1];
-                [self.finalTextField setTextColor:kFONTSlectRGB];
-            }
-            
+//    [self.headImageView setImage:savedImage];
+//    //设置头像为圆角
+//    [self.headImageView viewcornerRadius:self.headImageView.bounds.size.width * 0.5 borderWith:0.02 clearColor:YES];
+//
+//    //加载用户本地数据
+//    if ([self readUserCurrentInfo]) {
+//        NSDictionary *dic = [self readUserCurrentInfo];
+//        [self.headImageView setImage:[[UIImage alloc] initWithContentsOfFile:[NSString stringWithFormat:@"%@",dic[@"currentImage"]]]];
+//        //设置头像为圆角
+//        [self.headImageView viewcornerRadius:self.headImageView.bounds.size.width * 0.5 borderWith:0.02 clearColor:YES];
+//        self.nickNameTexfield.text = [NSString stringWithFormat:@"%@",dic[@"nickName"]];
+//        [self.nickNameTexfield setTextColor:kFONTSlectRGB];
+//
+//        self.birthdayTexfield.text = [NSString stringWithFormat:@"%@",dic[@"birthDay"]];
+//        [self.birthdayTexfield setTextColor:kFONTSlectRGB];
+//
+//        NSString *str = ([[NSString stringWithFormat:@"%@",dic[@"sex"]]  isEqual: @"1"]) ? @"y_p_choose1" : @"y_p_choose0";
+//        NSString *str1 = ([[NSString stringWithFormat:@"%@",dic[@"sex"]]  isEqual: @"2"]) ? @"y_p_choose1" : @"y_p_choose0";
+//        [self.manBtn setImage:[UIImage imageNamed:str] forState:UIControlStateNormal];
+//        [self.womanBtn setImage:[UIImage imageNamed:str1] forState:UIControlStateNormal];
+//
+////        self.areaTextField.text = [NSString stringWithFormat:@"%@",dic[@"area"]];
+////        [self.areaTextField setTextColor:kFONTSlectRGB];
+////
+////        self.finalTextField.text = [NSString stringWithFormat:@"%@",dic[@"finalArea"]];
+//        [self.finalTextField setTextColor:kFONTSlectRGB];
+//
+//        NSString *addr = [[NSUserDefaults standardUserDefaults] stringForKey:kDefauleAddr];
+//        if ([addr isEqualToString:@""]) {
+//            self.areaLabel.text = @"未选择";
+//            [self.areaLabel setTextColor:KFontDefaultRGB];
+//            self.finalTextField.text = @"未填写";
+//            [self.finalTextField setTextColor:KFontDefaultRGB];
+//        }else{
+//            NSArray *arr = [addr componentsSeparatedByString:@" "];
+//            if (arr.count > 0 && arr != nil) {
+//                self.areaLabel.text = arr[0];
+//                [self.areaLabel setTextColor:kFONTSlectRGB];
+//                self.finalTextField.text = arr[1];
+//                [self.finalTextField setTextColor:kFONTSlectRGB];
+//            }
+//
+//        }
+//
+//    }
+    
+    
+    
+    ////////////////////
+    ////////////////////
+    //设置头像
+    [self.headImageView viewcornerRadius:self.headImageView.bounds.size.width * 0.5 borderWith:0.02 clearColor:YES];
+    [self.headImageView sd_setImageWithURL:[self.userIdendityVM userHeadImageURL] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        if (error) {
+            [self.headImageView setImage:[UIImage imageNamed:@"y_p_avatar"]];
         }
-        
-       
-
-    }
+    }];
+    
+    //设置昵称
+    self.nickNameTexfield.text = [self.userIdendityVM userNickName];
+    //设置生日
+    self.birthdayTexfield.text = [self.userIdendityVM userBirthday];
+    //设置性别
+    [self.manBtn setImage:[UIImage imageNamed: [[self.userIdendityVM userSex] isEqualToString:@"1"] ? @"y_p_choose1" : @"y_p_choose0"] forState:UIControlStateNormal];
+    [self.womanBtn setImage:[UIImage imageNamed:[[self.userIdendityVM userSex] isEqualToString:@"1"] ? @"y_p_choose0" : @"y_p_choose1"] forState:UIControlStateNormal];
+    //设置地区
+    self.areaTextField.text = [self.userIdendityVM userArea];
+    //设置详细地址
+    self.finalTextField.text = [self.userIdendityVM userDetailAddress];
+    
+    
     
 }
 

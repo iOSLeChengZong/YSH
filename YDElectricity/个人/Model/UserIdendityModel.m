@@ -9,7 +9,7 @@
 #import "UserIdendityModel.h"
 
 @implementation UserIdendityModel
-YDSingletonM(UserIdendityModel)
+//YDSingletonM(UserIdendityModel)
 
 +(NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
     return @{@"info":[UserIdendityInfoInfo class]};

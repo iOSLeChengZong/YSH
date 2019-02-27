@@ -147,6 +147,8 @@
 //请求注册
 +(id)requestRegisterWithPath:(NSString *)path wxOpenID:(NSString *)openID phoneNumber:(NSString *)phoneNum vefifyCode:(NSString *)vefifyCode tutorInviteCode:(NSString *)inviteCode completionHandler:(void (^)(VerifyRegisterModel * _Nonnull, NSError * _Nonnull))completionHandler{
     NSMutableDictionary *pa = [NSMutableDictionary new];
+    //昵称
+    [pa setObject:[YDUserInfo sharedYDUserInfo].userName forKey:@"nickName"];
     [pa setObject:openID forKey:@"wxOpenId"];
     [pa setObject:phoneNum forKey:@"phone"];
     [pa setObject:vefifyCode forKey:@"inviteCode"];
@@ -219,11 +221,11 @@
 
 
 //获取系统消息
-+(id)getSystemUserMessageWithPath:(NSString *)path pageNum:(NSInteger)page pageSize:(NSInteger)size completionHandler:(void (^)(UserMessageModel * _Nonnull, NSError * _Nonnull))completionHandler{
++(id)getSystemUserMessageWithPath:(NSString *)path pageNum:(NSInteger)page pageSize:(NSInteger)size userID:(NSString *)userID completionHandler:(void (^)(UserMessageModel * _Nonnull, NSError * _Nonnull))completionHandler{
     NSMutableDictionary *param = [NSMutableDictionary new];
     [param setObject:[NSString stringWithFormat:@"%ld",page] forKey:@"pageNo"];
     [param setObject:[NSString stringWithFormat:@"%ld",size] forKey:@"pageSize"];
-    [param setObject:@"1" forKey:@"userId"];
+    [param setObject:userID/*@"1"*/ forKey:@"userId"];
     
     return [self POST:path parameters:param progress:nil completionHandler:^(id  _Nonnull responseObj, NSError * _Nonnull error) {
         if (!error) {

@@ -9,9 +9,11 @@
 #import "SystemSettingViewController.h"
 #import "IdearResponseRoViewController.h"
 #import "VersionExplainViewController.h"
+#import "AboutOurViewController.h"
 
 #define kIdearResponseRoViewController @"IdearResponseRoViewController"
 #define kVersionExplainViewController @"VersionExplainViewController"
+#define kAboutOurViewController @"AboutOurViewController"
 
 @interface SystemSettingViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *cacheSizeLabel;
@@ -79,7 +81,10 @@
 
 //关于我们
 - (IBAction)aboutOur:(id)sender {
-    [Factory showWaittingForOpened];
+//    [Factory showWaittingForOpened];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kYDPersonal bundle:nil];
+    AboutOurViewController *aboutvc = [storyboard instantiateViewControllerWithIdentifier:kAboutOurViewController];
+    [self.navigationController pushViewController:aboutvc animated:YES];
     
 }
 

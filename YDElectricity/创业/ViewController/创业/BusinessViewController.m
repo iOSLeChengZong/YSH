@@ -73,8 +73,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = kViewBGColor;
-    self.businessViewHeightC.constant *= kWidthScall;
-    
     if (iPhoneX) {
 //        self.businessViewHeightC.constant += STATUS_BAR_HEIGHT;//20
         self.headerTopViewHeightC.constant = 20;

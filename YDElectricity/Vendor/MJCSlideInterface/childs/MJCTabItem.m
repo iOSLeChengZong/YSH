@@ -37,7 +37,7 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        self.titleLabel.font = [UIFont systemFontOfSize:14];
+        self.titleLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightMedium];//[UIFont systemFontOfSize:14];
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         [self setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
@@ -47,7 +47,7 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
-    self.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.titleLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightMedium];//[UIFont systemFontOfSize:14];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
@@ -169,7 +169,7 @@
     _itemTextFontSize = itemTextFontSize;
     
     if (itemTextFontSize) {
-        self.titleLabel.font = [UIFont systemFontOfSize:itemTextFontSize];
+        self.titleLabel.font = [UIFont systemFontOfSize:itemTextFontSize weight:UIFontWeightMedium];//[UIFont systemFontOfSize:itemTextFontSize];
         [self setNeedsLayout];
         [self layoutIfNeeded];
     }

@@ -7,43 +7,18 @@
 //
 
 #import "LoginViewController.h"
-#import "VefifyRegisterViewModel.h"
+//#import "VefifyRegisterViewModel.h"
 #import "YDUserInfo.h"
+
 
 
 @interface LoginViewController ()
 @property(nonatomic,strong)VefifyRegisterViewModel *registerViewModel;
 @property(nonatomic,strong)NSString *userWxID;
 @property(nonatomic,strong)NSString *userPhonNum;
+@property(nonatomic,strong)NSString *userNickName;
 
-//1.App标识约束
-//宽
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *productIdentifierImageWidthC;
-//高
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *productIdentifierImageHeightC;
 
-//bottom
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *productIdentifierImageBottomC;
-
-//2.微信登陆约束
-//宽
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weiChatBtnWidthC;
-
-//高
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weiChatBtnHeightC;
-
-//bottom
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weiChatBtnBottomC;
-
-//3.游客模式约束
-//宽
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorBtnWidthC;
-
-//高
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorBtnHeightC;
-
-//bottom
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorBtnBottomc;
 
 @end
 
@@ -52,16 +27,22 @@
 #pragma mark -- 懒加载
 -(VefifyRegisterViewModel *)registerViewModel{
     if (!_registerViewModel) {
-        _registerViewModel = [VefifyRegisterViewModel new];
+        _registerViewModel = [VefifyRegisterViewModel sharedVefifyRegisterViewModel];
     }
     return _registerViewModel;
+}
+
+-(NSString *)userWxID{
+    if (!_userWxID) {
+        _userWxID = [self readUserWXOpenID];
+    }
+    return _userWxID;
 }
 
 #pragma mark -- 生命周期
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    //屏幕适配
-    [self LoginViewControllerScreenFit];
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -77,6 +58,7 @@
 //
 //    //这里建议同步存储到磁盘中，但是不是必须的
 //    [userDefaults synchronize];
+//
     
 }
 
@@ -84,7 +66,6 @@
 - (IBAction)OnWeChatBtnClick:(id)sender {
     //本地查询微信返回的userid 和token
     //如果没有,请求微信授权
-    
     
     [self requestRegisterState:sender];
     
@@ -106,46 +87,87 @@
 
 -(void)requestRegisterState:(id)sender{
     WK(weakSelf)
-    if (self.userWxID.length > 0 || self.userPhonNum.length > 0) {//本地保存了WxID直接请求登陆
+    //->本地有微信 - > 请求登陆
+    if (self.userWxID.length > 0) {
+        //有微信号,请求登陆
         [self.registerViewModel requestLoginWithParameter:self.userWxID phoneNum:self.userPhonNum completionHandler:^(NSError * _Nonnull error) {
-            if (!error) {
-                //保存数据
-                [YDUserInfo sharedYDUserInfo].userWxOpenID = weakSelf.registerViewModel.wxOpenID;
-                [YDUserInfo sharedYDUserInfo].phoneNumber = weakSelf.registerViewModel.phoneNum;
-                [self saveNSUserDefaults];
-//                [weakSelf OnVisitorBtnClick:sender];
-                //请求登陆
-                [self requestLogin];
-                
-            }
+            
+            [weakSelf requestLogin1:error];
         }];
         
-    }else{
-        [self.registerViewModel getUserRegisterStateWithParameter:[self timeStr]/*@"fd56fd126d7eae0e41f74c895394155e"*/ completionHandler:^(NSError * _Nonnull error) {
-            if (!error) {
-                if ([weakSelf.registerViewModel.codeState isEqualToString:@"3"]) {//用户不存在
-                    NSLog(@"跳填写号码界面%@",weakSelf.registerViewModel.codeState);
-                    [YDUserInfo sharedYDUserInfo].login = NO;
-                    [YDUserInfo sharedYDUserInfo].userWxOpenID = [self timeStr]/*@"fd56fd126d7eae0e41f74c895394155e"*/;
-        
-                    [self performSegueWithIdentifier:kPhoneNumSegue sender:nil];
-                }
-                else if ([weakSelf.registerViewModel.codeState isEqualToString:@"2"]) {//用户已存在直接调用登陆接口
-                    [YDUserInfo sharedYDUserInfo].login = NO;
-                    [YDUserInfo sharedYDUserInfo].userWxOpenID = [self.registerViewModel wxOpenID]/*@"fd56fd126d7eae0e41f74c895394155e"*/;
-                    //请求登陆
-                    [self requestLogin];
-                    
-                    
-                }
-                else{
-                    [self.view showWarning:@"验证微信号失败"];
-                }
-                
-            }
-        }];
-  
+       
     }
+     //->本地没有微信
+    else{
+        //1.跳转微信获取微信息,并得到微信信息
+        weakSelf.userWxID = [weakSelf requestWX];
+        //2.用获取的微信信息验证用户是否存在
+        [weakSelf.registerViewModel getUserRegisterStateWithParameter:weakSelf.userWxID completionHandler:^(NSError * _Nonnull error) {
+            //用户不存在 进行注册  跳转填写手机号码界面
+            if (!error && [[weakSelf.registerViewModel codeState] isEqualToString:@"3"]) {
+                
+                [weakSelf saveUserWXOpenID];
+                [weakSelf performSegueWithIdentifier:kPhoneNumSegue sender:nil];
+            
+            }
+            
+            //用户存在 请求登陆
+            else if ([[weakSelf.registerViewModel codeState] isEqualToString:@"2"]){
+                [weakSelf saveUserWXOpenID];
+                [self.registerViewModel requestLoginWithParameter:weakSelf.userWxID phoneNum:weakSelf.userPhonNum completionHandler:^(NSError * _Nonnull error) {
+                    [weakSelf requestLogin1:error];
+                }];
+            }
+        }];
+        
+        
+    }
+    
+    
+//    if (self.userWxID.length > 0 || self.userPhonNum.length > 0) {//本地保存了WxID直接请求登陆
+//
+//        [self.registerViewModel requestLoginWithParameter:self.userWxID phoneNum:self.userPhonNum completionHandler:^(NSError * _Nonnull error) {
+//            if (!error) {
+//                //保存数据
+//                [YDUserInfo sharedYDUserInfo].userWxOpenID = weakSelf.registerViewModel.wxOpenID;
+//                [YDUserInfo sharedYDUserInfo].phoneNumber = weakSelf.registerViewModel.phoneNum;
+//                [self saveNSUserDefaults];
+////                [weakSelf OnVisitorBtnClick:sender];
+//                //请求登陆
+//                [self requestLogin];
+//
+//            }
+//        }];
+//
+//    }else{
+//        [self.registerViewModel getUserRegisterStateWithParameter:[self timeStr]/*@"fd56fd126d7eae0e41f74c895394155e"*/ completionHandler:^(NSError * _Nonnull error) {
+//            if (!error) {
+//                if ([weakSelf.registerViewModel.codeState isEqualToString:@"3"]) {//用户不存在
+//                    NSLog(@"跳填写号码界面%@",weakSelf.registerViewModel.codeState);
+//                    [YDUserInfo sharedYDUserInfo].login = NO;
+//                    [YDUserInfo sharedYDUserInfo].userWxOpenID = [self timeStr]/*@"fd56fd126d7eae0e41f74c895394155e"*/;
+//
+//                    [self performSegueWithIdentifier:kPhoneNumSegue sender:nil];
+//                }
+//                else if ([weakSelf.registerViewModel.codeState isEqualToString:@"2"]) {//用户已存在直接调用登陆接口
+//                    [YDUserInfo sharedYDUserInfo].login = NO;
+//                    [YDUserInfo sharedYDUserInfo].userWxOpenID = [self.registerViewModel wxOpenID]/*@"fd56fd126d7eae0e41f74c895394155e"*/;
+//                    //请求登陆
+//                    [self requestLogin];
+//
+//
+//                }
+//                else{
+//                    [self.view showWarning:@"验证微信号失败"];
+//                }
+//
+//            }
+//        }];
+//
+//    }
+    
+    
+
 }
 
 
@@ -177,60 +199,81 @@
     NSLog(@"%@:wxid:%@",[self class],self.userPhonNum);
 }
 
--(void)requestLogin{
-    [[YDUserInfo sharedYDUserInfo] requestLoginCompletionHandler:^(VerifyRegisterModel * _Nonnull model, NSError * _Nonnull error) {
-        if (!error && [model.code isEqualToString:@"1"]){
-            //保存token 保存 id
-            [YDUserInfo sharedYDUserInfo].userToken = model.rows1.token;
-            [YDUserInfo sharedYDUserInfo].userID = model.rows1.userInfo.ID;
-            [YDUserInfo sharedYDUserInfo].tutorInviteCode = model.rows1.userInfo.inviteCode;
-            [self saveNSUserDefaults];
-            [self.view showWarning:@"登陆成功"];
-            [YDUserInfo sharedYDUserInfo].login = YES;
-            [self saveNSUserDefaults];
-            //跳转界面;
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UITabBarController *tabVC = [storyboard instantiateViewControllerWithIdentifier:kMain];
-            [[[UIApplication sharedApplication] delegate] window].rootViewController = tabVC;
-        }else{
-            [self.view showWarning:@"请检查手机号码或微信号不存在"];
-        }
-    }];
-}
+//-(void)requestLogin{
+//    [[YDUserInfo sharedYDUserInfo] requestLoginCompletionHandler:^(VerifyRegisterModel * _Nonnull model, NSError * _Nonnull error) {
+//        if (!error && [model.code isEqualToString:@"1"]){
+//            //保存token 保存 id
+//            [YDUserInfo sharedYDUserInfo].userToken = model.rows1.token;
+//            [YDUserInfo sharedYDUserInfo].userID = model.rows1.userInfo.ID;
+//            [YDUserInfo sharedYDUserInfo].tutorInviteCode = model.rows1.userInfo.inviteCode;
+//            [self saveNSUserDefaults];
+//            [self.view showWarning:@"登陆成功"];
+//            [YDUserInfo sharedYDUserInfo].login = YES;
+//            [self saveNSUserDefaults];
+//            //跳转界面;
+//            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//            UITabBarController *tabVC = [storyboard instantiateViewControllerWithIdentifier:kMain];
+//            [[[UIApplication sharedApplication] delegate] window].rootViewController = tabVC;
+//        }else{
+//            [self.view showWarning:@"请检查手机号码或微信号不存在"];
+//        }
+//    }];
+//}
 
--(NSString *)timeStr{
+//-(NSString *)timeStr{
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//    return [formatter stringFromDate: [NSDate date]];
+//}
+
+
+-(NSString *)requestWX{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *str = [formatter stringFromDate: [NSDate date]];
+    NSArray *arr = [str componentsSeparatedByString:@" "];
+    
+    [YDUserInfo sharedYDUserInfo].userName = [ @"元典" stringByAppendingString:arr[1]];
+    
     return [formatter stringFromDate: [NSDate date]];
 }
 
 
-//屏幕适配
--(void)LoginViewControllerScreenFit{
-    [self visitorBtnBottomc];
-    [self weiChatBtnScreenFit];
-    [self productIdentifierImageScreenFit];
+
+//请求登陆
+-(void)requestLogin1:(NSError *) error{
+    //登陆成功
+    if (!error && [[self.registerViewModel codeState] isEqualToString:@"1"]) {
+        //保存用户WXOpenID到本地
+        [self saveUserWXOpenID];
+        //跳转界面
+        [self.view showWarning:@"登陆成功"];
+        [YDUserInfo sharedYDUserInfo].login = YES;
+        [self jumpToMainStoryboard];
+        
+    }else{
+        [self.view showWarning:@"请检查手机号码或微信号是否存在"];
+    }
 }
 
-//1.游客模式
--(void)visitorBtnScreenFit{
-    self.visitorBtnWidthC.constant *= kWidthScall;
-    self.visitorBtnHeightC.constant *= kWidthScall;
-    self.visitorBtnBottomc.constant *= kWidthScall;
+-(void)saveUserWXOpenID{
+    //将上述数据全部存储到NSUserDefaults中
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    [userDefaults setObject:self.userWxID forKey:kUserWxOpenID];
+    NSLog(@"wxID:%@",self.userWxID);
+    [userDefaults synchronize];
 }
 
-//2.微信登陆
--(void)weiChatBtnScreenFit{
-    self.weiChatBtnWidthC.constant *= kWidthScall;
-    self.weiChatBtnHeightC.constant *= kWidthScall;
-    self.weiChatBtnBottomC.constant *= kWidthScall;
+-(NSString *)readUserWXOpenID{
+    
+    return [[NSUserDefaults standardUserDefaults] stringForKey:kUserWxOpenID];
 }
 
-//3.产品标识
--(void)productIdentifierImageScreenFit{
-    self.productIdentifierImageWidthC.constant *= kWidthScall;
-    self.productIdentifierImageHeightC.constant *= kWidthScall;
-    self.productIdentifierImageBottomC.constant *= kWidthScall;
+-(void)jumpToMainStoryboard{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITabBarController *tabVC = [storyboard instantiateViewControllerWithIdentifier:kMain];
+    [[[UIApplication sharedApplication] delegate] window].rootViewController = tabVC;
 }
 
 /*

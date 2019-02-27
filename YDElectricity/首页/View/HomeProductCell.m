@@ -48,7 +48,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    [self homeProductCellScreenFit];
+//    [self homeProductCellScreenFit];
 }
 
 //屏幕适配

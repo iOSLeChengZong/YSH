@@ -77,11 +77,11 @@ static CGFloat const titieViewEdige = 9;
         jc_childScollAnimalEnabled(YES).
         jc_loadAllChildViewEnabled(YES).
         jc_titlesViewBackColor([UIColor whiteColor]).
-        jc_itemTextNormalColor(KFontDefaultRGB).
+        jc_itemTextNormalColor(kRGBA(115, 115, 115, 1)).
         jc_itemTextSelectedColor(kFONTSlectRGB).
         //        jc_itemSelectedSegmentIndex(3).
         jc_defaultItemShowCount(6).
-        jc_itemTextFontSize(12).
+        jc_itemTextFontSize(12*kWidthScall).
         jc_indicatorStyles(MJCIndicatorEqualItemEffect).
         jc_indicatorsAnimalsEnabled(YES).
         jc_indicatorFollowEnabled(YES).
@@ -93,26 +93,6 @@ static CGFloat const titieViewEdige = 9;
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
     [self.view addSubview:interFace];
     
-    
-    //    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithSegmentStylestoolsBlock:^(MJCSegmentStylesTools *jc_tools) {
-    //        jc_tools.
-    //        jc_titleBarStyles(MJCTitlesClassicStyle).
-    //        jc_titlesViewBackColor([UIColor whiteColor]).
-    //        jc_itemTextNormalColor([UIColor redColor]).
-    //        jc_itemTextSelectedColor([UIColor purpleColor]).
-    //        jc_itemSelectedSegmentIndex(3).
-    //        jc_defaultItemShowCount(6).
-    //        jc_itemTextFontSize(11).
-    //        jc_indicatorStyles(MJCIndicatorEqualTextEffect).
-    //        jc_indicatorsAnimalsEnabled(YES).
-    //        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50));
-    //    }];
-    //
-    //    MJCSegmentInterface *interFace =  [[MJCSegmentInterface alloc]init];
-    //    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    //    interFace.jc_stylesTools = tools;
-    //    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
-    //    [self.view addSubview:interFace];
     
 }
 

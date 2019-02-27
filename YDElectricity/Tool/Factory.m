@@ -140,47 +140,32 @@
 }
 
 + (void)addSearchItemToVC:(UIViewController *)vc clickHandler:(void(^)(void))clickHandler{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT + 22,264 * kWidthScall, 31)];
+    view.backgroundColor = [UIColor clearColor];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    btn.frame = CGRectMake(0, 42, 50, 44);
-    CGRect frame = btn.frame;
-    
-    btn.center = CGPointMake(kScreenW * 0.5, 42);
-    frame.size = CGSizeMake(264 * kWidthScall, 31);
-    
-    NSLog(@"buttonCenter:%f",btn.center.x);
-    
-    btn.frame =  frame;
-    [btn setImage:[UIImage imageNamed:@"y_h_sousuokuang0"] forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:@"y_h_sousuokuang1"] forState:UIControlStateHighlighted];
-    
-//    btn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin |UIViewAutoresizingFlexibleRightMargin;
-//    btn.autoresizesSubviews = YES;
-//
-//    CGRect leftViewbounds = vc.navigationItem.leftBarButtonItem.customView.bounds;
-//    CGRect rightViewbounds = vc.navigationItem.rightBarButtonItem.customView.bounds;
-//    
-//
-//    CGRect frame1;
-//    CGFloat maxWidth = leftViewbounds.size.width > rightViewbounds.size.width ? leftViewbounds.size.width : rightViewbounds.size.width;
-//    maxWidth += 15;//leftview 左右都有间隙，左边是5像素，右边是8像素，加2个像素的阀值 5 ＋ 8 ＋ 2
-//    frame1 = btn.frame;
-//
-//    frame1.size.width = kScreenW - maxWidth * 2;
-//    btn.frame = frame1;
-    
-    
-    vc.navigationItem.titleView = btn;
+    btn.frame = CGRectMake(0,0,view.bounds.size.width,view.bounds.size.height);
 
-    NSLog(@"navCenter:%f",vc.navigationItem.titleView.center.x);
+
+    [btn setBackgroundImage:[UIImage imageNamed:@"y_h_sousuokuang0"] forState:UIControlStateNormal];
+    [btn setBackgroundImage:[UIImage imageNamed:@"y_h_sousuokuang0"] forState:UIControlStateHighlighted];
+    
+    [view addSubview: btn];
+    
+    vc.navigationItem.titleView = view;
+    
     [btn bk_addEventHandler:^(id sender) {
         clickHandler();
     } forControlEvents:UIControlEventTouchUpInside];
-    //把视图的边角变为圆形, cornerRadius圆角半径
-//    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
-//    //弹簧控件, 修复边距
-//    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-//    spaceItem.width = -15;
-//    vc.navigationItem.rightBarButtonItems = @[spaceItem/*,backItem*/];
+    
+    UILabel *btnLabel = [[UILabel alloc] initWithFrame:CGRectMake(40 * kWidthScall, 0, view.frame.size.width -40 * kWidthScall, view.frame.size.height)];
+    btnLabel.textAlignment = NSTextAlignmentLeft;
+    btnLabel.font = [UIFont fontWithName:@"苹方-简" size:13 * kWidthScall];;
+    
+    [btnLabel setTextColor:KFontDefaultRGB];
+    btnLabel.text = @"搜索好宝贝";
+    
+    [view addSubview:btnLabel];
+
     
 }
 

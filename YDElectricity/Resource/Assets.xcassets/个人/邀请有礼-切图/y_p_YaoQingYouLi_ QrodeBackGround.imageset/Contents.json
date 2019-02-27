@@ -2,16 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "y_p_YaoQingYouLi_ QrodeBackGround.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "14-邀请有礼@2x.jpg",
+      "filename" : "y_p_YaoQingYouLi_ QrodeBackGround@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "14-邀请有礼@3x.jpg",
+      "filename" : "y_p_YaoQingYouLi_ QrodeBackGround@3x.png",
       "scale" : "3x"
     }
   ],

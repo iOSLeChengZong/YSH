@@ -25,30 +25,30 @@
                                     <rect key="frame" x="0.0" y="0.0" width="357" height="137"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KN3-SW-Q2l">
-                                    <rect key="frame" x="27" y="17" width="81" height="40"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                    <rect key="frame" x="27" y="17" width="87.5" height="40"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前金币" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ND-CX-U7U">
-                                    <rect key="frame" x="27" y="99" width="57.5" height="17"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <rect key="frame" x="27" y="98" width="57.5" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMK-hN-UJR">
                                     <rect key="frame" x="213" y="17" width="133" height="27"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                     <state key="normal" title="做任务赚金币" backgroundImage="y_p_我的金币button">
                                         <color key="titleColor" red="1" green="0.39260666791593168" blue="0.26652653526966696" alpha="0.79620612157534243" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGx-HH-Yt0">
-                                    <rect key="frame" x="27" y="77" width="19" height="2"/>
+                                    <rect key="frame" x="27" y="77" width="19" height="1"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="19" id="j3G-L6-iqJ"/>
-                                        <constraint firstAttribute="height" constant="2" id="upB-CH-XFw"/>
+                                        <constraint firstAttribute="height" constant="1" id="upB-CH-XFw"/>
                                     </constraints>
                                 </view>
                             </subviews>

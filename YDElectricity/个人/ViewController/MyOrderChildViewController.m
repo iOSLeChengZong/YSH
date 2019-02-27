@@ -11,7 +11,7 @@
 #import "TaoBaoKeDetailViewModel.h"
 #import "TaoBaoCustomerDetailViewController.h"
 #import "UserOrderViewModel.h"
-
+#import "UserIdendityViewModel.h"
 
 
 #define kMyOrderCollectionViewCell @"MyOrderCollectionViewCell"
@@ -44,7 +44,7 @@
         _secondSkillcollecV.dataSource = self;
         
         //itemSize
-        layout.itemSize = CGSizeMake((kScreenW - 18) * kWidthScall, 133);
+        layout.itemSize = CGSizeMake(357 * kWidthScall, 133 * kWidthScall);
         //间距
         layout.sectionInset = UIEdgeInsetsMake(3 * kHightScall, 9 * kWidthScall, 6 * kHightScall, 9 * kHightScall);
         //最小行间距
@@ -126,18 +126,17 @@
 //item尺寸
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return CGSizeMake(357 * kWidthScall, 133);
+    return CGSizeMake(357 * kWidthScall, 133 * kWidthScall);
 }
 
 //分区之间间隙
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     
-//    return UIEdgeInsetsMake(3 * kHightScall, 9 * kWidthScall, 6 * kHightScall, 9 * kHightScall);
-    return UIEdgeInsetsMake(3,(kScreenW - 357 * kWidthScall) * 0.5, 6, (kScreenW - 357 * kWidthScall) * 0.5);
+    return UIEdgeInsetsMake(3*kWidthScall,(kScreenW - 357 * kWidthScall) * 0.5, 6*kWidthScall, (kScreenW - 357 * kWidthScall) * 0.5);
 }
 //最小行间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return 3;
+    return 3 * kWidthScall;
 }
 
 //最小列间距
@@ -160,7 +159,7 @@
 
     
     
-    [self.orderViewModel getUserOrderListWithRequestMode:self.orderRequestM pageSize:20 orderMode:self.orderMode completionHandler:^(NSError * _Nonnull error) {
+    [self.orderViewModel getUserOrderListWithRequestMode:self.orderRequestM pageSize:20 orderMode:self.orderMode userPID:[[UserIdendityViewModel sharedUserIdendityModel] userPid] completionHandler:^(NSError * _Nonnull error) {
        
         
         if (!error) {

@@ -8,11 +8,11 @@
 
 #import "PhoneNumViewController.h"
 #import "Factory.h"
-#import "VefifyRegisterViewModel.h"
+//#import "VefifyRegisterViewModel.h"
 #import "YDUserInfo.h"
 
 #define kConfirmTeacherViewController @"ConfirmTeacherViewController"
-#define kTimeIntervel 120
+#define kTimeIntervel 10
 
 @interface PhoneNumViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumTexfield;
@@ -25,49 +25,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *verifyBtn;
 
 
+@property (nonatomic,strong) NSString *phoneNumber;
+
 @property (assign,nonatomic) NSInteger countDownInterverl;
 @property (strong,nonatomic) NSTimer *timer;
-
-
-//1.手机号输入框约束
-//top约束
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *phoneNumTexfieldTopC;
-//宽
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *phoneNumTexfieldWidthC;
-//高
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *phoneNumTexfieldHeightC;
-//2.密码输入框约束
-//top
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userCodeTexfieldTopC;
-//宽
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userCodeTexfieldWidthC;
-//高
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userCodeTexfieldHeightC;
-
-//验证码输入框约束
-//top
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verifyCodeTextfieldTopC;
-//宽
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verifyCodeTextfieldWidthC;
-//高
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verifyCodeTextfieldHeightC;
-
-//获取验证码按钮约束
-//training
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *VerifyBtnTrainningC;
-
-//宽
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *VerifyBtnWidthC;
-//高
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *VerifyBtnHeightC;
-
-//下一步约束
-//top
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *NextStepBtnTopC;
-//宽
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *NextStepBtnWidthC;
-//高
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *NextStepBtnHeightC;
 
 
 @end
@@ -77,18 +38,12 @@
 #pragma mark -- 懒加载
 -(VefifyRegisterViewModel *)registerVM{
     if (!_registerVM) {
-        _registerVM = [VefifyRegisterViewModel new];
+        _registerVM = [VefifyRegisterViewModel sharedVefifyRegisterViewModel];
     }
     return _registerVM;
 }
 
 #pragma mark -- 生命周期
-
--(void)viewDidLayoutSubviews{
-    [super viewDidLayoutSubviews];
-    //屏幕适配
-    [self PhoneNumViewControllerScreenFit];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -141,11 +96,13 @@
     NSLog(@"phoneNme:%@",self.phoneNumTexfield.text);
     //判断手机号码合法性
     if ([Factory isPhoneNumber:self.phoneNumTexfield.text]) {
-        ////向服务器发送验证请求
+        //向服务器发送验证请求
         [self.registerVM getVefifyCodeWithParameter:self.phoneNumTexfield.text completionHandler:^(NSError * _Nonnull error) {
             if (!error) {
                 [YDUserInfo sharedYDUserInfo].phoneNumber = self.phoneNumTexfield.text;
+                
                 [self.view showWarning:@"验证码已发送"];
+                self.phoneNumber = self.phoneNumTexfield.text;
                 //倒计时两分钟
                 [self setUpCountDownInterverl:kTimeIntervel];
 
@@ -164,13 +121,34 @@
     [YDUserInfo sharedYDUserInfo].userVerifyCode = self.verifyCodeTextfield.text;
     [YDUserInfo sharedYDUserInfo].phoneNumber = self.phoneNumTexfield.text;
     NSLog(@"手机号码:%@,验证码:%@",[YDUserInfo sharedYDUserInfo].phoneNumber,[YDUserInfo sharedYDUserInfo].userVerifyCode);
-    //跳转到导师界面
-    if ([YDUserInfo sharedYDUserInfo].phoneNumber.length == 0 && [YDUserInfo sharedYDUserInfo].userVerifyCode.length == 0) {
-        [self.view showWarning:@"用户信息不正确"];
+    //验证手机号码 是否是当前接收验证码的手机号  手机号码是否合法
+    if (![self.phoneNumber isEqualToString:self.phoneNumTexfield.text]) {
+        [self.view showWarning:@"请重新填写手机号码"];
         return;
-    }else{
-       [self performSegueWithIdentifier:kConfirmTeacherViewController sender:nil];
     }
+    //验证密码合法性
+    
+    //验证 验证码合法性
+    if (![[self.registerVM verifyCode] isEqualToString:self.verifyCodeTextfield.text]) {
+        [self.view showWarning:@"请填写正确的验证码"];
+        return;
+    }
+    
+    //保存手机号码
+    [self saveUserInfo];
+    NSLog(@"wxID:%@",[[NSUserDefaults standardUserDefaults] stringForKey:kUserWxOpenID]);
+    //跳转到导师界面
+    
+    [self performSegueWithIdentifier:kConfirmTeacherViewController sender:nil];
+    
+    
+    
+//    if ([YDUserInfo sharedYDUserInfo].phoneNumber.length == 0 && [YDUserInfo sharedYDUserInfo].userVerifyCode.length == 0) {
+//        [self.view showWarning:@"用户信息不正确"];
+//        return;
+//    }else{
+//       [self performSegueWithIdentifier:kConfirmTeacherViewController sender:nil];
+//    }
     
     
     
@@ -221,15 +199,6 @@
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 -(void)dealloc{
     [self destroyNSTimer];
@@ -241,43 +210,22 @@
 }
 
 
--(void)PhoneNumViewControllerScreenFit{
-    [self phoneNumTexfieldScreenFit];
-    [self userCodeTexfieldScreenFit];
-//    [self verifyCodeTextfieldScreenFit];
-    [self VerifyBtnScreenFit];
-    [self NextStepBtnScreenFit];
+
+-(void)saveUserInfo{
+    //将上述数据全部存储到NSUserDefaults中
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    [userDefaults setObject:self.phoneNumber forKey:kUserPhoneNum];
+//    [userDefaults setObject:[YDUserInfo sharedYDUserInfo].userWxOpenID forKey:kUserWxOpenID];
+    
+    [userDefaults synchronize];
 }
 
--(void)phoneNumTexfieldScreenFit{
-    self.phoneNumTexfieldTopC.constant *= kWidthScall;
-    self.phoneNumTexfieldWidthC.constant *= kWidthScall;
-    self.phoneNumTexfieldHeightC.constant *= kWidthScall;
+-(NSString *)readUserPhoneNum{
+    
+    return [[NSUserDefaults standardUserDefaults] stringForKey:kUserPhoneNum];
 }
 
--(void)userCodeTexfieldScreenFit{
-    self.userCodeTexfieldTopC.constant *= kWidthScall;
-    self.userCodeTexfieldWidthC.constant *= kWidthScall;
-    self.userCodeTexfieldHeightC.constant *= kWidthScall;
-}
-
--(void)verifyCodeTextfieldScreenFit{
-    self.verifyCodeTextfieldTopC.constant *= kWidthScall;
-    self.VerifyBtnWidthC.constant *= kWidthScall;
-    self.VerifyBtnHeightC.constant *= kWidthScall;
-}
-
--(void)VerifyBtnScreenFit{
-    self.VerifyBtnTrainningC.constant *= kWidthScall;
-    self.VerifyBtnWidthC.constant *= kWidthScall;
-    self.VerifyBtnHeightC.constant *= kWidthScall;
-}
-
--(void)NextStepBtnScreenFit{
-    self.NextStepBtnTopC.constant *= kWidthScall;
-    self.NextStepBtnWidthC.constant *= kWidthScall;
-    self.NextStepBtnHeightC.constant *= kWidthScall;
-}
 
 
 

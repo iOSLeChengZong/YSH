@@ -8,14 +8,23 @@
 
 #import "ConfirmTeacherViewController.h"
 #import "YDUserInfo.h"
+//#import "VefifyRegisterViewModel.h"
 
 
 @interface ConfirmTeacherViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *OwnSelectTeacherTextField;
+@property (nonatomic,strong) VefifyRegisterViewModel *registerVM;
 
 @end
 
 @implementation ConfirmTeacherViewController
+
+-(VefifyRegisterViewModel *)registerVM{
+    if (!_registerVM) {
+        _registerVM = [VefifyRegisterViewModel sharedVefifyRegisterViewModel];
+    }
+    return _registerVM;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,51 +34,89 @@
     NSLog(@"%@:wxid:%@",[self class],[YDUserInfo sharedYDUserInfo].userWxOpenID);
 }
 - (IBAction)OnOwnTeacherBtnClick:(id)sender {
-    if (!self.OwnSelectTeacherTextField.text) {
-        [self.view showWarning:@"请填写导师号码"];
+    WK(weakSelf)
+    if (self.OwnSelectTeacherTextField.text.length < 1 || [self.OwnSelectTeacherTextField.text isEqualToString:@" "]) {
+        [self.view showWarning:@"请填写导师邀请码"];
         
     }else{
-        [YDUserInfo sharedYDUserInfo].tutorInviteCode = self.OwnSelectTeacherTextField.text;
-        WK(weakSelf)
         //请求注册
-        [[YDUserInfo sharedYDUserInfo] requestRegisterCompletionHandler:^(VerifyRegisterModel * _Nonnull model, NSError * _Nonnull error) {
-            if (!error && [model.code isEqualToString:@"1"]) {
-                //将用户信息保存
-                [weakSelf saveNSUserDefaults];
-                [self.view endEditing:YES];//强行关闭键盘
-                [self.view showWarning:@"注册成功"];
-                //注册成功调用登陆接口
-                [[YDUserInfo sharedYDUserInfo] requestLoginCompletionHandler:^(VerifyRegisterModel * _Nonnull model, NSError * _Nonnull error) {
-                    if (!error && [model.code isEqualToString:@"1"]){
-                        //保存token 保存 id
-                        [YDUserInfo sharedYDUserInfo].userToken = model.rows1.token;
-                        [YDUserInfo sharedYDUserInfo].userID = model.rows1.userInfo.ID;
-                        [self saveNSUserDefaults];
-                        [self.view showWarning:@"登陆成功"];
+        [weakSelf.registerVM requestRegisterWithInviteCode:self.OwnSelectTeacherTextField.text CompletionHandler:^(NSError * _Nonnull error) {
+            if (!error) {
+//                [weakSelf saveNSUserDefaults];
+                [weakSelf.view endEditing:YES];//强行关闭键盘
+                [weakSelf.view showWarning:@"注册成功"];
+                NSString *wxOpenID = [[NSUserDefaults standardUserDefaults] stringForKey:kUserWxOpenID];
+                NSString *phoneNum = [[NSUserDefaults standardUserDefaults] stringForKey:kUserPhoneNum];
+                [weakSelf.registerVM requestLoginWithParameter:wxOpenID phoneNum:phoneNum completionHandler:^(NSError * _Nonnull error) {
+                    //请求登陆
+                    if (!error && [[weakSelf.registerVM codeState] isEqualToString:@"1"]) {
+                        [weakSelf.view showWarning:@"登陆成功"];
                         [YDUserInfo sharedYDUserInfo].login = YES;
-                        //跳转界面;
+                        [YDUserInfo sharedYDUserInfo].userToken = [self.registerVM tokenID];
+                        [YDUserInfo sharedYDUserInfo].userID = [self.registerVM userID];
+                        [weakSelf saveNSUserDefaults];
+                       // 跳转界面;
                         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                         UITabBarController *tabVC = [storyboard instantiateViewControllerWithIdentifier:kMain];
                         [[[UIApplication sharedApplication] delegate] window].rootViewController = tabVC;
                     }else{
-                        [self.view showWarning:@"登陆失败"];
+                       [weakSelf.view showWarning:@"登陆失败"];
                     }
                 }];
-                
-                
+            }else{
+             [self.view showWarning:@"注册失败"];
             }
-            else{
-                [self.view showWarning:@"注册失败"];
-            }
-            
         }];
+        
+        
+        
+        
+        
+        
+//
+//        [YDUserInfo sharedYDUserInfo].tutorInviteCode = self.OwnSelectTeacherTextField.text;
+//        WK(weakSelf)
+
+//        请求注册
+//        [[YDUserInfo sharedYDUserInfo] requestRegisterCompletionHandler:^(VerifyRegisterModel * _Nonnull model, NSError * _Nonnull error) {
+//            if (!error && [model.code isEqualToString:@"1"]) {
+//                //将用户信息保存
+//                [weakSelf saveNSUserDefaults];
+//                [self.view endEditing:YES];//强行关闭键盘
+//                [self.view showWarning:@"注册成功"];
+//                //注册成功调用登陆接口
+//                [[YDUserInfo sharedYDUserInfo] requestLoginCompletionHandler:^(VerifyRegisterModel * _Nonnull model, NSError * _Nonnull error) {
+//                    if (!error && [model.code isEqualToString:@"1"]){
+//                        //保存token 保存 id
+//                        [YDUserInfo sharedYDUserInfo].userToken = model.rows1.token;
+//                        [YDUserInfo sharedYDUserInfo].userID = model.rows1.userInfo.ID;
+//                        [self saveNSUserDefaults];
+//                        [self.view showWarning:@"登陆成功"];
+//                        [YDUserInfo sharedYDUserInfo].login = YES;
+//                        //跳转界面;
+//                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                        UITabBarController *tabVC = [storyboard instantiateViewControllerWithIdentifier:kMain];
+//                        [[[UIApplication sharedApplication] delegate] window].rootViewController = tabVC;
+//                    }else{
+//                        [self.view showWarning:@"登陆失败"];
+//                    }
+//                }];
+//
+//
+//            }
+//            else{
+//                [self.view showWarning:@"注册失败"];
+//            }
+//
+//        }];
     }
     
 }
 
 
 - (IBAction)OnRecommendBtnClick:(id)sender {
-    //
+    //即将开放
+    [Factory showWaittingForOpened];
 }
 
 
@@ -123,12 +170,13 @@
 {
    
     //将上述数据全部存储到NSUserDefaults中
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:[YDUserInfo sharedYDUserInfo].userWxOpenID forKey:kUserWxOpenID];
-    [userDefaults setObject:[YDUserInfo sharedYDUserInfo].phoneNumber forKey:kUserPhoneNum];
+//    [userDefaults setObject:/*[self.registerVM wxOpenID]*/[YDUserInfo sharedYDUserInfo].userWxOpenID forKey:kUserWxOpenID];
+//    [userDefaults setObject:/*[self.registerVM phoneNum]*/[YDUserInfo sharedYDUserInfo].phoneNumber forKey:kUserPhoneNum];
 
-    [userDefaults setObject:[YDUserInfo sharedYDUserInfo].userToken  forKey:kUserToken];
-    [userDefaults setObject:[YDUserInfo sharedYDUserInfo].userID forKey:kUserID];
+    [userDefaults setObject:/*[self.registerVM tokenID]*/[YDUserInfo sharedYDUserInfo].userToken  forKey:kUserToken];
+    [userDefaults setObject:/*[self.registerVM userID]*/[YDUserInfo sharedYDUserInfo].userID forKey:kUserID];
     //这里建议同步存储到磁盘中，但是不是必须的
     [userDefaults synchronize];
     

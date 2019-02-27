@@ -79,7 +79,7 @@
         jc_itemTextSelectedColor(kFONTSlectRGB).
         //        jc_itemSelectedSegmentIndex(3).
         jc_defaultItemShowCount(6).
-        jc_itemTextFontSize(14).
+        jc_itemTextFontSize(14 * kWidthScall).
         jc_indicatorStyles(MJCIndicatorEqualTextEffect).
         jc_indicatorsAnimalsEnabled(YES).
         jc_indicatorColorEqualTextColorEnabled(YES).

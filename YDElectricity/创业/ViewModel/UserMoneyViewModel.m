@@ -31,11 +31,10 @@
     
     [YDNetManager getUserMoneyInfoCompletionHandler:^(UserMoneyModel * _Nonnull model, NSError * _Nonnull error) {
         if (!error) {
-            !completionHandler ?: completionHandler(error);
-        }else{
             self.moneyInfo = model.moneyInfo;
-            !completionHandler ?: completionHandler(error);
         }
+        
+        !completionHandler ?: completionHandler(error);
     }];
 }
 @end

@@ -100,7 +100,7 @@
 }
 
 
--(void)getUserOrderListWithRequestMode:(OrderRequestMode)mode pageSize:(NSInteger)size orderMode:(OrderType)type completionHandler:(void (^)(NSError * _Nonnull error))completionHandler{
+-(void)getUserOrderListWithRequestMode:(OrderRequestMode)mode pageSize:(NSInteger)size orderMode:(OrderType)type userPID:(NSString *)pid completionHandler:(void (^)(NSError * _Nonnull error))completionHandler{
     NSInteger tempNum = 1;
     if (mode == OrderRequestModeMore) {
         tempNum = ++_pageNum;
@@ -114,7 +114,8 @@
     }else{
         str = [NSString stringWithFormat:@"%ld",type];
     }
-    [YDNetManager getUserOrderlistPageNum:tempNum pageSize:size userPid:[UserIdendityModel sharedUserIdendityModel].info.pid orderType:str CompletionHandler:^(UserOrderModel * _Nonnull model, NSError * _Nonnull error) {
+    
+    [YDNetManager getUserOrderlistPageNum:tempNum pageSize:size userPid:pid/*[UserIdendityModel sharedUserIdendityModel].info.pid*/ orderType:str CompletionHandler:^(UserOrderModel * _Nonnull model, NSError * _Nonnull error) {
         if ((!error)) {
             _pageNum = tempNum;
             if (mode == OrderRequestModeRefresh) {

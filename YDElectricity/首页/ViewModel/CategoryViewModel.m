@@ -43,7 +43,7 @@
 
 -(NSURL *)collectionViewForImageNameForRowAtIndexPath:(NSIndexPath *)indexPath{
 //    NSLog(@"imageUrl:%@",[kBaseURL stringByAppendingString:self.rightRowModels[indexPath.row].img]);
-    return [NSURL URLWithString:[kBaseURL2 stringByAppendingString:self.rightRowModels[indexPath.row].img]];
+    return [NSURL URLWithString:[kBaseURL1 stringByAppendingString:self.rightRowModels[indexPath.row].img]];
 
 }
 

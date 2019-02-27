@@ -86,10 +86,10 @@
 
 #pragma mark -- UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(kScreenW, 130);
+    return CGSizeMake(kScreenW, 130*kWidthScall);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(10, 0, 3, 0);
+    return UIEdgeInsetsMake(10*kWidthScall, 0, 3*kWidthScall, 0);
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
     return 3;
@@ -117,7 +117,9 @@
 -(void)requestMessageData{
     [self.view showBusyHUD];
     WK(weakSelf)
-    [self.messageVM getSystemUserMessageRequestMode:self.requestMode pageSize:20 CompletionHandler:^(NSError * _Nonnull error) {
+    ;
+    NSString *userID = [[VefifyRegisterViewModel sharedVefifyRegisterViewModel] userID];
+    [self.messageVM getSystemUserMessageRequestMode:self.requestMode pageSize:20 userID:userID CompletionHandler:^(NSError * _Nonnull error) {
         if (!error) {
             [weakSelf.systemMessageCollectionV reloadData];
             [weakSelf.systemMessageCollectionV endHeaderRefresh];

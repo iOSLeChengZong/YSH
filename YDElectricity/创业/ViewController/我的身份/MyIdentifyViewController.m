@@ -11,7 +11,6 @@
 #import "IdentityDefaultReusableView.h"
 #import "IdentityCell.h"
 #import "MyPrerogativeModel.h"
-#import "TYAttributedLabel.h"
 #import "UserIdendityViewModel.h"
 
 #define kIdentityDefaultReusableView @"IdentityDefaultReusableView"
@@ -19,6 +18,8 @@
 #define kItmeWidth (355 / 3) * kWidthScall
 
 @interface MyIdentifyViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+@property (weak, nonatomic) IBOutlet UIView *headParentView;
 
 //用户头像
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
@@ -69,10 +70,6 @@
 //我的成长值Btn
 @property (weak, nonatomic) IBOutlet UIButton *myGrowthBtn;
 
-//喇叭
-@property (weak, nonatomic) IBOutlet UIImageView *noticeImageView;
-//富文本
-@property (weak, nonatomic) IBOutlet TYAttributedLabel *noticeLabel;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionV;
 @property (weak, nonatomic) IBOutlet UIView *collectionVBgView;
@@ -80,7 +77,6 @@
 @property (nonatomic,strong)MyPrerogativeModel *prerogativeModel;
 @property (nonatomic,strong) UserIdendityViewModel *idendityVM;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionVParentVWidthC;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionVParentVHeightC;
 
 //顶部约束
@@ -106,7 +102,7 @@
 //我的身份
 -(UserIdendityViewModel *)idendityVM{
     if (!_idendityVM) {
-        _idendityVM = [UserIdendityViewModel new];
+        _idendityVM = [UserIdendityViewModel sharedUserIdendityModel];
     }
     return _idendityVM;
 }
@@ -116,11 +112,10 @@
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     self.view.backgroundColor = kViewBGColor;
-    self.noticeLabel.backgroundColor = [UIColor clearColor];
+
     self.collectionV.backgroundColor = [UIColor clearColor];//kViewBGColor;
     self.collectionVBgView.backgroundColor = kViewBGColor;
-    self.collectionVParentVWidthC.constant *= kWidthScall;
-    self.collectionVParentVHeightC.constant *= kWidthScall;
+
     //适配iphoneX顶部
     if (iPhoneX) {
         self.myIdendityTopViewHeightC.constant = 20;
@@ -248,19 +243,27 @@
     [self.idendityVM getUserIdendityCompletionHandler:^(NSError * _Nonnull error) {
         
         if (!error) {
-           //设置用户头像
+//           //设置用户头像
+//
+//            [weakSelf.headerImage.superview viewcornerRadius:weakSelf.headerImage.superview.bounds.size.width * 0.5 borderWith:0.1 clearColor:NO];
+//            UIImage *headerImage = [[YDUserInfo sharedYDUserInfo] getUserHeaderImage];
+//            if (headerImage) {
+//                weakSelf.headerImage.image = headerImage;
+//            }else{
+//                [weakSelf.headerImage sd_setImageWithURL:[weakSelf.idendityVM userHeadImageURL] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//                    if (error) {
+//                        weakSelf.headerImage.image = [UIImage imageNamed:@"y_p_avatar"];
+//                    }
+//                }];
+//            }
+            
             
             [weakSelf.headerImage.superview viewcornerRadius:weakSelf.headerImage.superview.bounds.size.width * 0.5 borderWith:0.1 clearColor:NO];
-            UIImage *headerImage = [[YDUserInfo sharedYDUserInfo] getUserHeaderImage];
-            if (headerImage) {
-                weakSelf.headerImage.image = headerImage;
-            }else{
-                [weakSelf.headerImage sd_setImageWithURL:[weakSelf.idendityVM userHeadImageURL] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-                    if (error) {
-                        weakSelf.headerImage.image = [UIImage imageNamed:@"y_p_avatar"];
-                    }
-                }];
-            }
+            [weakSelf.headerImage sd_setImageWithURL:[weakSelf.idendityVM userHeadImageURL] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+                if (error) {
+                   weakSelf.headerImage.image = [UIImage imageNamed:@"y_p_avatar"];
+                }
+            }];
             
             //设置昵称
             weakSelf.nickNameLabel.text = [self.idendityVM userNickName];
@@ -324,39 +327,38 @@
 //距离下个身份还差
 -(void)setUpNexRankNotice{
     //设置距离下个身份差值
-    NSString *str = [NSString stringWithFormat:@"距离下个身份还差-- %@ --成长值",[self.idendityVM lessThanNextRank]];
-    NSArray *textArr = [str componentsSeparatedByString:@"--"];
-    NSArray *colorArr = @[[UIColor darkGrayColor],kFONTSlectRGB,[UIColor darkGrayColor]];
-    NSInteger index = 0;
-    for (NSString *text in textArr) {
-        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:text];
-        //设置当前文本颜色
-        [attributedString addAttributeTextColor:colorArr[index % 3]];
-        //设置文本字体
-        [attributedString addAttributeFont:[UIFont fontWithName:@"苹方-简" size:14 * kWidthScall]];//[UIFont fontWithName:@"" size:15]
-//        [UIFont fontWithName:@"苹方-简" size:14 * kWidthScall].
-        
-        [self.noticeLabel appendTextAttributedString:attributedString];
-        
-        index ++;
-    }
-    
-    CGSize strSize = [str sizeWithFont:self.noticeLabel.font maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
-    CGRect frame = self.noticeLabel.frame;
-    frame.origin.x = (kScreenW - strSize.width)/2 - 4;
-    frame.size = strSize;
-    self.noticeLabel.frame = frame;
-    self.noticeLabel.backgroundColor = [UIColor clearColor];
-    self.noticeLabel.verticalAlignment = TYVerticalAlignmentBottom;
+    NSString *str = [NSString stringWithFormat:@"距离下个身份还差 %@ 成长值",[self.idendityVM lessThanNextRank]];
+    UIFont *font = [UIFont fontWithName:@"苹方-简" size:14 * kWidthScall];
+    CGSize strSize = [str sizeWithFont:font maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+    UILabel *label0  = [[UILabel alloc] initWithFrame:CGRectMake((self.headParentView.bounds.size.width - strSize.width) * 0.5, self.headParentView.bounds.size.height - strSize.height, strSize.width, strSize.height)];
+    label0.backgroundColor = [UIColor clearColor ];
+    label0.font = font;
+    label0.textAlignment = NSTextAlignmentCenter;
+    label0.numberOfLines = 0;
     
     
-    frame = self.noticeImageView.frame;
-    frame.origin.x -= 14;
-    frame.size.width *= kWidthScall;
-    frame.size.height *= kWidthScall;
-    self.noticeImageView.frame = frame;
+    // 创建一个富文本
+    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:str];
     
     
+    // 修改富文本中的不同文字的样式
+    [attri addAttribute:NSForegroundColorAttributeName value:KFontDefaultRGB range:NSMakeRange(0, 8)];
+    [attri addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, 8)];
+    
+    // 设置数字为红色
+    [attri addAttribute:NSForegroundColorAttributeName value:kFONTSlectRGB range:NSMakeRange(9, str.length -13)];
+    [attri addAttribute:NSFontAttributeName value:font range:NSMakeRange(9, str.length -13)];
+    
+    [attri addAttribute:NSForegroundColorAttributeName value:KFontDefaultRGB range:NSMakeRange(str.length -3, 3)];
+    [attri addAttribute:NSFontAttributeName value:font range:NSMakeRange(str.length -3, 3)];
+    label0.attributedText = attri;
+    [self.headParentView addSubview:label0];
+    
+    CGRect rect = CGRectMake(CGRectGetMinX(label0.frame)  - 10 * kWidthScall - strSize.height, self.headParentView.bounds.size.height - strSize.height, strSize.height, strSize.height);
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:rect];
+    imageV.image = [UIImage imageNamed:@"y_b_notice0"];
+    [self.headParentView addSubview:imageV];
+
 
 }
 

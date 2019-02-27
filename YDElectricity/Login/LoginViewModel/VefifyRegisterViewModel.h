@@ -12,12 +12,18 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VefifyRegisterViewModel : NSObject
+YDSingletonH(VefifyRegisterViewModel)
+
 //根据UI
 /** 返回状态码*/
 @property(nonatomic,strong)NSString *codeState;
 @property(nonatomic,strong)NSString *wxOpenID;
 @property(nonatomic,strong)NSString *phoneNum;
 @property(nonatomic,strong)NSString *verifyCode;
+//用户ID
+@property(nonatomic,strong)NSString *userID;
+//tokenID
+@property(nonatomic,strong)NSString *tokenID;
 
 //根据接口
 @property(nonatomic,strong)VerifyRegisterModel *registerModel;
@@ -30,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 //请求登陆
 -(void)requestLoginWithParameter:(NSString *)wxOpenID phoneNum:(NSString *)phoneNum completionHandler:(void(^)(NSError *error))completionHandler;
 
+
+//请求注册
+-(void)requestRegisterWithInviteCode:(NSString *)code CompletionHandler:(void (^)(NSError * error))completionHandler;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -26,11 +26,13 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [Factory findHairlineImageViewUnder:self.navigationController.navigationBar].hidden = YES;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [Factory findHairlineImageViewUnder:self.navigationController.navigationBar].hidden = NO;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -80,7 +82,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)collectionViewLayout;
     layout.sectionHeadersPinToVisibleBounds = YES;
-    return CGSizeMake(kScreenW, 34);
+    return CGSizeMake(kScreenW, 34 * kWidthScall);
 }
 
 

@@ -44,7 +44,7 @@
 //    [UINavigationBar appearance].barStyle = UIBarStyleBlack;    //为了让电池条呈现白色
     [UINavigationBar appearance].translucent = NO;
     //设置NavigationBar颜色 与字体大小
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:KFontDefaultRGB,NSFontAttributeName:[UIFont systemFontOfSize:17]}];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:kRGBA(0, 0, 0, 0.7),NSFontAttributeName:[UIFont systemFontOfSize:18*kWidthScall weight:UIFontWeightMedium]}];
     [UIBarButtonItem appearance].tintColor = [UIColor whiteColor];
     [self findHairlineImageViewUnder:[UINavigationBar appearance]];;
     

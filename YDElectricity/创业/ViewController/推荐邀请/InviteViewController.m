@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = kViewBGColor;
-    self.inviteCode.text = [YDUserInfo sharedYDUserInfo].tutorInviteCode;
+    self.inviteCode.text = [[VefifyRegisterViewModel sharedVefifyRegisterViewModel] verifyCode];//[YDUserInfo sharedYDUserInfo].tutorInviteCode;
 }
 
 

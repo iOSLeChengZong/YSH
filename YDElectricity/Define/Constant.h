@@ -107,6 +107,25 @@ __block __weak __typeof(&*self)weakSelf = self;\
 #define kUIEdgeInsets UIEdgeInsetsMake(3 * kWidthScall, (kScreenW - 357 * kWidthScall) * 0.5, 6 * kWidthScall, (kScreenW - 357 * kWidthScall) * 0.5)
 
 
+//字体
+/*
+ 
+ 苹方家族      familyName:PingFang SC
+ 苹方-简 中黑体 PingFangSC-Medium
+ 苹方-简 中粗体 PingFangSC-Semibold
+ 苹方-简 细体 PingFangSC-Light
+ 苹方-简 极细体 PingFangSC-Ultralight
+ 苹方-简 常规体 PingFangSC-Regular
+ 苹方-简 纤细体 PingFangSC-Thin
+ */
+
+#define kMedium @"PingFangSC-Medium"         //苹方-简 中黑体
+#define kSemibold @"PingFangSC-Semibold"     //苹方-简 中粗体
+#define kLight @"PingFangSC-Light"           //苹方-简 细体
+#define kUltralight @"PingFangSC-Ultralight" //苹方-简 极细体
+#define kRegular @"PingFangSC-Regular"       //苹方-简 常规体
+#define kThin @"PingFangSC-Thin"             //苹方-简 纤细体
+
 //https://www.jianshu.com/p/ba98b0ad1811 iOS截屏
 //wifi密码
 //ydkj66666

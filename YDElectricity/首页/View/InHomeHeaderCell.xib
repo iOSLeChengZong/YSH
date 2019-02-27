@@ -28,8 +28,8 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金币商城" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeI-V5-9tN">
                         <rect key="frame" x="0.0" y="48" width="61" height="13"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                        <color key="textColor" red="0.45098039220000002" green="0.45098039220000002" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -46,8 +46,6 @@
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <connections>
                 <outlet property="culomnImage" destination="d9H-wT-0Ij" id="OQ7-Lh-yQg"/>
-                <outlet property="culomnImageHeightConstrait" destination="EDU-47-rFk" id="FNB-rs-dfF"/>
-                <outlet property="culomnImageWidthContrait" destination="q2g-3y-TCe" id="Gk1-0q-zIW"/>
                 <outlet property="culomnTitle" destination="xeI-V5-9tN" id="nl1-Vy-c3W"/>
             </connections>
             <point key="canvasLocation" x="135.19999999999999" y="154.27286356821591"/>
