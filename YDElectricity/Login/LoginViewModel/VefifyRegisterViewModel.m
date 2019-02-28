@@ -35,6 +35,22 @@ YDSingletonM(VefifyRegisterViewModel)
     return self.registerModel.rows1.token;
 }
 
+-(NSString *)inviteCode{
+    return self.registerModel.rows1.userInfo.inviteCode;
+}
+
+-(NSString *)userPID{
+    return self.registerModel.rows1.userInfo.pid;
+}
+
+-(NSString *)userGold{
+    return [NSString stringWithFormat:@"%ld",self.registerModel.rows1.userInfo.gold];
+}
+
+-(NSString *)userGrowth{
+    return [NSString stringWithFormat:@"%ld",self.registerModel.rows1.userInfo.growth];
+}
+
 //验证用户
 -(void)getUserRegisterStateWithParameter:(NSString *)wxOpenID completionHandler:(void (^)(NSError * _Nonnull))completionHandler{
     [YDNetManager verifyUserRegisterWithPath:kVerifyUserRegisterURL parameter:wxOpenID completionHandler:^(VerifyRegisterModel * _Nonnull model, NSError * _Nonnull error) {
@@ -71,12 +87,12 @@ YDSingletonM(VefifyRegisterViewModel)
 }
 
 //请求注册
--(void)requestRegisterWithInviteCode:(NSString *)code CompletionHandler:(void (^)(NSError * _Nonnull))completionHandler{
+-(void)requestRegisterWithInviteCode:(NSString *)code wxOpenID:(NSString *)openID userPhoneNum:(NSString *)phoneNum CompletionHandler:(void (^)(NSError * _Nonnull))completionHandler{
 
-    NSString *wxid = [[NSUserDefaults standardUserDefaults] stringForKey:kUserWxOpenID];
-    NSString *phoneNum = [[NSUserDefaults standardUserDefaults] stringForKey:kUserPhoneNum];//[YDUserInfo sharedYDUserInfo].phoneNumber;
+//    NSString *wxid = [[NSUserDefaults standardUserDefaults] stringForKey:kUserWxOpenID];
+//    NSString *phoneNum = [[NSUserDefaults standardUserDefaults] stringForKey:kUserPhoneNum];//[YDUserInfo sharedYDUserInfo].phoneNumber;
   
-    [YDNetManager requestRegisterWithPath:kUserRegisterURL wxOpenID:wxid phoneNumber:phoneNum vefifyCode:[self verifyCode] tutorInviteCode:code completionHandler:^(VerifyRegisterModel * _Nonnull model, NSError * _Nonnull error) {
+    [YDNetManager requestRegisterWithPath:kUserRegisterURL wxOpenID:openID phoneNumber:phoneNum vefifyCode:[self verifyCode] tutorInviteCode:code completionHandler:^(VerifyRegisterModel * _Nonnull model, NSError * _Nonnull error) {
         if (!error) {
             self.registerModel = model;
         }

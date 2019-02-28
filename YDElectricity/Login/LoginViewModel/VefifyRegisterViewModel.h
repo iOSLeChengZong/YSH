@@ -18,12 +18,22 @@ YDSingletonH(VefifyRegisterViewModel)
 /** 返回状态码*/
 @property(nonatomic,strong)NSString *codeState;
 @property(nonatomic,strong)NSString *wxOpenID;
+/** 手机号码 */
 @property(nonatomic,strong)NSString *phoneNum;
+/** 验证码 */
 @property(nonatomic,strong)NSString *verifyCode;
-//用户ID
+/** 用户ID */
 @property(nonatomic,strong)NSString *userID;
-//tokenID
+/** tokenID */
 @property(nonatomic,strong)NSString *tokenID;
+/** 邀请码 */
+@property(nonatomic,strong)NSString *inviteCode;
+/** 用户pid */
+@property(nonatomic,strong)NSString *userPID;
+/** 用户金币 */
+@property(nonatomic,strong)NSString *userGold;
+/** 用户成长值 */
+@property(nonatomic,strong)NSString *userGrowth;
 
 //根据接口
 @property(nonatomic,strong)VerifyRegisterModel *registerModel;
@@ -38,7 +48,7 @@ YDSingletonH(VefifyRegisterViewModel)
 
 
 //请求注册
--(void)requestRegisterWithInviteCode:(NSString *)code CompletionHandler:(void (^)(NSError * error))completionHandler;
+-(void)requestRegisterWithInviteCode:(NSString *)code wxOpenID:(NSString *)openID userPhoneNum:(NSString *)phoneNum CompletionHandler:(void (^)(NSError * error))completionHandler;
 @end
 
 NS_ASSUME_NONNULL_END

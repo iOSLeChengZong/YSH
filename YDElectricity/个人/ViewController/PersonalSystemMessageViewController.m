@@ -117,7 +117,7 @@
 -(void)requestMessageData{
     [self.view showBusyHUD];
     WK(weakSelf)
-    ;
+    
     NSString *userID = [[VefifyRegisterViewModel sharedVefifyRegisterViewModel] userID];
     [self.messageVM getSystemUserMessageRequestMode:self.requestMode pageSize:20 userID:userID CompletionHandler:^(NSError * _Nonnull error) {
         if (!error) {

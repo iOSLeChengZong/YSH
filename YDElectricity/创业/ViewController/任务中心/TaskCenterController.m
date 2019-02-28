@@ -11,6 +11,7 @@
 #import "TaskCell.h"
 #import "GrowthRecordViewController.h"
 #import "MyGoldViewController.h"
+#import "UserTaskViewModel.h"
 
 #define kHomeSectionHeaderView @"HomeSectionHeaderView"
 #define kTaskCell @"TaskCell"
@@ -19,13 +20,25 @@
 
 @interface TaskCenterController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *taskCollectionView;
+@property (nonatomic,strong) UserTaskViewModel *taskViewVM;
+@property (nonatomic,assign) USERTASKTYPE taskType;
+
+@property (weak, nonatomic) IBOutlet UILabel *goldNamel;
+@property (weak, nonatomic) IBOutlet UILabel *growthLabel;
+
+
 
 @end
 
 @implementation TaskCenterController
 
 #pragma mark -- 懒加载
-
+-(UserTaskViewModel *)taskViewVM{
+    if (!_taskViewVM) {
+        _taskViewVM = [UserTaskViewModel new];
+    }
+    return _taskViewVM;
+}
 
 
 #pragma mark -- 生命周期
@@ -44,13 +57,17 @@
     self.view.backgroundColor = kViewBGColor;
     self.taskCollectionView.backgroundColor = [UIColor clearColor];
     [self taskCenterRegisterCell];
-    [self.taskCollectionView addHeaderRefreshingBlock:^{
-        
-    }];
-    
-    [self.taskCollectionView addFooterBackRefresh:^{
-        
-    }];
+//    [self.taskCollectionView addHeaderRefreshingBlock:^{
+//
+//    }];
+//
+//    [self.taskCollectionView addFooterBackRefresh:^{
+//
+//    }];
+    self.taskType = USERTASKTYPENEWPLAYERTASK;
+    self.goldNamel.text = [[VefifyRegisterViewModel sharedVefifyRegisterViewModel] userGold];
+    self.growthLabel.text = [[VefifyRegisterViewModel sharedVefifyRegisterViewModel] userGrowth];
+    [self retquestData];
 }
 
 
@@ -58,7 +75,7 @@
 #pragma mark -- collectionViewDataSource
 //item数量
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 20;
+    return [self.taskViewVM getTaskNum:self.taskType];
 }
 
 //item的外观
@@ -66,6 +83,10 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     TaskCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kTaskCell forIndexPath:indexPath];
+    cell.taskNameLabel.text = [self.taskViewVM itemForTaskNameAtIndexPath:indexPath userTaskType:self.taskType];
+    cell.growthLabel.text = [self.taskViewVM itemForGrowthAtIndexPath:indexPath userTaskType:self.taskType];
+    cell.goldLabel.text = [self.taskViewVM itemForGoldAtIndexPath:indexPath userTaskType:self.taskType];
+//    [cell.taskStateBtn setImage:[UIImage imageNamed:[self.taskViewVM itemForTastkCompletionStateAtIndexPath:indexPath userTaskType:self.taskType]] forState:UIControlStateNormal];
     return cell;
     
 }
@@ -78,6 +99,25 @@
     HomeSectionHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHomeSectionHeaderView forIndexPath:indexPath];
     [header.introBtn setTitle:@"新手任务" forState:UIControlStateNormal];
     [header.hotBtn setTitle:@"日常任务" forState:UIControlStateNormal];
+    
+    WK(weakSelf)
+    [header addClickHandler:^(HomeRequestMode requestMode,HotOrRecomend hotOrRecomend) {
+        
+        NSInteger type0 =  (NSInteger)hotOrRecomend;
+        NSInteger type1 = (NSInteger)self.taskType;
+        if (type0 == type1) {
+            return;
+        }
+        
+        if (hotOrRecomend == HotOrRecomendR) {
+            self.taskType = USERTASKTYPENEWPLAYERTASK;
+        }else{
+            self.taskType = USERTASKTYPEDAILYTASK;
+        }
+        
+        [weakSelf retquestData];
+
+    }];
     
     return header;
 
@@ -128,6 +168,17 @@
 -(void)taskCenterRegisterCell{
     [self.taskCollectionView registerNib:[UINib nibWithNibName:kTaskCell bundle:nil] forCellWithReuseIdentifier:kTaskCell];
     [self.taskCollectionView registerNib:[UINib nibWithNibName:kHomeSectionHeaderView bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHomeSectionHeaderView];
+}
+
+-(void)retquestData{
+    WK(weakSelf)
+    [self.view showBusyHUD];
+    [self.taskViewVM getUserTaskCompletionHandler:^(NSError * _Nonnull error) {
+        if (!error) {
+            [weakSelf.taskCollectionView reloadData];
+            [weakSelf.view hideBusyHUD];
+        }
+    }];
 }
 
 //任务中心金币Btn

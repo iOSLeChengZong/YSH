@@ -118,9 +118,6 @@
 - (IBAction)OnNextStepBtnClick:(id)sender {
     [self destroyNSTimer];
     
-    [YDUserInfo sharedYDUserInfo].userVerifyCode = self.verifyCodeTextfield.text;
-    [YDUserInfo sharedYDUserInfo].phoneNumber = self.phoneNumTexfield.text;
-    NSLog(@"手机号码:%@,验证码:%@",[YDUserInfo sharedYDUserInfo].phoneNumber,[YDUserInfo sharedYDUserInfo].userVerifyCode);
     //验证手机号码 是否是当前接收验证码的手机号  手机号码是否合法
     if (![self.phoneNumber isEqualToString:self.phoneNumTexfield.text]) {
         [self.view showWarning:@"请重新填写手机号码"];
@@ -129,14 +126,18 @@
     //验证密码合法性
     
     //验证 验证码合法性
+    
+    
     if (![[self.registerVM verifyCode] isEqualToString:self.verifyCodeTextfield.text]) {
         [self.view showWarning:@"请填写正确的验证码"];
         return;
     }
     
     //保存手机号码
-    [self saveUserInfo];
-    NSLog(@"wxID:%@",[[NSUserDefaults standardUserDefaults] stringForKey:kUserWxOpenID]);
+    [YDUserInfo sharedYDUserInfo].userVerifyCode = self.verifyCodeTextfield.text;
+    [YDUserInfo sharedYDUserInfo].phoneNumber = self.phoneNumTexfield.text;
+    NSLog(@"手机号码:%@,验证码:%@,服务器验证码:%@",[YDUserInfo sharedYDUserInfo].phoneNumber,[YDUserInfo sharedYDUserInfo].userVerifyCode,[self.registerVM verifyCode]);
+    NSLog(@"wxID:%@",[YDUserInfo sharedYDUserInfo].userWxOpenID);
     //跳转到导师界面
     
     [self performSegueWithIdentifier:kConfirmTeacherViewController sender:nil];
@@ -216,7 +217,7 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     [userDefaults setObject:self.phoneNumber forKey:kUserPhoneNum];
-//    [userDefaults setObject:[YDUserInfo sharedYDUserInfo].userWxOpenID forKey:kUserWxOpenID];
+
     
     [userDefaults synchronize];
 }

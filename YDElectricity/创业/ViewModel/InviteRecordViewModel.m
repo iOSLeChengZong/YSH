@@ -47,12 +47,7 @@
 
 -(void)getUserInviteRecordWithPageSize:(NSInteger)size orderType:(NSString *)type addTime:(NSString *)time requestMode:(InviteReRecordRequestMode)mode completionHandler:(void (^)(NSError * _Nonnull))completionHandler{
     
-    if (self.pageNum >= self.totalPage && self.totalPage >=1) {
-        NSError *error = nil;
-        !completionHandler ?: completionHandler(error);
-        return;
-    }
-    
+
     NSInteger tempNum = 1;
     if (mode == InviteReRecordRequestModeMore) {
         tempNum = ++_pageNum;

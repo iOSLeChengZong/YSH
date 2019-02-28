@@ -32,12 +32,6 @@
     return _registerViewModel;
 }
 
--(NSString *)userWxID{
-    if (!_userWxID) {
-        _userWxID = [self readUserWXOpenID];
-    }
-    return _userWxID;
-}
 
 #pragma mark -- 生命周期
 -(void)viewDidLayoutSubviews{
@@ -86,9 +80,45 @@
 
 
 -(void)requestRegisterState:(id)sender{
-    WK(weakSelf)
+     WK(weakSelf)
+    /*
+     微信正式接入后的流程
+    //1.获取微信信息
+    NSString *tempUserWXID = [self requestWX];
+    //2.与本地信息对比
+    if ([self.userWxID isEqualToString:tempUserWXID]) {
+        //登陆
+        [YDUserInfo sharedYDUserInfo].userWxOpenID = tempUserWXID;
+        [self.registerViewModel requestLoginWithParameter:tempUserWXID phoneNum:weakSelf.userPhonNum completionHandler:^(NSError * _Nonnull error) {
+            [weakSelf requestLogin1:error];
+        }];
+        
+    }else{
+        //验证些tempUserWXID是否注册
+        [self.registerViewModel getUserRegisterStateWithParameter:tempUserWXID completionHandler:^(NSError * _Nonnull error) {
+            //没有注册
+            if (!error && [[weakSelf.registerViewModel codeState] isEqualToString:@"3"]) {
+                [YDUserInfo sharedYDUserInfo].userWxOpenID = weakSelf.userWxID;
+                [weakSelf performSegueWithIdentifier:kPhoneNumSegue sender:nil];
+            }
+            
+            //已经注册
+            else if ([[weakSelf.registerViewModel codeState] isEqualToString:@"2"]){
+                [YDUserInfo sharedYDUserInfo].userWxOpenID = tempUserWXID;
+                [weakSelf.registerViewModel requestLoginWithParameter:tempUserWXID phoneNum:weakSelf.userPhonNum completionHandler:^(NSError * _Nonnull error) {
+                    [weakSelf requestLogin1:error];
+                }];
+            }
+            
+        }];
+        
+    }
+    */
+    
+   
     //->本地有微信 - > 请求登陆
     if (self.userWxID.length > 0) {
+        NSLog(@"WXID:%@",self.userWxID);
         //有微信号,请求登陆
         [self.registerViewModel requestLoginWithParameter:self.userWxID phoneNum:self.userPhonNum completionHandler:^(NSError * _Nonnull error) {
             
@@ -105,73 +135,24 @@
         [weakSelf.registerViewModel getUserRegisterStateWithParameter:weakSelf.userWxID completionHandler:^(NSError * _Nonnull error) {
             //用户不存在 进行注册  跳转填写手机号码界面
             if (!error && [[weakSelf.registerViewModel codeState] isEqualToString:@"3"]) {
-                
-                [weakSelf saveUserWXOpenID];
+                [YDUserInfo sharedYDUserInfo].userWxOpenID = weakSelf.userWxID;
                 [weakSelf performSegueWithIdentifier:kPhoneNumSegue sender:nil];
-            
             }
             
-            //用户存在 请求登陆
+            //用户存在 请求登陆  用于更换手机
             else if ([[weakSelf.registerViewModel codeState] isEqualToString:@"2"]){
-                [weakSelf saveUserWXOpenID];
+                [YDUserInfo sharedYDUserInfo].userWxOpenID = weakSelf.userWxID;
                 [self.registerViewModel requestLoginWithParameter:weakSelf.userWxID phoneNum:weakSelf.userPhonNum completionHandler:^(NSError * _Nonnull error) {
                     [weakSelf requestLogin1:error];
                 }];
             }
         }];
         
-        
     }
-    
-    
-//    if (self.userWxID.length > 0 || self.userPhonNum.length > 0) {//本地保存了WxID直接请求登陆
-//
-//        [self.registerViewModel requestLoginWithParameter:self.userWxID phoneNum:self.userPhonNum completionHandler:^(NSError * _Nonnull error) {
-//            if (!error) {
-//                //保存数据
-//                [YDUserInfo sharedYDUserInfo].userWxOpenID = weakSelf.registerViewModel.wxOpenID;
-//                [YDUserInfo sharedYDUserInfo].phoneNumber = weakSelf.registerViewModel.phoneNum;
-//                [self saveNSUserDefaults];
-////                [weakSelf OnVisitorBtnClick:sender];
-//                //请求登陆
-//                [self requestLogin];
-//
-//            }
-//        }];
-//
-//    }else{
-//        [self.registerViewModel getUserRegisterStateWithParameter:[self timeStr]/*@"fd56fd126d7eae0e41f74c895394155e"*/ completionHandler:^(NSError * _Nonnull error) {
-//            if (!error) {
-//                if ([weakSelf.registerViewModel.codeState isEqualToString:@"3"]) {//用户不存在
-//                    NSLog(@"跳填写号码界面%@",weakSelf.registerViewModel.codeState);
-//                    [YDUserInfo sharedYDUserInfo].login = NO;
-//                    [YDUserInfo sharedYDUserInfo].userWxOpenID = [self timeStr]/*@"fd56fd126d7eae0e41f74c895394155e"*/;
-//
-//                    [self performSegueWithIdentifier:kPhoneNumSegue sender:nil];
-//                }
-//                else if ([weakSelf.registerViewModel.codeState isEqualToString:@"2"]) {//用户已存在直接调用登陆接口
-//                    [YDUserInfo sharedYDUserInfo].login = NO;
-//                    [YDUserInfo sharedYDUserInfo].userWxOpenID = [self.registerViewModel wxOpenID]/*@"fd56fd126d7eae0e41f74c895394155e"*/;
-//                    //请求登陆
-//                    [self requestLogin];
-//
-//
-//                }
-//                else{
-//                    [self.view showWarning:@"验证微信号失败"];
-//                }
-//
-//            }
-//        }];
-//
-//    }
-    
-    
 
 }
 
 
-/** 保存用户微信号 和 手机号吗*/
 -(void)saveNSUserDefaults
 {
     //将上述数据全部存储到NSUserDefaults中
@@ -190,6 +171,8 @@
 
 
 
+
+
 //从NSUserDefaults中读取数据
 -(void)readNSUserDefaults
 {
@@ -199,32 +182,6 @@
     NSLog(@"%@:wxid:%@",[self class],self.userPhonNum);
 }
 
-//-(void)requestLogin{
-//    [[YDUserInfo sharedYDUserInfo] requestLoginCompletionHandler:^(VerifyRegisterModel * _Nonnull model, NSError * _Nonnull error) {
-//        if (!error && [model.code isEqualToString:@"1"]){
-//            //保存token 保存 id
-//            [YDUserInfo sharedYDUserInfo].userToken = model.rows1.token;
-//            [YDUserInfo sharedYDUserInfo].userID = model.rows1.userInfo.ID;
-//            [YDUserInfo sharedYDUserInfo].tutorInviteCode = model.rows1.userInfo.inviteCode;
-//            [self saveNSUserDefaults];
-//            [self.view showWarning:@"登陆成功"];
-//            [YDUserInfo sharedYDUserInfo].login = YES;
-//            [self saveNSUserDefaults];
-//            //跳转界面;
-//            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//            UITabBarController *tabVC = [storyboard instantiateViewControllerWithIdentifier:kMain];
-//            [[[UIApplication sharedApplication] delegate] window].rootViewController = tabVC;
-//        }else{
-//            [self.view showWarning:@"请检查手机号码或微信号不存在"];
-//        }
-//    }];
-//}
-
-//-(NSString *)timeStr{
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-//    return [formatter stringFromDate: [NSDate date]];
-//}
 
 
 -(NSString *)requestWX{
@@ -244,8 +201,12 @@
 -(void)requestLogin1:(NSError *) error{
     //登陆成功
     if (!error && [[self.registerViewModel codeState] isEqualToString:@"1"]) {
+        [YDUserInfo sharedYDUserInfo].userWxOpenID = [self.registerViewModel wxOpenID];
+        [YDUserInfo sharedYDUserInfo].phoneNumber = [self.registerViewModel phoneNum];
+        [YDUserInfo sharedYDUserInfo].userToken = [self.registerViewModel tokenID];
+        [YDUserInfo sharedYDUserInfo].userID = [self.registerViewModel userID];
         //保存用户WXOpenID到本地
-        [self saveUserWXOpenID];
+        [self saveNSUserDefaults];
         //跳转界面
         [self.view showWarning:@"登陆成功"];
         [YDUserInfo sharedYDUserInfo].login = YES;
@@ -256,19 +217,11 @@
     }
 }
 
--(void)saveUserWXOpenID{
-    //将上述数据全部存储到NSUserDefaults中
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    
-    [userDefaults setObject:self.userWxID forKey:kUserWxOpenID];
-    NSLog(@"wxID:%@",self.userWxID);
-    [userDefaults synchronize];
-}
 
--(NSString *)readUserWXOpenID{
-    
-    return [[NSUserDefaults standardUserDefaults] stringForKey:kUserWxOpenID];
-}
+//-(NSString *)readUserWXOpenID{
+//
+//    return [[NSUserDefaults standardUserDefaults] stringForKey:kUserWxOpenID];
+//}
 
 -(void)jumpToMainStoryboard{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

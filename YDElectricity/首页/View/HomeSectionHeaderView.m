@@ -28,7 +28,7 @@
     _colorArr = @[[UIColor blueColor],[UIColor whiteColor]];
     _buttonArr = @[_introBtn,_hotBtn];
     
-    [self HomeSectionHeaderViewScreenFit];
+//    [self HomeSectionHeaderViewScreenFit];
 }
 
 - (IBAction)introBtnClick:(id)sender {

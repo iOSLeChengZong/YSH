@@ -180,6 +180,8 @@
 		547280B421C0FA29009A75E8 /* HomeHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547280B221C0FA29009A75E8 /* HomeHeaderCollectionViewCell.xib */; };
 		547280B821C11313009A75E8 /* HomeSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 547280B621C11313009A75E8 /* HomeSectionHeaderView.m */; };
 		547280B921C11313009A75E8 /* HomeSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547280B721C11313009A75E8 /* HomeSectionHeaderView.xib */; };
+		547C416A2227B47000565D7F /* UserTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C41662227B46F00565D7F /* UserTaskModel.m */; };
+		547C416F2227B74700565D7F /* UserTaskViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C416E2227B74700565D7F /* UserTaskViewModel.m */; };
 		548F520B221F8813005360E9 /* VersionExplainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 548F520A221F8813005360E9 /* VersionExplainViewController.m */; };
 		548F5211221F88EB005360E9 /* VersionExplainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 548F520F221F88EB005360E9 /* VersionExplainCell.m */; };
 		548F5212221F88EB005360E9 /* VersionExplainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548F5210221F88EB005360E9 /* VersionExplainCell.xib */; };
@@ -659,6 +661,10 @@
 		547280B521C11313009A75E8 /* HomeSectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSectionHeaderView.h; sourceTree = "<group>"; };
 		547280B621C11313009A75E8 /* HomeSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSectionHeaderView.m; sourceTree = "<group>"; };
 		547280B721C11313009A75E8 /* HomeSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeSectionHeaderView.xib; sourceTree = "<group>"; };
+		547C41662227B46F00565D7F /* UserTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTaskModel.m; sourceTree = "<group>"; };
+		547C41682227B47000565D7F /* UserTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTaskModel.h; sourceTree = "<group>"; };
+		547C416D2227B74700565D7F /* UserTaskViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserTaskViewModel.h; sourceTree = "<group>"; };
+		547C416E2227B74700565D7F /* UserTaskViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserTaskViewModel.m; sourceTree = "<group>"; };
 		548F5209221F8813005360E9 /* VersionExplainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionExplainViewController.h; sourceTree = "<group>"; };
 		548F520A221F8813005360E9 /* VersionExplainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersionExplainViewController.m; sourceTree = "<group>"; };
 		548F520E221F88EB005360E9 /* VersionExplainCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionExplainCell.h; sourceTree = "<group>"; };
@@ -1707,6 +1713,7 @@
 		5472809921C0DEC6009A75E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				547C41652227B44600565D7F /* 任务中心 */,
 				54ACC2BA221690E8005640F4 /* 我的身份 */,
 				5464428921F6A25A0093FDAC /* 用户资金 */,
 				54D0D92D21F5D28100225C02 /* 邀请记录 */,
@@ -1732,6 +1739,7 @@
 		5472809B21C0DEC6009A75E8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				547C416C2227B72B00565D7F /* 任务中心 */,
 				5464429321F6A54B0093FDAC /* 用户资金 */,
 				54D0D92C21F5D26B00225C02 /* 邀请记录 */,
 				54D0D92B21F5D25600225C02 /* 团队成员 */,
@@ -1942,6 +1950,24 @@
 				547280AE21C0E430009A75E8 /* SearchBarView.m */,
 			);
 			name = SearchBarView;
+			sourceTree = "<group>";
+		};
+		547C41652227B44600565D7F /* 任务中心 */ = {
+			isa = PBXGroup;
+			children = (
+				547C41682227B47000565D7F /* UserTaskModel.h */,
+				547C41662227B46F00565D7F /* UserTaskModel.m */,
+			);
+			name = "任务中心";
+			sourceTree = "<group>";
+		};
+		547C416C2227B72B00565D7F /* 任务中心 */ = {
+			isa = PBXGroup;
+			children = (
+				547C416D2227B74700565D7F /* UserTaskViewModel.h */,
+				547C416E2227B74700565D7F /* UserTaskViewModel.m */,
+			);
+			name = "任务中心";
 			sourceTree = "<group>";
 		};
 		548F5208221F874A005360E9 /* 版本说明 */ = {
@@ -3262,6 +3288,7 @@
 				54F1FA9221AF7314004460D0 /* YDIntroHeaderCell.m in Sources */,
 				54F1FB6921AFD5C1004460D0 /* TestViewController.m in Sources */,
 				54C11F8D21E2DB91004AE0DC /* SGQRCodeObtainConfigure.m in Sources */,
+				547C416F2227B74700565D7F /* UserTaskViewModel.m in Sources */,
 				54239DDE21DE047800E12690 /* CommodityListlViewController.m in Sources */,
 				54B4602F21EC6BB90040633B /* InviteViewController.m in Sources */,
 				5442871121CC78E80022C5EA /* InHomeHeaderCell.m in Sources */,
@@ -3455,6 +3482,7 @@
 				544CDC9C21E743F400A7DD01 /* MyOrderViewController.m in Sources */,
 				54D0D92221F5BA2400225C02 /* UserTeamMemberViewModel.m in Sources */,
 				544DD4A321C3C7660052D469 /* IdentityDefaultReusableView.m in Sources */,
+				547C416A2227B47000565D7F /* UserTaskModel.m in Sources */,
 				54346C1B2217F2900053A126 /* FrequentlyQViewController.m in Sources */,
 				54AB39BF21D86B6200D40606 /* PersonCollectionViewCell.m in Sources */,
 				54AB39D721D8B9D600D40606 /* TeacherNoneWelfareCell.m in Sources */,

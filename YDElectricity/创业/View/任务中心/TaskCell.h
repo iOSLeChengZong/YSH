@@ -11,6 +11,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TaskCell : UICollectionViewCell
+/** 任务名称 */
+@property (weak, nonatomic) IBOutlet UILabel *taskNameLabel;
+
+/** 成长值奖励 */
+@property (weak, nonatomic) IBOutlet UILabel *growthLabel;
+
+/** 金币奖励 */
+@property (weak, nonatomic) IBOutlet UILabel *goldLabel;
+
+/** 任务状态 */
+@property (weak, nonatomic) IBOutlet UIButton *taskStateBtn;
 
 @end
 

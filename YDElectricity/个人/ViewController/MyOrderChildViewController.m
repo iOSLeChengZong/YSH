@@ -159,28 +159,16 @@
 
     
     
-    [self.orderViewModel getUserOrderListWithRequestMode:self.orderRequestM pageSize:20 orderMode:self.orderMode userPID:[[UserIdendityViewModel sharedUserIdendityModel] userPid] completionHandler:^(NSError * _Nonnull error) {
+    [self.orderViewModel getUserOrderListWithRequestMode:self.orderRequestM pageSize:20 orderMode:self.orderMode userPID:[[VefifyRegisterViewModel sharedVefifyRegisterViewModel] userPID] completionHandler:^(NSError * _Nonnull error) {
        
-        
         if (!error) {
-//            YDAlertView *alertV =  [[YDAlertView alloc] initWithFrame:kAlertRect withTitle:@"请求数据" alertMessage:@"请求数据成功" confrimBolck:^{
-//
-//            } cancelBlock:^{
-//
-//            }];
-//            [alertV show];
             [self.secondSkillcollecV reloadData];
             [self.view hideBusyHUD];
             [self.secondSkillcollecV endHeaderRefresh];
             [self.secondSkillcollecV endFooterRefresh];
             
         }else{
-//            YDAlertView *alertV =  [[YDAlertView alloc] initWithFrame:kAlertRect withTitle:@"请求数据" alertMessage:@"请求数据失败" confrimBolck:^{
-//
-//            } cancelBlock:^{
-//
-//            }];
-//            [alertV show];
+
         }
     }];
 }
@@ -198,6 +186,12 @@
     //添加脚部刷新
     [self.secondSkillcollecV addFooterBackRefresh:^{
         weakSelf.orderRequestM = OrderRequestModeMore;
+        
+        if (weakSelf.orderViewModel.pageNum == weakSelf.orderViewModel.totalPage) {
+            [weakSelf.secondSkillcollecV endFooterRefresh];
+            return ;
+        }
+        
         [weakSelf requestData];
     }];
 }

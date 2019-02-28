@@ -100,6 +100,12 @@
                 <constraint firstItem="7na-Tb-zsw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rD4-TG-b4R"/>
                 <constraint firstAttribute="bottom" secondItem="7na-Tb-zsw" secondAttribute="bottom" id="x42-Ag-2VZ"/>
             </constraints>
+            <connections>
+                <outlet property="goldLabel" destination="0Kg-dI-G9s" id="VHn-eo-t8C"/>
+                <outlet property="growthLabel" destination="yV1-WJ-hQf" id="BNc-oR-SqI"/>
+                <outlet property="taskNameLabel" destination="rwI-2U-brR" id="dRh-Vx-OBa"/>
+                <outlet property="taskStateBtn" destination="D5K-hD-9e7" id="3c7-Aj-ARa"/>
+            </connections>
             <point key="canvasLocation" x="138.40000000000001" y="154.27286356821591"/>
         </collectionViewCell>
     </objects>

@@ -6,37 +6,6 @@
 //  Copyright © 2019 yuandian. All rights reserved.
 //
 
-/*
- //1、声明一个局部变量来存储底部横线
- UIImageView *navBarHairlineImageView;
- 
- //2、找出底部横线的函数
- - (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
- if ([view isKindOfClass:UIImageView.class] && view.bounds.size.height <= 1.0) {
- return (UIImageView *)view;
- }
- for (UIView *subview in view.subviews) {
- UIImageView *imageView = [self findHairlineImageViewUnder:subview];
- if (imageView) {
- return imageView;
- }
- }
- return nil;
- }
- //3、在viewWillAppear，viewWillDisappear中处理，找到那条横线在页面显示时隐藏，消失时出现
- - (void)viewWillAppear:(BOOL)animated {
- [super viewWillAppear:animated];
- navBarHairlineImageView.hidden = YES;
- }
- 
- - (void)viewWillDisappear:(BOOL)animated {
- [super viewWillDisappear:animated];
- navBarHairlineImageView.hidden = NO;
- 
- }
- 
- 
- */
 
 #import "MyOrderViewController.h"
 #import "MJCSegmentInterface.h"

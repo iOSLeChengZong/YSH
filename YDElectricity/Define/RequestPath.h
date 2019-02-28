@@ -16,8 +16,8 @@
 //http://192.168.101.31:8090/user/getRegisterCode?wxOpenId=fd56fd126d7eae0e41f74c895394155e
 
 //基类URL
-//#define kBaseURL1 @"http://192.168.101.122:8090"
-#define kBaseURL1 @"https://www.yd-ishop.xyz"//  http://192.168.101.122:8090   http://94.191.42.70:8090 https://www.yd-ishop.xyz
+#define kBaseURL1 @"http://192.168.101.122:8090"
+//#define kBaseURL1 @"https://www.yd-ishop.xyz"//  http://192.168.101.122:8090   http://94.191.42.70:8090 https://www.yd-ishop.xyz
 
 #define kBaseURLTaoBao @"https://acs.m.taobao.com"
 
@@ -85,5 +85,9 @@
 
 //邀请记录
 #define kUserInviteRecordURL @"/app/business/selectInviteDetailList"
+
+//我的任务
+//https://www.yd-ishop.xyz/app/personal/selectTaskList_APP
+#define kUserTaskListURL @"/app/personal/selectTaskList_APP"
 
 #endif /* RequestPath_h */

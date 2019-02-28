@@ -36,6 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * headImgUrl;
 /** id -> ID */
 @property (nonatomic, strong) NSString * ID;
+/** 邀请码 */
 @property (nonatomic, strong) NSString * inviteCode;
 @property (nonatomic, strong) NSString * lastLoginTime;
 @property (nonatomic, strong) NSString * nickName;

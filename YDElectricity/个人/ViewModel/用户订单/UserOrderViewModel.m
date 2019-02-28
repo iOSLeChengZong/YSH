@@ -106,8 +106,7 @@
         tempNum = ++_pageNum;
     }
 
-    
-    
+
     NSString *str = nil;
     if (type == OrderTypeALL) {
         str = @"";
@@ -115,17 +114,21 @@
         str = [NSString stringWithFormat:@"%ld",type];
     }
     
-    [YDNetManager getUserOrderlistPageNum:tempNum pageSize:size userPid:pid/*[UserIdendityModel sharedUserIdendityModel].info.pid*/ orderType:str CompletionHandler:^(UserOrderModel * _Nonnull model, NSError * _Nonnull error) {
+    
+    [YDNetManager getUserOrderlistPageNum:tempNum pageSize:size userPid:pid orderType:str CompletionHandler:^(UserOrderModel * _Nonnull model, NSError * _Nonnull error) {
         if ((!error)) {
             _pageNum = tempNum;
             if (mode == OrderRequestModeRefresh) {
                 [self.orderList removeAllObjects];
             }
             self.totalPage = model.totalPages;
+            
             [self.orderList addObjectsFromArray:model.orderList];
             
             completionHandler(error);
         }
+        
+        
     }];
 }
 

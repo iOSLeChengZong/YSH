@@ -264,6 +264,7 @@
 
 #pragma mark -- 方法
 -(void)requestData{
+
     [self.view showBusyHUD];
     WK(weakSelf)
     [self.homeVM getCommodityModelDataRequestMode:self.requestMode requestWord:self.requestWord requestPram:self.requestPram goodListState:self.listState classID:self.goodID pageSize:20 CompletionHandler:^(NSError * _Nonnull error) {

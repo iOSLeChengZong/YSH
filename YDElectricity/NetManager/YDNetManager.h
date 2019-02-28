@@ -21,6 +21,7 @@
 #import "UserTeamMemberModel.h"
 #import "InviteRecordModel.h"
 #import "UserMoneyModel.h"
+#import "UserTaskModel.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -116,6 +117,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 邀请记录 */
 +(id)getUserInviteRecordWithPageNumber:(NSInteger)page pageSize:(NSInteger)size orderType:(NSString *)type addTime:(NSString *)time completionHandler:(void(^)(InviteRecordModel *model,NSError *error))completionHandler;
 
+
+/** 任务中心 */
++(id)getUserTasksCompleitonHandler:(void(^)(UserTaskModel *model,NSError *error))completionHandler;
 @end
 
 

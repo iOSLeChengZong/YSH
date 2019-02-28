@@ -396,4 +396,16 @@
     }];
 }
 
+
+//任务中心
++(id)getUserTasksCompleitonHandler:(void (^)(UserTaskModel * _Nonnull, NSError * _Nonnull))completionHandler{
+    return [self GET:kUserTaskListURL parameters:nil progress:nil completionHandler:^(id  _Nonnull responseObj, NSError * _Nonnull error) {
+        if (!error) {
+            !completionHandler ?: completionHandler([UserTaskModel parse:responseObj],error);
+        }else{
+            !completionHandler ?: completionHandler(nil,error);
+        }
+    }];
+}
+
 @end

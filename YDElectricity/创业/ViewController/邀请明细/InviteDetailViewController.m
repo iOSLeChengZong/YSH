@@ -239,6 +239,11 @@
     //添加脚部刷新
     [self.inviteDetailCollectionV addFooterBackRefresh:^{
         weakSelf.requestMode = InviteReRecordRequestModeMore;
+        
+        if (self.inviteVM.totalPage == self.inviteVM.pageNum) {
+            return ;
+        }
+        
         [weakSelf requestData];
     }];
 }
