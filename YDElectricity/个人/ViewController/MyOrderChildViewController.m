@@ -188,7 +188,7 @@
         weakSelf.orderRequestM = OrderRequestModeMore;
         
         if (weakSelf.orderViewModel.pageNum == weakSelf.orderViewModel.totalPage) {
-            [weakSelf.secondSkillcollecV endFooterRefresh];
+            [weakSelf.secondSkillcollecV endFooterRefreshWithNoMoreData];
             return ;
         }
         

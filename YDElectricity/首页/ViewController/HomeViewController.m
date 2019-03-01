@@ -439,7 +439,7 @@
     [self.collectionView addFooterBackRefresh:^{
         
         if (self.homeVM.pageNum == self.homeVM.totalPage) {
-            [self.collectionView endFooterRefresh];
+            [self.collectionView endFooterRefreshWithNoMoreData];
             return ;
         }
         [self.homeVM getHomeGoodModelDataRequestMode:HomeRequestModeMore pageSize:20 state:self.hotOrRecomend CompletionHandler:^(NSError * _Nonnull error) {

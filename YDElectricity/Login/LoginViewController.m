@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 //#import "VefifyRegisterViewModel.h"
 #import "YDUserInfo.h"
-
+#import <ShareSDK/ShareSDK.h>
 
 
 @interface LoginViewController ()
@@ -81,6 +81,9 @@
 
 -(void)requestRegisterState:(id)sender{
      WK(weakSelf)
+    //    [self getWeChatUserInfo];
+    //    return;
+    
     /*
      微信正式接入后的流程
     //1.获取微信信息
@@ -227,6 +230,24 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UITabBarController *tabVC = [storyboard instantiateViewControllerWithIdentifier:kMain];
     [[[UIApplication sharedApplication] delegate] window].rootViewController = tabVC;
+}
+
+
+
+-(void)getWeChatUserInfo{
+    [ShareSDK getUserInfo:SSDKPlatformTypeWechat onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error) {
+        if (state == SSDKResponseStateSuccess) {
+            NSLog(@"uid=%@",user.uid);
+            NSLog(@"%@",user.credential);
+            NSLog(@"token=%@",user.credential.token);
+            NSLog(@"nickName=%@",user.nickname);
+            NSLog(@"icon=%@",user.icon);
+            NSLog(@"gender=%ld",user.gender);
+            NSLog(@"birthday=%@",user.birthday);
+            
+            
+        }
+    }];
 }
 
 /*

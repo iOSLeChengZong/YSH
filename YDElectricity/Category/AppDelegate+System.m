@@ -9,7 +9,7 @@
 #import "AppDelegate+System.h"
 #import <MLTransition.h>
 #import "YDNetManager.h"
-
+#import <ShareSDK/ShareSDK.h>
 
 
 
@@ -142,6 +142,15 @@
             }
         }];
     }
+}
+
+
+-(void)registerPlatforms{
+    [ShareSDK registPlatforms:^(SSDKRegister *platformsRegister) {
+        [platformsRegister setupWeChatWithAppId:WXAPIKEY appSecret:WXSECRET];
+    }];
+    
+    
 }
 
 @end

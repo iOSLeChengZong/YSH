@@ -143,7 +143,7 @@
     [self.systemMessageCollectionV addFooterBackRefresh:^{
         weakSelf.requestMode = RequestModeMore;
         if (weakSelf.messageVM.pageNum == weakSelf.messageVM.totalPage) {
-            [weakSelf.systemMessageCollectionV endFooterRefresh];
+            [weakSelf.systemMessageCollectionV endFooterRefreshWithNoMoreData];
             return ;
         }
         

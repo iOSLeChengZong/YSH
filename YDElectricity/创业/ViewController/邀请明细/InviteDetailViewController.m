@@ -241,6 +241,7 @@
         weakSelf.requestMode = InviteReRecordRequestModeMore;
         
         if (self.inviteVM.totalPage == self.inviteVM.pageNum) {
+            [weakSelf.inviteDetailCollectionV endFooterRefreshWithNoMoreData];
             return ;
         }
         

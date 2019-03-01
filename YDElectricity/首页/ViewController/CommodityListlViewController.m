@@ -290,7 +290,7 @@
     [self.commodityListCollectionView addFooterBackRefresh:^{
         weakSelf.requestMode = HomeRequestModeMore;
         if (weakSelf.homeVM.pageNum == weakSelf.homeVM.totalPage) {
-            [weakSelf.commodityListCollectionView endFooterRefresh];
+            [weakSelf.commodityListCollectionView endFooterRefreshWithNoMoreData];
             return ;
         }
         

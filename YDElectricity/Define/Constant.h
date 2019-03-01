@@ -126,6 +126,11 @@ __block __weak __typeof(&*self)weakSelf = self;\
 #define kRegular @"PingFangSC-Regular"       //苹方-简 常规体
 #define kThin @"PingFangSC-Thin"             //苹方-简 纤细体
 
+
+/**微信开发平台正式*/
+#define WXAPIKEY  @"wx366831c6ccd3d72f"
+#define WXSECRET  @"65f7818cdfe0daf91a3e92cc749a6f2a"
+
 //https://www.jianshu.com/p/ba98b0ad1811 iOS截屏
 //wifi密码
 //ydkj66666
