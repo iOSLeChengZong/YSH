@@ -179,6 +179,8 @@
         cell.productAfterSaleMoneyLabel.text = [self.homeVM goodCollectionVItemAfterSalePriceAtIndexPath:indexPath];
         //收益
         cell.profitMoney.text = [self.homeVM goodCollectionVItemProfitAtIndexPath:indexPath];
+        
+       
         return cell;
     }
     
@@ -254,6 +256,12 @@
     if (indexPath.section == 0) {
         return CGSizeMake(kScreenW, 436 * kWidthScall);
     }
+    
+      ////文字高度计算
+//    CGSize size = [[self.homeVM goodCollectionVItemMainTitleAtIndexPath:indexPath] sizeWithFont:[UIFont systemFontOfSize:14 * kWidthScall weight:UIFontWeightMedium] maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+//    CGFloat totalHeight = ceilf(size.width / 195 * kWidthScall) * 20 * kWidthScall;
+//    CGFloat deataHeight = totalHeight - 43 * kWidthScall;
+    
     return CGSizeMake(357 * kWidthScall, 133 * kWidthScall);
 }
 

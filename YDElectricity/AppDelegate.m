@@ -20,6 +20,7 @@
 #import "Person.h"
 #import "CityDataViewModel.h"
 #import "YDNetManager.h"
+#import <QMapKit/QMapKit.h>
 
 //test
 //#import "UserTaskViewModel.h"
@@ -38,6 +39,9 @@
     //设置app全局默认配置
     [self setupGlobalClobalConfig];
     //获取本地微信appid
+    
+    //腾讯地图
+    [QMapServices sharedServices].apiKey = kQMAPKEY;
     
 //    [UIFont systemFontOfSize:17 weight:UIFontWeightMedium];
 //    for (NSString *fontFamilyName in UIFont.familyNames) {

@@ -128,8 +128,9 @@ __block __weak __typeof(&*self)weakSelf = self;\
 
 
 /**微信开发平台正式*/
-#define WXAPIKEY  @"wx366831c6ccd3d72f"
-#define WXSECRET  @"65f7818cdfe0daf91a3e92cc749a6f2a"
+#define kWXAPIKEY  @"wx366831c6ccd3d72f"
+#define kWXSECRET  @"65f7818cdfe0daf91a3e92cc749a6f2a"
+#define kQMAPKEY @"BW7BZ-RQO6X-RKJ4Z-7K6U4-5KDUZ-CMFCH"
 
 //https://www.jianshu.com/p/ba98b0ad1811 iOS截屏
 //wifi密码

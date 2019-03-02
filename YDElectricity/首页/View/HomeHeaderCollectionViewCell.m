@@ -35,7 +35,7 @@
 -(void)setHomeVM:(HomeViewModel *)homeVM{
     _homeVM = homeVM;
     //设置轮播图
-    self.imageURLs = [self.homeVM advertiseURLS];
+    self.imageURLs = [_homeVM advertiseURLS];
     
 //    for (int i = 0; i < self.imageURLs.count; ++i) {
 //        NSLog(@"imageURL[%ld]:%@",i,self.imageURLs[i]);
@@ -51,11 +51,11 @@
     
     //设置秒杀商品
     //设置秒杀商品圆角
-    [self.imageViewParentV viewcornerRadius:5 borderWith:0.01 clearColor:NO];
+    [_imageViewParentV viewcornerRadius:5 borderWith:0.01 clearColor:NO];
     
-    [self.imageView sd_setImageWithURL:[self.homeVM secondSkillGoodURL] placeholderImage:[UIImage imageNamed:@"h1"]];
+    [_imageView sd_setImageWithURL:[self.homeVM secondSkillGoodURL] placeholderImage:[UIImage imageNamed:@"h1"]];
     
-    [self.collectionV reloadData];
+    [_collectionV reloadData];
 }
 
 -(void)setImageURLs:(NSArray<NSString *> *)imageURLs{
@@ -121,7 +121,8 @@
 
 #pragma mark -- UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.homeVM.culomnitemNum;
+    NSLog(@"%ld",self.homeVM.culomnitemNum);
+    return self.imageNames.count;
 }
 
 
@@ -140,16 +141,16 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return ((self.bounds.size.width - (kWidthScall * kCellHigh * self.homeVM.culomnitemNum))/self.homeVM.culomnitemNum);
+    return ((self.bounds.size.width - (kWidthScall * kCellHigh * 5))/5);
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     return 0;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-//    return UIEdgeInsetsMake(0, 0, 0, 0);
-    CGFloat f = ((self.bounds.size.width - (kWidthScall * kCellHigh * self.homeVM.culomnitemNum))/self.homeVM.culomnitemNum) / 2;
-    return UIEdgeInsetsMake(14*kWidthScall/*self.bounds.size.height/2*/, f/*((self.bounds.size.width - (kWidthScall * 42.0 * 5))/5)/2*/, 0/*self.bounds.size.height/2*/, f/*((self.bounds.size.width - (kWidthScall * 42.0 * 5))/5)/2*/);
+
+    CGFloat f = ((self.bounds.size.width - (kWidthScall * kCellHigh * 5))/5) / 2;
+    return UIEdgeInsetsMake(14*kWidthScall, f, 0, f);
 }
 
 
@@ -161,6 +162,7 @@
 
     //设置滚动方向
     self.cycleScrollView.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
     ////     自定义分页控件小圆标颜色
     //    self.cycleScrollView.currentPageDotColor = [UIColor whiteColor];
     

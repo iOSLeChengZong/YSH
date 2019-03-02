@@ -116,7 +116,7 @@
     if (_goodSpikeMuArr.count > 0) {
         NSLog(@"skillSecond:%@",_goodSpikeMuArr[0].pageImgUrl);
         
-        return [NSURL URLWithString:[kBaseURL1 stringByAppendingString:_goodSpikeMuArr[0].pageImgUrl]];;
+        return [NSURL URLWithString:[kBaseURL1 stringByAppendingString:_goodSpikeMuArr[0].pageImgUrl]];
     }
     return nil;
 }
@@ -129,7 +129,7 @@
 
 /** 主图 */
 -(NSURL *)goodCollectionVItemImageURLAtIndexPath:(NSIndexPath *)indexPath{
-    return [NSURL URLWithString:_pageList[indexPath.row].pictUrl];//无需拼接;
+    return [NSURL URLWithString:_pageList[indexPath.row].pictUrl];//无需拼;
     
 }
 

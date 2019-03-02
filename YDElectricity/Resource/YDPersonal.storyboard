@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LiD-yI-uDj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QOx-9F-Dru">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -2469,23 +2469,11 @@
                                                     <constraint firstAttribute="height" constant="107" id="9FR-4j-2yW"/>
                                                     <constraint firstItem="9wL-zK-JQC" firstAttribute="centerX" secondItem="Zkn-li-mFe" secondAttribute="centerX" id="F3X-lZ-fdo"/>
                                                     <constraint firstItem="9wL-zK-JQC" firstAttribute="centerY" secondItem="Zkn-li-mFe" secondAttribute="centerY" id="i6z-Gx-RDi"/>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="107" id="xvc-kL-hrm"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cV-jB-FSz">
                                                 <rect key="frame" x="10" y="107" width="337" height="285"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="地图" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8wb-BE-O1Z">
-                                                        <rect key="frame" x="0.0" y="0.0" width="337" height="275"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="8wb-BE-O1Z" firstAttribute="top" secondItem="1cV-jB-FSz" secondAttribute="top" id="TcI-KH-nWL"/>
-                                                    <constraint firstAttribute="trailing" secondItem="8wb-BE-O1Z" secondAttribute="trailing" id="aJq-X8-68k"/>
-                                                    <constraint firstAttribute="bottom" secondItem="8wb-BE-O1Z" secondAttribute="bottom" constant="10" id="tdR-OK-tFg"/>
-                                                    <constraint firstItem="8wb-BE-O1Z" firstAttribute="leading" secondItem="1cV-jB-FSz" secondAttribute="leading" id="xlc-GW-pCN"/>
-                                                </constraints>
+                                                <color key="backgroundColor" red="1" green="0.21464002770000001" blue="0.24167150139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2672,8 +2660,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mapImageView" destination="8wb-BE-O1Z" id="D0G-Cg-J99"/>
-                        <outlet property="mapView" destination="1cV-jB-FSz" id="K3V-97-pbV"/>
+                        <outlet property="mapParentView" destination="1cV-jB-FSz" id="HFf-bZ-FjX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QTk-Qr-utq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2734,6 +2721,5 @@
         <image name="y_p_联系号码_icon" width="15" height="19.5"/>
         <image name="y_p_详细地址_icon" width="13.5" height="18.5"/>
         <image name="y_p_邮编_icon" width="16.5" height="12.5"/>
-        <image name="地图" width="403" height="338"/>
     </resources>
 </document>

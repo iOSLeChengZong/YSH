@@ -10,7 +10,7 @@
 #import <MLTransition.h>
 #import "YDNetManager.h"
 #import <ShareSDK/ShareSDK.h>
-
+#import <QMapKit/QMapKit.h>
 
 
 @implementation AppDelegate (System)
@@ -146,9 +146,12 @@
 
 
 -(void)registerPlatforms{
+    //shareSDK
     [ShareSDK registPlatforms:^(SSDKRegister *platformsRegister) {
-        [platformsRegister setupWeChatWithAppId:WXAPIKEY appSecret:WXSECRET];
+        [platformsRegister setupWeChatWithAppId:kWXAPIKEY appSecret:kWXSECRET];
     }];
+    //腾讯地图
+    [QMapServices sharedServices].apiKey = kQMAPKEY;
     
     
 }

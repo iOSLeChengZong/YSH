@@ -215,7 +215,14 @@
         [YDUserInfo sharedYDUserInfo].login = YES;
         [self jumpToMainStoryboard];
         
-    }else{
+    }
+    
+    else if (!error && [[self.registerViewModel codeState] isEqualToString:@"3"]){
+        [YDUserInfo sharedYDUserInfo].userWxOpenID = self.userWxID;
+        [self performSegueWithIdentifier:kPhoneNumSegue sender:nil];
+    }
+    
+    else{
         [self.view showWarning:@"请检查手机号码或微信号是否存在"];
     }
 }

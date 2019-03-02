@@ -48,6 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 //赚
 @property (weak, nonatomic) IBOutlet UILabel *profitMoney;
 
+
+
 @end
 
 NS_ASSUME_NONNULL_END
